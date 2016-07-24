@@ -4,6 +4,9 @@
     <file url="file://$PROJECT_DIR$/app/src/main/java/ua/mkh/settings/full/ActivityAllowDisturb.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/ua/mkh/settings/full/ActivityApps.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/ua/mkh/settings/full/ActivityAppsCompass.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/ua/mkh/settings/full/ActivityAppsControl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/ua/mkh/settings/full/ActivityAppsFacebook.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/ua/mkh/settings/full/ActivityAppsGameCenter.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

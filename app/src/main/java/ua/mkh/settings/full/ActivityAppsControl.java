@@ -65,7 +65,7 @@ public class ActivityAppsControl extends ListActivity {
         super.onResume();
         
         
-			// Получаем число из настроек
+			// РџРѕР»СѓС‡Р°РµРј С‡РёСЃР»Рѕ РёР· РЅР°СЃС‚СЂРѕРµРє
         	 int speed = mSettings.getInt(APP_PREFERENCES_ANIM_SPEED, 1);
 			if (speed == 1){
 				center_to_right = R.anim.slide_center_to_right_short;
@@ -163,7 +163,7 @@ public class ActivityAppsControl extends ListActivity {
         @Override
         protected void onPreExecute() {
             progress = ProgressDialog.show(ActivityAppsControl.this, null,
-                    "Загрузка приложений...");
+                    "Р—Р°РіСЂСѓР·РєР° РїСЂРёР»РѕР¶РµРЅРёР№...");
             super.onPreExecute();
         }
  
