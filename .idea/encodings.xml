@@ -7,6 +7,9 @@
     <file url="file://$PROJECT_DIR$/app/src/main/java/ua/mkh/settings/full/ActivityAppsControl.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/ua/mkh/settings/full/ActivityAppsFacebook.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/ua/mkh/settings/full/ActivityAppsGameCenter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/ua/mkh/settings/full/ActivityAppsInstagram.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/ua/mkh/settings/full/ActivityAppsiCloud.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/ua/mkh/settings/full/ActivityAppsiTunes.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
