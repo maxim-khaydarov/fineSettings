@@ -571,12 +571,12 @@ pm = this.getPackageManager();
         	name.setText("");
         	acc.setText("");
         	textView3.setVisibility(View.VISIBLE);
-            //Toast.makeText(getApplicationContext(), "НЕТ ФОТО", Toast.LENGTH_SHORT).show();
+
         	pg1.setVisibility(View.VISIBLE);
 			syncGoogleAccount();
         }
         else{
-        	//Toast.makeText(getApplicationContext(), "ЕСТЬ ФОТО", Toast.LENGTH_SHORT).show();
+
         	String iconsStoragePath = Environment.getExternalStorageDirectory() + "/fineSettings/iCloud/001.png";
             
             Bitmap bmp = BitmapFactory.decodeFile(iconsStoragePath.toString());
@@ -594,7 +594,6 @@ pm = this.getPackageManager();
         
 
         if (mSettings.contains(APP_PREFERENCES_tgb_menu)) {
-			// Получаем число из настроек
         	 Boolean menu = mSettings.getBoolean(APP_PREFERENCES_tgb_menu, true);
 			if (menu == true){
 				menui=1;
@@ -604,8 +603,7 @@ pm = this.getPackageManager();
 			}
         }
        
-       
-			// Получаем число из настроек
+
         	 int speed = mSettings.getInt(APP_PREFERENCES_ANIM_SPEED, 1);
 			if (speed == 1){
 				center_to_right = R.anim.slide_center_to_right_short;
@@ -629,7 +627,6 @@ pm = this.getPackageManager();
     
        
        if (mSettings.contains(APP_PREFERENCES_bold_text)) {
-			// Получаем число из настроек
         	 Boolean bold = mSettings.getBoolean(APP_PREFERENCES_bold_text, true);
 			if (bold == true){
 				btn_mail.setTypeface(typefaceBold);
@@ -662,7 +659,6 @@ pm = this.getPackageManager();
         }
 			
        if (mSettings.contains(APP_PREFERENCES_text_size)) {
-			// Получаем число из настроек
         	 String size = mSettings.getString(APP_PREFERENCES_text_size, "19");
 			if (size .contains( "Small")){
 				btn_mail.setTextSize(13);
@@ -783,112 +779,93 @@ pm = this.getPackageManager();
        }
        
        if (mSettings.contains(APP_PREFERENCES_MAIL)) {
-			// Получаем число из настроек
 			mail.setChecked(true);
 			btn_mail.setEnabled(true);}
      
        
        if (mSettings.contains(APP_PREFERENCES_NOTES)) {
-			// Получаем число из настроек
 			notes.setChecked(true);
 			btn_notepad.setEnabled(true);}
 
        
        
        if (mSettings.contains(APP_PREFERENCES_PHONE)) {
-			// Получаем число из настроек
 			phone.setChecked(true);
 			btn_phone.setEnabled(true);}
 
        
        
        if (mSettings.contains(APP_PREFERENCES_MESSAGES)) {
-			// Получаем число из настроек
 			messages.setChecked(true);
 			btn_message.setEnabled(true);}
 
        
        
        if (mSettings.contains(APP_PREFERENCES_SAFARI)) {
-			// Получаем число из настроек
 			safari.setChecked(true);
 			btn_safari.setEnabled(true);}
 
        
        
        if (mSettings.contains(APP_PREFERENCES_MUSIC)) {
-			// Получаем число из настроек
 			music.setChecked(true);
 			btn_music.setEnabled(true);}
 
        
        
        if (mSettings.contains(APP_PREFERENCES_GAMECENTER)) {
-			// Получаем число из настроек
 			game.setChecked(true);
 			btn_game.setEnabled(true);}
 
        
        
        if (mSettings.contains(APP_PREFERENCES_WEATHER)) {
-			// Получаем число из настроек
 			weather.setChecked(true);
 			btn_weather.setEnabled(true);}
 
        
        
        if (mSettings.contains(APP_PREFERENCES_COMPASS)) {
-			// Получаем число из настроек
 			 compass.setChecked(true);
 			 btn_compass.setEnabled(true);}
        
        if (mSettings.contains(APP_PREFERENCES_MAPS)) {
-			// Получаем число из настроек
 			 maps.setChecked(true);
 			 btn_maps.setEnabled(true);}
        
        if (mSettings.contains(APP_PREFERENCES_VK)) {
-			// Получаем число из настроек
 			 vk.setChecked(true);
 			 btn_vk.setEnabled(true);}
        
        if (mSettings.contains(APP_PREFERENCES_VIBER)) {
-			// Получаем число из настроек
 			 viber.setChecked(true);
 			 btn_viber.setEnabled(true);}
        
        if (mSettings.contains(APP_PREFERENCES_OK)) {
-			// Получаем число из настроек
 			 ok.setChecked(true);
 			 btn_ok.setEnabled(true);}
        
        if (mSettings.contains(APP_PREFERENCES_SKYPE)) {
-			// Получаем число из настроек
 			 skype.setChecked(true);
 			 btn_skype.setEnabled(true);}
        
        if (mSettings.contains(APP_PREFERENCES_WHATSAPP)) {
-			// Получаем число из настроек
 			 whatsapp.setChecked(true);
 			 btn_whatsapp.setEnabled(true);}
        
        if (mSettings.contains(APP_PREFERENCES_TWITTER)) {
-			// Получаем число из настроек
 			 twitter.setChecked(true);
 			 btn_twitter.setEnabled(true);}
        
        if (mSettings.contains(APP_PREFERENCES_FACEBOOK)) {
-			// Получаем число из настроек
 			 facebook.setChecked(true);
 			 btn_facebook.setEnabled(true);}
        
        if (mSettings.contains(APP_PREFERENCES_INSTAGRAM)) {
-			// Получаем число из настроек
 			 instagram.setChecked(true);
 			 btn_instagram.setEnabled(true);}
        
        if (mSettings.contains(APP_PREFERENCES_ITUNES)) {
-			// Получаем число из настроек
 			appstore.setChecked(true);
 			btn_appstore.setEnabled(true);}
         

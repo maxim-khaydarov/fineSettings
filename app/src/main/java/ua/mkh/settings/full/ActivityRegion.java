@@ -118,7 +118,6 @@ public class ActivityRegion extends Activity implements View.OnClickListener{
 				
 		        
 		       if (mSettings.contains(APP_PREFERENCES_tgb_menu)) {
-					// Получаем число из настроек
 		        	 Boolean menu = mSettings.getBoolean(APP_PREFERENCES_tgb_menu, true);
 					if (menu == true){
 						menui=1;
@@ -131,13 +130,11 @@ public class ActivityRegion extends Activity implements View.OnClickListener{
 		       
 		       
 		       if (mSettings.contains(APP_PREFERENCES_bold_text)) {
-					// Получаем число из настроек
 		        	 Boolean bold = mSettings.getBoolean(APP_PREFERENCES_bold_text, true);
 					if (bold == true){
 					
 					}
 		       if (mSettings.contains(APP_PREFERENCES_text_size)) {
-					// Получаем число из настроек
 		        	 String size = mSettings.getString(APP_PREFERENCES_text_size, null);
 					if (size .contains( "Small")){
 					

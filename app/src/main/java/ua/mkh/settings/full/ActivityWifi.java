@@ -240,7 +240,7 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
 				textBold.setTypeface(typefaceBold);
 				dialogButton.setText(R.string.ok);
 				text.setTypeface(typefaceRoman);
-				//text.setText("Уровень сигнала\n" + rssi + "\nБезопасность\n" + cap + "\nМАС адрес\n" + mac);
+				//text.setText("РЈСЂРѕРІРµРЅСЊ СЃРёРіРЅР°Р»Р°\n" + rssi + "\nР‘РµР·РѕРїР°СЃРЅРѕСЃС‚СЊ\n" + cap + "\nРњРђРЎ Р°РґСЂРµСЃ\n" + mac);
 				String cape = null;
 				
 				if(cap.contains("WPA")){
@@ -250,7 +250,7 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
 					cape = "WEP PSK";
 				}
 				else{
-					cape = "Нет";
+					cape = "РќРµС‚";
 				}
 				
 				String t2 = getString(R.string.level_signal) +"<br>"+ "<font color=\"#808080\"><small>"  + rssilevel + "</small></font>"
@@ -510,22 +510,22 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
 		                      if (w > -67){
 		                    	  //item.put(RSSI_KEY, Integer.toString(R.drawable.wifi_signal_4));
 		                    	  RSSI_KEY = Integer.toString(R.drawable.wifi_signal_4);
-		                    	  RSSILEVEL_KEY = "Очень сильный";
+		                    	  RSSILEVEL_KEY = "РћС‡РµРЅСЊ СЃРёР»СЊРЅС‹Р№";
 		                      }
 		                      else if (w > -79){
 		                    	  //item.put(RSSI_KEY, Integer.toString(R.drawable.wifi_signal_3));
 		                    	  RSSI_KEY = Integer.toString(R.drawable.wifi_signal_3);
-		                    	  RSSILEVEL_KEY = "Cильный";
+		                    	  RSSILEVEL_KEY = "CРёР»СЊРЅС‹Р№";
 		                      }
 		                      else if (w > -91){
 		                    	  //item.put(RSSI_KEY, Integer.toString(R.drawable.wifi_signal_2));
 		                    	  RSSI_KEY = Integer.toString(R.drawable.wifi_signal_2);
-		                    	  RSSILEVEL_KEY = "Средний";
+		                    	  RSSILEVEL_KEY = "РЎСЂРµРґРЅРёР№";
 		                      }
 		                      else {
 		                    	  //item.put(RSSI_KEY, Integer.toString(R.drawable.wifi_signal_1));
 		                    	  RSSI_KEY = Integer.toString(R.drawable.wifi_signal_1);
-		                    	  RSSILEVEL_KEY = "Слабый";
+		                    	  RSSILEVEL_KEY = "РЎР»Р°Р±С‹Р№";
 		                      }
 		                      		                      
 		                      Capabilities =  results.get(size).capabilities;
@@ -595,7 +595,7 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
 	       
 	       
 	       if (mSettings.contains(APP_PREFERENCES_tgb_menu)) {
-				// Получаем число из настроек
+				// РџРѕР»СѓС‡Р°РµРј С‡РёСЃР»Рѕ РёР· РЅР°СЃС‚СЂРѕРµРє
 	        	 Boolean menu = mSettings.getBoolean(APP_PREFERENCES_tgb_menu, true);
 				if (menu == true){
 					menui=1;
@@ -606,7 +606,7 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
 	        }
 	       
 	      
-				// Получаем число из настроек
+				// РџРѕР»СѓС‡Р°РµРј С‡РёСЃР»Рѕ РёР· РЅР°СЃС‚СЂРѕРµРє
 	        	 int speed = mSettings.getInt(APP_PREFERENCES_ANIM_SPEED, 1);
 				if (speed == 1){
 					center_to_right = R.anim.slide_center_to_right_short;
@@ -630,7 +630,7 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
 	    
 	       
 	       if (mSettings.contains(APP_PREFERENCES_bold_text)) {
-				// Получаем число из настроек
+				// РџРѕР»СѓС‡Р°РµРј С‡РёСЃР»Рѕ РёР· РЅР°СЃС‚СЂРѕРµРє
 	        	 Boolean bold = mSettings.getBoolean(APP_PREFERENCES_bold_text, true);
 				if (bold == true){
 					btn_1.setTypeface(typefaceBold);
@@ -641,7 +641,7 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
 	        }
 				
 	       if (mSettings.contains(APP_PREFERENCES_text_size)) {
-				// Получаем число из настроек
+				// РџРѕР»СѓС‡Р°РµРј С‡РёСЃР»Рѕ РёР· РЅР°СЃС‚СЂРѕРµРє
 	        	 String size = mSettings.getString(APP_PREFERENCES_text_size, "19");
 				if (size .contains( "Small")){
 					btn_1.setTextSize(13);
@@ -813,22 +813,22 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
                       if (w > -67){
                     	  //item.put(RSSI_KEY, Integer.toString(R.drawable.wifi_signal_4));
                     	  RSSI_KEY = Integer.toString(R.drawable.wifi_signal_4);
-                    	  RSSILEVEL_KEY = "Очень сильный";
+                    	  RSSILEVEL_KEY = "РћС‡РµРЅСЊ СЃРёР»СЊРЅС‹Р№";
                       }
                       else if (w > -79){
                     	  //item.put(RSSI_KEY, Integer.toString(R.drawable.wifi_signal_3));
                     	  RSSI_KEY = Integer.toString(R.drawable.wifi_signal_3);
-                    	  RSSILEVEL_KEY = "Cильный";
+                    	  RSSILEVEL_KEY = "CРёР»СЊРЅС‹Р№";
                       }
                       else if (w > -91){
                     	  //item.put(RSSI_KEY, Integer.toString(R.drawable.wifi_signal_2));
                     	  RSSI_KEY = Integer.toString(R.drawable.wifi_signal_2);
-                    	  RSSILEVEL_KEY = "Средний";
+                    	  RSSILEVEL_KEY = "РЎСЂРµРґРЅРёР№";
                       }
                       else {
                     	  //item.put(RSSI_KEY, Integer.toString(R.drawable.wifi_signal_1));
                     	  RSSI_KEY = Integer.toString(R.drawable.wifi_signal_1);
-                    	  RSSILEVEL_KEY = "Слабый";
+                    	  RSSILEVEL_KEY = "РЎР»Р°Р±С‹Р№";
                       }
                       		                      
                       Capabilities =  results.get(size).capabilities;

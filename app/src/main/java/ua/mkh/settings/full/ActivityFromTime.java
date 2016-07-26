@@ -295,7 +295,6 @@ timePicker2.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
 	
 	public void from_time_text(View view) {
 		Intent intent = new Intent(this, ActivityDisturb.class);
-        // передаем введенный текст в качестве параметра
 		
 		try {
 			OutputStream outputstream = openFileOutput(from_time_text, 0);
@@ -310,7 +309,6 @@ timePicker2.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
 	
 	public void to_time_text(View view) {
 		Intent intent = new Intent(this, ActivityDisturb.class);
-        // передаем введенный текст в качестве параметра
 		
 		try {
 			OutputStream outputstream = openFileOutput(to_time_text, 0);
@@ -342,8 +340,7 @@ timePicker2.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
 	protected void onResume() {
         super.onResume();
         
-       
-			// ѕолучаем число из настроек
+
         	 int speed = mSettings.getInt(APP_PREFERENCES_ANIM_SPEED, 1);
 			if (speed == 1){
 				center_to_right = R.anim.slide_center_to_right_short;
@@ -368,7 +365,6 @@ timePicker2.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
         
         
 	if (mSettings.contains(APP_PREFERENCES_bold_text)) {
-		// ѕолучаем число из настроек
     	 Boolean bold = mSettings.getBoolean(APP_PREFERENCES_bold_text, true);
 		if (bold == true){
 	        Button01.setTypeface(typefaceBold);
@@ -378,7 +374,6 @@ timePicker2.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
     }
 		
    if (mSettings.contains(APP_PREFERENCES_text_size)) {
-		// ѕолучаем число из настроек
     	 String size = mSettings.getString(APP_PREFERENCES_text_size, "19");
 		if (size .contains( "Small")){
 	        Button01.setTextSize(13);

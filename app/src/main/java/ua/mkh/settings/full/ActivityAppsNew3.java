@@ -70,8 +70,7 @@ public class ActivityAppsNew3 extends ListActivity{
         
         Log.d("Resume", "Start");
         
-       
-			// Получаем число из настроек
+
         	 int speed = mSettings.getInt(APP_PREFERENCES_ANIM_SPEED, 1);
 			if (speed == 1){
 				center_to_right = R.anim.slide_center_to_right_short;
@@ -161,7 +160,7 @@ public class ActivityAppsNew3 extends ListActivity{
         @Override
         protected void onPreExecute() {
             progress = ProgressDialog.show(ActivityAppsNew3.this, null,
-                    "Загрузка приложений...");
+                    "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ...");
             super.onPreExecute();
         }
  

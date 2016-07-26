@@ -299,7 +299,7 @@ protected void onResume() {
    
     gridview.setAdapter(imageAdapter);
     
-		// Получаем число из настроек
+		// РџРѕР»СѓС‡Р°РµРј С‡РёСЃР»Рѕ РёР· РЅР°СЃС‚СЂРѕРµРє
     	 int speed = mSettings.getInt(APP_PREFERENCES_ANIM_SPEED, 1);
 		if (speed == 1){
 			center_to_right = R.anim.slide_center_to_right_short;
@@ -469,41 +469,41 @@ public void wall(final int promp){
 			
 			
 			if (Locale.getDefault().getLanguage().contains("uk")){
-				if (currentDateandum.contains("Грудень")){
-					currentDateandum = "грудня";
+				if (currentDateandum.contains("Р“СЂСѓРґРµРЅСЊ")){
+					currentDateandum = "РіСЂСѓРґРЅСЏ";
 				}
-				else if (currentDateandum.contains("Січень")){
-					currentDateandum = "січня";
+				else if (currentDateandum.contains("РЎС–С‡РµРЅСЊ")){
+					currentDateandum = "СЃС–С‡РЅСЏ";
 				}
-				else if (currentDateandum.contains("Лютий")){
-					currentDateandum = "лютня";
+				else if (currentDateandum.contains("Р›СЋС‚РёР№")){
+					currentDateandum = "Р»СЋС‚РЅСЏ";
 				}
-				else if (currentDateandum.contains("Березень")){
-					currentDateandum = "березня";
+				else if (currentDateandum.contains("Р‘РµСЂРµР·РµРЅСЊ")){
+					currentDateandum = "Р±РµСЂРµР·РЅСЏ";
 				}
-				else if (currentDateandum.contains("Квітень")){
-					currentDateandum = "квітня";
+				else if (currentDateandum.contains("РљРІС–С‚РµРЅСЊ")){
+					currentDateandum = "РєРІС–С‚РЅСЏ";
 				}
-				else if (currentDateandum.contains("Травень")){
-					currentDateandum = "травня";
+				else if (currentDateandum.contains("РўСЂР°РІРµРЅСЊ")){
+					currentDateandum = "С‚СЂР°РІРЅСЏ";
 				}
-				else if (currentDateandum.contains("Червень")){
-					currentDateandum = "червня";
+				else if (currentDateandum.contains("Р§РµСЂРІРµРЅСЊ")){
+					currentDateandum = "С‡РµСЂРІРЅСЏ";
 				}
-				else if (currentDateandum.contains("Липень")){
-					currentDateandum = "липня";
+				else if (currentDateandum.contains("Р›РёРїРµРЅСЊ")){
+					currentDateandum = "Р»РёРїРЅСЏ";
 				}
-				else if (currentDateandum.contains("Серпень")){
-					currentDateandum = "серпня";
+				else if (currentDateandum.contains("РЎРµСЂРїРµРЅСЊ")){
+					currentDateandum = "СЃРµСЂРїРЅСЏ";
 				}
-				else if (currentDateandum.contains("Вересень")){
-					currentDateandum = "вересня";
+				else if (currentDateandum.contains("Р’РµСЂРµСЃРµРЅСЊ")){
+					currentDateandum = "РІРµСЂРµСЃРЅСЏ";
 				}
-				else if (currentDateandum.contains("Жовтень")){
-					currentDateandum = "жовтня";
+				else if (currentDateandum.contains("Р–РѕРІС‚РµРЅСЊ")){
+					currentDateandum = "Р¶РѕРІС‚РЅСЏ";
 				}
-				else if (currentDateandum.contains("Листопад")){
-					currentDateandum = "листопада";
+				else if (currentDateandum.contains("Р›РёСЃС‚РѕРїР°Рґ")){
+					currentDateandum = "Р»РёСЃС‚РѕРїР°РґР°";
 				}
 				data.setText(currentDateandudd + currentDateandud + currentDateandum);
 			}
@@ -516,52 +516,52 @@ public void wall(final int promp){
 
 				String ssz = currentDateandudd.substring(0,1).toUpperCase() + currentDateandudd.substring(1);
 				
-				if(currentDateandum.contains("Декабрь")){
-					currentDateandum = "декабря";
+				if(currentDateandum.contains("Р”РµРєР°Р±СЂСЊ")){
+					currentDateandum = "РґРµРєР°Р±СЂСЏ";
 					data.setText(ssz + currentDateandud + currentDateandum);
 				}
-				else if(currentDateandum.contains("Январь")){
-					currentDateandum = "января";
+				else if(currentDateandum.contains("РЇРЅРІР°СЂСЊ")){
+					currentDateandum = "СЏРЅРІР°СЂСЏ";
 					data.setText(ssz + currentDateandud + currentDateandum);
 				}
-				else if(currentDateandum.contains("Февраль")){
-					currentDateandum = "февраля";
+				else if(currentDateandum.contains("Р¤РµРІСЂР°Р»СЊ")){
+					currentDateandum = "С„РµРІСЂР°Р»СЏ";
 					data.setText(ssz + currentDateandud + currentDateandum);
 				}
-				else if(currentDateandum.contains("Март")){
-					currentDateandum = "марта";
+				else if(currentDateandum.contains("РњР°СЂС‚")){
+					currentDateandum = "РјР°СЂС‚Р°";
 					data.setText(ssz + currentDateandud + currentDateandum);
 				}
-				else if(currentDateandum.contains("Апрель")){
-					currentDateandum = "апреля";
+				else if(currentDateandum.contains("РђРїСЂРµР»СЊ")){
+					currentDateandum = "Р°РїСЂРµР»СЏ";
 					data.setText(ssz + currentDateandud + currentDateandum);
 				}
-				else if(currentDateandum.contains("Май")){
-					currentDateandum = "мая";
+				else if(currentDateandum.contains("РњР°Р№")){
+					currentDateandum = "РјР°СЏ";
 					data.setText(ssz + currentDateandud + currentDateandum);
 				}
-				else if(currentDateandum.contains("Июнь")){
-					currentDateandum = "июня";
+				else if(currentDateandum.contains("РСЋРЅСЊ")){
+					currentDateandum = "РёСЋРЅСЏ";
 					data.setText(ssz + currentDateandud + currentDateandum);
 				}
-				else if(currentDateandum.contains("Июль")){
-					currentDateandum = "июля";
+				else if(currentDateandum.contains("РСЋР»СЊ")){
+					currentDateandum = "РёСЋР»СЏ";
 					data.setText(ssz + currentDateandud + currentDateandum);
 				}
-				else if(currentDateandum.contains("Август")){
-					currentDateandum = "августа";
+				else if(currentDateandum.contains("РђРІРіСѓСЃС‚")){
+					currentDateandum = "Р°РІРіСѓСЃС‚Р°";
 					data.setText(ssz + currentDateandud + currentDateandum);
 				}
-				else if(currentDateandum.contains("Сентябрь")){
-					currentDateandum = "сентября";
+				else if(currentDateandum.contains("РЎРµРЅС‚СЏР±СЂСЊ")){
+					currentDateandum = "СЃРµРЅС‚СЏР±СЂСЏ";
 					data.setText(ssz + currentDateandud + currentDateandum);
 				}
-				else if(currentDateandum.contains("Октябрь")){
-					currentDateandum = "октября";
+				else if(currentDateandum.contains("РћРєС‚СЏР±СЂСЊ")){
+					currentDateandum = "РѕРєС‚СЏР±СЂСЏ";
 					data.setText(ssz + currentDateandud + currentDateandum);
 				}
-				else if(currentDateandum.contains("Ноябрь")){
-					currentDateandum = "ноября";
+				else if(currentDateandum.contains("РќРѕСЏР±СЂСЊ")){
+					currentDateandum = "РЅРѕСЏР±СЂСЏ";
 					data.setText(ssz + currentDateandud + currentDateandum);
 				}
 				

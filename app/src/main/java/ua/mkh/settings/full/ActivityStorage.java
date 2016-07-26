@@ -141,12 +141,12 @@ public class ActivityStorage extends Activity {
         txt4.setText("Aviable : "+String.valueOf(new File(storageInfo.path).getFreeSpace()/(1048576L))+" MB");
 
         if (isLangRU == true) { 
-        	txt3.setText("Всего : "+String.valueOf(new File(storageInfo.path).getTotalSpace()/(1048576L))+" MB");
-        	txt4.setText("Доступно : "+String.valueOf(new File(storageInfo.path).getFreeSpace()/(1048576L))+" MB");
+        	txt3.setText("Р’СЃРµРіРѕ : "+String.valueOf(new File(storageInfo.path).getTotalSpace()/(1048576L))+" MB");
+        	txt4.setText("Р”РѕСЃС‚СѓРїРЅРѕ : "+String.valueOf(new File(storageInfo.path).getFreeSpace()/(1048576L))+" MB");
         } 
         if (isLangUK == true) { 
-        	txt3.setText("Всього : "+String.valueOf(new File(storageInfo.path).getTotalSpace()/(1048576L))+" MB");
-        	txt4.setText("Доступна пам'ять : "+String.valueOf(new File(storageInfo.path).getFreeSpace()/(1048576L))+" MB");
+        	txt3.setText("Р’СЃСЊРѕРіРѕ : "+String.valueOf(new File(storageInfo.path).getTotalSpace()/(1048576L))+" MB");
+        	txt4.setText("Р”РѕСЃС‚СѓРїРЅР° РїР°Рј'СЏС‚СЊ : "+String.valueOf(new File(storageInfo.path).getFreeSpace()/(1048576L))+" MB");
         } 
         
         long ul = 100-((new File(storageInfo.path).getFreeSpace()*100L)/new File(storageInfo.path).getTotalSpace());
@@ -164,7 +164,7 @@ public class ActivityStorage extends Activity {
 	        super.onResume();
 	        
 	       
-				// Получаем число из настроек
+				// РџРѕР»СѓС‡Р°РµРј С‡РёСЃР»Рѕ РёР· РЅР°СЃС‚СЂРѕРµРє
 	        	 int speed = mSettings.getInt(APP_PREFERENCES_ANIM_SPEED, 1);
 				if (speed == 1){
 					center_to_right = R.anim.slide_center_to_right_short;
@@ -188,7 +188,7 @@ public class ActivityStorage extends Activity {
 	    
 	        
 	        if (mSettings.contains(APP_PREFERENCES_bold_text)) {
-				// Получаем число из настроек
+				// РџРѕР»СѓС‡Р°РµРј С‡РёСЃР»Рѕ РёР· РЅР°СЃС‚СЂРѕРµРє
 	        	 Boolean bold = mSettings.getBoolean(APP_PREFERENCES_bold_text, true);
 				if (bold == true){
 					txt1.setTypeface(typefaceBold);
@@ -201,7 +201,7 @@ public class ActivityStorage extends Activity {
 	        }
 				
 	       if (mSettings.contains(APP_PREFERENCES_text_size)) {
-				// Получаем число из настроек
+				// РџРѕР»СѓС‡Р°РµРј С‡РёСЃР»Рѕ РёР· РЅР°СЃС‚СЂРѕРµРє
 	        	 String size = mSettings.getString(APP_PREFERENCES_text_size, "19");
 				if (size .contains( "Small")){
 					txt1.setTextSize(13);

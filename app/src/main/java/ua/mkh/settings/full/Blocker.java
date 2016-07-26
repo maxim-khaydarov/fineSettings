@@ -92,7 +92,7 @@ public class Blocker extends BroadcastReceiver {
 ////////////////		  
 		  if(blockingMode.contains("no one")){
 		  
-			  //////Блокировка экрана
+			  //////Р‘Р»РѕРєРёСЂРѕРІРєР° СЌРєСЂР°РЅР°
 			  if (enable_repeate == true){
 				  if (numberBlock.contains(incommingNumber)){
 					  editor.remove("number").commit();
@@ -282,7 +282,7 @@ public class Blocker extends BroadcastReceiver {
 		  
 		  myNotification = new NotificationCompat.Builder(mContext)
 		    .setContentTitle("")
-		    .setContentText("Пропущенный вызов")
+		    .setContentText("РџСЂРѕРїСѓС‰РµРЅРЅС‹Р№ РІС‹Р·РѕРІ")
 		    .setTicker("")
 		    .setWhen(System.currentTimeMillis())
 		    .setContentIntent(pendingIntent)

@@ -119,7 +119,6 @@ public class ActivitySota extends Activity implements OnClickListener{
 	       check_roum();
 	       
 	       if (mSettings.contains(APP_PREFERENCES_tgb_menu)) {
-				// Получаем число из настроек
 	        	 Boolean menu = mSettings.getBoolean(APP_PREFERENCES_tgb_menu, true);
 				if (menu == true){
 					menui=1;
@@ -153,7 +152,6 @@ public class ActivitySota extends Activity implements OnClickListener{
 	    
 	       
 	       if (mSettings.contains(APP_PREFERENCES_bold_text)) {
-				// Получаем число из настроек
 	        	 Boolean bold = mSettings.getBoolean(APP_PREFERENCES_bold_text, true);
 				if (bold == true){
 					textView2.setTypeface(typefaceBold);
@@ -167,7 +165,6 @@ public class ActivitySota extends Activity implements OnClickListener{
 	        }
 				
 	       if (mSettings.contains(APP_PREFERENCES_text_size)) {
-				// Получаем число из настроек
 	        	 String size = mSettings.getString(APP_PREFERENCES_text_size, "19");
 				if (size .contains( "Small")){
 					textView2.setTextSize(11);
