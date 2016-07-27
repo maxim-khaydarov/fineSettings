@@ -158,7 +158,7 @@ public class ChooseWallpaper extends Activity implements OnClickListener{
 	                //--last image from camera --
 	     	            Bitmap myBitmap = BitmapFactory.decodeFile(fullPath);
 	     	            
-	     	           scaledBitmapCamera = scaleDown(myBitmap, 200, true);
+	     	           scaledBitmapCamera = scaleDown(myBitmap, 100, true);
 	                return;
 	            }
 	        }
