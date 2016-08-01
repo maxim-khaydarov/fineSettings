@@ -22,7 +22,6 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:ems="10"
             android:orientation="vertical" >
 
             <LinearLayout
@@ -144,15 +143,14 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
                         android:layout_centerVertical="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@android:color/transparent"
                         android:clickable="false"
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="65dp"
                         android:text="@string/button_avia"
                         android:textColor="@color/black"
-                        android:textSize="15sp"
-                        style="@style/boldText"/>
+                        android:textSize="15sp"/>
 
                     <ImageView
                         android:id="@+id/imageView3"
@@ -201,13 +199,13 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
                         android:layout_centerVertical="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@android:color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="65dp"
                         android:text="@string/button_wifi"
                         android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        android:textSize="15sp"/>
 
                     <ImageView
                         android:id="@+id/imageView1"
@@ -218,15 +216,6 @@
                         android:layout_marginRight="10dp"
                         android:scaleType="fitCenter"
                         android:src="@drawable/next" />
-
-                    <ImageView
-                        android:id="@+id/imageView4"
-                        android:layout_width="26dp"
-                        android:layout_height="26dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="20dp"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/wifi" />
 
                     <ImageView
                         android:id="@+id/ImageView02"
@@ -254,6 +243,15 @@
                         android:textColor="@color/hint_text"
                         android:textSize="15sp" />
 
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/wifi" />
+
                 </RelativeLayout>
             </LinearLayout>
 
@@ -267,8 +265,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
-                    android:ems="10" >
+                    android:layout_height="36dp" >
 
                     <Button
                         android:id="@+id/ButtonBluetooth"
@@ -278,7 +275,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
                         android:layout_centerVertical="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@android:color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="65dp"
@@ -338,8 +335,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
-                    android:ems="10" >
+                    android:layout_height="36dp" >
 
                     <Button
                         android:id="@+id/ButtonSota"
@@ -349,7 +345,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
                         android:layout_centerVertical="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@android:color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="65dp"
@@ -410,7 +406,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
                         android:layout_centerVertical="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@android:color/transparent"
                         android:clickable="false"
                         android:ems="10"
                         android:gravity="left|fill_vertical"
@@ -493,7 +489,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
                         android:layout_centerVertical="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@android:color/transparent"
                         android:clickable="false"
                         android:ems="10"
                         android:gravity="left|center_vertical"
@@ -588,7 +584,7 @@
                             android:layout_alignParentRight="true"
                             android:layout_alignParentTop="true"
                             android:layout_centerVertical="true"
-                            android:background="@drawable/button_bg"
+                            android:background="@android:color/transparent"
                             android:ems="10"
                             android:gravity="left|center_vertical"
                             android:paddingLeft="65dp"
@@ -649,7 +645,7 @@
                             android:layout_alignParentRight="true"
                             android:layout_alignParentTop="true"
                             android:layout_centerVertical="true"
-                            android:background="@drawable/button_bg"
+                            android:background="@android:color/transparent"
                             android:ems="10"
                             android:gravity="left|center_vertical"
                             android:paddingLeft="65dp"
@@ -710,7 +706,7 @@
                             android:layout_alignParentRight="true"
                             android:layout_alignParentTop="true"
                             android:layout_centerVertical="true"
-                            android:background="@drawable/button_bg"
+                            android:background="@android:color/transparent"
                             android:clickable="false"
                             android:ems="10"
                             android:gravity="left|center_vertical"
@@ -782,7 +778,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
                         android:layout_centerVertical="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@android:color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="65dp"
@@ -842,7 +838,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
                         android:layout_centerVertical="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@android:color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="65dp"
@@ -903,7 +899,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
                         android:layout_centerVertical="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@android:color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="65dp"
@@ -964,7 +960,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
                         android:layout_centerVertical="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@android:color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="65dp"
@@ -1023,7 +1019,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
                         android:layout_centerVertical="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@android:color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="65dp"
@@ -1085,7 +1081,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
                         android:layout_centerVertical="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@android:color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="65dp"
@@ -1146,7 +1142,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
                         android:layout_centerVertical="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@android:color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="65dp"
@@ -1206,7 +1202,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
                         android:layout_centerVertical="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@android:color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="65dp"
@@ -1275,7 +1271,8 @@
                     android:id="@+id/LinearLayoutCloud"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical" >
+                    android:orientation="vertical"
+                    android:background="@color/white">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -1286,7 +1283,7 @@
                             android:id="@+id/ButtonCloud"
                             android:layout_width="fill_parent"
                             android:layout_height="36dp"
-                            android:background="@drawable/button_bg"
+                            android:background="@android:color/transparent"
                             android:ems="10"
                             android:gravity="left|center_vertical"
                             android:paddingLeft="65dp"
@@ -1319,7 +1316,8 @@
                     android:id="@+id/LinearLayoutTunes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical" >
+                    android:orientation="vertical"
+                    android:background="@color/white">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -1334,7 +1332,7 @@
                             android:layout_alignParentRight="true"
                             android:layout_alignParentTop="true"
                             android:layout_centerVertical="true"
-                            android:background="@drawable/button_bg"
+                            android:background="@android:color/transparent"
                             android:ems="10"
                             android:gravity="left|center_vertical"
                             android:paddingLeft="65dp"
@@ -1428,7 +1426,7 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerVertical="true"
-                                android:background="@drawable/button_bg"
+                                android:background="@android:color/transparent"
                                 android:ems="10"
                                 android:gravity="left|center_vertical"
                                 android:paddingLeft="65dp"
@@ -1478,7 +1476,7 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerVertical="true"
-                                android:background="@drawable/button_bg"
+                                android:background="@android:color/transparent"
                                 android:ems="10"
                                 android:gravity="left|center_vertical"
                                 android:paddingLeft="65dp"
@@ -1538,7 +1536,7 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerVertical="true"
-                                android:background="@drawable/button_bg"
+                                android:background="@android:color/transparent"
                                 android:ems="10"
                                 android:gravity="left|center_vertical"
                                 android:paddingLeft="65dp"
@@ -1598,7 +1596,7 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerVertical="true"
-                                android:background="@drawable/button_bg"
+                                android:background="@android:color/transparent"
                                 android:clickable="false"
                                 android:ems="10"
                                 android:gravity="left|center_vertical"
@@ -1659,7 +1657,7 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerVertical="true"
-                                android:background="@drawable/button_bg"
+                                android:background="@android:color/transparent"
                                 android:ems="10"
                                 android:gravity="left|center_vertical"
                                 android:paddingLeft="65dp"
@@ -1719,7 +1717,7 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerVertical="true"
-                                android:background="@drawable/button_bg"
+                                android:background="@android:color/transparent"
                                 android:ems="10"
                                 android:gravity="left|center_vertical"
                                 android:paddingLeft="65dp"
@@ -2093,7 +2091,7 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerVertical="true"
-                                android:background="@drawable/button_bg"
+                                android:background="@android:color/transparent"
                                 android:ems="10"
                                 android:gravity="left|center_vertical"
                                 android:paddingLeft="65dp"
@@ -2153,7 +2151,7 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerVertical="true"
-                                android:background="@drawable/button_bg"
+                                android:background="@android:color/transparent"
                                 android:ems="10"
                                 android:gravity="left|center_vertical"
                                 android:paddingLeft="65dp"
@@ -2213,7 +2211,7 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerVertical="true"
-                                android:background="@drawable/button_bg"
+                                android:background="@android:color/transparent"
                                 android:ems="10"
                                 android:gravity="left|center_vertical"
                                 android:paddingLeft="65dp"
@@ -2297,7 +2295,7 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerVertical="true"
-                                android:background="@drawable/button_bg"
+                                android:background="@android:color/transparent"
                                 android:ems="10"
                                 android:gravity="left|center_vertical"
                                 android:paddingLeft="65dp"
@@ -2347,7 +2345,7 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerVertical="true"
-                                android:background="@drawable/button_bg"
+                                android:background="@android:color/transparent"
                                 android:ems="10"
                                 android:gravity="left|center_vertical"
                                 android:paddingLeft="65dp"
@@ -2407,7 +2405,7 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerVertical="true"
-                                android:background="@drawable/button_bg"
+                                android:background="@android:color/transparent"
                                 android:ems="10"
                                 android:gravity="left|center_vertical"
                                 android:paddingLeft="65dp"
@@ -2467,7 +2465,7 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerVertical="true"
-                                android:background="@drawable/button_bg"
+                                android:background="@android:color/transparent"
                                 android:ems="10"
                                 android:gravity="left|center_vertical"
                                 android:paddingLeft="65dp"

@@ -100,7 +100,5 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 7 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="android-android-7" level="project" />
-    <orderEntry type="library" exported="" name="annotations-android-7" level="project" />
   </component>
 </module>

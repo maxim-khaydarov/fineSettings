@@ -7,13 +7,11 @@
     -->
     
     <style name="AppTheme" parent="AppBaseTheme">
-         <item name="android:windowNoTitle">true</item> 
         
     </style>
     
     
-    <style name="AppBaseTheme" parent="@style/Theme.AppCompat.Light">
-        <!-- API 14 theme customizations can go here. -->
+    <style name="AppBaseTheme" parent="@android:style/Theme.Holo">
         <item name="android:actionBarStyle">@style/MyActionBar2</item>
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
