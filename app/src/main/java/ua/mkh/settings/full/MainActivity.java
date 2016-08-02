@@ -213,6 +213,8 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 	   private final static String NETWORK="networktext.txt";
 
 	   private static final int REQUEST_WRITE_STORAGE = 112;
+		private static final int REQUEST_READ_PHONE = 113;
+	private static final int REQUEST_READ_CONTACT = 114;
 	   
 	   Animation animationFalling;
 	   
@@ -235,9 +237,17 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
-		
-		
+
+		AccountManager am = AccountManager.get(this);
+		Account[] accounts = am.getAccounts();
+		if (accounts.length > 0) {
+			//Account accountToRemove = accounts[0];
+			Log.d("YES", accounts[0].toString());
+
+			//am.removeAccount(accountToRemove, null, null);
+		}
 		
 		//try {
 		String roman = "fonts/Regular.otf";
@@ -250,7 +260,7 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 		typefaceThin = Typeface.createFromAsset(getAssets(), thin);
 
 		boolean hasPermission_sd = (ContextCompat.checkSelfPermission(this,
-				Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED);
+				Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED);
 
 		boolean hasPermission_accounts = (ContextCompat.checkSelfPermission(this,
 				Manifest.permission.GET_ACCOUNTS) == PackageManager.PERMISSION_GRANTED);
@@ -258,17 +268,25 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 		boolean hasPermission_phone = (ContextCompat.checkSelfPermission(this,
 				Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED);
 
+		boolean hasPermission_location = (ContextCompat.checkSelfPermission(this,
+				Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED);
+
+		boolean hasPermission_location_coarse = (ContextCompat.checkSelfPermission(this,
+				Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED);
 
 
-		if (!hasPermission_sd || !hasPermission_accounts || !hasPermission_phone) {
-			Toast.makeText(this, "No permission to sd-card", Toast.LENGTH_LONG).show();
+
+		if (!hasPermission_sd || !hasPermission_accounts || !hasPermission_phone || !hasPermission_location || hasPermission_location_coarse ) {
+			//Toast.makeText(this, "No permission", Toast.LENGTH_LONG).show();
 
 
 			ActivityCompat.requestPermissions(this,
-					new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+					new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.GET_ACCOUNTS,Manifest.permission.READ_PHONE_STATE,
+							Manifest.permission.ACCESS_FINE_LOCATION, },
 					REQUEST_WRITE_STORAGE);
+
+
 		}
-		
 		
 		mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 		
@@ -2886,12 +2904,30 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 		            case REQUEST_WRITE_STORAGE: {
 		                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
 		                {
-		                    //reload my activity with permission granted or use the features what required the permission
+							Toast.makeText(this, "GOOD. Permission read storage", Toast.LENGTH_SHORT).show();
 		                } else
 		                {
-		                    Toast.makeText(this, "The app was not allowed to write to your storage. Hence, it cannot function properly. Please consider granting it this permission", Toast.LENGTH_LONG).show();
+		                    Toast.makeText(this, "No permission read storage", Toast.LENGTH_SHORT).show();
 		                }
 		            }
+					case REQUEST_READ_PHONE: {
+						if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+						{
+							Toast.makeText(this, "GOOD. Permission read phone", Toast.LENGTH_SHORT).show();
+						} else
+						{
+							Toast.makeText(this, "No permission read phone", Toast.LENGTH_SHORT).show();
+						}
+					}
+					case REQUEST_READ_CONTACT: {
+						if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+						{
+							Toast.makeText(this, "GOOD. Permission read contact", Toast.LENGTH_SHORT).show();
+						} else
+						{
+							Toast.makeText(this, "No permission read contact", Toast.LENGTH_SHORT).show();
+						}
+					}
 		        }
 
 		    }

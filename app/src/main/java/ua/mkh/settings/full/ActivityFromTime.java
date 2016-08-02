@@ -64,6 +64,7 @@ public class ActivityFromTime extends Activity implements View.OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_from_time);
 		
 		String roman = "fonts/Regular.otf";

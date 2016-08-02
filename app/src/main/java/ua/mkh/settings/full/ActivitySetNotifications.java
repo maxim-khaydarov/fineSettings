@@ -75,6 +75,7 @@ public class ActivitySetNotifications extends Activity implements View.OnClickLi
 	    
    protected void onCreate(Bundle savedInstanceState) {
      super.onCreate(savedInstanceState);
+	   this.requestWindowFeature(Window.FEATURE_NO_TITLE);
      setContentView(R.layout.activity_set_ringtone);
      String roman = "fonts/Regular.otf";
 		String medium = "fonts/Medium.otf";

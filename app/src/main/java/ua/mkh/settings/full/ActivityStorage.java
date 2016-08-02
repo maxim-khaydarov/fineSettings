@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -51,6 +52,7 @@ public class ActivityStorage extends Activity {
 	 @Override
 	  public void onCreate(Bundle b) {
 	    super.onCreate(b);
+		 this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 	    setContentView(R.layout.activity_storage);
 	    
 	    String roman = "fonts/Regular.otf";

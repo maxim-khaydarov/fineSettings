@@ -81,7 +81,8 @@ public class SettingsActivity extends Activity implements View.OnClickListener{
 	   
 	@Override
     public void onCreate(Bundle savedInstanceState) {        
-        super.onCreate(savedInstanceState);    
+        super.onCreate(savedInstanceState);
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_settings);
         
         String roman = "fonts/Regular.otf";

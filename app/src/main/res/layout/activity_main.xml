@@ -50,10 +50,11 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:background="@drawable/back_search"
-                            android:ems="10"
                             android:gravity="center_vertical|center_horizontal"
                             android:inputType="textCapSentences"
-                            android:textSize="13sp" />
+                            android:textSize="13sp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -2792,7 +2793,7 @@
 
     <LinearLayout
         android:id="@+id/list_res_top"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="#99000000"
         android:orientation="vertical"
@@ -2800,22 +2801,27 @@
 
         <LinearLayout
             android:id="@+id/ll11"
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="49dp"
             android:background="#CBCACF"
             android:descendantFocusability="beforeDescendants"
             android:focusableInTouchMode="true"
             android:orientation="vertical" >
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="49dp" >
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="49dp"
+                    android:orientation="horizontal">
 
                     <RelativeLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="fill_parent"
                         android:layout_height="49dp"
-                        android:layout_weight="1"
-                        android:padding="10dp" >
+                        android:padding="10dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="0dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="0dp"
+                        android:layout_toLeftOf="@+id/button11">
 
                         <EditText
                             android:id="@+id/EditText011"
@@ -2831,7 +2837,9 @@
                             android:inputType="textCapSentences"
                             android:paddingLeft="40dp"
                             android:textColor="@color/hint_text"
-                            android:textSize="14sp" >
+                            android:textSize="14sp"
+                            android:editable="true"
+                            android:focusableInTouchMode="true">
 
                         </EditText>
 
@@ -2852,22 +2860,26 @@
                             android:layout_centerVertical="true"
                             android:layout_marginRight="5dp"
                             android:background="@drawable/del_search"
-                            android:visibility="gone" />
+                            android:visibility="visible" />
 
                     </RelativeLayout>
 
                     <Button
                         android:id="@+id/button11"
                         style="@color/transparent"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="3"
                         android:background="@color/transparent"
                         android:text="@string/search"
                         android:textColor="@color/blue"
-                        android:visibility="gone" />
+                        android:visibility="visible"
+                        android:layout_alignParentLeft="false"
+                        android:layout_alignParentTop="false"
+                        android:layout_alignParentRight="true"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp" />
 
-                </LinearLayout>
+                </RelativeLayout>
 
 
                 

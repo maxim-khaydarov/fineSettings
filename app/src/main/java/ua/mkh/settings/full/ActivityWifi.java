@@ -14,6 +14,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Typeface;
+import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.DhcpInfo;
 import android.net.NetworkInfo;
@@ -25,6 +26,7 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager.LayoutParams;
 import android.text.Html;
 import android.text.format.Formatter;
@@ -49,6 +51,7 @@ import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TableLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 
@@ -114,6 +117,7 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
 	    public void onCreate(Bundle savedInstanceState) 
 	    {
 	        super.onCreate(savedInstanceState);
+			this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 	        setContentView(R.layout.activity_wifi);
 	        String roman = "fonts/Regular.otf";
 			String medium = "fonts/Medium.otf";
@@ -778,13 +782,19 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
 	            }
 	        }
 	   }};
-	   
+
+
 	   
 	   private BroadcastReceiver myWifiReceiver2 = new BroadcastReceiver(){
 		   @Override
            public void onReceive(Context c, Intent intent) 
            {
-        	   studentArray.clear(); 
+        	   studentArray.clear();
+
+			   if (isGPSEnabled(c) == false) {
+				   Toast.makeText(c, "ERROR", Toast.LENGTH_SHORT).show();
+			   }
+
               results = wifi.getScanResults();
               size = results.size();
               try 
@@ -877,7 +887,14 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
               setListViewHeightBasedOnChildren(lv);
            
 	   }};
-	   
+
+	public boolean isGPSEnabled(Context mContext)
+	{
+		LocationManager lm = (LocationManager)
+				mContext.getSystemService(Context.LOCATION_SERVICE);
+		return lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
+	}
+
 	    private void DisplayWifiState(){
 	     
 	     ConnectivityManager myConnManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
@@ -944,7 +961,7 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
 	               		MainLayout2.startAnimation(animationIN);
 	               		
 	               		//textView2.setVisibility(View.GONE);
-	               		
+
 	               		animationIN.setAnimationListener(new Animation.AnimationListener(){
 	               		    @Override
 	               		    public void onAnimationStart(Animation arg0) {
@@ -1022,7 +1039,7 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
 	               		//textView2.setVisibility(View.VISIBLE);
 	               		textView2.startAnimation(animationIN);
 	               		
-	               		//MainLayout2.setVisibility(View.GONE);
+	               		//MainLayout2.setVisibility(View.GONE);*/
 	               		
 	               	 }
 		        }
