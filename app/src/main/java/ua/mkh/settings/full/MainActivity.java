@@ -259,35 +259,35 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 		typefaceBold = Typeface.createFromAsset(getAssets(), bold);
 		typefaceThin = Typeface.createFromAsset(getAssets(), thin);
 
-		boolean hasPermission_sd = (ContextCompat.checkSelfPermission(this,
-				Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED);
+		if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M ) {
+			boolean hasPermission_sd = (ContextCompat.checkSelfPermission(this,
+					Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED);
 
-		boolean hasPermission_accounts = (ContextCompat.checkSelfPermission(this,
-				Manifest.permission.GET_ACCOUNTS) == PackageManager.PERMISSION_GRANTED);
+			boolean hasPermission_accounts = (ContextCompat.checkSelfPermission(this,
+					Manifest.permission.GET_ACCOUNTS) == PackageManager.PERMISSION_GRANTED);
 
-		boolean hasPermission_phone = (ContextCompat.checkSelfPermission(this,
-				Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED);
+			boolean hasPermission_phone = (ContextCompat.checkSelfPermission(this,
+					Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED);
 
-		boolean hasPermission_location = (ContextCompat.checkSelfPermission(this,
-				Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED);
+			boolean hasPermission_location = (ContextCompat.checkSelfPermission(this,
+					Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED);
 
-		boolean hasPermission_location_coarse = (ContextCompat.checkSelfPermission(this,
-				Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED);
-
-
-
-		if (!hasPermission_sd || !hasPermission_accounts || !hasPermission_phone || !hasPermission_location || hasPermission_location_coarse ) {
-			//Toast.makeText(this, "No permission", Toast.LENGTH_LONG).show();
+			boolean hasPermission_location_coarse = (ContextCompat.checkSelfPermission(this,
+					Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED);
 
 
-			ActivityCompat.requestPermissions(this,
-					new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.GET_ACCOUNTS,Manifest.permission.READ_PHONE_STATE,
-							Manifest.permission.ACCESS_FINE_LOCATION, },
-					REQUEST_WRITE_STORAGE);
+			if (!hasPermission_sd || !hasPermission_accounts || !hasPermission_phone || !hasPermission_location || hasPermission_location_coarse) {
+				//Toast.makeText(this, "No permission", Toast.LENGTH_LONG).show();
 
 
+				ActivityCompat.requestPermissions(this,
+						new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.GET_ACCOUNTS, Manifest.permission.READ_PHONE_STATE,
+								Manifest.permission.ACCESS_FINE_LOCATION,},
+						REQUEST_WRITE_STORAGE);
+
+
+			}
 		}
-		
 		mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 		
 		
@@ -2904,7 +2904,7 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 		            case REQUEST_WRITE_STORAGE: {
 		                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
 		                {
-							Toast.makeText(this, "GOOD. Permission read storage", Toast.LENGTH_SHORT).show();
+							//Toast.makeText(this, "GOOD. Permission read storage", Toast.LENGTH_SHORT).show();
 		                } else
 		                {
 		                    Toast.makeText(this, "No permission read storage", Toast.LENGTH_SHORT).show();
@@ -2913,7 +2913,7 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 					case REQUEST_READ_PHONE: {
 						if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
 						{
-							Toast.makeText(this, "GOOD. Permission read phone", Toast.LENGTH_SHORT).show();
+							//Toast.makeText(this, "GOOD. Permission read phone", Toast.LENGTH_SHORT).show();
 						} else
 						{
 							Toast.makeText(this, "No permission read phone", Toast.LENGTH_SHORT).show();
@@ -2922,7 +2922,7 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 					case REQUEST_READ_CONTACT: {
 						if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
 						{
-							Toast.makeText(this, "GOOD. Permission read contact", Toast.LENGTH_SHORT).show();
+							//Toast.makeText(this, "GOOD. Permission read contact", Toast.LENGTH_SHORT).show();
 						} else
 						{
 							Toast.makeText(this, "No permission read contact", Toast.LENGTH_SHORT).show();

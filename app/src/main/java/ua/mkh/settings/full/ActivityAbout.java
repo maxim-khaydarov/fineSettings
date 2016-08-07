@@ -2,7 +2,9 @@ package ua.mkh.settings.full;
 
 import java.io.File;
 import java.lang.reflect.Method;
+import java.net.NetworkInterface;
 import java.text.DecimalFormat;
+import java.util.Collections;
 import java.util.List;
 
 import android.app.Activity;
@@ -185,6 +187,35 @@ public class ActivityAbout extends Activity implements View.OnClickListener{
 			 
 			 
 }
+
+
+
+	public static String getMacAddr() {
+		try {
+			List<NetworkInterface> all = Collections.list(NetworkInterface.getNetworkInterfaces());
+			for (NetworkInterface nif : all) {
+				if (!nif.getName().equalsIgnoreCase("wlan0")) continue;
+
+				byte[] macBytes = nif.getHardwareAddress();
+				if (macBytes == null) {
+					return "";
+				}
+
+				StringBuilder res1 = new StringBuilder();
+				for (byte b : macBytes) {
+					res1.append(Integer.toHexString(b & 0xFF) + ":");
+				}
+
+				if (res1.length() > 0) {
+					res1.deleteCharAt(res1.length() - 1);
+				}
+				return res1.toString();
+			}
+		} catch (Exception ex) {
+		}
+		return "02:00:00:00:00:00";
+	}
+
 	   private void mac_bluetooth (){
 		   BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 		   /* mBluetoothAdapter.disable(); */
@@ -199,7 +230,7 @@ public class ActivityAbout extends Activity implements View.OnClickListener{
 		   
 		   WifiInfo localWifiInfo = ((WifiManager)getSystemService(Context.WIFI_SERVICE)).getConnectionInfo();
 		   
-		   TextView05.setText(localWifiInfo.getMacAddress());
+		   TextView05.setText(getMacAddr());
 		   
 	   }
 	   
