@@ -202,14 +202,30 @@
                     android:layout_marginTop="20dp"
                     android:orientation="vertical" >
 
-                    <TextView
-                        android:id="@+id/textView1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:text="@string/choose_wifi"
-                        android:textColor="@color/hint_text"
-                        android:textSize="13sp" />
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="@string/choose_wifi"
+                            android:textColor="@color/hint_text"
+                            android:textSize="13sp" />
+
+                        <ProgressBar
+                            android:indeterminateDrawable="@drawable/progress_well"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:id="@+id/progressBar2"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical"
+                            android:visibility="gone" />
+                    </LinearLayout>
 
                     <ImageView
                         android:id="@+id/ImageView05"

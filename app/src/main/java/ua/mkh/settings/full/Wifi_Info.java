@@ -82,4 +82,6 @@ public class Wifi_Info {
 	public void setRssilevel(String rssilevel) {
 		this.rssilevel = rssilevel;
 	}
+
+
 }

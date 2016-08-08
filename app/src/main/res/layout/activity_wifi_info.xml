@@ -36,7 +36,8 @@
                 android:id="@+id/Layout_no_pass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -90,6 +91,67 @@
                     android:textColor="@color/blue"
                     android:textSize="13sp" />
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_join"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="36dp"
+                    android:ems="10">
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1px"
+                        android:ems="10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/line_cray" />
+
+                    <Button
+                        android:id="@+id/button_join"
+                        android:layout_width="fill_parent"
+                        android:layout_height="36dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@color/transparent"
+                        android:clickable="false"
+                        android:ems="10"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="Подключиться"
+                        android:textColor="@color/blue"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:indeterminateDrawable="@drawable/progress_well"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:id="@+id/progressBar"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp"
+                        android:layout_centerVertical="true"
+                        android:visibility="invisible" />
+
+                    <ImageView
+                        android:id="@+id/imageView10"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1px"
+                        android:ems="10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/line_cray"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true" />
+                </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -221,7 +283,6 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
                             android:layout_marginRight="15dp"
-                            android:text="TextView"
                             android:textColor="@color/black"
                             android:textSize="15sp" />
 
@@ -262,7 +323,6 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
                             android:layout_marginRight="15dp"
-                            android:text="TextView"
                             android:textColor="@color/black"
                             android:textSize="15sp" />
 
@@ -303,7 +363,6 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
                             android:layout_marginRight="15dp"
-                            android:text="TextView"
                             android:textColor="@color/black"
                             android:textSize="15sp" />
 
@@ -344,7 +403,6 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
                             android:layout_marginRight="15dp"
-                            android:text="TextView"
                             android:textColor="@color/black"
                             android:textSize="15sp" />
 

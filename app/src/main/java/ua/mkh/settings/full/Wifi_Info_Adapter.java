@@ -74,7 +74,7 @@ public class Wifi_Info_Adapter extends ArrayAdapter<Wifi_Info> {
 			@Override
 			public void onClick(View v) {
 				((ActivityWifi)context).info_wifi(position, wifi_info2.getName(), wifi_info2.getRssilevel(), wifi_info2.getMac(), wifi_info2.getCapabilities(), wifi_info2.getRssilevel());
-				
+
 			}
 		});
 		

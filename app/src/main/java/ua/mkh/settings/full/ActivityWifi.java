@@ -49,6 +49,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TableLayout;
@@ -95,6 +96,8 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
 
 	   SharedPreferences mSettings;
 
+	   ProgressBar pg1;
+
 	   ListView lv;
 	   ImageView img1, img2;
 	   String Capabilities;
@@ -104,7 +107,8 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
 	  List<ScanResult> results;
 
 
-	  String ITEM_KEY = "key", WIFI_KEY = "wifi_key", RSSI_KEY = "rssi_key", MAC_KEY = "mac_key", CAP_KEY = "cap_key", RSSILEVEL_KEY;
+	  String ITEM_KEY = "key", WIFI_KEY = "wifi_key", RSSI_KEY = "rssi_key", MAC_KEY = "mac_key",
+			  CAP_KEY = "cap_key", RSSILEVEL_KEY;
 	  ArrayList<HashMap<String, String>> arraylist = new ArrayList<HashMap<String, String>>();
 	  SimpleAdapter adapter;
 
@@ -131,6 +135,7 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
 			typefaceBold = Typeface.createFromAsset(getAssets(), bold);
 			typefaceThin = Typeface.createFromAsset(getAssets(), thin);
 
+			pg1 = (ProgressBar) findViewById(R.id.progressBar2);
 
 
 			 myConnManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
@@ -277,59 +282,74 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
 
 
 	public void info_wifi(int position, String name, String rssi, String mac, String cap, String rssilevel){
-	    	final Dialog Activation = new Dialog(ActivityWifi.this,android.R.style.Theme_Translucent);
-	        Activation.requestWindowFeature(Window.FEATURE_NO_TITLE);
-	        Activation.setContentView(R.layout.dialog_inform);
 
-				// set the custom dialog components - text, image and button
+		String mem = mSettings.getString(name, "54324512");
 
-				Button dialogButton = (Button) Activation.findViewById(R.id.dialogButtonOK);
-				TextView text = (TextView)Activation.findViewById(R.id.text);
-				TextView textBold = (TextView)Activation.findViewById(R.id.textBold);
+		if (mem.contains("54324512")){
+			final Dialog Activation = new Dialog(ActivityWifi.this,android.R.style.Theme_Translucent);
+			Activation.requestWindowFeature(Window.FEATURE_NO_TITLE);
+			Activation.setContentView(R.layout.dialog_inform);
 
-				dialogButton.setTypeface(typefaceRoman);
-				textBold.setTypeface(typefaceBold);
-				dialogButton.setText(R.string.ok);
-				text.setTypeface(typefaceRoman);
-				//text.setText("Уровень сигнала\n" + rssi + "\nБезопасность\n" + cap + "\nМАС адрес\n" + mac);
-				String cape = null;
+			// set the custom dialog components - text, image and button
 
-				if(cap.contains("WPA")){
-					cape = "WPA/WPA2 PSK";
+			Button dialogButton = (Button) Activation.findViewById(R.id.dialogButtonOK);
+			TextView text = (TextView)Activation.findViewById(R.id.text);
+			TextView textBold = (TextView)Activation.findViewById(R.id.textBold);
+
+			dialogButton.setTypeface(typefaceRoman);
+			textBold.setTypeface(typefaceBold);
+			dialogButton.setText(R.string.ok);
+			text.setTypeface(typefaceRoman);
+			//text.setText("Уровень сигнала\n" + rssi + "\nБезопасность\n" + cap + "\nМАС адрес\n" + mac);
+			String cape = null;
+
+			if(cap.contains("WPA")){
+				cape = "WPA/WPA2 PSK";
+			}
+			else if(cap.contains("WEP")){
+				cape = "WEP PSK";
+			}
+			else{
+				cape = "Нет";
+			}
+
+			String t2 = getString(R.string.level_signal) +"<br>"+ "<font color=\"#808080\"><small>"  + rssilevel + "</small></font>"
+					+ "<br><br>" + getString(R.string.security) + "<br>" + "<font color=\"#808080\"><small>"  + cape + "</small></font>"
+					+ "<br><br>" + getString(R.string.mac_wifi_) + "<br>" + "<font color=\"#808080\"><small>"  + mac + "</small></font>";
+
+			text.setText(Html.fromHtml(t2), TextView.BufferType.SPANNABLE);
+
+			text.setPadding(25,5,5,5);
+
+			textBold.setText("\"" + name + "\"");
+			textBold.setTextSize(16);
+			text.setTextSize(15);
+			text.setGravity(Gravity.LEFT);
+
+			// if button is clicked, close the custom dialog
+			dialogButton.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+
+
+
+					Activation.dismiss();
 				}
-				else if(cap.contains("WEP")){
-					cape = "WEP PSK";
-				}
-				else{
-					cape = "Нет";
-				}
+			});
 
-				String t2 = getString(R.string.level_signal) +"<br>"+ "<font color=\"#808080\"><small>"  + rssilevel + "</small></font>"
-						+ "<br><br>" + getString(R.string.security) + "<br>" + "<font color=\"#808080\"><small>"  + cape + "</small></font>"
-						+ "<br><br>" + getString(R.string.mac_wifi_) + "<br>" + "<font color=\"#808080\"><small>"  + mac + "</small></font>";
-
-				text.setText(Html.fromHtml(t2), TextView.BufferType.SPANNABLE);
-
-				text.setPadding(25,5,5,5);
-
-				textBold.setText("\"" + name + "\"");
-				textBold.setTextSize(16);
-				text.setTextSize(15);
-				text.setGravity(Gravity.LEFT);
-
-				// if button is clicked, close the custom dialog
-				dialogButton.setOnClickListener(new OnClickListener() {
-
-					@Override
-					public void onClick(View v) {
+			Activation.show();
+		}
+		else{
+			Intent settingsIntent3 = new Intent(this, ActivityWifiInfo.class);
+			settingsIntent3.putExtra("name", name);
+			settingsIntent3.putExtra("cap", cap);
+			startActivity(settingsIntent3);
+		}
 
 
 
-						Activation.dismiss();
-					}
-				});
 
-				Activation.show();
 	    }
 
 
@@ -357,20 +377,20 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
             }, 7000);
 	    }
 
-	    public void connectToWifi(final int position)
+	    public  void connectToWifi(final int position)
         {
                 final int value = results.size()-1 - position;
 
                 Capabilities =  results.get(value).capabilities;
 
 
-					String bssid = mSettings.getString(results.get(value).BSSID, "54324512");
+					String ssid = mSettings.getString(results.get(value).SSID, "54324512");
 
 
-				Log.e("MY APP", "bssid: " + bssid);
+				Log.e("MY APP", "ssid: " + ssid);
 
 
-			if(bssid.contains("54324512")){
+			if(ssid.contains("54324512")){
 				//Then you could add some code to check for a specific security type.
 				if(Capabilities.contains("WPA")){
 
@@ -440,11 +460,13 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
 									wifi.reconnect();
 									Log.d("WifiPreference", "enableNetwork returned " + b);
 								//}
+								SharedPreferences.Editor editor = mSettings.edit();
+								editor.putString(results.get(value).SSID, ed1.getText().toString());
+								Log.e("MY APP", "ЗАПИСЬ В ПАМЯТЬ:_" + ed1.getText().toString()+ "_");
+								editor.commit();
 								dialog.dismiss();
 
-									SharedPreferences.Editor editor = mSettings.edit();
-									editor.putString(results.get(value).BSSID, ed1.getText().toString());
-									editor.commit();
+
 
 							}
 
@@ -510,11 +532,13 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
 									wifi.reconnect();
 									Log.d("WifiPreference", "enableNetwork returned " + b);
 							//	}
+								SharedPreferences.Editor editor = mSettings.edit();
+								editor.putString(results.get(value).SSID, ed1.getText().toString());
+								Log.e("MY APP", "ЗАПИСЬ В ПАМЯТЬ:_" + ed1.getText().toString()+ "_");
+								editor.commit();
 								dialog.dismiss();
 
-									SharedPreferences.Editor editor = mSettings.edit();
-									editor.putString(results.get(value).BSSID, ed1.getText().toString());
-									editor.commit();
+
 
 							}
 
@@ -548,7 +572,7 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
 					wifi.disconnect();
 					WifiConfiguration wifiConfiguration = new WifiConfiguration();
 					wifiConfiguration.SSID = "\"" + results.get(value).SSID + "\"";
-					wifiConfiguration.preSharedKey = "\"" + bssid + "\"";
+					wifiConfiguration.preSharedKey = "\"" + ssid + "\"";
 					wifiConfiguration.hiddenSSID = true;
 					wifiConfiguration.status = WifiConfiguration.Status.ENABLED;
 					wifiConfiguration.allowedProtocols.set(WifiConfiguration.Protocol.WPA); // For WPA
@@ -576,7 +600,7 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
 					wifi.disconnect();
 					WifiConfiguration wifiConfiguration = new WifiConfiguration();
 					wifiConfiguration.SSID = "\"" + results.get(value).SSID + "\"";
-					wifiConfiguration.wepKeys[0] = "\"" + bssid + "\"";
+					wifiConfiguration.wepKeys[0] = "\"" + ssid + "\"";
 					wifiConfiguration.wepTxKeyIndex = 0;
 					wifiConfiguration.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
 					wifiConfiguration.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.WEP40);
@@ -627,6 +651,7 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
 
 	        if (wifi.isWifiEnabled()){
 	        	wifi.startScan();
+				pg1.setVisibility(View.VISIBLE);
 	        }
 	       ButtonWifi();
 	       ButtonWifi1();
@@ -904,7 +929,7 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
 
                       String wi = myWifiInfo.getSSID();
                       String wi_scan = "\"" + results.get(size).SSID + "\"";
-                      String wi3 = myWifiInfo.getSSID().replace('"',' ');
+                      String wi3 = myWifiInfo.getSSID().replace("\"","");
 
                      // Log.e("WI_SCAN", wi_scan);
                       //Log.e("WI", wi);
@@ -923,7 +948,13 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
                       MAC_KEY = results.get(size).BSSID;
                       //RSSILEVEL_KEY = String.valueOf(results.get(size).level);
 
-                      studentArray.add(new Wifi_Info(ITEM_KEY, RSSI_KEY, WIFI_KEY, MAC_KEY, CAP_KEY, RSSILEVEL_KEY));
+					  if (wi.contains(wi_scan)){
+
+					  }
+					  else{
+						  studentArray.add(new Wifi_Info(ITEM_KEY, RSSI_KEY, WIFI_KEY, MAC_KEY, CAP_KEY, RSSILEVEL_KEY));
+					  }
+
                       //arraylist.add(item);
                       size--;
                       studentArrayAdapter.notifyDataSetChanged();
@@ -1111,6 +1142,7 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
  					String s_dns1 =Formatter.formatIpAddress(info.dns1);
  					String s_dns2 =Formatter.formatIpAddress(info.dns2);
  					String wi = myWifiInfo.getSSID().replace('"',' ');
+
 
 		        	Intent settingsIntent = new Intent(this, ActivityWifiInfo.class);
 		        	settingsIntent.putExtra("ip", s_ipAddress);
