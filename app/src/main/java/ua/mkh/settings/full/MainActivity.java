@@ -745,16 +745,16 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 		Button ButtonMenuCancel = (Button)dialog.getWindow().findViewById(R.id.dialogButtonCancel);
 		Button ButtonMenuOk = (Button)dialog.getWindow().findViewById(R.id.dialogButtonOK);
 
-		TextView top = (TextView) findViewById(R.id.textView1);
-		TextView center = (TextView) findViewById(R.id.textView2);
+		TextView top = (TextView) dialog.getWindow().findViewById(R.id.textView1);
+		TextView center = (TextView) dialog.getWindow().findViewById(R.id.textView2);
 
 		ButtonMenuOk.setTypeface(typefaceMedium);
 		ButtonMenuCancel.setTypeface(typefaceRoman);
 		top.setTypeface(typefaceBold);
 		center.setTypeface(typefaceRoman);
 
-		ButtonMenuOk.setText(R.string.menu_info_main);
-		ButtonMenuCancel.setText(R.string.menu_info_main);
+		ButtonMenuOk.setText(R.string.ok);
+		ButtonMenuCancel.setText(R.string.cancel);
 		top.setText(R.string.attention);
 		//center.setText();
 
@@ -762,7 +762,10 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 
 			@Override
 			public void onClick(View v) {
-				lock();
+				Intent intent = new Intent(Intent.ACTION_MAIN);
+				intent.addCategory(Intent.CATEGORY_HOME);
+				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				startActivity(intent);
 			}});
 
 		ButtonMenuOk.setOnClickListener(new OnClickListener(){
