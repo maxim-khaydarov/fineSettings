@@ -373,6 +373,7 @@
 
 	<string name="information_wifi_23">Компания \"Google\" в Android 6.0+ ввела ограничения на использование уже существующих сетей Wi-Fi.\nДля корректной работы, зайдите в системные настройки и удалите уже существующие сети.</string>
 	<string name="roaming_text">Роуминг</string>
+	<string name="permission_text">Для нормальной работы приложения, разрешите доступы ниже. </string>
 </resources>
 
 

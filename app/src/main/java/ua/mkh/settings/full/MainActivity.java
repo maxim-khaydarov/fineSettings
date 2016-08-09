@@ -756,7 +756,7 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 		ButtonMenuOk.setText(R.string.ok);
 		ButtonMenuCancel.setText(R.string.cancel);
 		top.setText(R.string.attention);
-		//center.setText();
+		center.setText(R.string.permission_text);
 
 		ButtonMenuCancel.setOnClickListener(new OnClickListener(){
 

@@ -367,7 +367,8 @@
 	<string name="bluetooth_on_off">При включеному Bluetooth поліпшуються точність визначення геопозіції та ефективність пропозиції послуг поблизу.</string>
 	<string name="wifi_on_off">Точність геопозіціі поліпшується, якщо включити Wi-Fi.</string>
 	<string name="information_wifi_23">Компанія \"Google\" у Android 6.0+ ввела обмеження на використання вже існуючих мереж Wi-Fi.\nДля коректної роботи, зайдіть в системні налаштування і видаліть вже існуючі мережі.</string>
-
+	<string name="roaming_text">Роумінг</string>
+	<string name="permission_text">Для нормальної роботи програми, дозвольте нижчезазначені доступи.</string>
 </resources>
 
 

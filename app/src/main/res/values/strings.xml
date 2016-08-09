@@ -372,6 +372,9 @@ Placing full version to any resources other than Yandex.Store prohibited.</strin
 	<string name="bluetooth_on_off">With the improved accuracy of the Bluetooth geolocation and efficiency of the supply of services nearby.</string>
 	<string name="wifi_on_off">Geolocation accuracy improves if you turn Wi-Fi.</string>
 	<string name="information_wifi_23">The company \"Google\" in Android 6.0+ introduced restrictions on the use of existing Wi-Fi networks.\nFor work correctly, go to system settings and remove the existing network.</string>
+	<string name="roaming_text">Roaming</string>
+	<string name="permission_text">For normal operation of the application, allow access below.</string>
+
 </resources>
 
 
