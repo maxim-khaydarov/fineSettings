@@ -240,14 +240,7 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
 
-		AccountManager am = AccountManager.get(this);
-		Account[] accounts = am.getAccounts();
-		if (accounts.length > 0) {
-			//Account accountToRemove = accounts[0];
-			Log.d("YES", accounts[0].toString());
 
-			//am.removeAccount(accountToRemove, null, null);
-		}
 		
 		//try {
 		String roman = "fonts/Regular.otf";
@@ -276,14 +269,20 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 					Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED);
 
 
-			if (!hasPermission_sd || !hasPermission_accounts || !hasPermission_phone || !hasPermission_location || hasPermission_location_coarse) {
+
+			if (!hasPermission_sd || !hasPermission_accounts || !hasPermission_phone || !hasPermission_location || !hasPermission_location_coarse) {
 				//Toast.makeText(this, "No permission", Toast.LENGTH_LONG).show();
 
+				permission_dialog();
 
-				ActivityCompat.requestPermissions(this,
-						new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.GET_ACCOUNTS, Manifest.permission.READ_PHONE_STATE,
-								Manifest.permission.ACCESS_FINE_LOCATION,},
-						REQUEST_WRITE_STORAGE);
+
+				Log.e("MY APP", "hasPermission_sd " +  hasPermission_sd);
+				Log.e("MY APP", "hasPermission_accounts " +  hasPermission_accounts);
+				Log.e("MY APP", "hasPermission_phone " +  hasPermission_phone);
+				Log.e("MY APP", "hasPermission_location " +  hasPermission_location);
+				Log.e("MY APP", "hasPermission_location_coarse " +  hasPermission_location_coarse);
+
+
 
 
 			}
@@ -735,24 +734,61 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 	    		LinearLayoutBluetooth.setVisibility(View.GONE);
 	    	}
 		}
-		/*catch (Exception e){
-			 StringWriter sw = new StringWriter();
-             e.printStackTrace(new PrintWriter(sw));
-             String stacktrace = sw.toString();
- 
-             // CREATE AN EMAIL INTENT TO SEND TO YOURSELF
-             final Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
-             emailIntent.setType("plain/text");
-             emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[] { "maxim.khaydarov@yandex.ru" });
-             emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "On Create BUG REPORT");
-             emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, stacktrace);
- 
-             // START THE EMAIL ACTIVITY - NOTE YOU NEED TO START IT WITH A CHOOSER
-             startActivity(Intent.createChooser(emailIntent, "Send error report..."));
-		}
 
+	private void permission_dialog() {
+		final Dialog dialog = new Dialog(MainActivity.this,android.R.style.Theme_Translucent);
+		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		dialog.setContentView(R.layout.dialog_2_button);
+		dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+
+
+		Button ButtonMenuCancel = (Button)dialog.getWindow().findViewById(R.id.dialogButtonCancel);
+		Button ButtonMenuOk = (Button)dialog.getWindow().findViewById(R.id.dialogButtonOK);
+
+		TextView top = (TextView) findViewById(R.id.textView1);
+		TextView center = (TextView) findViewById(R.id.textView2);
+
+		ButtonMenuOk.setTypeface(typefaceMedium);
+		ButtonMenuCancel.setTypeface(typefaceRoman);
+		top.setTypeface(typefaceBold);
+		center.setTypeface(typefaceRoman);
+
+		ButtonMenuOk.setText(R.string.menu_info_main);
+		ButtonMenuCancel.setText(R.string.menu_info_main);
+		top.setText(R.string.attention);
+		//center.setText();
+
+		ButtonMenuCancel.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				lock();
+			}});
+
+		ButtonMenuOk.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				ActivityCompat.requestPermissions(MainActivity.this,
+						new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
+								Manifest.permission.GET_ACCOUNTS,
+								Manifest.permission.READ_PHONE_STATE,
+								Manifest.permission.ACCESS_FINE_LOCATION,
+								Manifest.permission.WRITE_SETTINGS},
+						REQUEST_WRITE_STORAGE);
+
+				Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_WRITE_SETTINGS);
+				intent.setData(Uri.parse("package:" + MainActivity.this.getPackageName()));
+				intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				startActivity(intent);
+
+				dialog.dismiss();
+
+			}});
+
+		dialog.show();
 	}
-	 */
+
 
 
 	
@@ -2130,9 +2166,9 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 		        	btn_operator.setTextColor(getResources().getColor(R.color.hint_text));
 		        	//btn_operator.setEnabled(false);
 		        	btn_sota.setTextColor(getResources().getColor(R.color.hint_text));
-		        	btn_sota.setEnabled(false);
+		        	//btn_sota.setEnabled(false);
 		        	btn_vpn.setTextColor(getResources().getColor(R.color.hint_text));
-		        	btn_vpn.setEnabled(false);
+		        	//btn_vpn.setEnabled(false);
 		        	textVPN.setVisibility(View.GONE);
 		        	ImageView ImageView07 = (ImageView)findViewById(R.id.ImageView07);
 		        	ImageView07.setVisibility(View.GONE);

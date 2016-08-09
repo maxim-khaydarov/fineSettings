@@ -90,6 +90,7 @@ public class ActivitySota extends Activity implements OnClickListener{
 	        
 	        Button01 = (Button)findViewById(R.id.Button01);
 	        Button02 = (Button)findViewById(R.id.Button02);
+		  	Button02.setOnClickListener(this);
 	        Button03 = (Button)findViewById(R.id.Button03);
 	        Button03.setOnClickListener(this);
 	        Button04 = (Button)findViewById(R.id.Button04);
@@ -102,12 +103,12 @@ public class ActivitySota extends Activity implements OnClickListener{
 	        textStatus.setTypeface(typefaceBold);
 	        btn_back.setTypeface(typefaceMedium);
 	        
-	        textView2.setTypeface(typefaceRoman);
+//	        textView2.setTypeface(typefaceRoman);
 	        //textView1.setTypeface(typefaceRoman);
 	        Button01.setTypeface(typefaceRoman);
 	        Button02.setTypeface(typefaceRoman);
 	        Button03.setTypeface(typefaceRoman);
-	        Button04.setTypeface(typefaceRoman);
+	        //Button04.setTypeface(typefaceRoman);
 	        type.setTypeface(typefaceRoman);
 }
 	  
@@ -116,8 +117,8 @@ public class ActivitySota extends Activity implements OnClickListener{
 	  protected void onResume() {
 	        super.onResume();
 	       ButtonData();
-	       state();
 	       check_roum();
+		  check_sharing();
 	       
 	       if (mSettings.contains(APP_PREFERENCES_tgb_menu)) {
 	        	 Boolean menu = mSettings.getBoolean(APP_PREFERENCES_tgb_menu, true);
@@ -155,7 +156,7 @@ public class ActivitySota extends Activity implements OnClickListener{
 	       if (mSettings.contains(APP_PREFERENCES_bold_text)) {
 	        	 Boolean bold = mSettings.getBoolean(APP_PREFERENCES_bold_text, true);
 				if (bold == true){
-					textView2.setTypeface(typefaceBold);
+					//textView2.setTypeface(typefaceBold);
 			        textView1.setTypeface(typefaceBold);
 			        Button01.setTypeface(typefaceBold);
 			        Button02.setTypeface(typefaceBold);
@@ -168,7 +169,7 @@ public class ActivitySota extends Activity implements OnClickListener{
 	       if (mSettings.contains(APP_PREFERENCES_text_size)) {
 	        	 String size = mSettings.getString(APP_PREFERENCES_text_size, "19");
 				if (size .contains( "Small")){
-					textView2.setTextSize(11);
+					//textView2.setTextSize(11);
 			        textView1.setTextSize(11);
 			        Button01.setTextSize(13);
 			        Button02.setTextSize(13);
@@ -176,48 +177,60 @@ public class ActivitySota extends Activity implements OnClickListener{
 			        type.setTextSize(13);
 				}
 				if (size .contains( "Normal")){
-					textView2.setTextSize(13);
+					//textView2.setTextSize(13);
 			        textView1.setTextSize(13);
 			        Button01.setTextSize(15);
 			        Button02.setTextSize(15);
-			        Button02.setTextSize(15);
+			        Button03.setTextSize(15);
 			        type.setTextSize(15);
 				}
 				if (size .contains( "Large")){
-					textView2.setTextSize(15);
+					//textView2.setTextSize(15);
 			        textView1.setTextSize(15);
 			        Button01.setTextSize(18);
 			        Button02.setTextSize(18);
-			        Button02.setTextSize(18);
+			        Button03.setTextSize(18);
 			        type.setTextSize(18);
 				}
 				if (size .contains( "xLarge")){
-					textView2.setTextSize(18);
+					//textView2.setTextSize(18);
 			        textView1.setTextSize(18);
 			        Button01.setTextSize(20);
 			        Button02.setTextSize(20);
-			        Button02.setTextSize(20);
+			        Button03.setTextSize(20);
 			        type.setTextSize(20);
 				}
 	       }
 	       
 	    }
-	  private void check_roum() {
+
+	private void check_sharing() {
+		WifiManager wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+		TextView tx32 = (TextView) findViewById(R.id.textView32);
+		if(isSharingWiFi(wifi) == true){
+			tx32.setText(R.string.on);
+		}
+		else{
+			tx32.setText(R.string.off);
+		}
+	}
+
+	private void check_roum() {
 		  final TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
 	        PhoneStateListener phoneStateListener = new PhoneStateListener() {
 	            @Override
 	            public void onServiceStateChanged(ServiceState serviceState) {
 	                super.onServiceStateChanged(serviceState);
 	                if (telephonyManager.isNetworkRoaming()) {
-	                   tb_roum.setChecked(true);
+	                   type.setText(R.string.roaming_text +" "+ R.string.on);
 	                } else {
-	                    // Not in Roaming
+						type.setText(R.string.roaming_text +" "+ R.string.off);
 	                }
 	                // You can also check roaming state using this
 	                if (serviceState.getRoaming()) {
-	                	 tb_roum.setChecked(true);
+						type.setText(R.string.roaming_text +" "+ R.string.on);
 	                } else {
-	                    // Not in Roaming
+						type.setText(R.string.roaming_text +" "+ R.string.off);
 	                }
 	            }
 	        };
@@ -231,122 +244,91 @@ public class ActivitySota extends Activity implements OnClickListener{
 	    		tb_data.setChecked(true);
 	    	}
 	    }
-	  
-	  
-	  
+
+
+	private static boolean isSharingWiFi(final WifiManager manager)
+	{
+		try
+		{
+			final Method method = manager.getClass().getDeclaredMethod("isWifiApEnabled");
+			method.setAccessible(true); //in the case of visibility change in future APIs
+			return (Boolean) method.invoke(manager);
+		}
+		catch (final Throwable ignored)
+		{
+		}
+
+		return false;
+	}
 	  
 	  public void onClick(View v) {
-		  int id = v.getId();
-		  
-	        if (id == R.id.soundtoggle){
-	        	try {
-            	dataManager  = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-            	if((tb_data).isChecked()) {
-            		 try {
-     		            dataMtd = ConnectivityManager.class.getDeclaredMethod("setMobileDataEnabled", boolean.class);
-     		        } catch (NoSuchMethodException e) {
-     		            // TODO Auto-generated catch block
-     		            e.printStackTrace();
-     		        }
-     		        dataMtd.setAccessible(true);
-     		        try {
-     		            dataMtd.invoke(dataManager, true);
-     		        } catch (IllegalArgumentException e) {
-     		            // TODO Auto-generated catch block
-     		            e.printStackTrace();
-     		        } catch (IllegalAccessException e) {
-     		            // TODO Auto-generated catch block
-     		            e.printStackTrace();
-     		        } catch (InvocationTargetException e) {
-     		            // TODO Auto-generated catch block
-     		            e.printStackTrace();
-     		        }   
-     			 }
-            	else {
-            		 try {
-     		            dataMtd = ConnectivityManager.class.getDeclaredMethod("setMobileDataEnabled", boolean.class);
-     		        } catch (NoSuchMethodException e) {
-     		            // TODO Auto-generated catch block
-     		            e.printStackTrace();
-     		        }
-     		        dataMtd.setAccessible(true);
-     		        try {
-     		            dataMtd.invoke(dataManager, false);
-     		        } catch (IllegalArgumentException e) {
-     		            // TODO Auto-generated catch block
-     		            e.printStackTrace();
-     		        } catch (IllegalAccessException e) {
-     		            // TODO Auto-generated catch block
-     		            e.printStackTrace();
-     		        } catch (InvocationTargetException e) {
-     		            // TODO Auto-generated catch block
-     		            e.printStackTrace();
-     		        }   
-            	}
-	        }catch(Exception e){
-	        	
-	        }
-	        }
-	        
-	        
-	        else if (id == R.id.Button03){
-	        	Intent settingsIntent = new Intent(android.provider.Settings.ACTION_APN_SETTINGS);
-	        	startActivity(settingsIntent);
-	 	        	overridePendingTransition(center_to_left, center_to_left2);
-	 	        
-	        }
-	        
-	       
-	       
+
+		  switch (v.getId()){
+
+			  case R.id.soundtoggle:
+				  try {
+					  dataManager  = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+					  if((tb_data).isChecked()) {
+						  try {
+							  dataMtd = ConnectivityManager.class.getDeclaredMethod("setMobileDataEnabled", boolean.class);
+						  } catch (NoSuchMethodException e) {
+							  // TODO Auto-generated catch block
+							  e.printStackTrace();
+						  }
+						  dataMtd.setAccessible(true);
+						  try {
+							  dataMtd.invoke(dataManager, true);
+						  } catch (IllegalArgumentException e) {
+							  // TODO Auto-generated catch block
+							  e.printStackTrace();
+						  } catch (IllegalAccessException e) {
+							  // TODO Auto-generated catch block
+							  e.printStackTrace();
+						  } catch (InvocationTargetException e) {
+							  // TODO Auto-generated catch block
+							  e.printStackTrace();
+						  }
+					  }
+					  else {
+						  try {
+							  dataMtd = ConnectivityManager.class.getDeclaredMethod("setMobileDataEnabled", boolean.class);
+						  } catch (NoSuchMethodException e) {
+							  // TODO Auto-generated catch block
+							  e.printStackTrace();
+						  }
+						  dataMtd.setAccessible(true);
+						  try {
+							  dataMtd.invoke(dataManager, false);
+						  } catch (IllegalArgumentException e) {
+							  // TODO Auto-generated catch block
+							  e.printStackTrace();
+						  } catch (IllegalAccessException e) {
+							  // TODO Auto-generated catch block
+							  e.printStackTrace();
+						  } catch (InvocationTargetException e) {
+							  // TODO Auto-generated catch block
+							  e.printStackTrace();
+						  }
+					  }
+				  }catch(Exception e){
+
+				  }
+				  break;
+
+			  case R.id.Button02:
+				  Intent go = new Intent(this, ActivitySotaParam.class);
+				  startActivity(go);
+				  overridePendingTransition(center_to_left, center_to_left2);
+				  break;
+
+
+		  }
+
 	  }
 	  
 	  
 	  
-	  private void state() {
-		  TextView type = (TextView)findViewById(R.id.textView007);
-		  TelephonyManager teleMan =  
-		            (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
-		int networkType = teleMan.getNetworkType();	  
-	  switch (networkType)
-	  {
-	        
-	  case 4:
-	      type.setText(R.string.cdma);
-	      break;      
-	  case 2:
-	      type.setText(R.string.edge);
-	      break;  
-	        
-	  case 1:
-	      type.setText(R.string.gprs);
-	      break;      
-	  case 8:
-	      type.setText(R.string.hsdpa);
-	      break;      
-	  case 10:
-	      type.setText(R.string.hspa);
-	      break;          
-	  case 15:
-	      type.setText(R.string.hspa_plus);
-	      break;          
-	  case 9:
-	      type.setText(R.string.hsupa);
-	      break;          
-	  case 11:
-	      type.setText(R.string.iden);
-	      break;
-	  case 13:
-	      type.setText(R.string.lte);
-	      break;
-	  case 3:
-	      type.setText(R.string.umts);
-	      break;          
-	  case 0:
-	      type.setText(R.string.unknown);
-	      break;
-	  }
-	 
-	  }
+
 	  
 	  @Override
 	    public boolean onKeyDown(int keycode, KeyEvent e) {

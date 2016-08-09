@@ -6,7 +6,7 @@
     android:layout_height="fill_parent"
     android:background="@color/background_fon"
     android:orientation="vertical"
-    tools:context=".ActivitySota" >
+    tools:context=".ActivitySotaParam" >
 
     <ua.mkh.settings.full.EdgeEffectScrollView
         android:id="@+id/scrollView1"
@@ -23,10 +23,70 @@
             android:orientation="vertical" >
 
             <LinearLayout
+                android:id="@+id/LinearLayout01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:ems="10"
+                android:orientation="vertical"
+                android:layout_marginTop="80dp">
+
+                <ImageView
+                    android:id="@+id/ImageView02"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:ems="10"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/line_cray" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:ems="10" >
+
+                    <Button
+                        android:id="@+id/Button02"
+                        android:layout_width="fill_parent"
+                        android:layout_height="38dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@color/transparent"
+                        android:clickable="false"
+                        android:ems="10"
+                        android:gravity="left|center_vertical"
+                        android:text="@string/button_network_type"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:paddingLeft="15dp" />
+
+                    <TextView
+                        android:id="@+id/textView007"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/ImageView07"
+                        android:text="TextView"
+                        android:textColor="@color/hint_text"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:id="@+id/ImageView07"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/next" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/LinearLayoutWifi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="80dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
@@ -55,7 +115,7 @@
                         android:clickable="false"
                         android:ems="10"
                         android:gravity="left|center_vertical"
-                        android:text="@string/button_enable_data"
+                        android:text="@string/roaming"
                         android:textColor="@color/black"
                         android:textSize="15sp"
                         android:paddingLeft="15dp" />
@@ -72,75 +132,24 @@
                         android:textOff=" "
                         android:textOn=" " />
                 </RelativeLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/LinearLayout01"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:ems="10"
-                android:orientation="vertical" >
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="38dp"
-                    android:ems="10" >
-
-                    <ImageView
-                        android:id="@+id/ImageView03"
-                        android:layout_width="fill_parent"
-                        android:layout_height="1px"
-                        android:layout_marginLeft="15dp"
-                        android:ems="10"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/line_cray" />
-
-                    <Button
-                        android:id="@+id/Button02"
-                        android:layout_width="fill_parent"
-                        android:layout_height="38dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentTop="true"
-                        android:background="@color/transparent"
-                        android:clickable="false"
-                        android:ems="10"
-                        android:gravity="left|center_vertical"
-                        android:text="Параметры данных"
-                        android:textColor="@color/black"
-                        android:textSize="15sp"
-                        android:paddingLeft="15dp" />
-
-                    <TextView
-                        android:id="@+id/textView007"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_toLeftOf="@+id/ImageView07"
-                        android:text="TextView"
-                        android:textColor="@color/hint_text"
-                        android:textSize="15sp" />
-
-                    <ImageView
-                        android:id="@+id/ImageView07"
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/next" />
-                </RelativeLayout>
 
                 <ImageView
-                    android:id="@+id/ImageView02"
+                    android:id="@+id/imageView12"
                     android:layout_width="fill_parent"
                     android:layout_height="1px"
                     android:ems="10"
                     android:scaleType="fitXY"
                     android:src="@drawable/line_cray" />
             </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/three_g_info"
+                android:id="@+id/textView"
+                android:padding="15dp"
+                android:textColor="@color/hint_text"
+                android:textSize="13dp" />
 
             <LinearLayout
                 android:id="@+id/LinearLayout02"
@@ -176,19 +185,9 @@
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="15dp"
-                        android:text="@string/apn"
+                        android:text="@string/apn_settings"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/textView32"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="TextView"
-                        android:textColor="@color/hint_text"
-                        android:textSize="15sp"
-                        android:layout_toLeftOf="@+id/ImageView06" />
 
                     <ImageView
                         android:id="@+id/ImageView04"
