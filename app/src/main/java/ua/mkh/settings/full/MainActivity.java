@@ -773,8 +773,7 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 						new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
 								Manifest.permission.GET_ACCOUNTS,
 								Manifest.permission.READ_PHONE_STATE,
-								Manifest.permission.ACCESS_FINE_LOCATION,
-								Manifest.permission.WRITE_SETTINGS},
+								Manifest.permission.ACCESS_FINE_LOCATION},
 						REQUEST_WRITE_STORAGE);
 
 				Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_WRITE_SETTINGS);
