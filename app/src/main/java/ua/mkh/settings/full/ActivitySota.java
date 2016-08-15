@@ -27,6 +27,7 @@ import android.provider.Settings.SettingNotFoundException;
 import android.telephony.PhoneStateListener;
 import android.telephony.ServiceState;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -77,17 +78,24 @@ public class ActivitySota extends Activity implements OnClickListener{
 			typefaceThin = Typeface.createFromAsset(getAssets(), thin);
 			
 			mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
-			
-			
-			
+
+
+
 			
 			textView2 = (TextView)findViewById(R.id.textView02);
 			//textView1 = (TextView)findViewById(R.id.textView1);
 	        tb_data = (ToggleButton) findViewById(R.id.soundtoggle);
-	        tb_data.setOnClickListener(this);
+	        //tb_data.setOnClickListener(this);
 	        tb_roum = (ToggleButton) findViewById(R.id.ToggleButton01);
-	        
-	        
+
+		  Log.e("MY APP", String.valueOf(android.os.Build.VERSION.SDK_INT));
+		  if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M ) {
+			 tb_data.setEnabled(false);
+		  }
+		  else{
+			  tb_data.setOnClickListener(this);
+		  }
+
 	        Button01 = (Button)findViewById(R.id.Button01);
 	        Button02 = (Button)findViewById(R.id.Button02);
 		  	Button02.setOnClickListener(this);
@@ -318,6 +326,12 @@ public class ActivitySota extends Activity implements OnClickListener{
 			  case R.id.Button02:
 				  Intent go = new Intent(this, ActivitySotaParam.class);
 				  startActivity(go);
+				  overridePendingTransition(center_to_left, center_to_left2);
+				  break;
+
+			  case R.id.Button03:
+				  Intent go1 = new Intent(this, ActivityVPN.class);
+				  startActivity(go1);
 				  overridePendingTransition(center_to_left, center_to_left2);
 				  break;
 
