@@ -34,7 +34,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="40dp"
                     android:ems="10" >
 
                     <ImageView
@@ -48,7 +48,7 @@
                     <Button
                         android:id="@+id/ButtonWifi"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -63,8 +63,8 @@
 
                     <ToggleButton
                         android:id="@+id/ToggleButton01"
-                        android:layout_width="54dp"
-                        android:layout_height="44dp"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
@@ -77,19 +77,19 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:id="@+id/LayoutMain"
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="40dp"
                     android:background="@color/white" >
 
                     <Button
                         android:id="@+id/Connected"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -169,15 +169,16 @@
                         android:visibility="gone" />
 
                 </RelativeLayout>
-            </LinearLayout>
 
-            <ImageView
-                android:id="@+id/ImageView02"
-                android:layout_width="fill_parent"
-                android:layout_height="1px"
-                android:ems="10"
-                android:scaleType="fitXY"
-                android:src="@drawable/line_cray" />
+                <ImageView
+                    android:id="@+id/ImageView02"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:ems="10"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/line_cray"
+                    android:layout_alignParentBottom="true" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/textView2"

@@ -25,24 +25,24 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginTop="80dp"
                 android:background="@color/white"
                 android:overScrollMode="always" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:overScrollMode="always" >
 
                     <Button
                         android:id="@+id/Button09"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="15dp"
@@ -91,17 +91,17 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="40dp"
                     android:overScrollMode="always" >
 
                     <Button
                         android:id="@+id/Button04"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="15dp"
@@ -147,17 +147,17 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="40dp"
                     android:overScrollMode="always" >
 
                     <Button
                         android:id="@+id/Button12"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="15dp"
@@ -206,17 +206,17 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="40dp"
                     android:overScrollMode="always" >
 
                     <Button
                         android:id="@+id/Button13"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="15dp"
@@ -255,17 +255,17 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="40dp"
                     android:overScrollMode="always" >
 
                     <Button
                         android:id="@+id/Button05"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="15dp"
@@ -312,17 +312,17 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="40dp"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button06"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="15dp"
@@ -369,17 +369,17 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="40dp"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button02"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="15dp"
@@ -418,7 +418,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="40dp"
                     android:ems="10" >
 
                     <ImageView
@@ -432,7 +432,7 @@
                     <Button
                         android:id="@+id/Button01"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -448,7 +448,7 @@
                     <ToggleButton
                         android:id="@+id/rotatetoggle"
                         android:layout_width="60dp"
-                        android:layout_height="44dp"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
@@ -480,17 +480,17 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="40dp"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button11"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="15dp"
@@ -548,17 +548,17 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="40dp"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button07"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="15dp"
@@ -597,17 +597,17 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="40dp"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button08"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="15dp"
@@ -646,17 +646,17 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="40dp"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button10"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="15dp"
@@ -703,17 +703,17 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="40dp"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button14"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="15dp"
@@ -771,17 +771,17 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="40dp"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button03"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="15dp"
@@ -839,13 +839,13 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="40dp"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/ButtonSetupApp"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"

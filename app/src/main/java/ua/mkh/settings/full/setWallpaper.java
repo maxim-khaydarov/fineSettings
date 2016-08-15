@@ -74,7 +74,7 @@ public class setWallpaper extends Activity  {
 	
 	MyTask mt;
 	
-	int menui = 0;
+	
 	
 	private final static int BUFFER_SIZE = 2048;
 	

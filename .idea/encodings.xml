@@ -15,7 +15,9 @@
     <file url="file://$PROJECT_DIR$/app/src/main/java/ua/mkh/settings/full/ActivityOboi.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/ua/mkh/settings/full/ActivityStorage.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/ua/mkh/settings/full/ActivityWifi.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/ua/mkh/settings/full/ActivityWifiInfo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/ua/mkh/settings/full/Blocker.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/ua/mkh/settings/full/MainActivity.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/ua/mkh/settings/full/ViewWallpaper.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/ua/mkh/settings/full/setWallpaper.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />

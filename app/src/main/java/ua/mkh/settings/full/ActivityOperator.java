@@ -37,7 +37,7 @@ public class ActivityOperator extends Activity implements View.OnClickListener{
 	
 	String networkText;
 	
-	int menui = 0;
+	
 	SharedPreferences mSettings;
 	public static final String APP_PREFERENCES = "mysettings";
 	public static final String APP_PREFERENCES_text_size = "txt_size";
@@ -227,15 +227,7 @@ public class ActivityOperator extends Activity implements View.OnClickListener{
 				}
 				
 	        
-	       if (mSettings.contains(APP_PREFERENCES_tgb_menu)) {
-	        	 Boolean menu = mSettings.getBoolean(APP_PREFERENCES_tgb_menu, true);
-				if (menu == true){
-					menui=1;
-				}
-				else{
-					menui=0;
-				}
-	        }
+	       
 	        
 	       
 	       
@@ -297,12 +289,7 @@ public class ActivityOperator extends Activity implements View.OnClickListener{
 	@Override
     public boolean onKeyDown(int keycode, KeyEvent e) {
         switch(keycode) {
-            case KeyEvent.KEYCODE_MENU:
-            	if (menui == 1){
-           		 openDialog(); 
-           		 
-           	 }
-                return true;
+            
             case KeyEvent.KEYCODE_BACK:
             	Intent intent18 = new Intent(this, MainActivity.class);
    	       	 startActivity(intent18);
@@ -313,45 +300,6 @@ public class ActivityOperator extends Activity implements View.OnClickListener{
         return super.onKeyDown(keycode, e);
    }
  
-private void openDialog(){
- final Dialog dialog = new Dialog(ActivityOperator.this,android.R.style.Theme_Translucent);
- dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
- dialog.setContentView(R.layout.dialog_menu);
- dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
- Button ButtonInfo = (Button)dialog.getWindow().findViewById(R.id.button1);
- Button ButtonMenuCancel = (Button)dialog.getWindow().findViewById(R.id.ButtonMenuCancel);
- Button ButtonMenuSettings = (Button)dialog.getWindow().findViewById(R.id.ButtonMenuSettings);
- ButtonMenuSettings.setTypeface(typefaceRoman);
- ButtonMenuCancel.setTypeface(typefaceMedium);
- ButtonInfo.setTypeface(typefaceRoman);
- ButtonInfo.setText(R.string.menu_info_main);
- 
- ButtonMenuCancel.setOnClickListener(new OnClickListener(){
-
-@Override
-public void onClick(View v) {
-dialog.dismiss();
-}});
- 
- ButtonMenuSettings.setOnClickListener(new OnClickListener(){
-
-	   @Override
-	   public void onClick(View v) {
-		 launchIntent();
-	   }});
- 
- dialog.show();
-}
-
-
-
- 
- 
-private void launchIntent() {
-    Intent it = new Intent(ActivityOperator.this, SettingsActivity.class);  
-    startActivity(it);
-    	overridePendingTransition(center_to_right, center_to_right2);
-    	 }
 
 
 	

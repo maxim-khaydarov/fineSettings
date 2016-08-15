@@ -52,8 +52,7 @@ public class ActivityUsageInfo extends Activity implements View.OnClickListener{
 	  
 	   int UNINSTALL_REQUEST_CODE = 1;
 		
-	   int menui = 0;
-		
+	   
 	   int center_to_right, center_to_right2;
 	   int center_to_left, center_to_left2;
 	 
@@ -222,48 +221,48 @@ public class ActivityUsageInfo extends Activity implements View.OnClickListener{
 
 	 		overridePendingTransition(center_to_right, center_to_right2);
 	    	 }
-	     
-	     
-	     private void openDialog(){
-		     final Dialog dialog = new Dialog(this,android.R.style.Theme_Translucent);
-		     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-		     dialog.setContentView(R.layout.dialog_menu);
-		     dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
-		     Button ButtonInfo = (Button)dialog.getWindow().findViewById(R.id.button1);
-		     Button ButtonMenuCancel = (Button)dialog.getWindow().findViewById(R.id.ButtonMenuCancel);
-		     Button ButtonMenuSettings = (Button)dialog.getWindow().findViewById(R.id.ButtonMenuSettings);
-		     ButtonMenuSettings.setTypeface(typefaceRoman);
-		     ButtonMenuCancel.setTypeface(typefaceMedium);
-		     ButtonInfo.setTypeface(typefaceRoman);
-		     ButtonMenuSettings.setText(R.string.delete_app);
-		     
-		     String strMeatFormat1 = getResources().getString(R.string.delete_app_info);
-		   	String strMeatMsg2 = String.format(strMeatFormat1, title, getFileSize(getAvailableInternalMemorySize()));
-		     
-		   	ButtonInfo.setText(strMeatMsg2);
-		   	
-		     ButtonMenuCancel.setOnClickListener(new OnClickListener(){
 
-		   @Override
-		   public void onClick(View v) {
-		    dialog.dismiss();
-		   }});
-		     
-		     ButtonMenuSettings.setOnClickListener(new OnClickListener(){
+	private void openDialog(){
+		final Dialog dialog = new Dialog(this,android.R.style.Theme_Translucent);
+		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		dialog.setContentView(R.layout.dialog_menu);
+		dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+		Button ButtonInfo = (Button)dialog.getWindow().findViewById(R.id.button1);
+		Button ButtonMenuCancel = (Button)dialog.getWindow().findViewById(R.id.ButtonMenuCancel);
+		Button ButtonMenuSettings = (Button)dialog.getWindow().findViewById(R.id.ButtonMenuSettings);
+		ButtonMenuSettings.setTypeface(typefaceRoman);
+		ButtonMenuCancel.setTypeface(typefaceMedium);
+		ButtonInfo.setTypeface(typefaceRoman);
+		ButtonMenuSettings.setText(R.string.delete_app);
 
-		  	   @Override
-		  	   public void onClick(View v) {
-		  		   
-		  		 Intent intent = new Intent(Intent.ACTION_UNINSTALL_PACKAGE);  
-		  		intent.setData(Uri.parse("package:" + code));  
-		  		intent.putExtra(Intent.EXTRA_RETURN_RESULT, true);
-		  		startActivityForResult(intent, UNINSTALL_REQUEST_CODE);
-		  		
-		  		 
-		  	   }});
-		     
-		     dialog.show();
-		    }
+		String strMeatFormat1 = getResources().getString(R.string.delete_app_info);
+		String strMeatMsg2 = String.format(strMeatFormat1, title, getFileSize(getAvailableInternalMemorySize()));
+
+		ButtonInfo.setText(strMeatMsg2);
+
+		ButtonMenuCancel.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
+			}});
+
+		ButtonMenuSettings.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+
+				Intent intent = new Intent(Intent.ACTION_UNINSTALL_PACKAGE);
+				intent.setData(Uri.parse("package:" + code));
+				intent.putExtra(Intent.EXTRA_RETURN_RESULT, true);
+				startActivityForResult(intent, UNINSTALL_REQUEST_CODE);
+
+
+			}});
+
+		dialog.show();
+	}
+	    
 	   	
 	     @Override
 	     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -288,15 +287,7 @@ public class ActivityUsageInfo extends Activity implements View.OnClickListener{
 		        super.onResume();
 		       
 		       
-		       if (mSettings.contains(APP_PREFERENCES_tgb_menu)) {
-		        	 Boolean menu = mSettings.getBoolean(APP_PREFERENCES_tgb_menu, true);
-					if (menu == true){
-						menui=1;
-					}
-					else{
-						menui=0;
-					}
-		        }
+		       
 
 		        	 int speed = mSettings.getInt(APP_PREFERENCES_ANIM_SPEED, 1);
 					if (speed == 1){
@@ -392,7 +383,9 @@ public class ActivityUsageInfo extends Activity implements View.OnClickListener{
 		        }
 		        return super.onKeyDown(keycode, e);
 		   }
-	     
+
+
+
 	  }
 	
 	

@@ -166,26 +166,7 @@ public class ActivityStorage extends Activity {
 	        super.onResume();
 	        
 	       
-				// Получаем число из настроек
-	        	 int speed = mSettings.getInt(APP_PREFERENCES_ANIM_SPEED, 1);
-				if (speed == 1){
-					center_to_right = R.anim.slide_center_to_right_short;
-					center_to_right2 = R.anim.slide_center_to_right2_short;
-					center_to_left = R.anim.slide_center_to_left_short;
-					center_to_left2 = R.anim.slide_center_to_left2_short;
-				}
-				if (speed == 2){
-					center_to_right = R.anim.slide_center_to_right_medium;
-					center_to_right2 = R.anim.slide_center_to_right2_medium;
-					center_to_left = R.anim.slide_center_to_left_medium;
-					center_to_left2 = R.anim.slide_center_to_left2_medium;
-				}
-				if (speed == 3){
-					center_to_right = R.anim.slide_center_to_right_long;
-					center_to_right2 = R.anim.slide_center_to_right2_long;
-					center_to_left = R.anim.slide_center_to_left_long;
-					center_to_left2 = R.anim.slide_center_to_left2_long;
-				}
+				
 				
 	    
 	        

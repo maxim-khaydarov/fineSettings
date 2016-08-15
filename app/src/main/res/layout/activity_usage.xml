@@ -51,7 +51,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="40dp"
                     android:background="@color/white" >
 
                     <ImageView
@@ -81,7 +81,7 @@
                     <Button
                         android:id="@+id/Button08"
                         android:layout_width="fill_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
@@ -104,7 +104,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="40dp"
                     android:background="@color/white" >
 
                     <ImageView
@@ -134,7 +134,7 @@
                     <Button
                         android:id="@+id/Button09"
                         android:layout_width="fill_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
@@ -158,13 +158,13 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="40dp"
                     android:background="@color/white" >
 
                     <Button
                         android:id="@+id/Button02"
                         android:layout_width="fill_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"

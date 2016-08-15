@@ -126,13 +126,13 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:background="@color/white" >
 
                     <Button
                         android:id="@+id/button1"
                         android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_height="match_parent"
                         android:background="@color/transparent"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="15dp"
@@ -167,13 +167,13 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:background="@color/white" >
 
                     <Button
                         android:id="@+id/button2"
                         android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_height="match_parent"
                         android:background="@color/transparent"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="15dp"
@@ -209,7 +209,7 @@
             <LinearLayout
                 android:id="@+id/LinearLayout01"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginBottom="40dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/white"
@@ -218,7 +218,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:ems="10" >
 
                     <ImageView
@@ -232,7 +232,7 @@
                     <Button
                         android:id="@+id/Button02"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"

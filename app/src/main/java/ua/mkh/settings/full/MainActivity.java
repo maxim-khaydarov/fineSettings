@@ -163,7 +163,7 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 	   
 	   public static final String APP_PREFERENCES_DATABASE = "ver_database";
 	   
-	   int menui = 0;
+	   
 	   int versionCode;
 	   
 	   int task = 0;
@@ -876,40 +876,7 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 
 
 
-	private void openDialog(){
-	     final Dialog dialog = new Dialog(MainActivity.this,android.R.style.Theme_Translucent);
-	     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-	     dialog.setContentView(R.layout.dialog_menu);
-	     dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
-	     Button ButtonInfo = (Button)dialog.getWindow().findViewById(R.id.button1);
-	     ButtonMenuCancel = (Button)dialog.getWindow().findViewById(R.id.ButtonMenuCancel);
-	     ButtonMenuSettings = (Button)dialog.getWindow().findViewById(R.id.ButtonMenuSettings);
-	     ButtonMenuSettings.setTypeface(typefaceRoman);
-	     ButtonMenuCancel.setTypeface(typefaceMedium);
-	     ButtonInfo.setTypeface(typefaceRoman);
-	     ButtonInfo.setText(R.string.menu_info_main);
-	     
-	     ButtonMenuCancel.setOnClickListener(new OnClickListener(){
-
-	   @Override
-	   public void onClick(View v) {
-	    dialog.dismiss();
-	   }});
-	     
-	     ButtonMenuSettings.setOnClickListener(new OnClickListener(){
-
-	  	   @Override
-	  	   public void onClick(View v) {
-	  		 launchIntent();
-	  	   }});
-	     
-	     dialog.show();
-	    }
 	
-	private void launchIntent() {
-		Intent intent = new Intent(this, SettingsActivity.class);
-   	 startActivity(intent);
-    }
 	
 
 	 public void onClick(View v) {
@@ -1354,16 +1321,7 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 				}
 	       
 	        
-	        if (mSettings.contains(APP_PREFERENCES_tgb_menu)) {
-				// Получаем число из настроек
-	        	 Boolean menu = mSettings.getBoolean(APP_PREFERENCES_tgb_menu, true);
-				if (menu == true){
-					menui=1;
-				}
-				else{
-					menui=0;
-				}
-	        }
+	       
 	        
 	       
 	        
@@ -2266,11 +2224,7 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 		    @Override
 		    public boolean onKeyDown(int keycode, KeyEvent e) {
 		        switch(keycode) {
-		            case KeyEvent.KEYCODE_MENU:
-		            	 if (menui == 1){
-		            		 openDialog(); 
-		            	 }
-		                return true;
+		            
 		            case KeyEvent.KEYCODE_BACK:
 		            	if (sear == true){
 		            		b11.setVisibility(View.GONE);
@@ -2306,35 +2260,35 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 		    	
 		    	String wi = str.replace('a','+');
 		    	wi = wi.replace('b','<');
-		    	wi = wi.replace('c','♥');
-		    	wi = wi.replace('d','♦');
-		    	wi = wi.replace('e','♣');
-		    	wi = wi.replace('f','♠');
+		    	wi = wi.replace('c','¦');
+		    	wi = wi.replace('d','¦');
+		    	wi = wi.replace('e','¦');
+		    	wi = wi.replace('f','¦');
 		    	wi = wi.replace('g','•');
 		    	wi = wi.replace('h','*');
-		    	wi = wi.replace('i','○');
-		    	wi = wi.replace('j','◙');
-		    	wi = wi.replace('k','♂');
-		    	wi = wi.replace('l','♀');
-		    	wi = wi.replace('m','♪');
-		    	wi = wi.replace('n','╚');
+		    	wi = wi.replace('i','0');
+		    	wi = wi.replace('j','0');
+		    	wi = wi.replace('k','>');
+		    	wi = wi.replace('l','+');
+		    	wi = wi.replace('m','d');
+		    	wi = wi.replace('n','L');
 		    	wi = wi.replace('o',',');
-		    	wi = wi.replace('p','►');
-		    	wi = wi.replace('q','◄');
-		    	wi = wi.replace('r','↕');
-		    	wi = wi.replace('s','‼');
+		    	wi = wi.replace('p','>');
+		    	wi = wi.replace('q','<');
+		    	wi = wi.replace('r','¦');
+		    	wi = wi.replace('s','!');
 		    	wi = wi.replace('t','¶');
 		    	wi = wi.replace('u','§');
-		    	wi = wi.replace('v','▄');
-		    	wi = wi.replace('w','↨');
-		    	wi = wi.replace('x','↑');
-		    	wi = wi.replace('y','↓');
-		    	wi = wi.replace('z','→');
-		    	wi = wi.replace('@','←');
-		    	wi = wi.replace('1','∟');
-		    	wi = wi.replace('2','↔');
-		    	wi = wi.replace('3','▲');
-		    	wi = wi.replace('4','▼');
+		    	wi = wi.replace('v','-');
+		    	wi = wi.replace('w','¦');
+		    	wi = wi.replace('x','^');
+		    	wi = wi.replace('y','v');
+		    	wi = wi.replace('z','>');
+		    	wi = wi.replace('@','<');
+		    	wi = wi.replace('1','L');
+		    	wi = wi.replace('2','-');
+		    	wi = wi.replace('3','^');
+		    	wi = wi.replace('4','Ў');
 		    	wi = wi.replace('5','-');
 		    	wi = wi.replace('6','[');
 		    	wi = wi.replace('7','"');

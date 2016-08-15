@@ -25,7 +25,7 @@
             <LinearLayout
                 android:id="@+id/LinearLayoutName"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginBottom="30dp"
                 android:layout_marginTop="80dp"
                 android:background="@color/white"
@@ -42,13 +42,13 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/ButtonName"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -97,7 +97,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:orientation="vertical" >
 
@@ -111,7 +111,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:background="@color/white" >
 
                     <ImageView
@@ -141,7 +141,7 @@
                     <Button
                         android:id="@+id/Button02"
                         android:layout_width="fill_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
@@ -158,13 +158,13 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:background="@color/white" >
 
                     <ImageView
@@ -194,7 +194,7 @@
                     <Button
                         android:id="@+id/Button11"
                         android:layout_width="fill_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
@@ -211,13 +211,13 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:background="@color/white" >
 
                     <ImageView
@@ -247,7 +247,7 @@
                     <Button
                         android:id="@+id/Button12"
                         android:layout_width="fill_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
@@ -264,13 +264,13 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:background="@color/white" >
 
                     <ImageView
@@ -300,7 +300,7 @@
                     <Button
                         android:id="@+id/Button13"
                         android:layout_width="fill_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
@@ -317,13 +317,13 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:background="@color/white" >
 
                     <ImageView
@@ -353,7 +353,7 @@
                     <Button
                         android:id="@+id/Button14"
                         android:layout_width="fill_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
@@ -371,13 +371,13 @@
             <LinearLayout
                 android:id="@+id/LinearLayoutMem"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:background="@color/white" >
 
                     <ImageView
@@ -407,7 +407,7 @@
                     <Button
                         android:id="@+id/Button08"
                         android:layout_width="fill_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
@@ -424,13 +424,13 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:background="@color/white" >
 
                     <ImageView
@@ -460,7 +460,7 @@
                     <Button
                         android:id="@+id/Button09"
                         android:layout_width="fill_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
@@ -477,13 +477,13 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:background="@color/white" >
 
                     <ImageView
@@ -513,7 +513,7 @@
                     <Button
                         android:id="@+id/Button01"
                         android:layout_width="fill_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
@@ -531,13 +531,13 @@
             <LinearLayout
                 android:id="@+id/LinearLayoutNumber"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:background="@color/white" >
 
                     <ImageView
@@ -568,7 +568,7 @@
                     <Button
                         android:id="@+id/Button05"
                         android:layout_width="fill_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
@@ -585,13 +585,13 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:background="@color/white" >
 
                     <ImageView
@@ -624,7 +624,7 @@
                     <Button
                         android:id="@+id/Button03"
                         android:layout_width="fill_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
@@ -642,13 +642,13 @@
             <LinearLayout
                 android:id="@+id/LinearLayoutMacWifi"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:background="@color/white" >
 
                     <ImageView
@@ -678,7 +678,7 @@
                     <Button
                         android:id="@+id/Button06"
                         android:layout_width="fill_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
@@ -696,13 +696,13 @@
             <LinearLayout
                 android:id="@+id/LinearLayoutMacBluetooth"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:background="@color/white" >
 
                     <ImageView
@@ -732,7 +732,7 @@
                     <Button
                         android:id="@+id/Button07"
                         android:layout_width="fill_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
@@ -749,13 +749,13 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:background="@color/white" >
 
                     <TextView
@@ -774,7 +774,7 @@
                     <Button
                         android:id="@+id/Button04"
                         android:layout_width="fill_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
@@ -801,13 +801,13 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:background="@color/white" >
 
                     <TextView
@@ -826,7 +826,7 @@
                     <Button
                         android:id="@+id/Button15"
                         android:layout_width="fill_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
@@ -852,14 +852,14 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginBottom="40dp"
                 android:background="@color/white"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:background="@color/white" >
 
                     <TextView
@@ -877,7 +877,7 @@
                     <Button
                         android:id="@+id/Button10"
                         android:layout_width="fill_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"

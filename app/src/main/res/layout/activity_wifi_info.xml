@@ -96,7 +96,7 @@
             <LinearLayout
                 android:id="@+id/layout_join"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="38dp"
                 android:layout_marginTop="20dp"
                 android:background="@color/white"
                 android:ems="10"
@@ -105,7 +105,7 @@
 
                 <RelativeLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:ems="10">
 
                     <ImageView
@@ -119,7 +119,7 @@
                     <Button
                         android:id="@+id/button_join"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -157,7 +157,7 @@
             <LinearLayout
                 android:id="@+id/LinearLayoutWifi"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="38dp"
                 android:layout_marginTop="20dp"
                 android:background="@color/white"
                 android:ems="10"
@@ -165,7 +165,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:ems="10" >
 
                     <ImageView
@@ -179,7 +179,7 @@
                     <Button
                         android:id="@+id/ButtonWifi"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
