@@ -111,6 +111,7 @@ Typeface typefaceRoman, typefaceMedium, typefaceBold, typefaceThin;
 	  protected void onResume() {
 	        super.onResume();
 	        memory ();
+		  memory2 ();
 	       
 	       
 
@@ -236,9 +237,31 @@ Typeface typefaceRoman, typefaceMedium, typefaceBold, typefaceThin;
 	  public void memory (){
 		  
 		    TextView07.setText(getTotalInternalMemorySize());
-		    TextView08.setText(getAvailableInternalMemorySize());
+		    //TextView08.setText(getAvailableInternalMemorySize());
+
+
 		    
 	  }
+
+	public void memory2 (){
+		Float ios = 0f;
+		Float iss = 0f;
+
+		List<StorageUtils.StorageInfo> storageList = StorageUtils.getStorageList();
+		for (StorageUtils.StorageInfo storageInfo : storageList) {
+
+			Float o = Float.parseFloat(String.valueOf(new File(storageInfo.path).getTotalSpace()));
+			Float s = Float.parseFloat(String.valueOf(new File(storageInfo.path).getFreeSpace()));
+
+			ios = o + ios;
+			iss = s + iss;
+
+		}
+		DecimalFormat twoDForm = new DecimalFormat("#.##");
+
+		TextView07.setText(twoDForm.format((ios-iss)/1073741824f) +" " + getResources().getString(R.string.GigaByte));
+		TextView08.setText(twoDForm.format(iss/1073741824f) +" " + getResources().getString(R.string.GigaByte));
+	}
 	  
 	  public  boolean externalMemoryAvailable() {
 	        return //android.os.Environment.getExternalStorageState().equals(

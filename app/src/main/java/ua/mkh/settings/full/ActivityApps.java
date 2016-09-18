@@ -339,8 +339,8 @@ public class ActivityApps extends ListActivity {
 	
 	public void memory (){
 		  
-		    usage.setText(getFileSize(getTotalInternalMemorySize()));
-		    aviable.setText(getFileSize(getAvailableInternalMemorySize()));
+		    //usage.setText(getFileSize(getTotalInternalMemorySize()));
+		    //aviable.setText(getFileSize(getAvailableInternalMemorySize()));
 		     
 	  }
 	  

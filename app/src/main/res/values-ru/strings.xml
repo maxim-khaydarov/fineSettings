@@ -217,7 +217,7 @@
 	<string name="silence_call_disturb_text_always">Входящие звонки и уведомления будут заглушены при разблокированом и заблокированом экране.</string>
 	<string name="silence_call_disturb_text_lock">Входящие звонки и уведомления будут заглушены при заблокированом экране.</string>
 	<string name="proverka_ios">Проверка наличия обновления...</string>
-	<string name="proverka_ios_no">iOS 9.1\nУстановлено новейшее ПО</string>
+	<string name="proverka_ios_no">Установлено новейшее ПО</string>
 	<string name="proverka_ios_yes">Найдено новое ПО</string>
 	<string name="PO_aboout">Прошивка модема</string>
 	<string name="update_icloud">Нажмите для обновления данных</string>

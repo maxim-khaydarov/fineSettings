@@ -65,9 +65,10 @@ public class ActivityAbout extends Activity implements View.OnClickListener{
 	public static final String APP_PREFERENCES_tgb_menu = "tgb_menu";
 	public static final String APP_PREFERENCES_NETWORK = "networkText";
 	public static final String APP_PREFERENCES_NAME_DEVICE= "nameText";
+	public static final String APP_PREFERENCES_IOS_VERSION = "ios_version";
 
 
-	   
+	String ios_ver;
 	  
 		
 	   int center_to_right, center_to_right2;
@@ -146,7 +147,8 @@ public class ActivityAbout extends Activity implements View.OnClickListener{
 			 TextView14  = (TextView) findViewById(R.id.TextView14);
 			 text_name = (TextView) findViewById(R.id.textName);
 			 
-			 TextView01.setText(R.string.version_about_c);
+			 //TextView01.setText(R.string.version_about_c);
+		    ios_ver = mSettings.getString(APP_PREFERENCES_IOS_VERSION, "iOS 10.0.1");
 			 textStatus.setTypeface(typefaceMedium);
 			 btn_back.setTypeface(typefaceBold);
 			 
@@ -414,7 +416,7 @@ public class ActivityAbout extends Activity implements View.OnClickListener{
 	        getPhotoList();
 	        getVideoList();
 	        getAppsList();
-	        
+
 	        PackageInfo pInfo;
 	        String versionNow = null;
 			try {
@@ -433,9 +435,12 @@ public class ActivityAbout extends Activity implements View.OnClickListener{
 	        	 
 				}
 	        else {
-	        	nameDevice ();
+				text_name.setText(ios_ver);
 	        }
-	        
+
+
+		   TextView01.setText(ios_ver);
+
 	        
 	        	 int speed = mSettings.getInt(APP_PREFERENCES_ANIM_SPEED, 1);
 				if (speed == 1){
@@ -460,7 +465,6 @@ public class ActivityAbout extends Activity implements View.OnClickListener{
 	    
 	        
 	        if (mSettings.contains(APP_PREFERENCES_NETWORK)) {
-				// �������� ����� �� ��������
 	        	 String network = mSettings.getString(APP_PREFERENCES_NETWORK, null);
 	        	 textView001.setText(network);
 				}
@@ -470,7 +474,6 @@ public class ActivityAbout extends Activity implements View.OnClickListener{
 	       
 	       
 	       if (mSettings.contains(APP_PREFERENCES_bold_text)) {
-				// �������� ����� �� ��������
 	        	 Boolean bold = mSettings.getBoolean(APP_PREFERENCES_bold_text, true);
 				if (bold == true){
 					btn_name.setTypeface(typefaceBold);
@@ -511,7 +514,6 @@ public class ActivityAbout extends Activity implements View.OnClickListener{
 	        }
 	       
 	       if (mSettings.contains(APP_PREFERENCES_text_size)) {
-				// �������� ����� �� ��������
 	        	 String size = mSettings.getString(APP_PREFERENCES_text_size, "19");
 				if (size .contains( "Small")){
 					btn_name.setTextSize(13);
@@ -679,62 +681,14 @@ public class ActivityAbout extends Activity implements View.OnClickListener{
 	    	TextView08.setText(twoDForm.format(iss/1073741824f) +" " + getResources().getString(R.string.GigaByte));
 	   }
 	   
-	   private void nameDevice (){
-		   
-			   text_name.setText(R.string.version_about_c);
-			
-				
-	   }
-	   
-	  
+
 	   
 	   public void onClick(View v) {
 	    	int id = v.getId();
 	    	
 	    	if (id == R.id.ButtonName){
 	    		enter_name_device();
-	    		/*
-	    		AlertDialog.Builder builder = new AlertDialog.Builder(ActivityAbout.this);
-	    		final EditText input = new EditText(this);
-	    		input.setText(nameDevice);
-	    		builder.setView(input);
-	    		builder
-	    				.setCancelable(false)
-	    				.setNegativeButton("Cancel",
-	    						new DialogInterface.OnClickListener() {
-	    							public void onClick(DialogInterface dialog, int id) {
-	    								dialog.cancel();
-	    							}
-	    						})
-	    						.setNeutralButton("Clear",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog,
-                                        int id) {
-                                	String dd = getResources().getString(R.string.version_about_c);
-                                	Editor editor = mSettings.edit();
-    							   	editor.putString(APP_PREFERENCES_NAME_DEVICE, dd);
-    							   	editor.apply();
-                                    
-    							   	text_name.setText(dd);
-    							   	
-                                    dialog.cancel();
-                                }
-                            })
-	    						.setPositiveButton("��",
-	    						new DialogInterface.OnClickListener() {
-	    							public void onClick(DialogInterface dialog, int id) {
-	    								String value = input.getText().toString();
-	    								
-	    								Editor editor = mSettings.edit();
-	    								nameDevice = value;
-	    							   	editor.putString(APP_PREFERENCES_NAME_DEVICE, value);
-	    							   	editor.apply();
-	    							   	text_name.setText(value);
-	    								
-	    							}
-	    						});
-	    		AlertDialog alert = builder.create();
-	    		alert.show();*/
+
 	    	}
 	    	
 	    	else if (id == R.id.Button10){
@@ -788,18 +742,18 @@ public class ActivityAbout extends Activity implements View.OnClickListener{
 
 				   @Override
 				   public void onClick(View v) {
-					   String dd = getResources().getString(R.string.version_about_c);
+
                    	Editor editor = mSettings.edit();
-					   	editor.putString(APP_PREFERENCES_NAME_DEVICE, dd);
+					   	editor.putString(APP_PREFERENCES_NAME_DEVICE, ios_ver);
 					   	editor.apply();
-					   	text_name.setText(dd);
+					   	text_name.setText(ios_ver);
 					   	dialog.dismiss();
 				   }
 				});
 		     dialog.show();
 		    }
-	   
-	   @Override
+
+	@Override
 	   protected void onPause() {
 	     super.onPause();
 	    if (wifi_con == 0){

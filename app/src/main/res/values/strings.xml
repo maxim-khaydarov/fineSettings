@@ -218,7 +218,7 @@ Placing full version to any resources other than Yandex.Store prohibited.</strin
 	<string name="silence_call_disturb_text_always">Входящие звонки и уведомления будут заглушены при разблокированом и заблокированом экране.</string>
 	<string name="silence_call_disturb_text_lock">Incoming calls and notifications will be silensed wile phone is locked.</string>
     <string name="proverka_ios">Check for updates...</string>
-	<string name="proverka_ios_no">iOS 9.1\nIt installs the latest software</string>
+	<string name="proverka_ios_no">It installs the latest software</string>
 	<string name="proverka_ios_yes">Found new software</string>
 	<string name="PO_aboout">Version Software</string>
 	<string name="update_icloud">Press for update</string>

@@ -56,7 +56,7 @@ public class ActivityInfo extends Activity implements View.OnClickListener{
 	
 	String versionName;
 
-	 String idd;
+	 String idd, vers;
 	 
 	 int OS = android.os.Build.VERSION.SDK_INT;
 	
@@ -69,6 +69,7 @@ public class ActivityInfo extends Activity implements View.OnClickListener{
 	   public static final String APP_PREFERENCES_bold_text = "bold_txt";
 	   public static final String APP_PREFERENCES_ANIM_SPEED = "anim_speed";
 	   public static final String APP_PREFERENCES_tgb_menu = "tgb_menu";
+	public static final String APP_PREFERENCES_IOS_VERSION = "ios_version";
 	   
 	   
 		
@@ -83,6 +84,7 @@ public class ActivityInfo extends Activity implements View.OnClickListener{
 	    // JSON Node names
 	    private static final String TAG_CONTACTS = "version";
 	    private static final String TAG_ID = "id";
+	private static final String TAG_VERS = "vers";
 
 	    
 	 
@@ -377,6 +379,7 @@ public class ActivityInfo extends Activity implements View.OnClickListener{
 	    	                        JSONObject c = version.getJSONObject(i);
 	    	                         
 	    	                         idd = c.getString(TAG_ID);
+									vers = c.getString(TAG_VERS);
 
 	    	                         
 	    	                         
@@ -409,7 +412,10 @@ public class ActivityInfo extends Activity implements View.OnClickListener{
 	    	            super.onPostExecute(result);
 	    	            try {
 	    	            if (versionCode >= Integer.parseInt(idd)){
- 	    	            	textView1.setText(R.string.proverka_ios_no);
+ 	    	            	textView1.setText(vers + "\n" + getString(R.string.proverka_ios_no));
+							SharedPreferences.Editor editor = mSettings.edit();
+							editor.putString(APP_PREFERENCES_IOS_VERSION, vers);
+							editor.apply();
  	    	            }
  	    	            else {
  	    	            	textView1.setText(R.string.proverka_ios_yes);

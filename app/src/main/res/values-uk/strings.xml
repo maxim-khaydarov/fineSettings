@@ -218,7 +218,7 @@
 	<string name="silence_call_disturb_text_always">Вхідні дзвонки та сповіщення будуть заглушені при разблокованому та заблокованому екрані.</string>
 	<string name="silence_call_disturb_text_lock">Вхідні дзвонки та сповіщення будуть заглушені при заблокованому екрані.</string>
   	<string name="proverka_ios">Перевірка наявності оновлення...</string>
-	<string name="proverka_ios_no">iOS 9.1\nВстановлено новітнє ПЗ</string>
+	<string name="proverka_ios_no">Встановлено новітнє ПЗ</string>
 	<string name="proverka_ios_yes">Знайдено нове ПЗ</string>
 	<string name="PO_aboout">Прошика модему</string>
 	<string name="update_icloud">Натисніть для оновлення данних</string>
