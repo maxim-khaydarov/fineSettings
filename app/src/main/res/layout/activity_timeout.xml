@@ -40,7 +40,7 @@
                 <RadioButton
                     android:id="@+id/radio0"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="15dp"
                     android:button="@null"
                     android:checked="true"
@@ -62,7 +62,7 @@
                 <RadioButton
                     android:id="@+id/radio1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="15dp"
                     android:button="@null"
                     android:drawableRight="@drawable/radio_btn_selector"
@@ -83,7 +83,7 @@
                 <RadioButton
                     android:id="@+id/radio2"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="15dp"
                     android:button="@null"
                     android:drawableRight="@drawable/radio_btn_selector"
@@ -104,7 +104,7 @@
                 <RadioButton
                     android:id="@+id/radio3"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="15dp"
                     android:button="@null"
                     android:drawableRight="@drawable/radio_btn_selector"
@@ -125,7 +125,7 @@
                 <RadioButton
                     android:id="@+id/radio4"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="15dp"
                     android:button="@null"
                     android:drawableRight="@drawable/radio_btn_selector"
@@ -146,7 +146,7 @@
                 <RadioButton
                     android:id="@+id/radio5"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="15dp"
                     android:button="@null"
                     android:drawableRight="@drawable/radio_btn_selector"

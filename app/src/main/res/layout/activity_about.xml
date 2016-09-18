@@ -52,7 +52,7 @@
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
-                        android:background="@drawable/button_bg"
+                        android:background="@color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="15dp"
@@ -84,15 +84,17 @@
                         android:textColor="@color/hint_text"
                         android:textSize="15sp" />
 
+                    <ImageView
+                        android:id="@+id/ImageView02"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1px"
+                        android:ems="10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/line_cray"
+                        android:layout_alignParentBottom="true" />
+
                 </RelativeLayout>
 
-                <ImageView
-                    android:id="@+id/ImageView02"
-                    android:layout_width="fill_parent"
-                    android:layout_height="1px"
-                    android:ems="10"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/line_cray" />
             </LinearLayout>
 
             <LinearLayout
@@ -786,16 +788,17 @@
                         android:text="@string/imei_about"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
-                </RelativeLayout>
 
-                <ImageView
-                    android:id="@+id/ImageView07"
-                    android:layout_width="fill_parent"
-                    android:layout_height="1px"
-                    android:ems="10"
-                    android:paddingLeft="15dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/line_cray" />
+                    <ImageView
+                        android:id="@+id/ImageView07"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1px"
+                        android:ems="10"
+                        android:paddingLeft="15dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/line_cray"
+                        android:layout_alignParentBottom="true" />
+                </RelativeLayout>
 
             </LinearLayout>
 
@@ -838,16 +841,18 @@
                         android:text="@string/iccid"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
+
+                    <ImageView
+                        android:id="@+id/ImageView16"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1px"
+                        android:ems="10"
+                        android:paddingLeft="15dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/line_cray"
+                        android:layout_alignParentBottom="true" />
                 </RelativeLayout>
 
-                <ImageView
-                    android:id="@+id/ImageView16"
-                    android:layout_width="fill_parent"
-                    android:layout_height="1px"
-                    android:ems="10"
-                    android:paddingLeft="15dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/line_cray" />
             </LinearLayout>
 
             <LinearLayout
@@ -898,17 +903,29 @@
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/next" />
+                        android:src="@drawable/next"
+                        android:layout_alignParentBottom="false" />
+
+                    <ImageView
+                        android:id="@+id/ImageView13"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1px"
+                        android:ems="10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/line_cray"
+                        android:layout_alignParentBottom="true" />
 
                 </RelativeLayout>
 
                 <ImageView
-                    android:id="@+id/ImageView13"
+                    android:id="@+id/imageView13"
                     android:layout_width="fill_parent"
                     android:layout_height="1px"
                     android:ems="10"
                     android:scaleType="fitXY"
-                    android:src="@drawable/line_cray" />
+                    android:src="@drawable/line_cray"
+                    android:layout_alignParentBottom="true" />
+
             </LinearLayout>
 
         </LinearLayout>

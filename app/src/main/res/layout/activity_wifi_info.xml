@@ -96,7 +96,7 @@
             <LinearLayout
                 android:id="@+id/layout_join"
                 android:layout_width="wrap_content"
-                android:layout_height="38dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="20dp"
                 android:background="@color/white"
                 android:ems="10"
@@ -157,7 +157,7 @@
             <LinearLayout
                 android:id="@+id/LinearLayoutWifi"
                 android:layout_width="wrap_content"
-                android:layout_height="38dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="20dp"
                 android:background="@color/white"
                 android:ems="10"
@@ -273,7 +273,7 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="38dp"
                         android:ems="10" >
 
                         <TextView
@@ -313,7 +313,7 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="38dp"
                         android:ems="10" >
 
                         <TextView
@@ -353,7 +353,7 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="38dp"
                         android:ems="10" >
 
                         <TextView
@@ -393,7 +393,7 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="38dp"
                         android:ems="10" >
 
                         <TextView

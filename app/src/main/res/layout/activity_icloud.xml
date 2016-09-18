@@ -128,20 +128,20 @@
             <LinearLayout
                 android:id="@+id/LinearLayoutAir"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button01"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -168,7 +168,7 @@
                     <ToggleButton
                         android:id="@+id/ToggleButtonMail"
                         android:layout_width="60dp"
-                        android:layout_height="36dp"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
@@ -182,20 +182,20 @@
             <LinearLayout
                 android:id="@+id/LinearLayout14"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button15"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -222,7 +222,7 @@
                     <ToggleButton
                         android:id="@+id/ToggleButtonNotes"
                         android:layout_width="60dp"
-                        android:layout_height="36dp"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
@@ -246,20 +246,20 @@
             <LinearLayout
                 android:id="@+id/LinearLayout13"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button14"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -286,7 +286,7 @@
                     <ToggleButton
                         android:id="@+id/ToggleButtonPhone"
                         android:layout_width="60dp"
-                        android:layout_height="36dp"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
@@ -311,20 +311,20 @@
             <LinearLayout
                 android:id="@+id/LinearLayout12"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button13"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -351,7 +351,7 @@
                     <ToggleButton
                         android:id="@+id/ToggleButtonMessage"
                         android:layout_width="60dp"
-                        android:layout_height="36dp"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
@@ -376,20 +376,20 @@
             <LinearLayout
                 android:id="@+id/LinearLayout11"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button12"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -416,7 +416,7 @@
                     <ToggleButton
                         android:id="@+id/ToggleButtonSafari"
                         android:layout_width="60dp"
-                        android:layout_height="36dp"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
@@ -440,20 +440,20 @@
             <LinearLayout
                 android:id="@+id/LinearLayout10"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button11"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -480,7 +480,7 @@
                     <ToggleButton
                         android:id="@+id/ToggleButtonMusic"
                         android:layout_width="60dp"
-                        android:layout_height="36dp"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
@@ -504,20 +504,20 @@
             <LinearLayout
                 android:id="@+id/LinearLayout09"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button10"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -544,7 +544,7 @@
                     <ToggleButton
                         android:id="@+id/ToggleButtonGame"
                         android:layout_width="60dp"
-                        android:layout_height="36dp"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
@@ -568,20 +568,20 @@
             <LinearLayout
                 android:id="@+id/LinearLayout08"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button09"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -608,7 +608,7 @@
                     <ToggleButton
                         android:id="@+id/ToggleButtonWeather"
                         android:layout_width="60dp"
-                        android:layout_height="36dp"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
@@ -632,20 +632,20 @@
             <LinearLayout
                 android:id="@+id/LinearLayout07"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button08"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -672,7 +672,7 @@
                     <ToggleButton
                         android:id="@+id/ToggleButtonCompass"
                         android:layout_width="60dp"
-                        android:layout_height="36dp"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
@@ -696,20 +696,20 @@
             <LinearLayout
                 android:id="@+id/LinearLayout06"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button07"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -736,7 +736,7 @@
                     <ToggleButton
                         android:id="@+id/ToggleButtonMaps"
                         android:layout_width="60dp"
-                        android:layout_height="36dp"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
@@ -760,20 +760,20 @@
             <LinearLayout
                 android:id="@+id/LinearLayout05"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button06"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -800,7 +800,7 @@
                     <ToggleButton
                         android:id="@+id/ToggleButtonVk"
                         android:layout_width="60dp"
-                        android:layout_height="36dp"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
@@ -824,20 +824,20 @@
             <LinearLayout
                 android:id="@+id/LinearLayout04"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button05"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -864,7 +864,7 @@
                     <ToggleButton
                         android:id="@+id/ToggleButtonViber"
                         android:layout_width="60dp"
-                        android:layout_height="36dp"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
@@ -888,20 +888,20 @@
             <LinearLayout
                 android:id="@+id/LinearLayout03"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button04"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -928,7 +928,7 @@
                     <ToggleButton
                         android:id="@+id/ToggleButtonOk"
                         android:layout_width="60dp"
-                        android:layout_height="36dp"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
@@ -952,20 +952,20 @@
             <LinearLayout
                 android:id="@+id/LinearLayout02"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button03"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -992,7 +992,7 @@
                     <ToggleButton
                         android:id="@+id/ToggleButtonSkype"
                         android:layout_width="60dp"
-                        android:layout_height="36dp"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
@@ -1016,20 +1016,20 @@
             <LinearLayout
                 android:id="@+id/LinearLayout01"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button02"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -1056,7 +1056,7 @@
                     <ToggleButton
                         android:id="@+id/ToggleButtonWhatsApp"
                         android:layout_width="60dp"
-                        android:layout_height="36dp"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
@@ -1080,20 +1080,20 @@
             <LinearLayout
                 android:id="@+id/LinearLayout17"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button18"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -1120,7 +1120,7 @@
                     <ToggleButton
                         android:id="@+id/ToggleButtonTwitter"
                         android:layout_width="60dp"
-                        android:layout_height="36dp"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
@@ -1144,20 +1144,20 @@
             <LinearLayout
                 android:id="@+id/LinearLayout16"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button17"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -1184,7 +1184,7 @@
                     <ToggleButton
                         android:id="@+id/ToggleButtonFacebook"
                         android:layout_width="60dp"
-                        android:layout_height="36dp"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
@@ -1208,20 +1208,20 @@
             <LinearLayout
                 android:id="@+id/LinearLayout15"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button16"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -1248,7 +1248,7 @@
                     <ToggleButton
                         android:id="@+id/ToggleButtonInstagram"
                         android:layout_width="60dp"
-                        android:layout_height="36dp"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
@@ -1272,20 +1272,20 @@
             <LinearLayout
                 android:id="@+id/LinearLayout20"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button21"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -1349,14 +1349,14 @@
             <LinearLayout
                 android:id="@+id/LinearLayout18"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:ems="10" >
 
                     <ImageView
@@ -1370,7 +1370,7 @@
                     <Button
                         android:id="@+id/Button19"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -1422,7 +1422,7 @@
             <LinearLayout
                 android:id="@+id/LinearLayout21"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginBottom="40dp"
                 android:background="@color/white"
                 android:ems="10"
@@ -1430,7 +1430,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:ems="10" >
 
                     <ImageView
@@ -1444,7 +1444,7 @@
                     <Button
                         android:id="@+id/Button22"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -1507,7 +1507,7 @@
             <LinearLayout
                 android:id="@+id/LinearLayout19"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginBottom="40dp"
                 android:background="@color/white"
                 android:ems="10"
@@ -1523,13 +1523,13 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:ems="10" >
 
                     <Button
                         android:id="@+id/Button20"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:background="@drawable/button_bg"
                         android:ems="10"
                         android:gravity="center"

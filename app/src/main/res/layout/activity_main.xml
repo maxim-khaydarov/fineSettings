@@ -126,7 +126,7 @@
             <LinearLayout
                 android:id="@+id/LinearLayoutAir"
                 android:layout_width="wrap_content"
-                android:layout_height="38dp"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
@@ -166,8 +166,8 @@
 
                     <ToggleButton
                         android:id="@+id/ToggleButton01"
-                        android:layout_width="58dp"
-                        android:layout_height="36dp"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
@@ -182,7 +182,7 @@
             <LinearLayout
                 android:id="@+id/LinearLayoutWiFi"
                 android:layout_width="wrap_content"
-                android:layout_height="38dp"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
@@ -259,7 +259,7 @@
             <LinearLayout
                 android:id="@+id/LinearLayoutBluetooth"
                 android:layout_width="wrap_content"
-                android:layout_height="38dp"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
@@ -329,7 +329,7 @@
             <LinearLayout
                 android:id="@+id/LinearLayoutSotSvyaz"
                 android:layout_width="wrap_content"
-                android:layout_height="38dp"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
@@ -389,7 +389,7 @@
             <LinearLayout
                 android:id="@+id/LinearLayoutApn"
                 android:layout_width="match_parent"
-                android:layout_height="38dp"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
@@ -472,7 +472,7 @@
             <LinearLayout
                 android:id="@+id/LinearLayoutOperator"
                 android:layout_width="wrap_content"
-                android:layout_height="38dp"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
@@ -567,7 +567,7 @@
                 <LinearLayout
                     android:id="@+id/LinearLayoutNotif"
                     android:layout_width="fill_parent"
-                    android:layout_height="38dp"
+                    android:layout_height="40dp"
                     android:background="@color/white"
                     android:ems="10"
                     android:orientation="vertical" >
@@ -628,7 +628,7 @@
                 <LinearLayout
                     android:id="@+id/LinearLayoutControl"
                     android:layout_width="fill_parent"
-                    android:layout_height="38dp"
+                    android:layout_height="40dp"
                     android:background="@color/white"
                     android:ems="10"
                     android:orientation="vertical" >
@@ -689,7 +689,7 @@
                 <LinearLayout
                     android:id="@+id/LinearLayoutDisturb"
                     android:layout_width="fill_parent"
-                    android:layout_height="38dp"
+                    android:layout_height="40dp"
                     android:background="@color/white"
                     android:ems="10"
                     android:orientation="vertical" >
@@ -752,7 +752,7 @@
             <LinearLayout
                 android:id="@+id/LinearLayoutOsnova"
                 android:layout_width="wrap_content"
-                android:layout_height="38dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="36dp"
                 android:background="@color/white"
                 android:ems="10"
@@ -821,7 +821,7 @@
             <LinearLayout
                 android:id="@+id/LinearLayoutBrightness"
                 android:layout_width="wrap_content"
-                android:layout_height="38dp"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
@@ -882,7 +882,7 @@
             <LinearLayout
                 android:id="@+id/LinearLayoutOboi"
                 android:layout_width="wrap_content"
-                android:layout_height="38dp"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
@@ -943,7 +943,7 @@
             <LinearLayout
                 android:id="@+id/LinearLayoutGeo"
                 android:layout_width="wrap_content"
-                android:layout_height="38dp"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
@@ -1002,7 +1002,7 @@
             <LinearLayout
                 android:id="@+id/LinearLayoutZvuki"
                 android:layout_width="wrap_content"
-                android:layout_height="38dp"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
@@ -1064,7 +1064,7 @@
             <LinearLayout
                 android:id="@+id/LinearLayoutPasscode"
                 android:layout_width="wrap_content"
-                android:layout_height="38dp"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
@@ -1125,7 +1125,7 @@
             <LinearLayout
                 android:id="@+id/LinearLayoutBattery"
                 android:layout_width="wrap_content"
-                android:layout_height="38dp"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
@@ -1185,7 +1185,7 @@
             <LinearLayout
                 android:id="@+id/LinearLayoutPrivacy"
                 android:layout_width="wrap_content"
-                android:layout_height="38dp"
+                android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical" >
@@ -1271,7 +1271,7 @@
                 <LinearLayout
                     android:id="@+id/LinearLayoutCloud"
                     android:layout_width="match_parent"
-                    android:layout_height="38dp"
+                    android:layout_height="40dp"
                     android:orientation="vertical"
                     android:background="@color/white">
 
@@ -1316,7 +1316,7 @@
                 <LinearLayout
                     android:id="@+id/LinearLayoutTunes"
                     android:layout_width="match_parent"
-                    android:layout_height="38dp"
+                    android:layout_height="40dp"
                     android:orientation="vertical"
                     android:background="@color/white">
 
@@ -1409,7 +1409,7 @@
                     <LinearLayout
                         android:id="@+id/LinearLayoutMail"
                         android:layout_width="fill_parent"
-                        android:layout_height="38dp"
+                        android:layout_height="40dp"
                         android:background="@color/white"
                         android:ems="10"
                         android:orientation="vertical" >
@@ -1459,7 +1459,7 @@
                     <LinearLayout
                         android:id="@+id/LinearLayoutNotes"
                         android:layout_width="fill_parent"
-                        android:layout_height="38dp"
+                        android:layout_height="40dp"
                         android:background="@color/white"
                         android:ems="10"
                         android:orientation="vertical" >
@@ -1519,7 +1519,7 @@
                     <LinearLayout
                         android:id="@+id/LinearLayoutPhone"
                         android:layout_width="fill_parent"
-                        android:layout_height="38dp"
+                        android:layout_height="40dp"
                         android:background="@color/white"
                         android:ems="10"
                         android:orientation="vertical" >
@@ -1579,7 +1579,7 @@
                     <LinearLayout
                         android:id="@+id/LinearLayoutMessages"
                         android:layout_width="fill_parent"
-                        android:layout_height="38dp"
+                        android:layout_height="40dp"
                         android:background="@color/white"
                         android:ems="10"
                         android:orientation="vertical" >
@@ -1640,7 +1640,7 @@
                     <LinearLayout
                         android:id="@+id/LinearLayoutCompass"
                         android:layout_width="fill_parent"
-                        android:layout_height="38dp"
+                        android:layout_height="40dp"
                         android:background="@color/white"
                         android:ems="10"
                         android:orientation="vertical" >
@@ -1700,7 +1700,7 @@
                     <LinearLayout
                         android:id="@+id/LinearLayoutSafari"
                         android:layout_width="fill_parent"
-                        android:layout_height="38dp"
+                        android:layout_height="40dp"
                         android:background="@color/white"
                         android:ems="10"
                         android:orientation="vertical" >
@@ -1784,7 +1784,7 @@
                     <LinearLayout
                         android:id="@+id/LinearLayoutMusic"
                         android:layout_width="fill_parent"
-                        android:layout_height="38dp"
+                        android:layout_height="40dp"
                         android:background="@color/white"
                         android:ems="10"
                         android:orientation="vertical" >
@@ -1834,7 +1834,7 @@
                     <LinearLayout
                         android:id="@+id/LinearLayoutGameCenter"
                         android:layout_width="fill_parent"
-                        android:layout_height="38dp"
+                        android:layout_height="40dp"
                         android:background="@color/white"
                         android:ems="10"
                         android:orientation="vertical" >
@@ -1894,7 +1894,7 @@
                     <LinearLayout
                         android:id="@+id/LinearLayoutWeather"
                         android:layout_width="fill_parent"
-                        android:layout_height="38dp"
+                        android:layout_height="40dp"
                         android:background="@color/white"
                         android:ems="10"
                         android:orientation="vertical" >
@@ -1954,7 +1954,7 @@
                     <LinearLayout
                         android:id="@+id/LinearLayoutMaps"
                         android:layout_width="fill_parent"
-                        android:layout_height="38dp"
+                        android:layout_height="40dp"
                         android:background="@color/white"
                         android:ems="10"
                         android:orientation="vertical" >
@@ -2014,7 +2014,7 @@
                     <LinearLayout
                         android:id="@+id/LinearLayoutApp1"
                         android:layout_width="fill_parent"
-                        android:layout_height="38dp"
+                        android:layout_height="40dp"
                         android:background="@color/white"
                         android:ems="10"
                         android:orientation="vertical" >
@@ -2074,7 +2074,7 @@
                     <LinearLayout
                         android:id="@+id/LinearLayoutApp2"
                         android:layout_width="fill_parent"
-                        android:layout_height="38dp"
+                        android:layout_height="40dp"
                         android:background="@color/white"
                         android:ems="10"
                         android:orientation="vertical" >
@@ -2134,7 +2134,7 @@
                     <LinearLayout
                         android:id="@+id/LinearLayoutApp3"
                         android:layout_width="fill_parent"
-                        android:layout_height="38dp"
+                        android:layout_height="40dp"
                         android:background="@color/white"
                         android:ems="10"
                         android:orientation="vertical" >
@@ -2194,7 +2194,7 @@
                     <LinearLayout
                         android:id="@+id/LinearLayoutApp4"
                         android:layout_width="fill_parent"
-                        android:layout_height="38dp"
+                        android:layout_height="40dp"
                         android:background="@color/white"
                         android:ems="10"
                         android:orientation="vertical" >
@@ -2278,7 +2278,7 @@
                     <LinearLayout
                         android:id="@+id/LinearLayoutVk"
                         android:layout_width="fill_parent"
-                        android:layout_height="38dp"
+                        android:layout_height="40dp"
                         android:background="@color/white"
                         android:ems="10"
                         android:orientation="vertical" >
@@ -2328,7 +2328,7 @@
                     <LinearLayout
                         android:id="@+id/LinearLayoutViber"
                         android:layout_width="fill_parent"
-                        android:layout_height="38dp"
+                        android:layout_height="40dp"
                         android:background="@color/white"
                         android:ems="10"
                         android:orientation="vertical" >
@@ -2388,7 +2388,7 @@
                     <LinearLayout
                         android:id="@+id/LinearLayoutOK"
                         android:layout_width="fill_parent"
-                        android:layout_height="38dp"
+                        android:layout_height="40dp"
                         android:background="@color/white"
                         android:ems="10"
                         android:orientation="vertical" >
@@ -2448,7 +2448,7 @@
                     <LinearLayout
                         android:id="@+id/LinearLayoutSkype"
                         android:layout_width="fill_parent"
-                        android:layout_height="38dp"
+                        android:layout_height="40dp"
                         android:background="@color/white"
                         android:ems="10"
                         android:orientation="vertical" >
@@ -2508,7 +2508,7 @@
                     <LinearLayout
                         android:id="@+id/LinearLayoutWhatsApp"
                         android:layout_width="fill_parent"
-                        android:layout_height="38dp"
+                        android:layout_height="40dp"
                         android:background="@color/white"
                         android:ems="10"
                         android:orientation="vertical" >
@@ -2568,7 +2568,7 @@
                     <LinearLayout
                         android:id="@+id/LinearLayoutTwitter"
                         android:layout_width="fill_parent"
-                        android:layout_height="38dp"
+                        android:layout_height="40dp"
                         android:background="@color/white"
                         android:ems="10"
                         android:orientation="vertical" >
@@ -2627,7 +2627,7 @@
                     <LinearLayout
                         android:id="@+id/LinearLayoutFacebook"
                         android:layout_width="fill_parent"
-                        android:layout_height="38dp"
+                        android:layout_height="40dp"
                         android:background="@color/white"
                         android:ems="10"
                         android:orientation="vertical" >
@@ -2686,7 +2686,7 @@
                     <LinearLayout
                         android:id="@+id/LinearLayoutInstagram"
                         android:layout_width="fill_parent"
-                        android:layout_height="38dp"
+                        android:layout_height="40dp"
                         android:background="@color/white"
                         android:ems="10"
                         android:orientation="vertical" >
