@@ -335,14 +335,15 @@ public void wall(final int promp){
     dialog.setContentView(R.layout.activity_view_wallpaper);
     dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
     final ImageView background = (ImageView)dialog.getWindow().findViewById(R.id.imageView1);
-    
+
+	Log.e("BY", String.valueOf(promp));
    
     if (promp == 0){
 	 background.setImageResource(R.drawable.pic_1);
 	 background.setTag(R.drawable.pic_1);
     }
     else if (promp == 1){
-    	background.setTag(R.drawable.pic_2);;
+    	background.setTag(R.drawable.pic_2);
     	background.setImageResource(R.drawable.pic_2);
     }
     else if (promp == 2){
@@ -385,6 +386,7 @@ public void wall(final int promp){
     	background.setTag(R.drawable.pic_12);
     	background.setImageResource(R.drawable.pic_12);
     }
+
     TextView time = (TextView)dialog.getWindow().findViewById(R.id.time);
     TextView data = (TextView)dialog.getWindow().findViewById(R.id.data);
     TextView textView1 = (TextView)dialog.getWindow().findViewById(R.id.textView1);
@@ -418,7 +420,26 @@ public void wall(final int promp){
  		   
  		  //Drawable myDrawable = background.getDrawable();
  		 int uri = (Integer)background.getTag();
- 		
+
+
+		   Bitmap myBitmap = BitmapFactory.decodeResource(setWallpaper.this.getResources(),
+				   uri);
+
+		   DisplayMetrics metrics = new DisplayMetrics();
+		   getWindowManager().getDefaultDisplay().getMetrics(metrics);
+		   // get the height and width of screen
+		   int height = metrics.heightPixels;
+		   int width = metrics.widthPixels;
+
+		   Bitmap bitmapResized = Bitmap.createScaledBitmap(myBitmap, width, height, false);
+		   WallpaperManager wallpaperManager = WallpaperManager.getInstance(setWallpaper.this);
+		   try {
+			   wallpaperManager.setBitmap(bitmapResized);
+			   dialog.dismiss();
+		   } catch (IOException e) {
+			   e.printStackTrace();
+		   }
+/*
  		Bitmap bitmap = BitmapFactory.decodeStream(getResources().openRawResource(uri));
 
  		DisplayMetrics metrics = new DisplayMetrics(); 
@@ -430,9 +451,9 @@ public void wall(final int promp){
 
  		WallpaperManager wallpaperManager = WallpaperManager.getInstance(setWallpaper.this); 
  		try {
+			wallpaperManager.suggestDesiredDimensions(width, height);
  		wallpaperManager.setBitmap(bitmap);
-
- 		wallpaperManager.suggestDesiredDimensions(width, height);
+ 		//wallpaperManager.suggestDesiredDimensions(width, height);
  		//Toast.makeText(setWallpaper.this, "Wallpaper Set", Toast.LENGTH_SHORT).show();
  		dialog.dismiss();
  		} catch (IOException e) {
@@ -440,7 +461,7 @@ public void wall(final int promp){
  		//Toast.makeText(setWallpaper.this, "Error", Toast.LENGTH_SHORT).show();
  		dialog.dismiss();
  		}
- 		
+*/
  	   }});
     
     
