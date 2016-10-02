@@ -187,15 +187,17 @@
                         android:scaleType="fitCenter"
                         android:src="@drawable/next" />
 
+                    <ImageView
+                        android:id="@+id/ImageView05"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1px"
+                        android:ems="10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/line_cray"
+                        android:layout_alignParentBottom="true" />
+
                 </RelativeLayout>
 
-                <ImageView
-                    android:id="@+id/ImageView05"
-                    android:layout_width="fill_parent"
-                    android:layout_height="1px"
-                    android:ems="10"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/line_cray" />
             </LinearLayout>
 
         </LinearLayout>

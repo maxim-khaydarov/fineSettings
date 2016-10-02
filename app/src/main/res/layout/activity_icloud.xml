@@ -1536,15 +1536,17 @@
                         android:text="@string/new_account"
                         android:textColor="@color/blue"
                         android:textSize="15sp" />
+
+                    <ImageView
+                        android:id="@+id/ImageView41"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1px"
+                        android:ems="10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/line_cray"
+                        android:layout_alignParentBottom="true" />
                 </RelativeLayout>
 
-                <ImageView
-                    android:id="@+id/ImageView41"
-                    android:layout_width="fill_parent"
-                    android:layout_height="1px"
-                    android:ems="10"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/line_cray" />
             </LinearLayout>
         </LinearLayout>
 

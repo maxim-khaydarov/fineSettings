@@ -132,15 +132,17 @@
                         android:text="ToggleButton"
                         android:textOff=" "
                         android:textOn=" " />
+
+                    <ImageView
+                        android:id="@+id/imageView12"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1px"
+                        android:ems="10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/line_cray"
+                        android:layout_alignParentBottom="true" />
                 </RelativeLayout>
 
-                <ImageView
-                    android:id="@+id/imageView12"
-                    android:layout_width="fill_parent"
-                    android:layout_height="1px"
-                    android:ems="10"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/line_cray" />
             </LinearLayout>
 
             <TextView

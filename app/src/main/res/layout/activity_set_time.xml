@@ -192,16 +192,17 @@
                         android:textColor="@color/hint_text"
                         android:textSize="15sp" />
 
+                    <ImageView
+                        android:id="@+id/ImageView04"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1px"
+                        android:ems="10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/line_cray"
+                        android:layout_alignParentBottom="true" />
+
                 </RelativeLayout>
 
-                <ImageView
-                    android:id="@+id/ImageView04"
-                    android:layout_width="fill_parent"
-                    android:layout_height="1px"
-                    android:layout_marginLeft="15dp"
-                    android:ems="10"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/line_cray" />
             </LinearLayout>
 
             <LinearLayout
