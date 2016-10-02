@@ -129,6 +129,7 @@
     <string name="game_center">Game Center</string>
     <string name="disturb_from_to">С\nДо</string>
     <string name="choose">Выбор</string>
+	<string name="choose_wall">Выбор обоев</string>
     <string name="about_title">about_title</string>
 	<string name="about_desc">about_desc</string>
 	<string name="cancel">Отменить</string>

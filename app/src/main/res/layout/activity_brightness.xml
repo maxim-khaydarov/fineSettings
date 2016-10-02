@@ -107,7 +107,7 @@
                         android:layout_toLeftOf="@+id/imageVolumeUp"
                         android:layout_toRightOf="@+id/imageView1"
                         android:indeterminate="false"
-                        android:maxHeight="3dp"
+                        android:maxHeight="1dp"
                         android:minHeight="1dp"
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp"
@@ -120,17 +120,17 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp" >
+                    android:layout_height="match_parent" >
 
                     <ToggleButton
                         android:id="@+id/brtntoggle"
                         android:layout_width="60dp"
-                        android:layout_height="36dp"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
@@ -142,7 +142,7 @@
                     <Button
                         android:id="@+id/brtn1"
                         android:layout_width="fill_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -179,20 +179,20 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginTop="40dp"
                 android:background="@color/white"
                 android:overScrollMode="always" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:overScrollMode="always" >
 
                     <Button
                         android:id="@+id/ButtonTextSize"
                         android:layout_width="fill_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -227,17 +227,17 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@color/white" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp" >
+                    android:layout_height="match_parent" >
 
                     <ToggleButton
                         android:id="@+id/ToggleButtonBoldText"
                         android:layout_width="60dp"
-                        android:layout_height="36dp"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
@@ -249,7 +249,7 @@
                     <Button
                         android:id="@+id/ButtonTextBold"
                         android:layout_width="fill_parent"
-                        android:layout_height="36dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
@@ -297,20 +297,20 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginBottom="40dp"
                 android:background="@color/white"
                 android:overScrollMode="always" >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:overScrollMode="always" >
 
                     <Button
                         android:id="@+id/Button01"
                         android:layout_width="fill_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"

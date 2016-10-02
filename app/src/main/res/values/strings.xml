@@ -129,6 +129,7 @@ Placing full version to any resources other than Yandex.Store prohibited.</strin
     <string name="game_center">Game Center</string>
     <string name="disturb_from_to">From\nTo</string>
     <string name="choose">Choose</string>
+	<string name="choose_wall">Choose Wallpaper</string>
     <string name="cancel">Cancel</string>
     <string name="menu_info">Program Settings</string>
     <string name="app_settings">Applications</string>

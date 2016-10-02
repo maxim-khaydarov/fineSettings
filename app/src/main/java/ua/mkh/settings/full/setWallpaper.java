@@ -110,8 +110,8 @@ public class setWallpaper extends Activity  {
         
         btn_back.setTypeface(typefaceMedium);
         textStatus.setTypeface(typefaceBold);
-        textStatus.setText(R.string.choose);
-        btn_back.setText(R.string.button_wallpaper);
+        textStatus.setText(R.string.button_wallpaper);
+        btn_back.setText(R.string.choose_wall);
 		
 		mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 		
@@ -197,8 +197,15 @@ public class setWallpaper extends Activity  {
 	            R.drawable.pic_3s, R.drawable.pic_4s,
 	            R.drawable.pic_5s, R.drawable.pic_6s,
 	            R.drawable.pic_7s, R.drawable.pic_8s,
-	            R.drawable.pic_9s, R.drawable.pic_10s,
-	            R.drawable.pic_11s, R.drawable.pic_12s
+	            R.drawable.pic_9s,  R.drawable.pic_10s,
+				R.drawable.pic_11s, R.drawable.pic_12s,
+				R.drawable.pic_13s, R.drawable.pic_14s,
+				R.drawable.pic_15s, R.drawable.pic_16s,
+				R.drawable.pic_17s, R.drawable.pic_18s,
+				R.drawable.pic_19s, R.drawable.pic_20s,
+				R.drawable.pic_21s, R.drawable.pic_22s,
+				R.drawable.pic_23s, R.drawable.pic_24s,
+				R.drawable.pic_25s
 	    };
 	 
 	    // Constructor
@@ -230,6 +237,8 @@ public class setWallpaper extends Activity  {
 	        float scale = getResources().getDisplayMetrics().density;
 	        int dpAsPixels100 = (int) (100*scale + 0.5f);
 	        int dpAsPixels210 = (int) (210*scale + 0.5f);
+
+
 	        
 	        //imageView.setLayoutParams(new GridView.LayoutParams(dpAsPixels100, dpAsPixels210));
 	        return imageView;
@@ -336,56 +345,126 @@ public void wall(final int promp){
     dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
     final ImageView background = (ImageView)dialog.getWindow().findViewById(R.id.imageView1);
 
-	Log.e("BY", String.valueOf(promp));
+	//Log.e("BY", String.valueOf(promp));
+
    
     if (promp == 0){
-	 background.setImageResource(R.drawable.pic_1);
+	 //background.setImageResource(R.drawable.pic_1);
 	 background.setTag(R.drawable.pic_1);
     }
     else if (promp == 1){
     	background.setTag(R.drawable.pic_2);
-    	background.setImageResource(R.drawable.pic_2);
+    	//background.setImageResource(R.drawable.pic_2);
     }
     else if (promp == 2){
     	background.setTag(R.drawable.pic_3);
-    	background.setImageResource(R.drawable.pic_3);
+    	//background.setImageResource(R.drawable.pic_3);
     }
     else if (promp == 3){
     	background.setTag(R.drawable.pic_4);
-    	background.setImageResource(R.drawable.pic_4);
+    	//background.setImageResource(R.drawable.pic_4);
     }
     else if (promp == 4){
     	background.setTag(R.drawable.pic_5);
-    	background.setImageResource(R.drawable.pic_5);
+    	//background.setImageResource(R.drawable.pic_5);
     }
     else if (promp == 5){
     	background.setTag(R.drawable.pic_6);
-    	background.setImageResource(R.drawable.pic_6);
+    	//background.setImageResource(R.drawable.pic_6);
     }
     else if (promp == 6){
     	background.setTag(R.drawable.pic_7);
-    	background.setImageResource(R.drawable.pic_7);
+    	//background.setImageResource(R.drawable.pic_7);
     }
     else if (promp == 7){
     	background.setTag(R.drawable.pic_8);
-    	background.setImageResource(R.drawable.pic_8);
+    	//background.setImageResource(R.drawable.pic_8);
     }
     else if (promp == 8){
     	background.setTag(R.drawable.pic_9);
-    	background.setImageResource(R.drawable.pic_9);
+    	//background.setImageResource(R.drawable.pic_9);
     }
     else if (promp == 9){
     	background.setTag(R.drawable.pic_10);
-    	background.setImageResource(R.drawable.pic_10);
+    	//background.setImageResource(R.drawable.pic_10);
     }
     else if (promp == 10){
     	background.setTag(R.drawable.pic_11);
-    	background.setImageResource(R.drawable.pic_11);
+    	//background.setImageResource(R.drawable.pic_11);
     }
     else if (promp == 11){
     	background.setTag(R.drawable.pic_12);
-    	background.setImageResource(R.drawable.pic_12);
+    	//background.setImageResource(R.drawable.pic_12);
     }
+	else if (promp == 12){
+		background.setTag(R.drawable.pic_13);
+		//background.setImageResource(R.drawable.pic_12);
+	}
+	else if (promp == 13){
+		background.setTag(R.drawable.pic_14);
+		//background.setImageResource(R.drawable.pic_12);
+	}
+	else if (promp == 14){
+		background.setTag(R.drawable.pic_15);
+		//background.setImageResource(R.drawable.pic_12);
+	}
+	else if (promp == 15){
+		background.setTag(R.drawable.pic_16);
+		//background.setImageResource(R.drawable.pic_12);
+	}
+	else if (promp == 16){
+		background.setTag(R.drawable.pic_17);
+		//background.setImageResource(R.drawable.pic_12);
+	}
+	else if (promp == 17){
+		background.setTag(R.drawable.pic_18);
+		//background.setImageResource(R.drawable.pic_12);
+	}
+	else if (promp == 18){
+		background.setTag(R.drawable.pic_19);
+		//background.setImageResource(R.drawable.pic_12);
+	}
+	else if (promp == 19){
+		background.setTag(R.drawable.pic_20);
+		//background.setImageResource(R.drawable.pic_12);
+	}
+	else if (promp == 20){
+		background.setTag(R.drawable.pic_21);
+		//background.setImageResource(R.drawable.pic_12);
+	}
+	else if (promp == 21){
+		background.setTag(R.drawable.pic_22);
+		//background.setImageResource(R.drawable.pic_12);
+	}
+	else if (promp == 22){
+		background.setTag(R.drawable.pic_23);
+		//background.setImageResource(R.drawable.pic_12);
+	}
+	else if (promp == 23){
+		background.setTag(R.drawable.pic_24);
+		//background.setImageResource(R.drawable.pic_12);
+	}
+	else if (promp == 24){
+		background.setTag(R.drawable.pic_25);
+		//background.setImageResource(R.drawable.pic_12);
+	}
+
+
+
+	Bitmap myBitmap = BitmapFactory.decodeResource(setWallpaper.this.getResources(),
+			(Integer)background.getTag());
+
+	DisplayMetrics metrics = new DisplayMetrics();
+	getWindowManager().getDefaultDisplay().getMetrics(metrics);
+	// get the height and width of screen
+	int height = metrics.heightPixels;
+	int width = metrics.widthPixels;
+
+	Bitmap bitmapResized = Bitmap.createScaledBitmap(myBitmap, width, height, false);
+	background.setImageBitmap(bitmapResized);
+
+	//Log.e("BYY", getString((Integer)background.getTag()));
+
 
     TextView time = (TextView)dialog.getWindow().findViewById(R.id.time);
     TextView data = (TextView)dialog.getWindow().findViewById(R.id.data);
@@ -394,7 +473,7 @@ public void wall(final int promp){
     data.setTypeface(typefaceThin);
     textView1.setTypeface(typefaceThin);
     
-    if (promp == 1 || promp == 2 || promp == 4){
+    if ( promp == 4 || promp == 8 || promp == 7){
     	time.setTextColor(getResources().getColor(R.color.black));
         data.setTextColor(getResources().getColor(R.color.black));
         textView1.setTextColor(getResources().getColor(R.color.black));

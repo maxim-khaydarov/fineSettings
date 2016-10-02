@@ -86,7 +86,7 @@ public class ChooseWallpaper extends Activity implements OnClickListener{
 			
 			pb1 = (ProgressBar) findViewById(R.id.progressBar1);
 			
-			textStatus.setText(R.string.button_wallpaper);
+			textStatus.setText(R.string.choose_wall);
 			btn_back.setText(R.string.button_wallpaper);
 	        textStatus.setTypeface(typefaceBold);
 	        btn_back.setTypeface(typefaceMedium);

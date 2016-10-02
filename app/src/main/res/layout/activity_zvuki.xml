@@ -239,7 +239,7 @@
                             android:layout_toLeftOf="@+id/imageVolumeUp"
                             android:layout_toRightOf="@+id/imageView1"
                             android:indeterminate="false"
-                            android:maxHeight="3dp"
+                            android:maxHeight="1dp"
                             android:minHeight="1px"
                             android:paddingLeft="15dp"
                             android:paddingRight="15dp"
@@ -290,8 +290,8 @@
 
                     <ImageView
                         android:id="@+id/imageView3"
-                        android:layout_width="33dp"
-                        android:layout_height="18dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="12dp"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="20dp"
@@ -299,8 +299,8 @@
 
                     <ImageView
                         android:id="@+id/imageView2"
-                        android:layout_width="33dp"
-                        android:layout_height="18dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="12dp"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="20dp"
@@ -390,7 +390,7 @@
                         android:layout_toLeftOf="@+id/imageVolumeUp1"
                         android:layout_toRightOf="@+id/imageView16"
                         android:indeterminate="false"
-                        android:maxHeight="3dp"
+                        android:maxHeight="1dp"
                         android:minHeight="1px"
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp"
@@ -471,7 +471,7 @@
                         android:layout_toLeftOf="@+id/imageVolumeUp2"
                         android:layout_toRightOf="@+id/imageView17"
                         android:indeterminate="false"
-                        android:maxHeight="3dp"
+                        android:maxHeight="1dp"
                         android:minHeight="1px"
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp"

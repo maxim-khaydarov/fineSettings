@@ -128,6 +128,7 @@
     <string name="game_center">Game Center</string>
     <string name="disturb_from_to">З\nДо</string>
     <string name="choose">Вибір</string>
+	<string name="choose_wall">Вибір шпалер</string>
     <string name="cancel">Відміна</string>
     <string name="menu_info">Налаштування програми</string>
     <string name="app_settings">Програми</string>
