@@ -48,7 +48,7 @@ public class ChooseWallpaper extends Activity implements OnClickListener{
 	   
 	   Button btn_back, my_phot, button1;
 	   
-	   TextView din, stat, phot, textView4, textView5 , textView6;
+	   TextView din, stat, textView4, textView5 , textView6;
 	   ProgressBar pb1;
 	   MyTask mt;
 	   Bitmap scaledBitmapCamera;
@@ -75,7 +75,7 @@ public class ChooseWallpaper extends Activity implements OnClickListener{
 			
 			din = (TextView) findViewById(R.id.textView1);
 			stat = (TextView) findViewById(R.id.textView2);
-			phot = (TextView) findViewById(R.id.textView3);
+			//phot = (TextView) findViewById(R.id.textView3);
 			textView4 = (TextView) findViewById(R.id.textView4);
 			textView5 = (TextView) findViewById(R.id.textView5);
 			textView6 = (TextView) findViewById(R.id.textView6);
@@ -92,7 +92,7 @@ public class ChooseWallpaper extends Activity implements OnClickListener{
 	        btn_back.setTypeface(typefaceMedium);
 	        din.setTypeface(typefaceRoman);
 	        stat.setTypeface(typefaceRoman);
-	        phot.setTypeface(typefaceRoman);
+	        //phot.setTypeface(typefaceRoman);
 	        textView4.setTypeface(typefaceRoman);
 	        textView5.setTypeface(typefaceRoman);
 	        textView6.setTypeface(typefaceRoman);
@@ -276,7 +276,7 @@ public class ChooseWallpaper extends Activity implements OnClickListener{
 			if (bold == true){
 				din.setTypeface(typefaceBold);
 				stat.setTypeface(typefaceBold);
-				phot.setTypeface(typefaceBold);
+				//phot.setTypeface(typefaceBold);
 				my_phot.setTypeface(typefaceBold);
 				textView4.setTypeface(typefaceBold);
 				textView5.setTypeface(typefaceBold);
@@ -290,7 +290,7 @@ public class ChooseWallpaper extends Activity implements OnClickListener{
 			if (size .contains( "Small")){
 				din.setTextSize(11);
 				stat.setTextSize(11);
-				phot.setTextSize(11);
+				//phot.setTextSize(11);
 				my_phot.setTextSize(13);
 				textView4.setTextSize(13);
 				textView5.setTextSize(13);
@@ -299,7 +299,7 @@ public class ChooseWallpaper extends Activity implements OnClickListener{
 			if (size .contains( "Normal")){
 				din.setTextSize(13);
 				stat.setTextSize(13);
-				phot.setTextSize(13);
+				//phot.setTextSize(13);
 				my_phot.setTextSize(15);
 				textView4.setTextSize(15);
 				textView5.setTextSize(15);
@@ -308,7 +308,7 @@ public class ChooseWallpaper extends Activity implements OnClickListener{
 			if (size .contains( "Large")){
 				din.setTextSize(15);
 				stat.setTextSize(15);
-				phot.setTextSize(15);
+				//phot.setTextSize(15);
 				my_phot.setTextSize(18);
 				textView4.setTextSize(18);
 				textView5.setTextSize(18);
@@ -317,7 +317,7 @@ public class ChooseWallpaper extends Activity implements OnClickListener{
 			if (size .contains( "xLarge")){
 				din.setTextSize(18);
 				stat.setTextSize(18);
-				phot.setTextSize(18);
+				//phot.setTextSize(18);
 				my_phot.setTextSize(20);
 				textView4.setTextSize(20);
 				textView5.setTextSize(20);

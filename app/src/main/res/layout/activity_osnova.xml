@@ -143,29 +143,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
                 android:background="@color/white"
-                android:overScrollMode="always" >
+                android:orientation="vertical"
+                android:overScrollMode="always"
+                android:layout_marginTop="30dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:overScrollMode="always" >
-
-                    <Button
-                        android:id="@+id/Button12"
-                        android:layout_width="fill_parent"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentBottom="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentTop="true"
-                        android:background="@color/transparent"
-                        android:ems="10"
-                        android:gravity="left|center_vertical"
-                        android:paddingLeft="15dp"
-                        android:text="Siri"
-                        android:textColor="@color/black"
-                        android:textSize="15sp" />
 
                     <ImageView
                         android:id="@+id/ImageView32"
@@ -176,40 +162,6 @@
                         android:ems="10"
                         android:scaleType="fitXY"
                         android:src="@drawable/line_cray" />
-
-                    <ImageView
-                        android:id="@+id/ImageView36"
-                        android:layout_width="fill_parent"
-                        android:layout_height="1px"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="15dp"
-                        android:ems="10"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/line_cray" />
-
-                    <ImageView
-                        android:id="@+id/ImageView33"
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/next" />
-                </RelativeLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:orientation="vertical"
-                android:overScrollMode="always" >
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:overScrollMode="always" >
 
                     <Button
                         android:id="@+id/Button13"
@@ -271,7 +223,7 @@
                         android:ems="10"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="15dp"
-                        android:text="@string/button_handoff"
+                        android:text="@string/handoff"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
 
@@ -292,7 +244,55 @@
                     android:layout_height="1px"
                     android:ems="10"
                     android:scaleType="fitXY"
-                    android:src="@drawable/line_cray" />
+                    android:src="@drawable/line_cray"
+                    android:layout_marginLeft="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:overScrollMode="always" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:overScrollMode="always" >
+
+                    <Button
+                        android:id="@+id/Button12"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@color/transparent"
+                        android:ems="10"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="@string/carplay"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:id="@+id/ImageView36"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentBottom="true"
+                        android:ems="10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/line_cray" />
+
+                    <ImageView
+                        android:id="@+id/ImageView33"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/next" />
+                </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout

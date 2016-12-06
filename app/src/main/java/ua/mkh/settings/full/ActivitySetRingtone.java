@@ -24,6 +24,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.v4.view.ViewPager.LayoutParams;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -60,7 +61,8 @@ public class ActivitySetRingtone extends Activity implements OnClickListener{
 		  
 		   int center_to_right, center_to_right2;
 		   int center_to_left, center_to_left2;
-		   
+
+	ListView listView;
 		   
 		   SharedPreferences mSettings;
 
@@ -91,9 +93,9 @@ public class ActivitySetRingtone extends Activity implements OnClickListener{
      btn_back = (Button) findViewById(R.id.buttonBack);
 		btn_back.setText(R.string.button_sound);
 		textStatus = (TextView)findViewById(R.id.textOk);
-		
-		
-		
+
+
+	   listView = (ListView) findViewById(R.id.listtones);
 		
 		
 		textStatus.setTypeface(typefaceBold);
@@ -101,73 +103,7 @@ public class ActivitySetRingtone extends Activity implements OnClickListener{
 		textStatus.setText(R.string.ringtone);
 		
 		
-     ListView listView = (ListView) findViewById(R.id.listtones);
-     myList = new ArrayList<String>();
-     
-     mp = new MediaPlayer();
 
-     File directory = Environment.getExternalStorageDirectory();
-     //file = new File( directory + "/fineSettings/ringtones/" );
-     file = new File( "/system/media/audio/ringtones" );
-     /*
-     boolean success = true;
-     if (!file.exists()) {
-         success = file.mkdir();
-     }
-     if (success) {
-    	 
-    	   for (int i = 0; i < mSongs.length; i++) {
-    	       try {
-    	           String path = Environment.getExternalStorageDirectory() + "/fineSettings/ringtones/";
-    	           File dir = new File(path);
-    	           if (dir.mkdirs() || dir.isDirectory()) {
-    	               String str_song_name = "Ringtone " + i + ".ogg";
-    	               CopyRAWtoSDCard(mSongs[i], path + File.separator + str_song_name);
-    	           }
-    	       } catch (IOException e) {
-    	           e.printStackTrace();
-    	       }
-    	   }
-
-    	
-     } else {
-         // Do something else on failure 
-     }
-     */
-     
-     
-     
-     File list[] = file.listFiles();
-
-     for( int i=0; i< list.length; i++)
-     {
-    	 	String s = list[i].getName().substring(0,list[i].getName().length()-4);
-             myList.add( s );
-     }
-     ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-             R.layout.row_ringtone, R.id.tone, myList);
-     listView.setAdapter(adapter); //Set all the file in the list.
-     setListViewHeightBasedOnChildren(listView);
-     
-     
-     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-    		@Override
-    		public void onItemClick(AdapterView<?> parent, View itemClicked, int position,
-    				long id) {
-    			String selectedName = ((TextView) itemClicked.findViewById(R.id.tone)).getText().toString();
-    			
-    			Toast.makeText(getApplicationContext(), selectedName,
-    			        Toast.LENGTH_SHORT).show();
-    			//playSong(position);
-    			setRing(selectedName);
-    			//aaa = selectedName;
-    			BackClick();
-    			
-    			
-    		}
-
-			
-    	});
    }
    
    public static void setListViewHeightBasedOnChildren(ListView lv) {
@@ -217,9 +153,8 @@ public class ActivitySetRingtone extends Activity implements OnClickListener{
 
 	     protected void onResume() {
 		        super.onResume();
-		        
-		       
-		       
+
+
 
 		        	 int speed = mSettings.getInt(APP_PREFERENCES_ANIM_SPEED, 1);
 					if (speed == 1){
@@ -266,7 +201,77 @@ public class ActivitySetRingtone extends Activity implements OnClickListener{
 						
 					}
 		       }
-		        
+
+			 ListView listView = (ListView) findViewById(R.id.listtones);
+			 myList = new ArrayList<String>();
+
+			 mp = new MediaPlayer();
+
+			 File directory = Environment.getExternalStorageDirectory();
+			 //file = new File( directory + "/fineSettings/ringtones/" );
+			 file = new File( "/system/media/audio/ringtones" );
+     /*
+     boolean success = true;
+     if (!file.exists()) {
+         success = file.mkdir();
+     }
+     if (success) {
+
+    	   for (int i = 0; i < mSongs.length; i++) {
+    	       try {
+    	           String path = Environment.getExternalStorageDirectory() + "/fineSettings/ringtones/";
+    	           File dir = new File(path);
+    	           if (dir.mkdirs() || dir.isDirectory()) {
+    	               String str_song_name = "Ringtone " + i + ".ogg";
+    	               CopyRAWtoSDCard(mSongs[i], path + File.separator + str_song_name);
+    	           }
+    	       } catch (IOException e) {
+    	           e.printStackTrace();
+    	       }
+    	   }
+
+
+     } else {
+         // Do something else on failure
+     }
+     */
+
+
+
+			 File list[] = file.listFiles();
+
+			 for( int i=0; i< list.length; i++)
+			 {
+				 String s = list[i].getName().substring(0,list[i].getName().length()-4);
+				 myList.add( s );
+				 setListViewHeightBasedOnChildren(listView);
+			 }
+
+			 ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+					 R.layout.row_ringtone, R.id.tone, myList);
+			 listView.setAdapter(adapter); //Set all the file in the list.
+
+
+
+			 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+				 @Override
+				 public void onItemClick(AdapterView<?> parent, View itemClicked, int position,
+										 long id) {
+					 String selectedName = ((TextView) itemClicked.findViewById(R.id.tone)).getText().toString();
+
+					 Toast.makeText(getApplicationContext(), selectedName,
+							 Toast.LENGTH_SHORT).show();
+					 //playSong(position);
+					 setRing(selectedName);
+					 //aaa = selectedName;
+					 BackClick();
+
+
+				 }
+
+
+			 });
+
 	     }
 
 private void CopyRAWtoSDCard(int id, String path) throws IOException {
@@ -352,7 +357,7 @@ private void CopyRAWtoSDCard(int id, String path) throws IOException {
 		Intent intent18 = new Intent(this, ActivityZvuki.class);
      	 startActivity(intent18);
 	}
-	
+
 	@Override
     public boolean onKeyDown(int keycode, KeyEvent e) {
         switch(keycode) {
@@ -367,8 +372,8 @@ private void CopyRAWtoSDCard(int id, String path) throws IOException {
         }
         return super.onKeyDown(keycode, e);
    }
-        
- 
+
+
         
         
 }

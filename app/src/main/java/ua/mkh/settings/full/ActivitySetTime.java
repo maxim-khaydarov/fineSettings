@@ -24,6 +24,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
@@ -53,12 +54,14 @@ public class ActivitySetTime extends Activity implements View.OnClickListener {
 	   TextView  textStatus, textView1;
 	   ToggleButton tg24, tgAuto;
 	   RelativeLayout timerPic;
+	   LinearLayout LinearLayout02, LinearLayout03;
 	   
 	   SharedPreferences mSettings;
 	   
 	   int timer = 0;
 	   
 	   WheelView day, year, month, hour, min;
+
 	   
 	   @Override
 	    public void onCreate(Bundle savedInstanceState) 
@@ -97,9 +100,11 @@ public class ActivitySetTime extends Activity implements View.OnClickListener {
 			 tg24.setOnClickListener(this);
 			 tg24.setClickable(false);
 			 tgAuto = (ToggleButton) findViewById(R.id.ToggleButton01);
-			 tgAuto.setClickable(false);
-			 
-			 
+			 //tgAuto.setClickable(false);
+			tgAuto.setOnClickListener(this);
+
+			LinearLayout02 = (LinearLayout) findViewById(R.id.LinearLayout02);
+			LinearLayout03 = (LinearLayout) findViewById(R.id.LinearLayout03);
 				
 				textStatus.setText(R.string.date_time);
 				textView1.setTypeface(typefaceRoman);
@@ -454,16 +459,19 @@ public class ActivitySetTime extends Activity implements View.OnClickListener {
 	    
 	    
 	    public void checkAUTOtime(){
+
 	    	String timeSettings = android.provider.Settings.System.getString(
 	                this.getContentResolver(),
 	                android.provider.Settings.System.AUTO_TIME);
 			
 			if (timeSettings.contentEquals("0")){
 				tgAuto.setChecked(false);
+				LinearLayout03.setVisibility(View.VISIBLE);
 				
 			}
 			else{
 				tgAuto.setChecked(true);
+				LinearLayout03.setVisibility(View.GONE);
 			}
 	    }
 	    
@@ -581,6 +589,17 @@ public class ActivitySetTime extends Activity implements View.OnClickListener {
 			        	startActivity(settingsIntent);
 			 	        	overridePendingTransition(center_to_left, center_to_left2); 
 				 }
+
+				 break;
+
+				 case R.id.ToggleButton01:
+					 if (tgAuto.isChecked()){
+						LinearLayout03.setVisibility(View.GONE);
+					 }
+					 else {
+						 LinearLayout03.setVisibility(View.VISIBLE);
+					 }
+					 break;
 			 }
 			
 			 

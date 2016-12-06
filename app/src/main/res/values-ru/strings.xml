@@ -44,7 +44,7 @@
     <string name="license_ios">iPhone и iOS являются торговыми марками, зарегестрированными компанией Apple Inc.</string>
     <string name="brightness">ЯРКОСТЬ</string>
     <string name="button_autobrightness">Автояркость</string>
-    <string name="set_wallpaper">ВЫБРАТЬ ОБОИ</string>
+    <string name="set_wallpaper">ОБОИ</string>
     <string name="button_set_wallpaper">Выбрать новые обои</string>
     <string name="information">Информация</string>
     <string name="button_my_number">Мой номер</string>
@@ -192,7 +192,7 @@
   	<string name="icloud_t">ICLOUD</string>
   	<string name="wall_live">Живые</string>
   	<string name="wall_statik">Статистические</string>
-  	<string name="wall_dynamik">Динамические</string>
+  	<string name="wall_dynamik">Динамичные</string>
   	<string name="wall_photo">ФОТОГРАФИИ</string>
   	<string name="wall_camera">Мои фото</string>
   	<string name="choose_wifi">ВЫБРАТЬ СЕТЬ...</string>
@@ -266,7 +266,7 @@
 	<string name="low_battery_text">% батареи осталось</string>
 	<string name="oboi_safe_mode">Динамические обои и перспектива отключены в режиме энергосбережения.</string>
 	<string name="data_oboi">Вторник, 9 января</string>
-	<string name="cancel_oboi">Отменить</string>
+	<string name="cancel_oboi">Отмена</string>
 	<string name="set_oboi">Установить</string>
 	<string name="preview_oboi">Просмотр обоев</string>
 	<string name="update_1">Обновление до iOS9 beta 5</string>
@@ -312,7 +312,6 @@
 	<string name="search_iphone_text_1_2">О \"Найти iPhone\" и Конфедициальности...</string>
 	<string name="search_iphone_text_2">Автоматически отправлять в Apple геопозицию этого iPhone, когда аккумултор критически низок.</string>
 	<string name="search_iphone2">Последняя геопозиция</string>
-	<string name="button_handoff">Handoff и предлагаемое ПО</string>
 	<string name="handoff">Handoff</string>
 	<string name="handoff_text">Handoff позволяет начать что-то на одном устройстве и мгновенно продолжить на других с помощью учетной записи iCloud. Нужная программа появится на заблокированном экране, в переключателе программ, а также на компьютере Mac в Dock.</string>
 	<string name="suggest_app_title">ПРЕДЛАГАЕМЫЕ ПРОГРАММЫ</string>
@@ -375,6 +374,10 @@
 	<string name="information_wifi_23">Компания \"Google\" в Android 6.0+ ввела ограничения на использование уже существующих сетей Wi-Fi.\nДля корректной работы, зайдите в системные настройки и удалите уже существующие сети.</string>
 	<string name="roaming_text">Роуминг</string>
 	<string name="permission_text">Для нормальной работы приложения, разрешите доступы ниже. </string>
+
+	<string name="carplay">CarPlay</string>
+	<string name="carplay_text">Если автомобиль поддерживает беспроводной CarPlay, нажмите и удерживайте кнопку голосового управления на руле, чтобы начать настройку этой функции.</string>
+	<string name="carplay_auto">ДОСТУПНЫЕ АВТОМОБИЛИ</string>
 </resources>
 
 

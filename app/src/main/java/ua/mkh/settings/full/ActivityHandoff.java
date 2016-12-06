@@ -20,9 +20,9 @@ import android.widget.ToggleButton;
 public class ActivityHandoff extends Activity implements View.OnClickListener{
 
 	Button  btn_back;
-	Button Button01, Button02, Button03;
-	TextView TextView01, TextView02, textView2;
-	ToggleButton tg1, tg2, tg3;
+	Button Button01;
+	TextView TextView01;
+	ToggleButton tg1;
 	
 	 
 	 Typeface typefaceRoman, typefaceMedium, typefaceBold;
@@ -35,8 +35,6 @@ public class ActivityHandoff extends Activity implements View.OnClickListener{
 	 public static final String APP_PREFERENCES_ANIM_SPEED = "anim_speed";
 	 public static final String APP_PREFERENCES_tgb_menu = "tgb_menu";
 	 public static final String APP_PREFERENCES_HANDOFF = "handoff";
-	 public static final String APP_PREFERENCES_SUGGEST_APP = "suggest_app";
-	 public static final String APP_PREFERENCES_SUGGEST_STORE = "suggest_store";
 	 
 	
 	 
@@ -65,30 +63,21 @@ public class ActivityHandoff extends Activity implements View.OnClickListener{
 				textStatus = (TextView)findViewById(R.id.textOk);
 				
 				Button01 = (Button) findViewById(R.id.Button01);
-				Button02 = (Button) findViewById(R.id.Button02);
-				Button03 = (Button) findViewById(R.id.Button03);
+
 				
-				TextView01 = (TextView) findViewById(R.id.TextView01);
-				TextView02 = (TextView) findViewById(R.id.TextView02);
-				textView2 = (TextView) findViewById(R.id.textView2);
+
 				
 				tg1 = (ToggleButton) findViewById(R.id.ToggleButton01);
 				tg1.setOnClickListener(this);
-				tg2 = (ToggleButton) findViewById(R.id.BTtoggle);
-				tg2.setOnClickListener(this);
-				tg3 = (ToggleButton) findViewById(R.id.ToggleButton02);
-				tg3.setOnClickListener(this);
-				
+
 				textStatus.setTypeface(typefaceBold);
 				btn_back.setTypeface(typefaceMedium);
 				btn_back.setText(R.string.button_general);
-				textStatus.setText(R.string.button_handoff);
+				textStatus.setText(R.string.handoff);
 				Button01.setTypeface(typefaceRoman);
-				Button02.setTypeface(typefaceRoman);
-				Button03.setTypeface(typefaceRoman);
-				TextView01.setTypeface(typefaceRoman);
-				TextView02.setTypeface(typefaceRoman);
-				textView2.setTypeface(typefaceRoman);
+
+				//TextView01.setTypeface(typefaceRoman);
+
 				
 	 }
 	 
@@ -124,11 +113,8 @@ public class ActivityHandoff extends Activity implements View.OnClickListener{
 	        	 Boolean bold = mSettings.getBoolean(APP_PREFERENCES_bold_text, true);
 				if (bold == true){
 					Button01.setTypeface(typefaceBold);
-					Button02.setTypeface(typefaceBold);
-					Button03.setTypeface(typefaceBold);
 					TextView01.setTypeface(typefaceBold);
-					TextView02.setTypeface(typefaceBold);
-					textView2.setTypeface(typefaceBold);
+
 			        
 					
 				}
@@ -138,35 +124,23 @@ public class ActivityHandoff extends Activity implements View.OnClickListener{
 	        	 String size = mSettings.getString(APP_PREFERENCES_text_size, "19");
 				if (size .contains( "Small")){
 					Button01.setTextSize(13);
-					Button02.setTextSize(13);
-					Button03.setTextSize(13);
 					TextView01.setTextSize(11);
-					TextView02.setTextSize(11);
-					textView2.setTextSize(11);
+
 				}
 				if (size .contains( "Normal")){
 					Button01.setTextSize(15);
-					Button02.setTextSize(15);
-					Button03.setTextSize(15);
 					TextView01.setTextSize(13);
-					TextView02.setTextSize(13);
-					textView2.setTextSize(13);
+
 				}
 				if (size .contains( "Large")){
 					Button01.setTextSize(18);
-					Button02.setTextSize(18);
-					Button03.setTextSize(18);
 					TextView01.setTextSize(15);
-					TextView02.setTextSize(15);
-					textView2.setTextSize(15);
+
 				}
 				if (size .contains( "xLarge")){
 					Button01.setTextSize(18);
-					Button02.setTextSize(18);
-					Button03.setTextSize(18);
 					TextView01.setTextSize(20);
-					TextView02.setTextSize(20);
-					textView2.setTextSize(20);
+
 				}
 	       }
 	       
@@ -178,21 +152,7 @@ public class ActivityHandoff extends Activity implements View.OnClickListener{
 	    	   tg1.setChecked(false);
 	       }
 	       
-	       Boolean suggest_app = mSettings.getBoolean(APP_PREFERENCES_SUGGEST_APP, false);
-	       if(suggest_app == true){
-	    	   tg2.setChecked(true);
-	       }
-	       else{
-	    	   tg2.setChecked(false);
-	       }
-	       
-	       Boolean suggest_store = mSettings.getBoolean(APP_PREFERENCES_SUGGEST_STORE, true);
-	       if(suggest_store == true){
-	    	   tg3.setChecked(true);
-	       }
-	       else{
-	    	   tg3.setChecked(false);
-	       }
+
 	    }
 	  
 	  @Override
@@ -234,27 +194,7 @@ public class ActivityHandoff extends Activity implements View.OnClickListener{
 	        		}
 	        		break;
 	        		
-	        	case R.id.BTtoggle:
-	        		if((tg2).isChecked()){
-	        			Editor editor = mSettings.edit();
-	    			   	editor.putBoolean(APP_PREFERENCES_SUGGEST_APP, true).commit();
-	        		}
-	        		else{
-	        			Editor editor = mSettings.edit();
-	    			   	editor.putBoolean(APP_PREFERENCES_SUGGEST_APP, false).commit();
-	        		}
-	        		break;
-	        		
-	        	case R.id.ToggleButton02:
-	        		if((tg3).isChecked()){
-	        			Editor editor = mSettings.edit();
-	    			   	editor.putBoolean(APP_PREFERENCES_SUGGEST_STORE, true).commit();
-	        		}
-	        		else{
-	        			Editor editor = mSettings.edit();
-	    			   	editor.putBoolean(APP_PREFERENCES_SUGGEST_STORE, false).commit();
-	        		}
-	        		break;
+
 	        		
 	        	}
 	        }

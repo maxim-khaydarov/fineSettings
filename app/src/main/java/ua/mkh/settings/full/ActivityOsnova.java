@@ -710,6 +710,10 @@ public class ActivityOsnova extends Activity implements View.OnClickListener{
 	    	}
 	    	
 	    	else if (id == R.id.Button12){
+				Intent intent = new Intent(this, ActivityCarPlay.class);
+				startActivity(intent);
+				overridePendingTransition(center_to_left, center_to_left2);
+				/*
 	    		try{
 	    		final Intent intent = new Intent(Intent.ACTION_MAIN, null);
 
@@ -733,7 +737,7 @@ public class ActivityOsnova extends Activity implements View.OnClickListener{
     			    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.googlequicksearchbox")));
     			    overridePendingTransition(center_to_left, center_to_left2);
     			}
-    		}
+    		}*/
 
 	    	}
 	    	
