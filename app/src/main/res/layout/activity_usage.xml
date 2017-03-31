@@ -5,8 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/background_fon"
-    android:orientation="vertical"
-    tools:context=".ActivityGeo" >
+    android:orientation="vertical" >
 
     <ua.mkh.settings.full.EdgeEffectScrollView
         android:id="@+id/scrollView1"

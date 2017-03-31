@@ -244,11 +244,12 @@ public class ActivitySetRingtone extends Activity implements OnClickListener{
 			 {
 				 String s = list[i].getName().substring(0,list[i].getName().length()-4);
 				 myList.add( s );
-				 setListViewHeightBasedOnChildren(listView);
+				 //setListViewHeightBasedOnChildren(listView);
 			 }
 
 			 ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 					 R.layout.row_ringtone, R.id.tone, myList);
+			 listView.setItemsCanFocus(true);
 			 listView.setAdapter(adapter); //Set all the file in the list.
 
 
@@ -271,8 +272,34 @@ public class ActivitySetRingtone extends Activity implements OnClickListener{
 
 
 			 });
-
+			 //setListViewHeightBasedOnChildren(listView);
+			 Utility.setListViewHeightBasedOnClildren(listView);
 	     }
+
+	public static class Utility{
+		public static void setListViewHeightBasedOnClildren(ListView listView){
+			ListAdapter listAdapter = listView.getAdapter();
+			if (listAdapter == null){
+				return;
+			}
+
+			int totalHeight = listView.getPaddingTop() + listView.getPaddingBottom();
+
+			for (int i=0; i < listAdapter.getCount(); i++){
+				View listItem = listAdapter.getView(i, null, listView);
+				if (listItem instanceof  ViewGroup){
+					listItem.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+				}
+
+				listItem.measure(0,0);
+				totalHeight += listItem.getMeasuredHeight();
+			}
+
+			ViewGroup.LayoutParams params = listView.getLayoutParams();
+			params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount()-1));
+			listView.setLayoutParams(params);
+		}
+	}
 
 private void CopyRAWtoSDCard(int id, String path) throws IOException {
    InputStream in = getResources().openRawResource(id);
