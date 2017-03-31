@@ -370,6 +370,8 @@
 	<string name="information_wifi_23">Компанія \"Google\" у Android 6.0+ ввела обмеження на використання вже існуючих мереж Wi-Fi.\nДля коректної роботи, зайдіть в системні налаштування і видаліть вже існуючі мережі.</string>
 	<string name="roaming_text">Роумінг</string>
 	<string name="permission_text">Для нормальної роботи програми, дозвольте нижчезазначені доступи.</string>
+
+	<string name="appleid_icloud">Apple ID, iCloud, iTunes- та  App Store</string>
 </resources>
 
 

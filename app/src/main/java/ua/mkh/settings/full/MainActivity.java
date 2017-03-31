@@ -46,7 +46,9 @@ import android.telephony.TelephonyManager;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextWatcher;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.MeasureSpec;
@@ -66,6 +68,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.SearchView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
@@ -78,8 +81,11 @@ import android.support.v7.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, SearchView.OnQueryTextListener,
 SearchView.OnCloseListener, OnFocusChangeListener {
-	
-	
+
+
+	int serverCode;
+	private static final String SCOPE = "oauth2:https://www.googleapis.com/auth/userinfo.profile";
+	ImageView imageProfile;
     
 	WifiManager wifi;
 	Button btn_avia, btn_wifi, btn_bluetooth, btn_sota, btn_operator, btn_osnova,
@@ -92,6 +98,7 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 			btn_twitter, btn_facebook, btn_instagram, btn_battery;
 	
 	ToggleButton tb_am;
+	ScrollView scrollview;
 	
 	LinearLayout LinearLayoutWiFi, LinearLayoutBluetooth, LinearLayoutSotSvyaz, 
 	LinearLayoutOperator, LinearLayoutGeo, LinearLayoutNotif, LinearLayoutControl,
@@ -199,6 +206,7 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 	   
 	   Dialog dialog;
 	   String possibleEmail;
+		TextView name, text, no_apple;
 	   
 	   String YA = null, G = null;
 	   String svoi = null;
@@ -240,8 +248,26 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
 
+		scrollview = (ScrollView) findViewById(R.id.scrollView1);
 
-		
+
+		final DisplayMetrics metrics = getResources().getDisplayMetrics();
+
+
+		//scrollview.scrollTo(0, -600);
+
+		scrollview.post(new Runnable() {
+			public void run() {
+				scrollview.smoothScrollBy(0,(int)(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (float)45, metrics)));
+			}
+		});
+
+
+
+
+
+
+
 		//try {
 		String roman = "fonts/Regular.otf";
 		String medium = "fonts/Medium.otf";
@@ -298,9 +324,10 @@ SearchView.OnCloseListener, OnFocusChangeListener {
         searchView.setOnCloseListener(this);
  
         mListView = (ListView) findViewById(R.id.list);
-		
-        
-       
+
+		name = (TextView) findViewById(R.id.textView2);
+		text = (TextView) findViewById(R.id.text);
+       no_apple = (TextView) findViewById(R.id.textView15);
         
 		b1 = (Button) findViewById(R.id.button1);
 		b2 = (Button) findViewById(R.id.button2);
@@ -477,7 +504,7 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 		TextOper = (TextView)findViewById(R.id.TextOper);
 		textVPN = (TextView) findViewById(R.id.TextView01);
 		
-		wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+		wifi = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 		
 		btn_avia = (Button) findViewById(R.id.Button01);
 		tb_am = (ToggleButton)findViewById(R.id.ToggleButton01);
@@ -664,7 +691,8 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 		btn_twitter.setTypeface(typefaceRoman);
 		btn_facebook.setTypeface(typefaceRoman);
 		btn_instagram.setTypeface(typefaceRoman);
-		
+		name.setTypeface(typefaceRoman);
+		text.setTypeface(typefaceRoman);
 		
 		btn_iCloud.setTypeface(typefaceRoman);
 		btn_iTunes.setTypeface(typefaceRoman);
@@ -792,7 +820,21 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 	}
 
 
+public void soccial (){
+	if(mSettings.contains("name")) {
+		String n = mSettings.getString("name", "Максим Хайдаров");
+		name.setText(n);
+		no_apple.setVisibility(View.GONE);
 
+	}
+	else{
+		name.setVisibility(View.GONE);
+		text.setVisibility(View.GONE);
+
+		//LinearLayout LinearSociall = (LinearLayout) findViewById(R.id.LinearSociall);
+		//LinearSociall.setVisibility(View.GONE);
+	}
+}
 	
 	private void stok (){
 		Editor editor = mSettings.edit();
@@ -1186,11 +1228,11 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 
 	        return false;
 	    }
-	
-	 
-	 
-	 
-	 
+
+
+
+
+
 	 
 	 protected void onResume() {
 	        super.onResume();
@@ -1201,7 +1243,7 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 	        operator();
 	        //check_pirat();
 	        zimowets();
-	       
+		 soccial();
 	       
 	        ConnectivityManager conMgr  = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE); 
 			 NetworkInfo info = conMgr.getActiveNetworkInfo(); 

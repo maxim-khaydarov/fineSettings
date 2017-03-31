@@ -376,6 +376,8 @@ Placing full version to any resources other than Yandex.Store prohibited.</strin
 	<string name="roaming_text">Roaming</string>
 	<string name="permission_text">For normal operation of the application, allow access below.</string>
 
+	<string name="appleid_icloud">Apple ID, iCloud, iTunes- and  App Store</string>
+
 </resources>
 
 

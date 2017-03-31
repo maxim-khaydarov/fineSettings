@@ -378,6 +378,9 @@
 	<string name="carplay">CarPlay</string>
 	<string name="carplay_text">Если автомобиль поддерживает беспроводной CarPlay, нажмите и удерживайте кнопку голосового управления на руле, чтобы начать настройку этой функции.</string>
 	<string name="carplay_auto">ДОСТУПНЫЕ АВТОМОБИЛИ</string>
+	
+	<string name="appleid_icloud">Apple ID, iCloud, iTunes- и  App Store</string>
+	<string name="connect_icloud">Ввойдите под своим Apple ID</string>
 </resources>
 
 
