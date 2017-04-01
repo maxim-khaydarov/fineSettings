@@ -31,6 +31,8 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
     public static final String APP_PREFERENCES_tgb_menu = "tgb_menu";
 
     Button btn_back;
+    Button name, email, phone;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,14 +55,27 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
         btn_back.setText(R.string.app_name_desk);
 
 
+        name = (Button) findViewById(R.id.name);
+        email = (Button) findViewById(R.id.email);
+        phone = (Button) findViewById(R.id.phone);
 
         textStatus.setTypeface(typefaceBold);
         btn_back.setTypeface(typefaceMedium);
+        name.setTypeface(typefaceRoman);
+        email.setTypeface(typefaceRoman);
+        phone.setTypeface(typefaceRoman);
 
     }
 
 
     protected void onResume() {
+
+        get_name_user();
+        //get_email_user();
+        //get_phone_user();
+        //get_birthday_user();
+
+
         super.onResume();
         int speed = mSettings.getInt(APP_PREFERENCES_ANIM_SPEED, 1);
         if (speed == 1) {
@@ -131,6 +146,38 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
 
 
 
+    private void get_name_user(){
+        if(!mSettings.contains("name")){
+            //go to registration
+            name.setText("");
+        }
+        else{
+            name.setText(mSettings.getString("name", "Maxim Khaydarov"));
+        }
+
+    }
+
+    private void get_email_user(){
+        if(!mSettings.contains("email")){
+            //go to registration
+            email.setText("");
+        }
+        else{
+            email.setText(mSettings.getString("email", "maxim.khaydarpv@yandex.ru"));
+        }
+
+    }
+
+    private void get_phone_user(){
+        if(!mSettings.contains("phone")){
+            //go to registration
+            phone.setText("");
+        }
+        else{
+            phone.setText(mSettings.getString("phone", "+380 975192551"));
+        }
+
+    }
 
     public void BackClick(View v)
     {

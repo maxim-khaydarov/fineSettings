@@ -23,12 +23,22 @@
             android:orientation="vertical" >
 
 
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="80dp"
+                android:text="@string/name_appleid_name"
+                android:textColor="@color/hint_text"
+                android:textSize="15sp" />
+
             <LinearLayout
                 android:id="@+id/LinearLayoutName"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="30dp"
-                android:layout_marginTop="80dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical">
@@ -47,7 +57,7 @@
                     android:ems="10">
 
                     <Button
-                        android:id="@+id/ButtonName"
+                        android:id="@+id/name"
                         android:layout_width="fill_parent"
                         android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
@@ -71,20 +81,6 @@
                         android:scaleType="fitCenter"
                         android:src="@drawable/next" />
 
-                    <TextView
-                        android:id="@+id/textName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_toLeftOf="@+id/imageView1"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:maxWidth="80dp"
-                        android:singleLine="true"
-                        android:text="iOS"
-                        android:textColor="@color/hint_text"
-                        android:textSize="15sp" />
-
                     <ImageView
                         android:id="@+id/ImageView02"
                         android:layout_width="fill_parent"
@@ -104,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="15dp"
-                android:text="TextView"
+                android:text="@string/name_appleid_kontact"
                 android:textColor="@color/hint_text"
                 android:textSize="15sp" />
 
@@ -130,7 +126,7 @@
                     android:ems="10">
 
                     <Button
-                        android:id="@+id/ButtonName"
+                        android:id="@+id/email"
                         android:layout_width="fill_parent"
                         android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
@@ -142,30 +138,6 @@
                         android:paddingLeft="15dp"
                         android:text="@string/name_about"
                         android:textColor="@color/black"
-                        android:textSize="15sp" />
-
-                    <ImageView
-                        android:id="@+id/imageView1"
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/next" />
-
-                    <TextView
-                        android:id="@+id/textName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_toLeftOf="@+id/imageView1"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:maxWidth="80dp"
-                        android:singleLine="true"
-                        android:text="iOS"
-                        android:textColor="@color/hint_text"
                         android:textSize="15sp" />
 
                 </RelativeLayout>
@@ -196,7 +168,7 @@
                     android:ems="10">
 
                     <Button
-                        android:id="@+id/ButtonName"
+                        android:id="@+id/phone"
                         android:layout_width="fill_parent"
                         android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
