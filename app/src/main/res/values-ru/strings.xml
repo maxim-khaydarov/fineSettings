@@ -390,7 +390,13 @@
 	<string name="name_appleid_name">ИМЯ</string>
 	<string name="phone_text_appleid_name">Номер iMessage и FaceTime</string>
 	<string name="phone_bottom_text_appleid_name">Эти номера телефонов и адреса электронной почты можно использовать для связи с Вами в iMessage, FaceTime, GameCenter и других сервисах.</string>
-	
+	<string name="birthday_appleid_name">Дата рождения</string>
+	<string name="news_text_top_appleid_name">НОВОСТИ И АНОНСЫ</string>
+	<string name="news_appleid_name">Объявления</string>
+	<string name="news_text_bottom_appleid_name">Получайте сообщения о выходе объявлений, рекомендации и информацию о новых продуктах, програмном обеспечении и услугах компании Apple.</string>
+	<string name="apple_music_appleid_name">Apple Music, приложения и другое</string>
+	<string name="apple_music_bottom_appleid_name">Получайте рекомендации, информацию о релизах, специальные предложения и эксклюзивный контент - музыку, приложения, фильмы, телепередачи, книги, подкасты и многое другое.</string>
+	<string name="appleid_apple_id_name">Об Apple ID и конфидециальности...</string>
 </resources>
 
 
