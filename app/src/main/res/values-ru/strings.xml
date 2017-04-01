@@ -386,8 +386,10 @@
 	<string name="cash_appleid">Оплата и доставка</string>
 	<string name="family_appleid">Настроить семейный доступ</string>
 	<string name="apple_id">Apple ID</string>
-	<string name="name_appleid_kontact">КОНТАКТНЫЕ ДАННЫЕ</string>
+	<string name="name_appleid_kontact_name">КОНТАКТНЫЕ ДАННЫЕ</string>
 	<string name="name_appleid_name">ИМЯ</string>
+	<string name="phone_text_appleid_name">Номер iMessage и FaceTime</string>
+	<string name="phone_bottom_text_appleid_name">Эти номера телефонов и адреса электронной почты можно использовать для связи с Вами в iMessage, FaceTime, GameCenter и других сервисах.</string>
 	
 </resources>
 

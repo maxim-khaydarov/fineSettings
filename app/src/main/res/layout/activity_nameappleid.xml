@@ -32,7 +32,7 @@
                 android:layout_marginTop="80dp"
                 android:text="@string/name_appleid_name"
                 android:textColor="@color/hint_text"
-                android:textSize="15sp" />
+                android:textSize="13sp" />
 
             <LinearLayout
                 android:id="@+id/LinearLayoutName"
@@ -100,9 +100,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="15dp"
-                android:text="@string/name_appleid_kontact"
+                android:text="@string/name_appleid_kontact_name"
                 android:textColor="@color/hint_text"
-                android:textSize="15sp" />
+                android:textSize="13sp" />
 
             <LinearLayout
                 android:id="@+id/LinearLayoutName"
@@ -148,7 +148,6 @@
                 android:id="@+id/LinearLayoutName"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="30dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical">
@@ -183,30 +182,6 @@
                         android:textSize="15sp" />
 
                     <ImageView
-                        android:id="@+id/imageView1"
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/next" />
-
-                    <TextView
-                        android:id="@+id/textName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_toLeftOf="@+id/imageView1"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:maxWidth="80dp"
-                        android:singleLine="true"
-                        android:text="iOS"
-                        android:textColor="@color/hint_text"
-                        android:textSize="15sp" />
-
-                    <ImageView
                         android:id="@+id/ImageView02"
                         android:layout_width="fill_parent"
                         android:layout_height="1px"
@@ -218,6 +193,16 @@
                 </RelativeLayout>
 
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/phone_bottom_text_appleid_name"
+                android:textColor="@color/hint_text"
+                android:textSize="13sp" />
         </LinearLayout>
     </ua.mkh.settings.full.EdgeEffectScrollView>
 

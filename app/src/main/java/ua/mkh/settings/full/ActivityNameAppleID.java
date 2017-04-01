@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
@@ -71,8 +72,8 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
     protected void onResume() {
 
         get_name_user();
-        //get_email_user();
-        //get_phone_user();
+        get_email_user();
+        get_phone_user();
         //get_birthday_user();
 
 
@@ -149,7 +150,7 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
     private void get_name_user(){
         if(!mSettings.contains("name")){
             //go to registration
-            name.setText("");
+            name.setText("Введите имя");
         }
         else{
             name.setText(mSettings.getString("name", "Maxim Khaydarov"));
@@ -160,10 +161,12 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
     private void get_email_user(){
         if(!mSettings.contains("email")){
             //go to registration
-            email.setText("");
+            email.setText("Введите E-MAIL");
         }
         else{
-            email.setText(mSettings.getString("email", "maxim.khaydarpv@yandex.ru"));
+            //email.setText(mSettings.getString("email", "maxim.khaydarpv@yandex.ru"));
+            String t2 = mSettings.getString("email", "maxim.khaydarov@yandex.ru") + "<br />" + "<font color=\"#808080\" >" + "<small><small>" + getString(R.string.apple_id) +  "</small></small>" + "</font>";
+            email.setText(Html.fromHtml(t2), TextView.BufferType.SPANNABLE);
         }
 
     }
@@ -171,10 +174,12 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
     private void get_phone_user(){
         if(!mSettings.contains("phone")){
             //go to registration
-            phone.setText("");
+            phone.setText("Введите телефон");
         }
         else{
-            phone.setText(mSettings.getString("phone", "+380 975192551"));
+            //phone.setText(mSettings.getString("phone", "+380 975192551"));
+            String t2 = mSettings.getString("phone", "+380 975192551") + "<br />" + "<font color=\"#808080\" >" + "<small><small>" + getString(R.string.apple_id) +  "</small></small>" + "</font>";
+            email.setText(Html.fromHtml(t2), TextView.BufferType.SPANNABLE);
         }
 
     }
