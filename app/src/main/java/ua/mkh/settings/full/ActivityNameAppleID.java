@@ -178,7 +178,7 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
         }
         else{
             //phone.setText(mSettings.getString("phone", "+380 975192551"));
-            String t2 = mSettings.getString("phone", "+380 975192551") + "<br />" + "<font color=\"#808080\" >" + "<small><small>" + getString(R.string.apple_id) +  "</small></small>" + "</font>";
+            String t2 = mSettings.getString("phone", "+380 975192551") + "<br />" + "<font color=\"#808080\" >" + "<small><small>" + getString(R.string.phone_text_appleid_name) +  "</small></small>" + "</font>";
             email.setText(Html.fromHtml(t2), TextView.BufferType.SPANNABLE);
         }
 
