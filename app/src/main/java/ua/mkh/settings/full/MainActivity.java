@@ -203,6 +203,8 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 	   
 	  
 	   String versionNow;
+
+    LinearLayout LinearSociall;
 	   
 	   Dialog dialog;
 	   String possibleEmail;
@@ -264,7 +266,8 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 
 
 
-
+        LinearSociall = (LinearLayout) findViewById(R.id.LinearSociall);
+		LinearSociall.setOnClickListener(this);
 
 
 
@@ -1211,6 +1214,14 @@ public void soccial (){
 			 startActivity( LaunchIntent );
 		        	overridePendingTransition(center_to_left, center_to_left2);
 		        	 }
+
+
+		 else if (id == R.id.LinearSociall)   {
+             Intent soc = new Intent (this, ActivityAppleID.class);
+             startActivity(soc);
+             overridePendingTransition(center_to_left, center_to_left2);
+
+         }
 	 }
 	
 	 
@@ -2058,7 +2069,7 @@ public void soccial (){
 	    		textwifi.setText(R.string.off); }
 	    	
 	    	
-	    	WifiManager manager = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
+	    	WifiManager manager = (WifiManager) this.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 	        if (manager.isWifiEnabled()) {
 	           WifiInfo wifiInfo = manager.getConnectionInfo();
 	           if (wifiInfo != null) {

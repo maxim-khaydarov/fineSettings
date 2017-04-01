@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_fon"
+    android:orientation="vertical">
+
+    <ua.mkh.settings.full.EdgeEffectScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scrollView1"
+        style="android:scrollViewStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:ems="10"
+        android:fadingEdge="none"
+        android:overScrollMode="always"
+        android:scrollbars="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/roundedImageView"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="centerCrop"
+                app:civ_border_width="0dp"
+                app:civ_border_color="#FF000000"/>
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Имя Фамилия"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="TextView"
+                android:textColor="@color/hint_text" />
+        </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/LinearLayoutCenter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ImageView21"
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:ems="10"
+            android:scaleType="fitXY"
+            android:src="@drawable/line_cray" />
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutNotif"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10">
+
+                <Button
+                    android:id="@+id/b1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="15dp"
+                    android:text="@string/name_appleid"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/ImageView22"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/next" />
+
+                <ImageView
+                    android:id="@+id/ImageView127"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toRightOf="@+id/ImageView20"
+                    android:ems="10"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/line_cray" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutControl"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10">
+
+                <Button
+                    android:id="@+id/b2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="15dp"
+                    android:text="@string/password_appleid"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/ImageView26"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/next" />
+
+                <ImageView
+                    android:id="@+id/ImageView19"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toRightOf="@+id/ImageView28"
+                    android:ems="10"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/line_cray" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutDisturb"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10">
+
+                <Button
+                    android:id="@+id/b3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:ems="10"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="15dp"
+                    android:text="@string/cash_appleid"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/ImageView24"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/next" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ImageView25"
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:ems="10"
+            android:scaleType="fitXY"
+            android:src="@drawable/line_cray" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayoutStore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:layout_marginTop="36dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ImageView15"
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:ems="10"
+            android:scaleType="fitXY"
+            android:src="@drawable/line_cray" />
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutCloud"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10">
+
+                <Button
+                    android:id="@+id/b4"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="65dp"
+                    android:text="@string/icloud"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/ImageView81"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/next" />
+
+                <ImageView
+                    android:id="@+id/ImageView79"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/icloud" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutTunes"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10">
+
+                <Button
+                    android:id="@+id/b5"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="65dp"
+                    android:text="@string/itunes_appstore"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/ImageView40"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/next" />
+
+                <ImageView
+                    android:id="@+id/ImageView161"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/appstore" />
+
+                <ImageView
+                    android:id="@+id/ImageView27"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="70dp"
+                    android:ems="10"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/line_cray" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutTunes1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10">
+
+                <Button
+                    android:id="@+id/b6"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="65dp"
+                    android:text="@string/family_appleid"
+                    android:textColor="@color/blue"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/ImageView401"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/next" />
+
+                <ImageView
+                    android:id="@+id/ImageView1611"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/appstore" />
+
+                <ImageView
+                    android:id="@+id/ImageView271"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/ImageView1611"
+                    android:ems="10"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/line_cray" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ImageView14"
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:ems="10"
+            android:scaleType="fitXY"
+            android:src="@drawable/line_cray" />
+
+    </LinearLayout>
+    </LinearLayout>
+    </ua.mkh.settings.full.EdgeEffectScrollView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_title"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/include1"
+            layout="@layout/title_status"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+    </LinearLayout>
+</RelativeLayout>

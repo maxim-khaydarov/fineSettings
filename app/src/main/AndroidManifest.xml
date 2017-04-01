@@ -132,7 +132,9 @@
              <activity  android:name="ua.mkh.settings.full.ActivityRegulatory" />
              <activity  android:name="ua.mkh.settings.full.ActivityUsageInfo" />
              <activity  android:name="ua.mkh.settings.full.ActivitySotaParam" />
-        <activity  android:name=".ActivityCarPlay" />
+            <activity  android:name=".ActivityCarPlay" />
+            <activity  android:name=".ActivityAppleID" />
+            <activity  android:name=".ActivityNameAppleID" />
             <activity  android:name="ua.mkh.settings.full.ActivityCharge" android:theme="@style/Theme.Transparent" />
             <activity  android:name="ua.mkh.settings.full.MessageBox" android:theme="@style/Theme.Transparent" />
            

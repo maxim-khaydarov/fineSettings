@@ -161,7 +161,7 @@
   	<string name="learn_more">Подробнее</string>
   	<string name="down_install">Загрузить и установить</string>
   	<string name="icloud">iCloud</string>
-  	<string name="itunes_appstore">iTunes, App Store</string>
+  	<string name="itunes_appstore">iTunes и App Store</string>
   	<string name="speed_anim">Анимация</string>
   	<string name="speed_anim_text">СКОРОСТЬ АНИМАЦИИ</string>
   	<string name="settings_app_dop">ДОПОЛНИТЕЛЬНЫЕ ФУНКЦИИ</string>
@@ -381,6 +381,13 @@
 	
 	<string name="appleid_icloud">Apple ID, iCloud, iTunes- и  App Store</string>
 	<string name="connect_icloud">Ввойдите под своим Apple ID</string>
+	<string name="name_appleid">Имя, номера телефонов, e-mail</string>
+	<string name="password_appleid">Пароль и безопасность</string>
+	<string name="cash_appleid">Оплата и доставка</string>
+	<string name="family_appleid">Настроить семейный доступ</string>
+	<string name="apple_id">Apple ID</string>
+	<string name="name_appleid_kontact">КОНТАКТНЫЕ ДАННЫЕ</string>
+	
 </resources>
 
 
