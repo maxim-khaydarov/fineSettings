@@ -757,8 +757,7 @@ public class ActivityAbout extends Activity implements View.OnClickListener{
 	   protected void onPause() {
 	     super.onPause();
 	    if (wifi_con == 0){
-	    	WifiManager wifi = (WifiManager) this
-                    .getSystemService(this.WIFI_SERVICE);
+	    	WifiManager wifi = (WifiManager) this.getApplicationContext().getSystemService(this.WIFI_SERVICE);
 	    	wifi.setWifiEnabled(false);
 	    }
 	   }

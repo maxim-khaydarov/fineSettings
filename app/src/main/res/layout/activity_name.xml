@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_fon"
+    android:orientation="vertical">
+
+    <ua.mkh.settings.full.EdgeEffectScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scrollView1"
+        style="android:scrollViewStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:ems="10"
+        android:fadingEdge="none"
+        android:overScrollMode="always"
+        android:scrollbars="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/LinearLayoutCenter"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="80dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ImageView21"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:ems="10"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/line_cray" />
+
+                <LinearLayout
+                    android:id="@+id/LinearLayoutNotif"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:ems="10"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:ems="10">
+
+                        <Button
+                            android:id="@+id/b1"
+                            android:layout_width="fill_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerVertical="true"
+                            android:background="@android:color/transparent"
+                            android:ems="10"
+                            android:gravity="left|center_vertical"
+                            android:paddingLeft="15dp"
+                            android:text="@string/name_name"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <EditText
+                            android:id="@+id/ed_name"
+                            android:layout_width="250dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:background="@color/transparent"
+                            android:ems="10"
+                            android:hint="@string/necessarily"
+                            android:inputType="textPersonName"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/hint_text"
+                            android:textSize="15sp" />
+
+                        <ImageView
+                            android:id="@+id/ImageView127"
+                            android:layout_width="fill_parent"
+                            android:layout_height="1px"
+                            android:layout_alignParentBottom="true"
+                            android:layout_toRightOf="@+id/ImageView20"
+                            android:ems="10"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/line_cray" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/LinearLayoutControl"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:ems="10"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:ems="10">
+
+                        <EditText
+                            android:id="@+id/ed_patro"
+                            android:layout_width="250dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:background="@color/transparent"
+                            android:ems="10"
+                            android:hint="@string/not_necessarily"
+                            android:inputType="textPersonName"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/hint_text"
+                            android:textSize="15sp" />
+
+                        <Button
+                            android:id="@+id/b2"
+                            android:layout_width="fill_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerVertical="true"
+                            android:background="@android:color/transparent"
+                            android:ems="10"
+                            android:gravity="left|center_vertical"
+                            android:paddingLeft="15dp"
+                            android:text="@string/patronymic_name"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <ImageView
+                            android:id="@+id/ImageView19"
+                            android:layout_width="fill_parent"
+                            android:layout_height="1px"
+                            android:layout_alignParentBottom="true"
+                            android:layout_toRightOf="@+id/ImageView28"
+                            android:ems="10"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/line_cray" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/LinearLayoutDisturb"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:ems="10"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:ems="10">
+
+                        <EditText
+                            android:id="@+id/ed_surname"
+                            android:layout_width="250dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:background="@color/transparent"
+                            android:ems="10"
+                            android:hint="@string/necessarily"
+                            android:inputType="textPersonName"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <Button
+                            android:id="@+id/b3"
+                            android:layout_width="fill_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerVertical="true"
+                            android:background="@android:color/transparent"
+                            android:clickable="false"
+                            android:ems="10"
+                            android:gravity="left|center_vertical"
+                            android:paddingLeft="15dp"
+                            android:text="@string/surname_name"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/ImageView25"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:ems="10"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/line_cray" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ua.mkh.settings.full.EdgeEffectScrollView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_title"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/include1"
+            layout="@layout/title_status_save"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+    </LinearLayout>
+</RelativeLayout>

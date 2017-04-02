@@ -45,14 +45,14 @@ import android.widget.LinearLayout;
 public class WheelView extends View {
 
 	/** Top and bottom shadows colors */
-	private int[] SHADOWS_COLORS = new int[] { 0xFF111111,
-			0x00AAAAAA, 0x00AAAAAA };
+	private int[] SHADOWS_COLORS = new int[] { 0xFFeeeef3,
+			0x00eeeef3, 0x00AAAAAA };
 
 	/** Top and bottom items offset (to hide that) */
-	private static final int ITEM_OFFSET_PERCENT = 0;
+	private static final int ITEM_OFFSET_PERCENT = 40;
 
 	/** Left and right padding value */
-	private static final int PADDING = 10;
+	private static final int PADDING = 90;
 
 	/** Default count of visible items */
 	private static final int DEF_VISIBLE_ITEMS = 5;

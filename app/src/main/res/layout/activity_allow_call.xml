@@ -44,7 +44,8 @@
                     android:checked="true"
                     android:drawableRight="@drawable/radio_btn_selector"
                     android:padding="10dp"
-                    android:text="@string/allow_call_disturb_everyone" />
+                    android:text="@string/allow_call_disturb_everyone"
+                    android:textColor="@color/black" />
 
                 <RadioButton
                     android:id="@+id/radio1"
@@ -53,7 +54,8 @@
                     android:button="@null"
                     android:drawableRight="@drawable/radio_btn_selector"
                     android:padding="10dp"
-                    android:text="@string/allow_call_disturb_noone" />
+                    android:text="@string/allow_call_disturb_noone"
+                    android:textColor="@color/black" />
 
                 <RadioButton
                     android:id="@+id/radio2"
@@ -62,7 +64,8 @@
                     android:button="@null"
                     android:drawableRight="@drawable/radio_btn_selector"
                     android:padding="10dp"
-                    android:text="@string/allow_call_disturb_contacts" />
+                    android:text="@string/allow_call_disturb_contacts"
+                    android:textColor="@color/black" />
 
             </RadioGroup>
 

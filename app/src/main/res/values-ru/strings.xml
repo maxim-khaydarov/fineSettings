@@ -397,6 +397,13 @@
 	<string name="apple_music_appleid_name">Apple Music, приложения и другое</string>
 	<string name="apple_music_bottom_appleid_name">Получайте рекомендации, информацию о релизах, специальные предложения и эксклюзивный контент - музыку, приложения, фильмы, телепередачи, книги, подкасты и многое другое.</string>
 	<string name="appleid_apple_id_name">Об Apple ID и конфидециальности...</string>
+    <string name="adres_appleid">ОСНОВНОЙ АДРЕС</string>
+	<string name="name_name">Имя</string>
+	<string name="patronymic_name">Отчество</string>
+	<string name="surname_name">Фамилия</string>
+	<string name="necessarily">Обязательно</string>
+	<string name="not_necessarily">Не обязательно</string>
+	<string name="ready">Готово</string>
 </resources>
 
 

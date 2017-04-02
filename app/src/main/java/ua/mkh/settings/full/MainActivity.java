@@ -2,6 +2,7 @@ package ua.mkh.settings.full;
 
 
 
+import java.io.File;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,6 +28,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -38,6 +41,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
@@ -826,7 +830,7 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 public void soccial (){
 	if(mSettings.contains("name")) {
 		String n = mSettings.getString("name", "Максим Хайдаров");
-		name.setText(n);
+		name.setText(mSettings.getString("name", "Максим") + " " + mSettings.getString("surname", "Хайдаров"));
 		no_apple.setVisibility(View.GONE);
 
 	}
@@ -838,6 +842,19 @@ public void soccial (){
 		//LinearSociall.setVisibility(View.GONE);
 	}
 }
+
+	private void get_user_photo() {
+		ImageView photo = (ImageView) findViewById(R.id.imageView_round);
+		File dir = new File(Environment.getExternalStorageDirectory() + "/fineSettings/iCloud/001.png");
+		if(!dir.exists()) {
+			photo.setImageDrawable(getResources().getDrawable(R.drawable.default_user));
+		}
+		else{
+			String iconsStoragePath = Environment.getExternalStorageDirectory() + "/fineSettings/iCloud/001.png";
+			Bitmap bmp = BitmapFactory.decodeFile(iconsStoragePath.toString());
+			photo.setImageBitmap(bmp);
+		}
+	}
 	
 	private void stok (){
 		Editor editor = mSettings.edit();
@@ -1255,6 +1272,7 @@ public void soccial (){
 	        //check_pirat();
 	        zimowets();
 		 soccial();
+		 get_user_photo();
 	       
 	        ConnectivityManager conMgr  = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE); 
 			 NetworkInfo info = conMgr.getActiveNetworkInfo(); 

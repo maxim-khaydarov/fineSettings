@@ -32,7 +32,8 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
     public static final String APP_PREFERENCES_tgb_menu = "tgb_menu";
 
     Button btn_back;
-    Button name, email, phone;
+    Button name, email, phone, adress;
+    TextView birthday;
 
 
     @Override
@@ -52,13 +53,19 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
         TextView textStatus = (TextView) findViewById(R.id.textOk);
         btn_back = (Button) findViewById(R.id.buttonBack);
 
-        textStatus.setText(R.string.apple_id);
-        btn_back.setText(R.string.app_name_desk);
+        textStatus.setText(R.string.name_appleid);
+        btn_back.setText(R.string.apple_id);
 
 
         name = (Button) findViewById(R.id.name);
+        name.setOnClickListener(this);
         email = (Button) findViewById(R.id.email);
         phone = (Button) findViewById(R.id.phone);
+        adress = (Button) findViewById(R.id.adress);
+        adress.setOnClickListener(this);
+
+        birthday = (TextView) findViewById(R.id.birthday);
+
 
         textStatus.setTypeface(typefaceBold);
         btn_back.setTypeface(typefaceMedium);
@@ -74,7 +81,7 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
         get_name_user();
         get_email_user();
         get_phone_user();
-        //get_birthday_user();
+        get_birthday_user();
 
 
         super.onResume();
@@ -148,12 +155,18 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
 
 
     private void get_name_user(){
-        if(!mSettings.contains("name")){
+        if(!mSettings.contains("name") || !mSettings.contains("surname")){
             //go to registration
             name.setText("Введите имя");
         }
         else{
-            name.setText(mSettings.getString("name", "Maxim Khaydarov"));
+            if(!mSettings.contains("patr")){
+                name.setText(mSettings.getString("name", "Maxim") + " " + mSettings.getString("surname", "Khaydarov"));
+            }
+            else{
+                name.setText(mSettings.getString("name", "Maxim") + " " + mSettings.getString("surname", "Khaydarov") + " " + mSettings.getString("patr", "Alievich"));
+            }
+
         }
 
     }
@@ -184,6 +197,10 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
 
     }
 
+    private void get_birthday_user (){
+        birthday.setText(mSettings.getString("birthday", "28.12.94"));
+    }
+
     public void BackClick(View v)
     {
         if(!mSettings.contains("name")){
@@ -203,6 +220,11 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
         // TODO Auto-generated method stub
         switch (v.getId()) {
 
+            case R.id.name:
+                Intent na = new Intent(this, ActivityName.class);
+                startActivity(na);
+                overridePendingTransition(center_to_left, center_to_left2);
+                break;
 
 
             default:

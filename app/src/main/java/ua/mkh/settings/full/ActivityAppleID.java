@@ -181,7 +181,7 @@ public class ActivityAppleID extends Activity implements View.OnClickListener{
             overridePendingTransition(center_to_left, center_to_left2);
         }
         else{
-            name.setText(mSettings.getString("name", "Maxim Khaydarov"));
+            name.setText(mSettings.getString("name", "Maxim") + " " + mSettings.getString("surname", "Khaydarov"));
         }
 
     }
