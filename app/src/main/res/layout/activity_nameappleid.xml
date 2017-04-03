@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_fon"
     android:orientation="vertical">
 
-    <ua.mkh.settings.full.EdgeEffectScrollView
+    <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/scrollView1"
         style="android:scrollViewStyle"
@@ -94,15 +95,34 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/textView16"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginBottom="10dp"
-                android:layout_marginLeft="15dp"
-                android:text="@string/name_appleid_kontact_name"
-                android:textColor="@color/hint_text"
-                android:textSize="13sp" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:text="@string/name_appleid_kontact_name"
+                    android:textColor="@color/hint_text"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="@string/edit"
+                    android:textColor="@color/blue"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/LinearLayoutName2"
@@ -153,7 +173,7 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/ImageView0121"
+                    android:id="@+id/ImageView01214"
                     android:layout_width="fill_parent"
                     android:layout_height="1px"
                     android:layout_marginLeft="15dp"
@@ -182,17 +202,67 @@
                         android:textSize="15sp" />
 
                     <ImageView
-                        android:id="@+id/ImageView0221"
-                        android:layout_width="fill_parent"
-                        android:layout_height="1px"
-                        android:layout_alignParentBottom="true"
-                        android:ems="10"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/line_cray" />
+                        android:id="@+id/imageView22"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/info" />
 
                 </RelativeLayout>
 
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearAddPhoneEmail"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ImageView0121"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="15dp"
+                    android:ems="10"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/line_cray" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10">
+
+                    <Button
+                        android:id="@+id/button_edit_phone_email"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@color/transparent"
+                        android:ems="10"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="@string/add_phone_email"
+                        android:textColor="@color/blue"
+                        android:textSize="15sp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ImageView0221"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:ems="10"
+                android:scaleType="fitXY"
+                android:src="@drawable/line_cray" />
 
             <TextView
                 android:id="@+id/textView18"
@@ -496,7 +566,7 @@
                 android:textColor="@color/blue"
                 android:textSize="15sp" />
         </LinearLayout>
-    </ua.mkh.settings.full.EdgeEffectScrollView>
+    </ScrollView>
 
 
     <LinearLayout

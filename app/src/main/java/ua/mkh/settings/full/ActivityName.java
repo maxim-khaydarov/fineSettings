@@ -15,7 +15,10 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TextView;
+
+import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 
 /**
  * Created by 1 on 02.04.2017.
@@ -47,6 +50,9 @@ public class ActivityName extends Activity implements View.OnClickListener{
         String roman = "fonts/Regular.otf";
         String medium = "fonts/Medium.otf";
         String bold = "fonts/Bold.otf";
+
+        ScrollView scrollView = (ScrollView) findViewById(R.id.scrollView1);
+        OverScrollDecoratorHelper.setUpOverScroll(scrollView);
 
         typefaceRoman = Typeface.createFromAsset(getAssets(), roman);
         typefaceMedium = Typeface.createFromAsset(getAssets(), medium);

@@ -1,17 +1,26 @@
 package ua.mkh.settings.full;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
+
+import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 
 /**
  * Created by 1 on 01.04.2017.
@@ -32,8 +41,10 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
     public static final String APP_PREFERENCES_tgb_menu = "tgb_menu";
 
     Button btn_back;
-    Button name, email, phone, adress;
-    TextView birthday;
+    Button name, email, phone, adress, button_edit_phone_email;
+    TextView birthday, edit_phone_email;
+    LinearLayout LinearAddPhoneEmail;
+    ImageView info;
 
 
     @Override
@@ -44,6 +55,10 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
         String roman = "fonts/Regular.otf";
         String medium = "fonts/Medium.otf";
         String bold = "fonts/Bold.otf";
+
+        ScrollView scrollView = (ScrollView) findViewById(R.id.scrollView1);
+        OverScrollDecoratorHelper.setUpOverScroll(scrollView);
+
 
         typefaceRoman = Typeface.createFromAsset(getAssets(), roman);
         typefaceMedium = Typeface.createFromAsset(getAssets(), medium);
@@ -63,8 +78,17 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
         phone = (Button) findViewById(R.id.phone);
         adress = (Button) findViewById(R.id.adress);
         adress.setOnClickListener(this);
+        edit_phone_email = (TextView) findViewById(R.id.textView19);
+        edit_phone_email.setOnClickListener(this);
+        button_edit_phone_email = (Button) findViewById(R.id.button_edit_phone_email);
+        button_edit_phone_email.setOnClickListener(this);
 
         birthday = (TextView) findViewById(R.id.birthday);
+        info = (ImageView) findViewById(R.id.imageView22);
+        info.setOnClickListener(this);
+
+        LinearAddPhoneEmail = (LinearLayout) findViewById(R.id.LinearAddPhoneEmail);
+        LinearAddPhoneEmail.setVisibility(View.GONE);
 
 
         textStatus.setTypeface(typefaceBold);
@@ -72,6 +96,7 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
         name.setTypeface(typefaceRoman);
         email.setTypeface(typefaceRoman);
         phone.setTypeface(typefaceRoman);
+        edit_phone_email.setTypeface(typefaceRoman);
 
     }
 
@@ -203,16 +228,10 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
 
     public void BackClick(View v)
     {
-        if(!mSettings.contains("name")){
-            Intent intent18 = new Intent(this, MainActivity.class);
-            startActivity(intent18);
-            overridePendingTransition(center_to_right, center_to_right2);
-        }
-        else {
             Intent intent18 = new Intent(this, ActivityAppleID.class);
             startActivity(intent18);
             overridePendingTransition(center_to_right, center_to_right2);
-        }
+
     }
 
     @Override
@@ -226,6 +245,26 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
                 overridePendingTransition(center_to_left, center_to_left2);
                 break;
 
+            case R.id.textView19:
+                if(LinearAddPhoneEmail.getVisibility() == View.GONE) {
+                    LinearAddPhoneEmail.setVisibility(View.VISIBLE);
+                    edit_phone_email.setText(getText(R.string.ready));
+                }
+                else{
+                    LinearAddPhoneEmail.setVisibility(View.GONE);
+                    edit_phone_email.setText(getText(R.string.edit));
+                }
+                break;
+
+            case R.id.button_edit_phone_email:
+                open_box_phone_email();
+
+                break;
+
+            case R.id.imageView22:
+                open_box_phone();
+                break;
+
 
             default:
                 break;
@@ -233,4 +272,100 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
 
     }
 
+    private void open_box_phone() {
+        final Dialog Activation = new Dialog(ActivityNameAppleID.this,android.R.style.Theme_Translucent);
+        Activation.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        Activation.setContentView(R.layout.dialog_2_button);
+
+        // set the custom dialog components - text, image and button
+
+        Button dialogButton = (Button) Activation.findViewById(R.id.dialogButtonOK);
+        Button dialogButtonCancel = (Button) Activation.findViewById(R.id.dialogButtonCancel);
+        TextView text = (TextView)Activation.findViewById(R.id.textView1);
+        TextView textver = (TextView)Activation.findViewById(R.id.textView2);
+
+        dialogButton.setTypeface(typefaceMedium);
+        dialogButtonCancel.setTypeface(typefaceRoman);
+        textver.setTypeface(typefaceRoman);
+        text.setTypeface(typefaceBold);
+
+
+
+        dialogButtonCancel.setText(R.string.more);
+        text.setText(R.string.info_phone_del_bold);
+        textver.setText(R.string.info_phone_del_text);
+
+        //textver.setTextSize(15);
+
+        // if button is clicked, close the custom dialog
+        dialogButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Activation.dismiss();
+            }
+        });
+        dialogButtonCancel.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://selfsolve.apple.com/deregister-imessage/"));
+                startActivity(browserIntent);
+                Activation.dismiss();
+            }
+        });
+        Activation.show();
     }
+
+    private void open_box_phone_email() {
+        final Dialog dialog = new Dialog(ActivityNameAppleID.this,android.R.style.Theme_Translucent);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialog_menu);
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        Button ButtonInfo = (Button)dialog.getWindow().findViewById(R.id.button1);
+        Button ButtonMenuCancel = (Button)dialog.getWindow().findViewById(R.id.ButtonMenuCancel);
+        Button ButtonMenuSettings = (Button)dialog.getWindow().findViewById(R.id.ButtonMenuSettings);
+        ButtonMenuSettings.setTypeface(typefaceRoman);
+        ButtonMenuCancel.setTypeface(typefaceBold);
+        ButtonInfo.setTypeface(typefaceRoman);
+        ButtonInfo.setTextSize(16);
+        ButtonMenuSettings.setTextSize(16);
+        ButtonInfo.setTextColor(Color.parseColor("#FF0071ED"));
+        ButtonMenuSettings.setTextColor(Color.parseColor("#FF0071ED"));
+
+        ButtonInfo.setText(R.string.edit_phone);
+        ButtonMenuSettings.setText(R.string.edit_email);
+        ButtonMenuCancel.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }});
+
+        ButtonMenuSettings.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                Intent intent = new Intent(ActivityNameAppleID.this, ActivityEmailAppleID.class);
+                startActivity(intent);
+                overridePendingTransition(center_to_left, center_to_left2);
+            }});
+
+        ButtonInfo.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                Intent intent = new Intent(ActivityNameAppleID.this, ActivityPhoneAppleID.class);
+                startActivity(intent);
+                overridePendingTransition(center_to_left, center_to_left2);
+            }});
+
+        dialog.show();
+
+    }
+    }
+
+
+

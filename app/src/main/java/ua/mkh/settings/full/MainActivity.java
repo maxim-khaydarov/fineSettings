@@ -80,7 +80,7 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 import android.support.v7.app.AppCompatActivity;
 
-
+import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, SearchView.OnQueryTextListener,
@@ -255,6 +255,7 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 		setContentView(R.layout.activity_main);
 
 		scrollview = (ScrollView) findViewById(R.id.scrollView1);
+		OverScrollDecoratorHelper.setUpOverScroll(scrollview);
 
 
 		final DisplayMetrics metrics = getResources().getDisplayMetrics();
@@ -832,11 +833,13 @@ public void soccial (){
 		String n = mSettings.getString("name", "Максим Хайдаров");
 		name.setText(mSettings.getString("name", "Максим") + " " + mSettings.getString("surname", "Хайдаров"));
 		no_apple.setVisibility(View.GONE);
+		get_user_photo();
 
 	}
 	else{
 		name.setVisibility(View.GONE);
 		text.setVisibility(View.GONE);
+
 
 		//LinearLayout LinearSociall = (LinearLayout) findViewById(R.id.LinearSociall);
 		//LinearSociall.setVisibility(View.GONE);
@@ -1272,7 +1275,7 @@ public void soccial (){
 	        //check_pirat();
 	        zimowets();
 		 soccial();
-		 get_user_photo();
+		 //get_user_photo();
 	       
 	        ConnectivityManager conMgr  = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE); 
 			 NetworkInfo info = conMgr.getActiveNetworkInfo(); 

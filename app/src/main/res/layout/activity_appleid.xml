@@ -6,7 +6,7 @@
     android:background="@color/background_fon"
     android:orientation="vertical">
 
-    <ua.mkh.settings.full.EdgeEffectScrollView
+    <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/scrollView1"
         style="android:scrollViewStyle"
@@ -48,15 +48,17 @@
                 android:gravity="center"
                 android:text="Имя Фамилия"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="-10dp"
                 android:gravity="center"
                 android:text="TextView"
-                android:textColor="@color/hint_text" />
+                android:textColor="@color/hint_text"
+                android:textSize="13sp" />
         </LinearLayout>
 
 
@@ -427,7 +429,7 @@
 
     </LinearLayout>
     </LinearLayout>
-    </ua.mkh.settings.full.EdgeEffectScrollView>
+    </ScrollView>
 
 
     <LinearLayout

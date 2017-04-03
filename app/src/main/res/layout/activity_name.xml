@@ -6,7 +6,7 @@
     android:background="@color/background_fon"
     android:orientation="vertical">
 
-    <ua.mkh.settings.full.EdgeEffectScrollView
+    <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/scrollView1"
         style="android:scrollViewStyle"
@@ -206,7 +206,7 @@
 
             </LinearLayout>
         </LinearLayout>
-    </ua.mkh.settings.full.EdgeEffectScrollView>
+    </ScrollView>
 
 
     <LinearLayout

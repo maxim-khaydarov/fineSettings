@@ -204,7 +204,7 @@ public class ActivitySota extends Activity implements OnClickListener{
 	    }
 
 	private void check_sharing() {
-		WifiManager wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+		WifiManager wifi = (WifiManager) this.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 		TextView tx32 = (TextView) findViewById(R.id.textView32);
 		if(isSharingWiFi(wifi) == true){
 			tx32.setText(R.string.on);

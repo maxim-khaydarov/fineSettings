@@ -21,6 +21,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.io.BufferedOutputStream;
@@ -28,6 +29,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
+import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 
 /**
  * Created by Maxim Khaydarov on 01.04.2017.
@@ -62,6 +65,9 @@ public class ActivityAppleID extends Activity implements View.OnClickListener{
         String roman = "fonts/Regular.otf";
         String medium = "fonts/Medium.otf";
         String bold = "fonts/Bold.otf";
+
+        ScrollView scrollView = (ScrollView) findViewById(R.id.scrollView1);
+        OverScrollDecoratorHelper.setUpOverScroll(scrollView);
 
         typefaceRoman = Typeface.createFromAsset(getAssets(), roman);
         typefaceMedium = Typeface.createFromAsset(getAssets(), medium);
@@ -111,6 +117,7 @@ public class ActivityAppleID extends Activity implements View.OnClickListener{
 
         get_user_photo();
         get_user_name();
+        get_user_email();
 
         int speed = mSettings.getInt(APP_PREFERENCES_ANIM_SPEED, 1);
         if (speed == 1){
@@ -194,7 +201,7 @@ public class ActivityAppleID extends Activity implements View.OnClickListener{
             overridePendingTransition(center_to_left, center_to_left2);
         }
         else{
-            email.setText(mSettings.getString("email", "maxim.khaydarov@yandex.ru"));
+            email.setText(mSettings.getString("email", "nikto@yandex.ru"));
         }
     }
 

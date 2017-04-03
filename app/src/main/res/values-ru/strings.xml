@@ -404,6 +404,164 @@
 	<string name="necessarily">Обязательно</string>
 	<string name="not_necessarily">Не обязательно</string>
 	<string name="ready">Готово</string>
+	<string name="edit">Изменить</string>
+	<string name="add_phone_email">Изменить e-mail или телефон</string>
+	<string name="edit_email">Изменить адрес электронной почты</string>
+	<string name="edit_phone">Измениить номер телефона</string>
+	<string name="email">E-mail</string>
+	<string name="email_example">name@example.com</string>
+	<string name="email_bottom_text">Код проверки будет отправлен на этот адрес.</string>
+	<string name="next">Далее</string>
+	<string name="info_phone_del_bold">Для удаления номера необходимо отменить его регистрацию</string>
+	<string name="info_phone_del_text">Этот номер телефона используется в iMessage и FaceTime. Если у Вас сохранился доступ к iPhone с данным номером, выключите iMessage и FaceTime на этом устройстве и повторите попытку.</string>
+	<string name="country">Страна</string>
+	<string name="number">Номер</string>
+
+	<string-array name="country">
+		<item>+61 (Австралия)</item>
+		<item>+43 (Австрия)</item>
+		<item>+355 (Албания)</item>
+		<item>+213 (Алжир)</item>
+		<item>+1264 (Ангилья)</item>
+		<item>+244 (Ангола)</item>
+		<item>+1268 (Антигуа и Барбуда)</item>
+		<item>+54 (Аргентина)</item>
+		<item>+374 (Армения)</item>
+		<item>+1242 (Багамские острова)</item>
+		<item>+880 (Бангладеш)</item>
+		<item>+1246 (Барбадос)</item>
+		<item>+973 (Бахрейн)</item>
+		<item>+32 (Бельгия)</item>
+		<item>+359 (Болгария)</item>
+		<item>+591 (Боливия)</item>
+		<item>+267 (Ботсвана)</item>
+		<item>+55 (Бразилия)</item>
+		<item>+1284 (Британские Виргинские острова</item>
+		<item>+44 (Великобритания)</item>
+		<item>+36 (Венгрия)</item>
+		<item>+58 (Венесуэла)</item>
+		<item>+84 (Вьетнам)</item>
+		<item>+592 (Гайана)</item>
+		<item>+220 (Гамбия)</item>
+		<item>+233 (Гана)</item>
+		<item>+590 (Гваделупа)</item>
+		<item>+502 (Гватемала)</item>
+		<item>+224 (Гвинея)</item>
+		<item>+245 (Гвинея-Бисау)</item>
+		<item>+49 (Германия)</item>
+		<item>+504 (Гондурас)</item>
+		<item>+852 (Гонконг)</item>
+		<item>+1473 (Гренада)</item>
+		<item>+30 (Греция)</item>
+		<item>+1 (Гуам)</item>
+		<item>+45 (Дания)</item>
+		<item>+243 (Демократическая республика Конго)</item>
+		<item>+1767 (Доминика)</item>
+		<item>+1 (Доминиканская Республика)</item>
+		<item>+20 (Египет)</item>
+		<item>+263 (Зимбабве)</item>
+		<item>+972 (Израиль)</item>
+		<item>+91 (Индия)</item>
+		<item>+62 (Индонезия)</item>
+		<item>+962 (Иордания)</item>
+		<item>+353 (Ирландия)</item>
+		<item>+354 (Исландия)</item>
+		<item>+34 (Испания)</item>
+		<item>+39 (Италия)</item>
+		<item>+967 (Йемен)</item>
+		<item>+7 (Казахстан)</item>
+		<item>+1345 (Каймановы острова)</item>
+		<item>+237 (Камерун)</item>
+		<item>+1 (Канада)</item>
+		<item>+974 (Катар)</item>
+		<item>+254 (Кения)</item>
+		<item>+357 (Кипр)</item>
+		<item>+86 (Китай)</item>
+		<item>+57 (Колумбия)</item>
+		<item>+506 (Коста-Рика)</item>
+		<item>+225 (Кот-д'Ивуар)</item>
+		<item>+965 (Кувейт)</item>
+		<item>+856 (Лаос)</item>
+		<item>+371 (Латвия)</item>
+		<item>+961 (Ливан)</item>
+		<item>+370 (Литва)</item>
+		<item>+423 (Лихтенштейн)</item>
+		<item>+352 (Люксембург)</item>
+		<item>+230 (Маврикий)</item>
+		<item>+261 (Мадагаскар)</item>
+		<item>+853 (Макао)</item>
+		<item>+389 (Македония)</item>
+		<item>+60 (Малайзия)</item>
+		<item>+223 (Мали)</item>
+		<item>+356 (Мальта)</item>
+		<item>+212 (Марокко)</item>
+		<item>+596 (Мартиника)</item>
+		<item>+52 (Мексика)</item>
+		<item>+373 (Молдова)</item>
+		<item>+1 (Монсеррат)</item>
+		<item>+264 (Намибия)</item>
+		<item>+277 (Нигер)</item>
+		<item>+234 (Нигерия)</item>
+		<item>+31 (Нидерланды)</item>
+		<item>+505 (Никарагуа)</item>
+		<item>+64 (Новая Зеландия)</item>
+		<item>+47 (Норвегия)</item>
+		<item>+971 (ОАЭ)</item>
+		<item>+968 (Оман)</item>
+		<item>+92 (Пакистан)</item>
+		<item>+680 (Палау)</item>
+		<item>+507 (Панама)</item>
+		<item>+595 (Парагвай)</item>
+		<item>+51 (Перу)</item>
+		<item>+48 (Польша)</item>
+		<item>+351 (Португалия)</item>
+		<item>+1 (Пуэрто-Рико)</item>
+		<item>+262 (Реюньон)</item>
+		<item>+7 (Россия)</item>
+		<item>+40 (Румыния)</item>
+		<item>+503 (Сальвадор)</item>
+		<item>+239 (Сан-Томе и Принсипи)</item>
+		<item>+966 (Саудовская Аравия)</item>
+		<item>+268 (Свазиленд)</item>
+		<item>+248 (Сейшельские острова)</item>
+		<item>+221 (Сенегал)</item>
+		<item>+1784 (Сент-Винсет и Гренадины)</item>
+		<item>+1869 (Сент-Китс и Невис)</item>
+		<item>+1758 (Сент-Люсия)</item>
+		<item>+35 (Сингапур)</item>
+		<item>+421 (Словакия)</item>
+		<item>+386 (Словения)</item>
+		<item>+597 (Суринам)</item>
+		<item>+1 (США)</item>
+		<item>+232 (Сьерра-Леоне)</item>
+		<item>+66 (Таиланд)</item>
+		<item>+886 (Тайвань)</item>
+		<item>+255 (Танзания)</item>
+		<item>+1649 (Теркс и Кайкос)</item>
+		<item>+1868 (Тринидад и Тобаго)</item>
+		<item>+216 (Тунис)</item>
+		<item>+90 (Турция)</item>
+		<item>+256 (Уганда)</item>
+		<item>+598 (Уругвай)</item>
+		<item>+679 (Фиджи)</item>
+		<item>+63 (Филиппины)</item>
+		<item>+358 (Финляндия)</item>
+		<item>+33 (Франция)</item>
+		<item>+385 (Хорватия)</item>
+		<item>+236 (Центральноафриканская Республика)</item>
+		<item>+235 (Чад)</item>
+		<item>+420 (Чехия)</item>
+		<item>+56 (Чили)</item>
+		<item>+41 (Швейцария)</item>
+		<item>+46 (Швеция)</item>
+		<item>+94 (Шри-Ланка)</item>
+		<item>+593 (Эквадор)</item>
+		<item>+372 (Эстония)</item>
+		<item>+27 (ЮАР)</item>
+		<item>+82 (Южная Корея)</item>
+		<item>+1876 (Ямайка)</item>
+		<item>+81 (Япония)</item>
+	</string-array>
 </resources>
 
 
