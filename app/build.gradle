@@ -28,6 +28,7 @@ dependencies {
     compile project(':wheel')
     compile 'com.android.support:multidex:1.0.1'
     compile 'me.everything:overscroll-decor-android:1.0.4'
+    compile 'cn.aigestudio.wheelpicker:WheelPicker:1.1.2'
     compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.google.android.gms:play-services:10.2.1'

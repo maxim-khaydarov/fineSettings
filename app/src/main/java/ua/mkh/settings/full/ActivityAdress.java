@@ -256,7 +256,7 @@ public class ActivityAdress extends Activity implements View.OnClickListener {
 
             case KeyEvent.KEYCODE_BACK:
 
-                Intent intent18 = new Intent(this, ActivityPhoneAppleID.class);
+                Intent intent18 = new Intent(this, ActivityNameAppleID.class);
                 startActivity(intent18);
                 overridePendingTransition(center_to_right, center_to_right2);
 
@@ -267,7 +267,7 @@ public class ActivityAdress extends Activity implements View.OnClickListener {
     }
 
     public void BackClick(View v) {
-        Intent intent18 = new Intent(this, ActivityPhoneAppleID.class);
+        Intent intent18 = new Intent(this, ActivityNameAppleID.class);
         startActivity(intent18);
         overridePendingTransition(center_to_right, center_to_right2);
 

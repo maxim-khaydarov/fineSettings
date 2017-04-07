@@ -127,7 +127,7 @@
             <LinearLayout
                 android:id="@+id/LinearLayoutName2"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical">
@@ -155,7 +155,9 @@
                         android:background="@color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
+                        android:paddingBottom="7dp"
                         android:paddingLeft="15dp"
+                        android:paddingTop="7dp"
                         android:text="Почтовый ящик"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
@@ -167,7 +169,7 @@
             <LinearLayout
                 android:id="@+id/LinearLayoutName21"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical">
@@ -196,7 +198,9 @@
                         android:background="@color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
+                        android:paddingBottom="7dp"
                         android:paddingLeft="15dp"
+                        android:paddingTop="7dp"
                         android:text="Номер телефона"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
@@ -306,6 +310,16 @@
                     android:layout_height="match_parent"
                     android:ems="10">
 
+                    <ImageView
+                        android:id="@+id/imageView1"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/next" />
+
                     <Button
                         android:id="@+id/adress"
                         android:layout_width="fill_parent"
@@ -316,20 +330,12 @@
                         android:background="@color/transparent"
                         android:ems="10"
                         android:gravity="left|center_vertical"
+                        android:paddingBottom="7dp"
                         android:paddingLeft="15dp"
+                        android:paddingTop="7dp"
                         android:text="Адресс"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
-
-                    <ImageView
-                        android:id="@+id/imageView1"
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/next" />
 
                     <ImageView
                         android:id="@+id/ImageView021"
