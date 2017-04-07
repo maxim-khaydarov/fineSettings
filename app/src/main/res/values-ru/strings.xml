@@ -565,6 +565,10 @@
 	</string-array>
 
 	<string name="phone_text">На этот номер будет отправлен код проверки.</string>
+	<string name="adres">Адрес</string>
+	<string name="city">Город</string>
+	<string name="index_post">Индекс</string>
+	<string name="adress_osnov">Основной адрес</string>
 </resources>
 
 

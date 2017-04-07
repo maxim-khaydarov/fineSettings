@@ -108,6 +108,7 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
         get_email_user();
         get_phone_user();
         get_birthday_user();
+        get_adres_user();
 
 
         super.onResume();
@@ -227,6 +228,15 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
         birthday.setText(mSettings.getString("birthday", "28.12.94"));
     }
 
+
+    private void get_adres_user(){
+        if(mSettings.contains("adress_full")){
+            adress.setText(mSettings.getString("adress_full", ""));
+        }
+    }
+
+
+
     public void BackClick(View v)
     {
             Intent intent18 = new Intent(this, ActivityAppleID.class);
@@ -264,6 +274,12 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
 
             case R.id.imageView22:
                 open_box_phone();
+                break;
+
+            case R.id.adress:
+                Intent ad = new Intent(this, ActivityAdress.class);
+                startActivity(ad);
+                overridePendingTransition(center_to_left, center_to_left2);
                 break;
 
 
