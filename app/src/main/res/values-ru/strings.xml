@@ -542,6 +542,7 @@
 		<item>+216 (Тунис)</item>
 		<item>+90 (Турция)</item>
 		<item>+256 (Уганда)</item>
+		<item>+380 (Украина)</item>
 		<item>+598 (Уругвай)</item>
 		<item>+679 (Фиджи)</item>
 		<item>+63 (Филиппины)</item>
@@ -562,6 +563,8 @@
 		<item>+1876 (Ямайка)</item>
 		<item>+81 (Япония)</item>
 	</string-array>
+
+	<string name="phone_text">На этот номер будет отправлен код проверки.</string>
 </resources>
 
 

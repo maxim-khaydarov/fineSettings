@@ -6,13 +6,19 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,21 +63,30 @@ public class ActivityPhone extends Activity implements View.OnClickListener {
         lv = (ListView) findViewById(R.id.lv);
         OverScrollDecoratorHelper.setUpOverScroll(lv);
 
+
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
                 this,
-                android.R.layout.simple_list_item_1,
+                R.layout.list_phone, R.id.list_content,
                 getResources().getStringArray(R.array.country) );
 
         lv.setAdapter(arrayAdapter);
+        //setListViewHeightBasedOnChildren(lv);
+
+
+
+
+
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View itemClicked, int position,
                                     long id) {
 
+                TextView text = (TextView) itemClicked.findViewById(R.id.list_content);
+
                 //String result = input.substring(0, input.indexOf(" "));
                 SharedPreferences.Editor editorName = mSettings.edit();
-                editorName.putString("phone_country_text", ((TextView) itemClicked).getText().toString());
+                editorName.putString("phone_country_text", text.getText().toString());
                 editorName.apply();
 
                 Intent back = new Intent(ActivityPhone.this, ActivityPhoneAppleID.class);
@@ -156,7 +171,7 @@ public class ActivityPhone extends Activity implements View.OnClickListener {
 
             case KeyEvent.KEYCODE_BACK:
 
-                Intent intent18 = new Intent(this, ActivityNameAppleID.class);
+                Intent intent18 = new Intent(this, ActivityPhoneAppleID.class);
                 startActivity(intent18);
                 overridePendingTransition(center_to_right, center_to_right2);
 
@@ -184,4 +199,28 @@ public class ActivityPhone extends Activity implements View.OnClickListener {
         }
 
     }
+
+    public static void setListViewHeightBasedOnChildren(ListView lv) {
+        ListAdapter listAdapter = lv.getAdapter();
+        if (listAdapter == null)
+            return;
+
+        int desiredWidth = View.MeasureSpec.makeMeasureSpec(lv.getWidth(), View.MeasureSpec.UNSPECIFIED);
+        int totalHeight = 0;
+        View view = null;
+        for (int i = 0; i < listAdapter.getCount(); i++) {
+            view = listAdapter.getView(i, view, lv);
+            if (i == 0)
+                view.setLayoutParams(new ViewGroup.LayoutParams(desiredWidth, ViewPager.LayoutParams.WRAP_CONTENT));
+
+            view.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+            totalHeight += view.getMeasuredHeight();
+        }
+        ViewGroup.LayoutParams params = lv.getLayoutParams();
+        params.height = totalHeight + (lv.getDividerHeight() * (listAdapter.getCount() - 1));
+        lv.setLayoutParams(params);
+        lv.requestLayout();
+    }
+
+
 }

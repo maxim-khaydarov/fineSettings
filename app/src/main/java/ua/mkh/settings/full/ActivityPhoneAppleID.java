@@ -7,11 +7,14 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -38,6 +41,7 @@ public class ActivityPhoneAppleID extends Activity implements View.OnClickListen
     Button btn_back, btn_save;
     Button btn_country, btn_phone;
     TextView txt_country;
+    EditText ed1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,13 +68,57 @@ public class ActivityPhoneAppleID extends Activity implements View.OnClickListen
         btn_country.setOnClickListener(this);
         btn_phone = (Button) findViewById(R.id.btn_phone);
         txt_country = (TextView) findViewById(R.id.textView25);
+        ed1 = (EditText) findViewById(R.id.editText);
+
+        btn_save.setTextColor(Color.parseColor("#808080"));
+
+
+        ed1.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
+                // When user changed the Text
+
+                if (!ed1.getText().toString().equals("") && txt_country.getText().toString().contains("+") ){
+                    String code = txt_country.getText().toString();
+                    String number = ed1.getText().toString();
+                    String result_code = code.substring(0, code.indexOf(" "));
+                    String all = result_code + " " + number;
+                    if(!mSettings.getString("phone", "").equals(all)){
+                        btn_save.setTextColor(Color.parseColor("#FF0071ED"));
+                    }
+                    else {
+                        btn_save.setTextColor(Color.parseColor("#808080"));
+                        //btn_save.setClickable(true);
+                    }
+
+                }
+                else{
+                    btn_save.setTextColor(Color.parseColor("#808080"));
+                    //btn_save.setClickable(false);
+                }
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
+                                          int arg3) {
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable arg0) {
+
+            }
+        });
 
         textStatus.setText(R.string.edit_phone);
         btn_back.setText(R.string.back);
 
 
 
-        //String result = input.substring(0, input.indexOf(" "));
+
 
 
 
@@ -87,8 +135,10 @@ public class ActivityPhoneAppleID extends Activity implements View.OnClickListen
     }
         protected void onResume() {
 
-            if(mSettings.equals("phone_contry_text")){
-                txt_country.setText(mSettings.getString("phone_contry_text", "+2222 (Тилимилитряндия)"));
+            get_user_phone();
+
+            if(mSettings.contains("phone_country_text")){
+                txt_country.setText(mSettings.getString("phone_country_text", "+2222 (Тилимилитряндия)"));
             }
 
             super.onResume();
@@ -138,6 +188,14 @@ public class ActivityPhoneAppleID extends Activity implements View.OnClickListen
             }
         }
 
+
+        private void get_user_phone(){
+            if(mSettings.contains("phone_number")){
+                ed1.setText(mSettings.getString("phone_number", "00"));
+                ed1.setSelection(ed1.getText().length());
+            }
+        }
+
     @Override
     public boolean onKeyDown(int keycode, KeyEvent e) {
         switch(keycode) {
@@ -164,18 +222,23 @@ public class ActivityPhoneAppleID extends Activity implements View.OnClickListen
 
     public void SaveClick(View v)
     {
-/*
-        if (ed1.getText().toString().contains("@") && !ed1.getText().toString().equals(mSettings.getString("email", ""))) {
-
+        if (!ed1.getText().toString().equals("") && txt_country.getText().toString().contains("+") ){
+        String code = txt_country.getText().toString();
+        String number = ed1.getText().toString();
+        String result_code = code.substring(0, code.indexOf(" "));
+        String all = result_code + " " + number;
+        if(!mSettings.getString("phone", "").equals(all)){
             SharedPreferences.Editor editorName = mSettings.edit();
-            editorName.putString("email", ed1.getText().toString());
+            editorName.putString("phone", all);
             editorName.apply();
 
-            Intent intent18 = new Intent(this, ActivityNameAppleID.class);
-            startActivity(intent18);
-            overridePendingTransition(center_to_right, center_to_right2);
+            editorName.putString("phone_number", number);
+            editorName.apply();
+            BackClick(v);
         }
-*/
+
+
+      }
     }
 
     @Override

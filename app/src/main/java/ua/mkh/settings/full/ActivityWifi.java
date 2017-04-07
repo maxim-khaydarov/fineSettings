@@ -140,7 +140,7 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
 
 			 myConnManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
 		     myNetworkInfo = myConnManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
-		     myWifiManager = (WifiManager)getSystemService(Context.WIFI_SERVICE);
+		     myWifiManager = (WifiManager)this.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 			myWifiInfo = myWifiManager.getConnectionInfo();
 
 			mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
@@ -173,7 +173,7 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
 			tb_wifi.setOnClickListener(this);
 			 tb_in = (ToggleButton) findViewById(R.id.toggleButtonInfo);
 			 tb_in.setOnClickListener(this);
-			 wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+			 wifi = (WifiManager) this.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 			 tb_ch = (ToggleButton) findViewById(R.id.toggleButtonChek);
 			 tb_ch.setOnClickListener(this);
 
@@ -792,7 +792,7 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
            if (action.equals(WifiManager.SUPPLICANT_STATE_CHANGED_ACTION)) {
                if (arg1.getParcelableExtra(WifiManager.EXTRA_NEW_STATE) == SupplicantState.COMPLETED) {
                    Log.e("!!!MY!!!", "WiFi is associated");//
-                   WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+                   WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
                    WifiInfo wi = wifiManager.getConnectionInfo();
                    if (wi != null) {
                 	   Log.e("!!!MY!!!", "Wifi info available (should be, we are associated)");////
@@ -821,7 +821,7 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
 
 	                DisplayWifiState();
 	              LayoutMain.setVisibility(View.VISIBLE);
-	                WifiManager wifiManager = (WifiManager) getSystemService (Context.WIFI_SERVICE);
+	                WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService (Context.WIFI_SERVICE);
 	                WifiInfo info = wifiManager.getConnectionInfo ();
 	                if(info.getSSID ().contains("unknown ssid")){
 	                	textConnected.setText(R.string.no_connections);
@@ -1120,7 +1120,7 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
 			        	 }
 
 		        else if (id == R.id.Connected){
-		        	WifiManager myWifiManager = (WifiManager)getSystemService(Context.WIFI_SERVICE);
+		        	WifiManager myWifiManager = (WifiManager)this.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 		        	WifiInfo myWifiInfo = myWifiManager.getConnectionInfo();
  					DhcpInfo info = wifi.getDhcpInfo();
  					WifiConfiguration wifiConfiguration = new WifiConfiguration();
@@ -1151,7 +1151,7 @@ public class ActivityWifi extends Activity implements View.OnClickListener {
 		        }
 
 		        else if (id == R.id.button1){
-		        	WifiManager myWifiManager = (WifiManager)getSystemService(Context.WIFI_SERVICE);
+		        	WifiManager myWifiManager = (WifiManager)this.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 		        	WifiInfo myWifiInfo = myWifiManager.getConnectionInfo();
  					DhcpInfo info = wifi.getDhcpInfo();
  					WifiConfiguration wifiConfiguration = new WifiConfiguration();

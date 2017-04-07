@@ -80,6 +80,7 @@
                             android:inputType="textPersonName"
                             android:textColor="@color/black"
                             android:textColorHint="@color/hint_text"
+                            android:textCursorDrawable="@color/black"
                             android:textSize="15sp" />
 
                         <ImageView
@@ -119,6 +120,7 @@
                             android:inputType="textPersonName"
                             android:textColor="@color/black"
                             android:textColorHint="@color/hint_text"
+                            android:textCursorDrawable="@color/black"
                             android:textSize="15sp" />
 
                         <Button
@@ -173,6 +175,7 @@
                             android:hint="@string/necessarily"
                             android:inputType="textPersonName"
                             android:textColor="@color/black"
+                            android:textCursorDrawable="@color/black"
                             android:textSize="15sp" />
 
                         <Button
