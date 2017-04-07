@@ -87,6 +87,10 @@ public class ActivityPhoneAppleID extends Activity implements View.OnClickListen
     }
         protected void onResume() {
 
+            if(mSettings.equals("phone_contry_text")){
+                txt_country.setText(mSettings.getString("phone_contry_text", "+2222 (Тилимилитряндия)"));
+            }
+
             super.onResume();
             int speed = mSettings.getInt(APP_PREFERENCES_ANIM_SPEED, 1);
             if (speed == 1) {
@@ -179,6 +183,11 @@ public class ActivityPhoneAppleID extends Activity implements View.OnClickListen
         // TODO Auto-generated method stub
         switch (v.getId()) {
 
+            case R.id.btn_contry:
+                Intent phone = new Intent(this, ActivityPhone.class);
+                startActivity(phone);
+                overridePendingTransition(center_to_left, center_to_left2);
+                break;
 
 
             default:

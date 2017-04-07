@@ -138,6 +138,7 @@
             <activity android:name=".ActivityEmailAppleID" />
             <activity android:name=".ActivityName" />
             <activity android:name=".ActivityPhoneAppleID" />
+        <activity android:name=".ActivityPhone" />
             <activity  android:name="ua.mkh.settings.full.ActivityCharge" android:theme="@style/Theme.Transparent" />
             <activity  android:name="ua.mkh.settings.full.MessageBox" android:theme="@style/Theme.Transparent" />
            
