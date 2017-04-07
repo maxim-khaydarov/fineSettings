@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.aigestudio.wheelpicker.WheelPicker;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
@@ -80,12 +81,24 @@ public class ActivityBirthday extends Activity implements WheelPicker.OnItemSele
         btn_save.setTypeface(typefaceMedium);
 
 
-        WheelPicker wheelPicker = (WheelPicker) findViewById(R.id.container);
-        wheelPicker.setOnItemSelectedListener(this);
+        WheelPicker wheelPickerday = (WheelPicker) findViewById(R.id.day);
+        wheelPickerday.setOnItemSelectedListener(this);
+        WheelPicker wheelPickermonth = (WheelPicker) findViewById(R.id.month);
+        wheelPickermonth.setOnItemSelectedListener(this);
+        WheelPicker wheelPickeryear = (WheelPicker) findViewById(R.id.year);
+        wheelPickeryear.setOnItemSelectedListener(this);
+
+
         List<Integer> data = new ArrayList<>();
         for (int i = 01; i < 31; i++)
             data.add(i);
-        wheelPicker.setData(data);
+        wheelPickerday.setData(data);
+
+
+
+        String [] month = {"Январь", "Февраль", "Март", "Апрель"};
+        List<String> stringList = new ArrayList<String>(Arrays.asList(month));
+        wheelPickermonth.setData(stringList);
 
 
 
@@ -100,7 +113,7 @@ public class ActivityBirthday extends Activity implements WheelPicker.OnItemSele
 
         switch (picker.getId()) {
 
-            case R.id.container:
+            case R.id.day:
                 text = "Left:";
 
                 break;
