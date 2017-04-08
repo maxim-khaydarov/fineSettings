@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
@@ -25,14 +26,14 @@ import android.widget.Toast;
 
 import com.aigestudio.wheelpicker.WheelPicker;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
-import kankan.wheel.widget.adapters.ArrayWheelAdapter;
-import kankan.wheel.widget.adapters.NumericWheelAdapter;
-import kankan.wheel.widget.adapters.WheelViewAdapter;
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 
 /**
@@ -58,6 +59,9 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
     TextView birthday, edit_phone_email, name3;
     LinearLayout LinearAddPhoneEmail;
     ImageView info;
+    int day = 0;
+    int month = 0;
+    String year = null;
 
 
     @Override
@@ -112,6 +116,7 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
         email.setTypeface(typefaceRoman);
         phone.setTypeface(typefaceRoman);
         edit_phone_email.setTypeface(typefaceRoman);
+        birthday.setTypeface(typefaceRoman);
 
     }
 
@@ -239,7 +244,7 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
     }
 
     private void get_birthday_user (){
-        birthday.setText(mSettings.getString("birthday", "28.12.94"));
+        birthday.setText(mSettings.getString("birthday_date", ""));
     }
 
 
@@ -418,6 +423,100 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
         WheelPicker wheelPickeryear = (WheelPicker) dialog.findViewById(R.id.year);
         wheelPickeryear.setOnItemSelectedListener(this);
 
+        Button btn_save = (Button) dialog.findViewById(R.id.buttonSave);
+        btn_save.setOnClickListener(ActivityNameAppleID.this);
+        Button back = (Button) dialog.findViewById(R.id.buttonBack);
+        TextView status = (TextView) dialog.findViewById(R.id.textOk);
+
+        btn_save.setTypeface(typefaceMedium);
+        btn_back.setTypeface(typefaceMedium);
+        status.setTypeface(typefaceBold);
+        status.setText(R.string.birthday_appleid_name);
+
+        Calendar calendar = Calendar.getInstance();
+        final int year_curent = calendar.get(Calendar.YEAR);
+        final int month_curent = calendar.get(Calendar.MONTH);
+        final int day_curent = calendar.get(Calendar.DAY_OF_MONTH);
+
+        btn_save.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+
+                if(day ==0 || month == 0 || year == null) {
+                    if (mSettings.contains("birthday_date")) {
+                        String dtStart = mSettings.getString("birthday_date", "");
+                        SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
+                        try {
+                            Date date = format.parse(dtStart);
+                            System.out.println(date);
+                            Calendar cal = Calendar.getInstance();
+                            cal.setTime(date);
+
+                            int months = cal.get(Calendar.MONTH);
+                            int days = cal.get(Calendar.DAY_OF_MONTH);
+                            int years = cal.get(Calendar.YEAR);
+
+                            if (day == 0) {
+                                day = days;
+                            }
+                            if (month == 0) {
+                                month = months+1;
+                            }
+                            if (year == null) {
+                                year = String.valueOf(years);
+                            }
+
+                        } catch (ParseException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+
+                    }
+                    else{
+                        if (day == 0) {
+                            day = day_curent;
+                        }
+                        if (month == 0) {
+                            month = month_curent;
+                        }
+                        if (year == null) {
+                            year = String.valueOf(year_curent);
+                        }
+                    }
+                }
+
+                    String dtStart;
+                    if (month < 10) {
+                        dtStart = String.valueOf(day) + "." + "0" + String.valueOf(month) + "." + year;
+                    } else {
+                        dtStart = String.valueOf(day) + "." + String.valueOf(month) + "." + year;
+                    }
+                    //final String[] unit = getResources().getStringArray(R.array.array_month);
+                    //int digitGroups = month;
+
+                    SharedPreferences.Editor editorName = mSettings.edit();
+                    editorName.putString("birthday_date", dtStart);
+                    editorName.apply();
+                    Log.e("btn_save", dtStart);
+                    get_birthday_user();
+
+
+                dialog.dismiss();
+
+            }});
+        btn_back.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }});
+
+
+
+
+
+
 
         List<String> data_day = new ArrayList<>();
         for (int i = 1; i <= 31; i++) {
@@ -429,24 +528,44 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
 
         String [] fiilliste= getResources().getStringArray(R.array.array_month);
         List<String> stringList = new ArrayList<String>(Arrays.asList(fiilliste));
-
         wheelPickermonth.setData(stringList);
 
 
         List<String> data_year = new ArrayList<>();
-        Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
-        wheelPickeryear.setSelectedItemPosition(year);
-
-        for (int i = 1900; i < year+1; i++) {
-
+        for (int i = 1900; i < year_curent+1; i++) {
             data_year.add(String.valueOf(i));
         }
         wheelPickeryear.setData(data_year);
 
 
 
+        if(!mSettings.contains("birthday_date")) {
+            wheelPickeryear.setSelectedItemPosition(year_curent - 1900);
+            wheelPickermonth.setSelectedItemPosition(month_curent);
+            wheelPickerday.setSelectedItemPosition(day_curent - 1);
+        }
+        else{
+            String dtStart = mSettings.getString("birthday_date", "");
+            SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
+            try {
+                Date date = format.parse(dtStart);
+                System.out.println(date);
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(date);
 
+                int months = cal.get(Calendar.MONTH);
+                int days = cal.get(Calendar.DAY_OF_MONTH)-1;
+                int  years = cal.get(Calendar.YEAR);
+
+                wheelPickeryear.setSelectedItemPosition(years-1900);
+                wheelPickermonth.setSelectedItemPosition(months);
+                wheelPickerday.setSelectedItemPosition(days);
+
+            } catch (ParseException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
         dialog.show();
 
     }
@@ -455,29 +574,28 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
 
     public void onItemSelected(WheelPicker picker, Object data, int position) {
 
-        String day = "";
-        String month = "";
-        String year = "";
+
 
         switch (picker.getId()) {
 
             case R.id.day:
-                day = String.valueOf(data);
+                day = position+1;
 
                 break;
 
             case R.id.month:
-                month = String.valueOf(data);
+                month = position+1;
                 break;
 
             case R.id.year:
-                year = String.valueOf(data);
+                year = data.toString();
 
         }
 
-        Toast.makeText(this, day + "." + month + "." + year, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, day + "." + month + "." + year, Toast.LENGTH_SHORT).show();
 
     }
+
 
 
     }

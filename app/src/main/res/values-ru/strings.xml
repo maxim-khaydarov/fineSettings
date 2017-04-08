@@ -572,7 +572,7 @@
 
 	<string-array name="array_month">
 		<item>января</item>
-		<item>Февраля</item>
+		<item>февраля</item>
 		<item>марта</item>
 		<item>апреля</item>
 		<item>мая</item>
@@ -584,6 +584,8 @@
 		<item>ноября</item>
 		<item>декабря</item>
 	</string-array>
+
+
 </resources>
 
 
