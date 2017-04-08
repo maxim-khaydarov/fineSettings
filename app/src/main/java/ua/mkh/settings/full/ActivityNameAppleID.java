@@ -302,9 +302,7 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
                 break;
 
             case R.id.name3:
-                //Intent bt = new Intent(this, ActivityBirthday.class);
-                //startActivity(bt);
-                //overridePendingTransition(center_to_left, center_to_left2);
+
                 open_box_birthday();
                 break;
 
