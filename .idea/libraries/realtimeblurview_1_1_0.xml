@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="realtimeblurview-1.1.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.android/build-cache/75b853a49fad2f429378ec4f30c83a350abe973f/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/75b853a49fad2f429378ec4f30c83a350abe973f/output/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.mmin18/realtimeblurview/1.1.0/9ef553dd74dd55b7b5ae08ed60f92c3791fb90e4/realtimeblurview-1.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -88,18 +88,38 @@ public class ActivityBirthday extends Activity implements WheelPicker.OnItemSele
         WheelPicker wheelPickeryear = (WheelPicker) findViewById(R.id.year);
         wheelPickeryear.setOnItemSelectedListener(this);
 
-
-        List<Integer> data = new ArrayList<>();
-        for (int i = 01; i < 31; i++)
-            data.add(i);
-        wheelPickerday.setData(data);
+        wheelPickeryear.setTypeface(typefaceRoman);
+        wheelPickermonth.setTypeface(typefaceRoman);
+        wheelPickerday.setTypeface(typefaceRoman);
 
 
+        List<String> data_day = new ArrayList<>();
+        for (int i = 1; i <= 31; i++) {
+            if(i<10){
+                data_day.add("0" + String.valueOf(i));
+            }
+            else
+            data_day.add(String.valueOf(i));
+        }
+        wheelPickerday.setData(data_day);
 
-        String [] month = {"Январь", "Февраль", "Март", "Апрель"};
-        List<String> stringList = new ArrayList<String>(Arrays.asList(month));
+
+
+        String [] fiilliste= getResources().getStringArray(R.array.array_month);
+        List<String> stringList = new ArrayList<String>(Arrays.asList(fiilliste));
+
         wheelPickermonth.setData(stringList);
 
+
+        List<String> data_year = new ArrayList<>();
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+
+        for (int i = 1970; i < year+1; i++) {
+
+                data_year.add(String.valueOf(i));
+        }
+        wheelPickeryear.setData(data_year);
 
 
 
@@ -109,18 +129,27 @@ public class ActivityBirthday extends Activity implements WheelPicker.OnItemSele
 
     public void onItemSelected(WheelPicker picker, Object data, int position) {
 
-        String text = "";
+        String day = "";
+        String month = "";
+        String year = "";
 
         switch (picker.getId()) {
 
             case R.id.day:
-                text = "Left:";
+                day = String.valueOf(data);
 
                 break;
 
+            case R.id.month:
+                month = String.valueOf(data);
+                break;
+
+            case R.id.year:
+                year = String.valueOf(data);
+
         }
 
-        Toast.makeText(this, text + String.valueOf(data), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, day + "." + month + "." + year, Toast.LENGTH_SHORT).show();
 
     }
 

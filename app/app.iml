@@ -125,6 +125,7 @@
     <orderEntry type="library" exported="" name="support-v4-25.3.1" level="project" />
     <orderEntry type="library" exported="" name="support-media-compat-25.3.1" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-25.3.1" level="project" />
+    <orderEntry type="library" exported="" name="realtimeblurview-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="support-vector-drawable-25.3.1" level="project" />
     <orderEntry type="library" exported="" name="support-compat-25.3.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-auth-10.2.1" level="project" />
@@ -136,6 +137,7 @@
     <orderEntry type="library" exported="" name="play-services-identity-10.2.1" level="project" />
     <orderEntry type="library" exported="" name="support-core-ui-25.3.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-auth-10.2.1" level="project" />
+    <orderEntry type="library" exported="" name="renderscript-v8" level="project" />
     <orderEntry type="library" exported="" name="play-services-awareness-10.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-ads-lite-10.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-clearcut-10.2.1" level="project" />

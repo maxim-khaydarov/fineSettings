@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aigestudio="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="38dp"
-    android:background="@color/background_title"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/RelativeLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
+
+        <com.github.mmin18.widget.RealtimeBlurView
+            android:id="@+id/realtimeBlurView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            aigestudio:realtimeBlurRadius="20dp"
+            aigestudio:realtimeOverlayColor="#80f9f9f9" />
 
         <Button
             android:id="@+id/buttonBack"

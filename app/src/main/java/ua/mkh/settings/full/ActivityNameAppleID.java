@@ -21,11 +21,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.aigestudio.wheelpicker.WheelPicker;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.List;
 
-import kankan.wheel.widget.OnWheelChangedListener;
-import kankan.wheel.widget.WheelView;
 import kankan.wheel.widget.adapters.ArrayWheelAdapter;
 import kankan.wheel.widget.adapters.NumericWheelAdapter;
 import kankan.wheel.widget.adapters.WheelViewAdapter;
@@ -35,7 +39,7 @@ import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
  * Created by 1 on 01.04.2017.
  */
 
-public class ActivityNameAppleID extends Activity implements View.OnClickListener{
+public class ActivityNameAppleID extends Activity implements View.OnClickListener, WheelPicker.OnItemSelectedListener{
 
     Typeface typefaceRoman, typefaceMedium, typefaceBold;
     SharedPreferences mSettings;
@@ -293,10 +297,10 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
                 break;
 
             case R.id.name3:
-                Intent bt = new Intent(this, ActivityBirthday.class);
-                startActivity(bt);
-                overridePendingTransition(center_to_left, center_to_left2);
-                //open_box_birthday();
+                //Intent bt = new Intent(this, ActivityBirthday.class);
+                //startActivity(bt);
+                //overridePendingTransition(center_to_left, center_to_left2);
+                open_box_birthday();
                 break;
 
             default:
@@ -404,126 +408,78 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.activity_birthday);
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+
+
+
+        WheelPicker wheelPickerday = (WheelPicker) dialog.findViewById(R.id.day);
+        wheelPickerday.setOnItemSelectedListener(this);
+        WheelPicker wheelPickermonth = (WheelPicker) dialog.findViewById(R.id.month);
+        wheelPickermonth.setOnItemSelectedListener(this);
+        WheelPicker wheelPickeryear = (WheelPicker) dialog.findViewById(R.id.year);
+        wheelPickeryear.setOnItemSelectedListener(this);
+
+
+        List<String> data_day = new ArrayList<>();
+        for (int i = 1; i <= 31; i++) {
+                data_day.add(String.valueOf(i));
+        }
+        wheelPickerday.setData(data_day);
+
+
+
+        String [] fiilliste= getResources().getStringArray(R.array.array_month);
+        List<String> stringList = new ArrayList<String>(Arrays.asList(fiilliste));
+
+        wheelPickermonth.setData(stringList);
+
+
+        List<String> data_year = new ArrayList<>();
         Calendar calendar = Calendar.getInstance();
-        final WheelView month = (WheelView) dialog.findViewById(R.id.month);
-        final WheelView year = (WheelView) dialog.findViewById(R.id.year);
-        final WheelView day = (WheelView) dialog.findViewById(R.id.day);
-        day.setCyclic(true);
-        month.setCyclic(true);
+        int year = calendar.get(Calendar.YEAR);
+        wheelPickeryear.setSelectedItemPosition(year);
 
-        OnWheelChangedListener listener = new OnWheelChangedListener() {
+        for (int i = 1900; i < year+1; i++) {
 
-            public void onChanged(WheelView wheel, int oldValue, int newValue) {
+            data_year.add(String.valueOf(i));
+        }
+        wheelPickeryear.setData(data_year);
 
-                updateDays(year, month, day);
 
-            }
-        };
-        // month
-        int curMonth = calendar.get(Calendar.MONTH);
-        String months[] = new String[] {"Январь", "Февраль", "Март", "Апрель", "Май",
-                "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"};
-        month.setViewAdapter((WheelViewAdapter) new DateArrayAdapter(this, months, curMonth));
-        month.setCurrentItem(curMonth);
-        month.addChangingListener(listener);
-        // year
-        int curYear = calendar.get(Calendar.YEAR);
-        year.setViewAdapter(new DateNumericAdapter(this, curYear-100, curYear, 0));
-        year.setCurrentItem(curYear);
-        year.addChangingListener(listener);
-        //day
-        updateDays(year, month, day);
-        day.setCurrentItem(calendar.get(Calendar.DAY_OF_MONTH) - 1);
+
+
         dialog.show();
 
     }
 
-    void updateDays(WheelView year, WheelView month, WheelView day) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.YEAR, calendar.get(Calendar.YEAR) + year.getCurrentItem());
-        calendar.set(Calendar.MONTH, month.getCurrentItem());
+    @Override
 
-        int maxDays = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
-        day.setViewAdapter(new DateNumericAdapter(this, 1, maxDays, calendar.get(Calendar.DAY_OF_MONTH) - 1));
-        int curDay = Math.min(maxDays, day.getCurrentItem() + 1);
-        day.setCurrentItem(curDay - 1, true);
+    public void onItemSelected(WheelPicker picker, Object data, int position) {
+
+        String day = "";
+        String month = "";
+        String year = "";
+
+        switch (picker.getId()) {
+
+            case R.id.day:
+                day = String.valueOf(data);
+
+                break;
+
+            case R.id.month:
+                month = String.valueOf(data);
+                break;
+
+            case R.id.year:
+                year = String.valueOf(data);
+
+        }
+
+        Toast.makeText(this, day + "." + month + "." + year, Toast.LENGTH_SHORT).show();
+
     }
 
 
-
-    /**
-     * Adapter for numeric wheels. Highlights the current value.
-     */
-    private class DateNumericAdapter extends NumericWheelAdapter {
-        // Index of current item
-        int currentItem;
-        // Index of item to be highlighted
-        int currentValue;
-        /**
-         * Constructor
-         */
-
-        public DateNumericAdapter(Context context, int minValue, int maxValue, int current) {
-            super(context, minValue, maxValue);
-            this.currentValue = current;
-            setTextSize(16);
-        }
-
-
-        @Override
-        protected void configureTextView(TextView view) {
-            super.configureTextView(view);
-            if (currentItem == currentValue) {
-                view.setTextColor(0xFF0000F0);
-            }
-            view.setTypeface(Typeface.SANS_SERIF);
-        }
-
-        @Override
-        public View getItem(int index, View cachedView, ViewGroup parent) {
-            currentItem = index;
-            return super.getItem(index, cachedView, parent);
-        }
-    }
-
-
-    /**
-     * Adapter for string based wheel. Highlights the current value.
-     */
-
-    private class DateArrayAdapter extends ArrayWheelAdapter<String> {
-        // Index of current item
-        int currentItem;
-        // Index of item to be highlighted
-        int currentValue;
-
-        /**
-         * Constructor
-         */
-
-        public DateArrayAdapter(Context context, String[] items, int current) {
-            super(context, items);
-            this.currentValue = current;
-            setTextSize(15);
-        }
-
-
-        @Override
-        protected void configureTextView(TextView view) {
-            super.configureTextView(view);
-            if (currentItem == currentValue) {
-                view.setTextColor(0xFF0000F0);
-            }
-            view.setTypeface(Typeface.SANS_SERIF);
-        }
-
-        @Override
-        public View getItem(int index, View cachedView, ViewGroup parent) {
-            currentItem = index;
-            return super.getItem(index, cachedView, parent);
-        }
-
-    }
     }
 
 

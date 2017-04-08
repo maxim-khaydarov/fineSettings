@@ -140,7 +140,6 @@
             <activity android:name=".ActivityPhoneAppleID" />
         <activity android:name=".ActivityPhone" />
         <activity android:name=".ActivityAdress" />
-        <activity android:name=".ActivityBirthday" />
             <activity  android:name="ua.mkh.settings.full.ActivityCharge" android:theme="@style/Theme.Transparent" />
             <activity  android:name="ua.mkh.settings.full.MessageBox" android:theme="@style/Theme.Transparent" />
            

@@ -7,10 +7,12 @@ android {
 
     defaultConfig {
         applicationId "ua.mkh.settings.full"
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 25
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
+        renderscriptSupportModeEnabled true
+
     }
 
     buildTypes {
@@ -26,6 +28,10 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile project(':wheel')
+
+    compile 'com.github.mmin18:realtimeblurview:1.1.0'
+
+
     compile 'com.android.support:multidex:1.0.1'
     compile 'me.everything:overscroll-decor-android:1.0.4'
     compile 'cn.aigestudio.wheelpicker:WheelPicker:1.1.2'

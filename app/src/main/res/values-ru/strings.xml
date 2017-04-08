@@ -569,6 +569,21 @@
 	<string name="city">Город</string>
 	<string name="index_post">Индекс</string>
 	<string name="adress_osnov">Основной адрес</string>
+
+	<string-array name="array_month">
+		<item>января</item>
+		<item>Февраля</item>
+		<item>марта</item>
+		<item>апреля</item>
+		<item>мая</item>
+		<item>июня</item>
+		<item>июля</item>
+		<item>августа</item>
+		<item>сентября</item>
+		<item>октября</item>
+		<item>ноября</item>
+		<item>декабря</item>
+	</string-array>
 </resources>
 
 
