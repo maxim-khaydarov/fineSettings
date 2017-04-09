@@ -408,7 +408,7 @@
 	<string name="add_phone_email">Изменить e-mail или телефон</string>
 	<string name="edit_email">Изменить адрес электронной почты</string>
 	<string name="edit_phone">Измениить номер телефона</string>
-	<string name="email">E-mail</string>
+	<string name="email_">E-mail</string>
 	<string name="email_example">name@example.com</string>
 	<string name="email_bottom_text">Код проверки будет отправлен на этот адрес.</string>
 	<string name="next">Далее</string>
@@ -584,6 +584,14 @@
 		<item>ноября</item>
 		<item>декабря</item>
 	</string-array>
+	
+	<string name="edit_password_password_appleid">Изменить пароль</string>
+	<string name="autentification_password_appleid">Двухфакторная аутентификация</string>
+	<string name="autentification_text_password_appleid">Проверенные устройства и номера телефонов используются для подтверждения личности при входе в систему. Управлять этими настройками можно на appleid.apple.com</string>
+	<string name="autentification_phone">ПРОВЕРЕННЫЙ НОМЕР</string>
+	<string name="autentification_phone_text">Проверенные номера телефонов используются для подтверждения личности при входе в систему, а также для восстановления учетной записи в случае потери доступа к ней.</string>
+	<string name="get_password_autentification">Получить код проверки</string>
+	<string name="get_password_autentification_text">Получите код проверки для входа на другом устройстве или в iCloud.com.</string>
 
 
 </resources>

@@ -58,90 +58,90 @@
         android:label="@string/app_name_orig"
         android:theme="@style/AppTheme"
         android:name="android.support.multidex.MultiDexApplication">
-        <activity
-            android:name="ua.mkh.settings.full.MainActivity" 
-            android:label="@string/app_name_desk">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-				
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
-        <activity  android:name="ua.mkh.settings.full.ActivityWifi" />
-             <activity  android:name="ua.mkh.settings.full.ActivityBth"/>
-             <activity  android:name="ua.mkh.settings.full.ActivitySota"/>
-            <activity  android:name="ua.mkh.settings.full.ActivityOperator"/>
-            <activity  android:name="ua.mkh.settings.full.ActivityZvuki" />
-             <activity  android:name="ua.mkh.settings.full.ActivityOboi"/>
-            <activity  android:name="ua.mkh.settings.full.ActivityOsnova"/>
-            <activity  android:name="ua.mkh.settings.full.ActivityInfo"/>
-            <activity  android:name="ua.mkh.settings.full.ActivityGeo"  />
-            <activity  android:name="ua.mkh.settings.full.ActivityStart" />
-            <activity  android:name="ua.mkh.settings.full.ActivityDisturb" />
-            <activity  android:name="ua.mkh.settings.full.ActivityBrightness" />
-            <activity  android:name="ua.mkh.settings.full.ActivityFromTime" />
-            <activity  android:name="ua.mkh.settings.full.SettingsActivity" />
-            <activity  android:name="ua.mkh.settings.full.ActivityAppsNotifications" />
-            <activity  android:name="ua.mkh.settings.full.ActivityAppsControl" />
-             <activity  android:name="ua.mkh.settings.full.ActivityAppsMail" />
-             <activity  android:name="ua.mkh.settings.full.ActivityAppsNotes" />
-             <activity  android:name="ua.mkh.settings.full.ActivityAppsPhone" />
-             <activity  android:name="ua.mkh.settings.full.ActivityAppsMessages" />
-             <activity  android:name="ua.mkh.settings.full.ActivityAppsCompass" />
-             <activity  android:name="ua.mkh.settings.full.ActivityAppsGameCenter" />
-             <activity  android:name="ua.mkh.settings.full.ActivityAppsMusic" />
-             <activity  android:name="ua.mkh.settings.full.ActivityAppsSafari" />
-             <activity  android:name="ua.mkh.settings.full.ActivityAppsWeather" />
-             <activity  android:name="ua.mkh.settings.full.ActivityAppsiTunes" />
-             <activity  android:name="ua.mkh.settings.full.ActivityAppsiCloud" />
-             <activity  android:name="ua.mkh.settings.full.ActivityApps" />
-             <activity  android:name="ua.mkh.settings.full.ActivityAppsNew1" />
-             <activity  android:name="ua.mkh.settings.full.ActivityAppsNew2" />
-             <activity  android:name="ua.mkh.settings.full.ActivityAppsNew3" />
-             <activity  android:name="ua.mkh.settings.full.ActivityAppsNew4" />
-             <activity  android:name="ua.mkh.settings.full.ActivityStorage" />
-             <activity  android:name="ua.mkh.settings.full.ActivityInformations" />
-             <activity  android:name="ua.mkh.settings.full.ActivityAbout" />
-             <activity  android:name="ua.mkh.settings.full.setWallpaper" />
-             <activity  android:name="ua.mkh.settings.full.ActivityiCloud" />
-             <activity  android:name="ua.mkh.settings.full.ActivityAppsMaps" />
-             <activity  android:name="ua.mkh.settings.full.ActivityAppsVk" />
-             <activity  android:name="ua.mkh.settings.full.ActivityAppsViber" />
-             <activity  android:name="ua.mkh.settings.full.ActivityAppsOk" />
-             <activity  android:name="ua.mkh.settings.full.ActivityAppsSkype" />
-             <activity  android:name="ua.mkh.settings.full.ActivityAppsWhatsapp" />
-             <activity  android:name="ua.mkh.settings.full.ActivityAppsTwitter" />
-             <activity  android:name="ua.mkh.settings.full.ActivityAppsFacebook" />
-             <activity  android:name="ua.mkh.settings.full.ActivityAppsInstagram" />
-             <activity  android:name="ua.mkh.settings.full.ChooseWallpaper" />
-             <activity  android:name="ua.mkh.settings.full.ActivitySetRingtone" />
-             <activity  android:name="ua.mkh.settings.full.ActivitySetNotifications" />
-             <activity  android:name="ua.mkh.settings.full.ActivitySetAlarms" />
-            <activity  android:name="ua.mkh.settings.full.ActivityAllowDisturb" />
-            <activity  android:name="ua.mkh.settings.full.ActivityTimeout" />
-            <activity  android:name="ua.mkh.settings.full.ActivityVPN" />
-            <activity  android:name="ua.mkh.settings.full.ActivityTextSize" />
-            <activity  android:name="ua.mkh.settings.full.ActivityBattery" />
-            <activity  android:name="ua.mkh.settings.full.ActivityUsage" />
-            <activity  android:name="ua.mkh.settings.full.ViewWallpaper" />
-             <activity  android:name="ua.mkh.settings.full.ActivityWifiInfo" />
-             <activity  android:name="ua.mkh.settings.full.ActivitySetTime" />
-             <activity  android:name="ua.mkh.settings.full.ActivitySearchiPhone" />
-             <activity  android:name="ua.mkh.settings.full.ActivityHandoff" />
-             <activity  android:name="ua.mkh.settings.full.ActivityRegion" />
-             <activity  android:name="ua.mkh.settings.full.ActivityRegulatory" />
-             <activity  android:name="ua.mkh.settings.full.ActivityUsageInfo" />
-             <activity  android:name="ua.mkh.settings.full.ActivitySotaParam" />
-            <activity  android:name=".ActivityCarPlay" />
-            <activity  android:name=".ActivityAppleID" />
-            <activity  android:name=".ActivityNameAppleID" />
+            <activity
+                android:name="ua.mkh.settings.full.MainActivity"
+                android:label="@string/app_name_desk">
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN"/>
+                    <category android:name="android.intent.category.LAUNCHER"/>
+                </intent-filter>
+            </activity>
+            <activity android:name="ua.mkh.settings.full.ActivityWifi" />
+            <activity android:name="ua.mkh.settings.full.ActivityBth"/>
+            <activity android:name="ua.mkh.settings.full.ActivitySota"/>
+            <activity android:name="ua.mkh.settings.full.ActivityOperator"/>
+            <activity android:name="ua.mkh.settings.full.ActivityZvuki" />
+            <activity android:name="ua.mkh.settings.full.ActivityOboi"/>
+            <activity android:name="ua.mkh.settings.full.ActivityOsnova"/>
+            <activity android:name="ua.mkh.settings.full.ActivityInfo"/>
+            <activity android:name="ua.mkh.settings.full.ActivityGeo"  />
+            <activity android:name="ua.mkh.settings.full.ActivityStart" />
+            <activity android:name="ua.mkh.settings.full.ActivityDisturb" />
+            <activity android:name="ua.mkh.settings.full.ActivityBrightness" />
+            <activity android:name="ua.mkh.settings.full.ActivityFromTime" />
+            <activity android:name="ua.mkh.settings.full.SettingsActivity" />
+            <activity android:name="ua.mkh.settings.full.ActivityAppsNotifications" />
+            <activity android:name="ua.mkh.settings.full.ActivityAppsControl" />
+            <activity android:name="ua.mkh.settings.full.ActivityAppsMail" />
+            <activity android:name="ua.mkh.settings.full.ActivityAppsNotes" />
+            <activity android:name="ua.mkh.settings.full.ActivityAppsPhone" />
+            <activity android:name="ua.mkh.settings.full.ActivityAppsMessages" />
+            <activity android:name="ua.mkh.settings.full.ActivityAppsCompass" />
+            <activity android:name="ua.mkh.settings.full.ActivityAppsGameCenter" />
+            <activity android:name="ua.mkh.settings.full.ActivityAppsMusic" />
+            <activity android:name="ua.mkh.settings.full.ActivityAppsSafari" />
+            <activity android:name="ua.mkh.settings.full.ActivityAppsWeather" />
+            <activity android:name="ua.mkh.settings.full.ActivityAppsiTunes" />
+            <activity android:name="ua.mkh.settings.full.ActivityAppsiCloud" />
+            <activity android:name="ua.mkh.settings.full.ActivityApps" />
+            <activity android:name="ua.mkh.settings.full.ActivityAppsNew1" />
+            <activity android:name="ua.mkh.settings.full.ActivityAppsNew2" />
+            <activity android:name="ua.mkh.settings.full.ActivityAppsNew3" />
+            <activity android:name="ua.mkh.settings.full.ActivityAppsNew4" />
+            <activity android:name="ua.mkh.settings.full.ActivityStorage" />
+            <activity android:name="ua.mkh.settings.full.ActivityInformations" />
+            <activity android:name="ua.mkh.settings.full.ActivityAbout" />
+            <activity android:name="ua.mkh.settings.full.setWallpaper" />
+            <activity android:name="ua.mkh.settings.full.ActivityiCloud" />
+            <activity android:name="ua.mkh.settings.full.ActivityAppsMaps" />
+            <activity android:name="ua.mkh.settings.full.ActivityAppsVk" />
+            <activity android:name="ua.mkh.settings.full.ActivityAppsViber" />
+            <activity android:name="ua.mkh.settings.full.ActivityAppsOk" />
+            <activity android:name="ua.mkh.settings.full.ActivityAppsSkype" />
+            <activity android:name="ua.mkh.settings.full.ActivityAppsWhatsapp" />
+            <activity android:name="ua.mkh.settings.full.ActivityAppsTwitter" />
+            <activity android:name="ua.mkh.settings.full.ActivityAppsFacebook" />
+            <activity android:name="ua.mkh.settings.full.ActivityAppsInstagram" />
+            <activity android:name="ua.mkh.settings.full.ChooseWallpaper" />
+            <activity android:name="ua.mkh.settings.full.ActivitySetRingtone" />
+            <activity android:name="ua.mkh.settings.full.ActivitySetNotifications" />
+            <activity android:name="ua.mkh.settings.full.ActivitySetAlarms" />
+            <activity android:name="ua.mkh.settings.full.ActivityAllowDisturb" />
+            <activity android:name="ua.mkh.settings.full.ActivityTimeout" />
+            <activity android:name="ua.mkh.settings.full.ActivityVPN" />
+            <activity android:name="ua.mkh.settings.full.ActivityTextSize" />
+            <activity android:name="ua.mkh.settings.full.ActivityBattery" />
+            <activity android:name="ua.mkh.settings.full.ActivityUsage" />
+            <activity android:name="ua.mkh.settings.full.ViewWallpaper" />
+            <activity android:name="ua.mkh.settings.full.ActivityWifiInfo" />
+            <activity android:name="ua.mkh.settings.full.ActivitySetTime" />
+            <activity android:name="ua.mkh.settings.full.ActivitySearchiPhone" />
+            <activity android:name="ua.mkh.settings.full.ActivityHandoff" />
+            <activity android:name="ua.mkh.settings.full.ActivityRegion" />
+            <activity android:name="ua.mkh.settings.full.ActivityRegulatory" />
+            <activity android:name="ua.mkh.settings.full.ActivityUsageInfo" />
+            <activity android:name="ua.mkh.settings.full.ActivitySotaParam" />
+            <activity android:name=".ActivityCarPlay" />
+            <activity android:name=".ActivityAppleID" />
+            <activity android:name=".ActivityNameAppleID" />
             <activity android:name=".ActivityEmailAppleID" />
             <activity android:name=".ActivityName" />
             <activity android:name=".ActivityPhoneAppleID" />
-        <activity android:name=".ActivityPhone" />
-        <activity android:name=".ActivityAdress" />
-            <activity  android:name="ua.mkh.settings.full.ActivityCharge" android:theme="@style/Theme.Transparent" />
-            <activity  android:name="ua.mkh.settings.full.MessageBox" android:theme="@style/Theme.Transparent" />
+            <activity android:name=".ActivityPhone" />
+            <activity android:name=".ActivityAdress" />
+            <activity android:name=".ActivityPasswordAppleID" />
+            <activity android:name="ua.mkh.settings.full.ActivityCharge" android:theme="@style/Theme.Transparent" />
+            <activity android:name="ua.mkh.settings.full.MessageBox" android:theme="@style/Theme.Transparent" />
            
             <receiver android:name=".AlarmReceiverOn" android:process=":remote" />
        		<receiver android:name=".AlarmReceiverOff" android:process=":remote" />

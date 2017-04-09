@@ -158,7 +158,7 @@
                         android:paddingBottom="7dp"
                         android:paddingLeft="15dp"
                         android:paddingTop="7dp"
-                        android:text="Почтовый ящик"
+                        android:text="@string/email_"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
 
@@ -201,7 +201,7 @@
                         android:paddingBottom="7dp"
                         android:paddingLeft="15dp"
                         android:paddingTop="7dp"
-                        android:text="Номер телефона"
+                        android:text="@string/number"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
 
@@ -333,7 +333,7 @@
                         android:paddingBottom="7dp"
                         android:paddingLeft="15dp"
                         android:paddingTop="7dp"
-                        android:text="Адресс"
+                        android:text="@string/adres"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
 
@@ -355,7 +355,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginBottom="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:orientation="vertical">

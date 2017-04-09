@@ -9,8 +9,8 @@
 
     <com.github.mmin18.widget.RealtimeBlurView
         android:id="@+id/realtimeBlurView3"
-        aigestudio:realtimeBlurRadius="20dp"
-        aigestudio:realtimeOverlayColor="#80f9f9f9"
+        aigestudio:realtimeBlurRadius="10dp"
+        aigestudio:realtimeOverlayColor="#59f9f9f9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

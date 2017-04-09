@@ -91,6 +91,7 @@ public class ActivityAppleID extends Activity implements View.OnClickListener{
         b1 = (Button) findViewById(R.id.b1);
         b1.setOnClickListener(this);
         b2 = (Button) findViewById(R.id.b2);
+        b2.setOnClickListener(this);
         b3 = (Button) findViewById(R.id.b3);
         b4 = (Button) findViewById(R.id.b4);
         b5 = (Button) findViewById(R.id.b5);
@@ -304,6 +305,12 @@ public class ActivityAppleID extends Activity implements View.OnClickListener{
             case R.id.b1:
                 Intent n = new Intent (this, ActivityNameAppleID.class);
                 startActivity(n);
+                overridePendingTransition(center_to_left, center_to_left2);
+                break;
+
+            case R.id.b2:
+                Intent n1 = new Intent (this, ActivityPasswordAppleID.class);
+                startActivity(n1);
                 overridePendingTransition(center_to_left, center_to_left2);
                 break;
 

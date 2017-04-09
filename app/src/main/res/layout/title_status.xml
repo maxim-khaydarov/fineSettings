@@ -17,8 +17,8 @@
             android:id="@+id/realtimeBlurView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            aigestudio:realtimeBlurRadius="20dp"
-            aigestudio:realtimeOverlayColor="#80f9f9f9" />
+            aigestudio:realtimeBlurRadius="10dp"
+            aigestudio:realtimeOverlayColor="#59f9f9f9" />
 
         <Button
             android:id="@+id/buttonBack"

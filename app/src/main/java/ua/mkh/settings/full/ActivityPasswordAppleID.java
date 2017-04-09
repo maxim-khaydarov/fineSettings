@@ -1,30 +1,31 @@
 package ua.mkh.settings.full;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
+import android.provider.Settings;
+import android.text.Html;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import com.aigestudio.wheelpicker.WheelPicker;
 
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 
 /**
- * Created by 1 on 03.04.2017.
+ * Created by 1 on 09.04.2017.
  */
 
-public class ActivityEmailAppleID extends Activity implements View.OnClickListener{
+public class ActivityPasswordAppleID extends Activity implements View.OnClickListener {
 
     Typeface typefaceRoman, typefaceMedium, typefaceBold;
     SharedPreferences mSettings;
@@ -38,22 +39,22 @@ public class ActivityEmailAppleID extends Activity implements View.OnClickListen
     public static final String APP_PREFERENCES_ANIM_SPEED = "anim_speed";
     public static final String APP_PREFERENCES_tgb_menu = "tgb_menu";
 
-    Button btn_back, btn_save;
-    Button email;
-    EditText ed1;
-    TextView textView24;
+    Button btn_back;
+    Button b1, b2, b3, b4;
+    TextView txt1, txt2, txt3, txt4, txt5, txt6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_email_appleid);
+        setContentView(R.layout.activity_passwordappleid);
         String roman = "fonts/Regular.otf";
         String medium = "fonts/Medium.otf";
         String bold = "fonts/Bold.otf";
 
         ScrollView scrollView = (ScrollView) findViewById(R.id.scrollView1);
         OverScrollDecoratorHelper.setUpOverScroll(scrollView);
+
 
         typefaceRoman = Typeface.createFromAsset(getAssets(), roman);
         typefaceMedium = Typeface.createFromAsset(getAssets(), medium);
@@ -62,58 +63,48 @@ public class ActivityEmailAppleID extends Activity implements View.OnClickListen
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         TextView textStatus = (TextView) findViewById(R.id.textOk);
         btn_back = (Button) findViewById(R.id.buttonBack);
-        btn_save = (Button) findViewById(R.id.buttonSave);
 
-        ed1 = (EditText) findViewById(R.id.ed_name);
-        textView24 = (TextView) findViewById(R.id.textView24);
 
-        textStatus.setText(R.string.email_);
+        b1 = (Button) findViewById(R.id.edit_password);
+        b1.setOnClickListener(this);
+        b2 = (Button) findViewById(R.id.autentification);
+        b3 = (Button) findViewById(R.id.number);
+        b4 = (Button) findViewById(R.id.get_password);
+        b4.setOnClickListener(this);
+
+        txt1 = (TextView) findViewById(R.id.textView29);
+        txt2 = (TextView) findViewById(R.id.textView18);
+        txt3 = (TextView) findViewById(R.id.textView16);
+        txt4 = (TextView) findViewById(R.id.textView19);
+        txt4.setOnClickListener(this);
+        txt5 = (TextView) findViewById(R.id.textView27);
+        txt6 = (TextView) findViewById(R.id.textView28);
+
+
+
+        textStatus.setText(R.string.name_appleid);
         btn_back.setText(R.string.apple_id);
-
-        btn_save.setTextColor(Color.parseColor("#808080"));
-        btn_save.setText(getText(R.string.next));
 
         textStatus.setTypeface(typefaceBold);
         btn_back.setTypeface(typefaceMedium);
-        btn_save.setTypeface(typefaceMedium);
-        ed1.setTypeface(typefaceRoman);
-        textView24.setTypeface(typefaceRoman);
-
-        ed1.addTextChangedListener(new TextWatcher() {
-
-            @Override
-            public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
-
-                if (ed1.getText().toString().contains("@") && !ed1.getText().toString().equals(mSettings.getString("email", ""))) {
-                    btn_save.setTextColor(Color.parseColor("#FF0071ED"));
-                }
-                else{
-                    btn_save.setTextColor(Color.parseColor("#808080"));
-                }
-
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
-                                          int arg3) {
-
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable arg0) {
-
-            }
-        });
-
+        b1.setTypeface(typefaceRoman);
+        b2.setTypeface(typefaceRoman);
+        b3.setTypeface(typefaceRoman);
+        b4.setTypeface(typefaceRoman);
+        txt1.setTypeface(typefaceRoman);
+        txt2.setTypeface(typefaceRoman);
+        txt3.setTypeface(typefaceRoman);
+        txt4.setTypeface(typefaceRoman);
+        txt5.setTypeface(typefaceRoman);
+        txt6.setTypeface(typefaceRoman);
     }
 
-
+    @Override
     protected void onResume() {
-
-        get_user_email();
-
         super.onResume();
+
+        get_phone_user();
+
         int speed = mSettings.getInt(APP_PREFERENCES_ANIM_SPEED, 1);
         if (speed == 1) {
             center_to_right = R.anim.slide_center_to_right_short;
@@ -160,10 +151,9 @@ public class ActivityEmailAppleID extends Activity implements View.OnClickListen
         }
     }
 
-    private void get_user_email(){
-        if(mSettings.contains("email")) {
-            ed1.setText(mSettings.getString("email", "nikto@yandex.ru"));
-        }
+
+    private void get_phone_user(){
+            b3.setText(mSettings.getString("phone", ""));
     }
 
     @Override
@@ -171,11 +161,16 @@ public class ActivityEmailAppleID extends Activity implements View.OnClickListen
         switch(keycode) {
 
             case KeyEvent.KEYCODE_BACK:
-
-                    Intent intent18 = new Intent(this, ActivityNameAppleID.class);
+                if(!mSettings.contains("name")){
+                    Intent intent18 = new Intent(this, MainActivity.class);
                     startActivity(intent18);
                     overridePendingTransition(center_to_right, center_to_right2);
-
+                }
+                else {
+                    Intent intent18 = new Intent(this, ActivityAppleID.class);
+                    startActivity(intent18);
+                    overridePendingTransition(center_to_right, center_to_right2);
+                }
                 return true;
 
         }
@@ -184,25 +179,9 @@ public class ActivityEmailAppleID extends Activity implements View.OnClickListen
 
     public void BackClick(View v)
     {
-            Intent intent18 = new Intent(this, ActivityNameAppleID.class);
-            startActivity(intent18);
-            overridePendingTransition(center_to_right, center_to_right2);
-
-    }
-
-    public void SaveClick(View v)
-    {
-
-        if (ed1.getText().toString().contains("@") && !ed1.getText().toString().equals(mSettings.getString("email", ""))) {
-
-                SharedPreferences.Editor editorName = mSettings.edit();
-                editorName.putString("email", ed1.getText().toString());
-                editorName.apply();
-
-                Intent intent18 = new Intent(this, ActivityNameAppleID.class);
-                startActivity(intent18);
-                overridePendingTransition(center_to_right, center_to_right2);
-        }
+        Intent intent18 = new Intent(this, ActivityAppleID.class);
+        startActivity(intent18);
+        overridePendingTransition(center_to_right, center_to_right2);
 
     }
 
@@ -211,13 +190,26 @@ public class ActivityEmailAppleID extends Activity implements View.OnClickListen
         // TODO Auto-generated method stub
         switch (v.getId()) {
 
+            case R.id.edit_password:
+                Intent callSettingIntent= new Intent(Settings.ACTION_SECURITY_SETTINGS);
+                startActivity(callSettingIntent);
+                overridePendingTransition(center_to_right, center_to_right2);
+                break;
 
+            case R.id.textView19:
+                Intent callSettingIntentd= new Intent(ActivityPasswordAppleID.this, ActivityPhoneAppleID.class);
+                startActivity(callSettingIntentd);
+                overridePendingTransition(center_to_right, center_to_right2);
+                break;
 
+            case R.id.get_password:
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.iCloud.com"));
+                startActivity(browserIntent);
+                overridePendingTransition(center_to_right, center_to_right2);
+                break;
             default:
                 break;
         }
 
     }
-
 }
-

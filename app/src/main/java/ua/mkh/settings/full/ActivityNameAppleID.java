@@ -23,6 +23,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.aigestudio.wheelpicker.WheelPicker;
 
@@ -62,6 +63,7 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
     int day = 0;
     int month = 0;
     String year = null;
+    ToggleButton tg1, tg2;
 
 
     @Override
@@ -100,6 +102,11 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
         button_edit_phone_email = (Button) findViewById(R.id.button_edit_phone_email);
         button_edit_phone_email.setOnClickListener(this);
 
+        tg1 = (ToggleButton) findViewById(R.id.ToggleButton013);
+        tg1.setOnClickListener(this);
+        tg2 = (ToggleButton) findViewById(R.id.ToggleButton01);
+        tg2.setOnClickListener(this);
+
         birthday = (TextView) findViewById(R.id.birthday);
         name3 = (Button) findViewById(R.id.name3);
         name3.setOnClickListener(this);
@@ -120,17 +127,19 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
 
     }
 
-
+    @Override
     protected void onResume() {
-
+        super.onResume();
         get_name_user();
         get_email_user();
         get_phone_user();
         get_birthday_user();
         get_adres_user();
 
+        tg1.setChecked(mSettings.getBoolean("obyava", true));
+        tg2.setChecked(mSettings.getBoolean("apple_music", true));
 
-        super.onResume();
+
         int speed = mSettings.getInt(APP_PREFERENCES_ANIM_SPEED, 1);
         if (speed == 1) {
             center_to_right = R.anim.slide_center_to_right_short;
@@ -306,6 +315,27 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
                 open_box_birthday();
                 break;
 
+            case R.id.ToggleButton013:
+                SharedPreferences.Editor editorName = mSettings.edit();
+                if(tg1.isChecked()){
+                    editorName.putBoolean("obyava", true);
+                }
+                else{
+                    editorName.putBoolean("obyava", false);
+                }
+                editorName.apply();
+                break;
+
+            case R.id.ToggleButton01:
+                SharedPreferences.Editor editorNamew = mSettings.edit();
+                if(tg2.isChecked()){
+                    editorNamew.putBoolean("apple_music", true);
+                }
+                else{
+                    editorNamew.putBoolean("apple_music", false);
+                }
+                editorNamew.apply();
+                break;
             default:
                 break;
         }
