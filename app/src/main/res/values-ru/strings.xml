@@ -599,6 +599,12 @@
 	<string name="adres_dostavki">АДРЕС ДОСТАВКИ</string>
 	<string name="add_adres_dostavki_platezh">Добавить адрес доставки</string>
 	<string name="adres_dostavki_text_platezh">Этот адрес доставки будет использоваться для покупок в Apple Store.</string>
+	<string name="info_platezh">Платежная информация</string>
+	<string name="card_vladelec">ВЛАДЕЛЕЦ КАРТЫ</string>
+	<string name="platezh_info_bold">ПЛАТЕЖНАЯ ИНФОРМАЦИЯ</string>
+	<string name="number_card">номер карты</string>
+    <string name="platezh_dostavka">Платеж и доставка</string>
+
 </resources>
 
 

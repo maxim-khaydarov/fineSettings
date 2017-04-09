@@ -71,6 +71,9 @@ protected void onCreate(Bundle savedInstanceState) {
     TextView textStatus = (TextView) findViewById(R.id.textOk);
     btn_back = (Button) findViewById(R.id.buttonBack);
 
+    textStatus.setText(R.string.platezh_dostavka);
+    btn_back.setText(R.string.apple_id);
+
     b1 = (Button) findViewById(R.id.add_card);
     b1.setOnClickListener(this);
     b2 = (Button) findViewById(R.id.add_adres);

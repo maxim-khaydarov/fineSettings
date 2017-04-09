@@ -4,11 +4,15 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -36,9 +40,10 @@ public class ActivityAddCard extends Activity implements View.OnClickListener{
     public static final String APP_PREFERENCES_ANIM_SPEED = "anim_speed";
     public static final String APP_PREFERENCES_tgb_menu = "tgb_menu";
 
-    Button btn_back;
+    Button btn_back, btn_save;
     //Button b1, b2;
     //TextView txt1, txt2, txt3, txt4;
+    EditText ed_name, ed_surname, ed_card;
 
     SwipeBackActivityHelper helper = new SwipeBackActivityHelper();
 
@@ -72,17 +77,123 @@ public class ActivityAddCard extends Activity implements View.OnClickListener{
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         TextView textStatus = (TextView) findViewById(R.id.textOk);
         btn_back = (Button) findViewById(R.id.buttonBack);
+        btn_save = (Button) findViewById(R.id.buttonSave);
+
+        textStatus.setText(R.string.info_platezh);
+        btn_back.setText(R.string.back);
+        btn_save.setText(R.string.ready);
+
+        ed_name = (EditText) findViewById(R.id.ed_name);
+        ed_surname = (EditText) findViewById(R.id.ed_surname);
+        ed_card = (EditText) findViewById(R.id.ed_card);
+
+        btn_save.setTextColor(Color.parseColor("#808080"));
+
+        ed_name.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
+                // When user changed the Text
+                if (!ed_name.getText().toString().equals("") && !ed_surname.getText().toString().equals("") && !ed_card.getText().toString().equals("")){
+                    btn_save.setTextColor(Color.parseColor("#FF0071ED"));
+
+                }
+                else{
+                    btn_save.setTextColor(Color.parseColor("#808080"));
+                    //btn_save.setClickable(false);
+                }
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
+                                          int arg3) {
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable arg0) {
+
+            }
+        });
+
+        ed_surname.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
+                // When user changed the Text
+                if (!ed_name.getText().toString().equals("") && !ed_surname.getText().toString().equals("") && !ed_card.getText().toString().equals("")){
+                    btn_save.setTextColor(Color.parseColor("#FF0071ED"));
+
+                }
+                else{
+                    btn_save.setTextColor(Color.parseColor("#808080"));
+                    //btn_save.setClickable(false);
+                }
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
+                                          int arg3) {
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable arg0) {
+
+            }
+        });
+
+        ed_card.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
+                // When user changed the Text
+                if (!ed_name.getText().toString().equals("") && !ed_surname.getText().toString().equals("") && !ed_card.getText().toString().equals("")){
+                    btn_save.setTextColor(Color.parseColor("#FF0071ED"));
+
+                }
+                else{
+                    btn_save.setTextColor(Color.parseColor("#808080"));
+                    //btn_save.setClickable(false);
+                }
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
+                                          int arg3) {
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable arg0) {
+
+            }
+        });
 
 
         textStatus.setTypeface(typefaceBold);
         btn_back.setTypeface(typefaceMedium);
-
+        btn_save.setTypeface(typefaceMedium);
+        ed_name.setTypeface(typefaceRoman);
+        ed_surname.setTypeface(typefaceRoman);
+        ed_card.setTypeface(typefaceRoman);
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
+        ed_name.setText(mSettings.getString("name_card", mSettings.getString("name", "")));
+        ed_surname.setText(mSettings.getString("surname_card", mSettings.getString("surname", "")));
+        ed_card.setText(mSettings.getString("number_card", ""));
+
         int speed = mSettings.getInt(APP_PREFERENCES_ANIM_SPEED, 1);
         if (speed == 1) {
             center_to_right = R.anim.slide_center_to_right_short;
@@ -151,4 +262,32 @@ public class ActivityAddCard extends Activity implements View.OnClickListener{
         }
 
     }
+
+    public void SaveClick(View v)
+    {
+
+        if (!ed_name.getText().toString().equals("") && !ed_surname.getText().toString().equals("") ) {
+            SharedPreferences.Editor editorName = mSettings.edit();
+            editorName.putString("name_card", ed_name.getText().toString());
+            editorName.apply();
+
+            SharedPreferences.Editor editorSurname = mSettings.edit();
+            editorSurname.putString("surname_card", ed_surname.getText().toString());
+            editorSurname.apply();
+
+            SharedPreferences.Editor editorCard = mSettings.edit();
+            editorCard.putString("number_card", ed_card.getText().toString());
+            editorCard.apply();
+
+
+
+            helper.finish();
+            }
+
+
+        }
+
+
+
     }
+
