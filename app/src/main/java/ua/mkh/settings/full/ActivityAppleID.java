@@ -24,6 +24,8 @@ import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.github.bluzwong.swipeback.SwipeBackActivityHelper;
+
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -93,6 +95,7 @@ public class ActivityAppleID extends Activity implements View.OnClickListener{
         b2 = (Button) findViewById(R.id.b2);
         b2.setOnClickListener(this);
         b3 = (Button) findViewById(R.id.b3);
+        b3.setOnClickListener(this);
         b4 = (Button) findViewById(R.id.b4);
         b5 = (Button) findViewById(R.id.b5);
         b6 = (Button) findViewById(R.id.b6);
@@ -312,6 +315,15 @@ public class ActivityAppleID extends Activity implements View.OnClickListener{
                 Intent n1 = new Intent (this, ActivityPasswordAppleID.class);
                 startActivity(n1);
                 overridePendingTransition(center_to_left, center_to_left2);
+                break;
+
+            case R.id.b3:
+                Intent n11 = new Intent (this, ActivityPlatezh.class);
+                SwipeBackActivityHelper.activityBuilder(this)
+                        .intent(n11)
+                        .needParallax(false)
+                        .needBackgroundShadow(false)
+                        .startActivity();
                 break;
 
             default:

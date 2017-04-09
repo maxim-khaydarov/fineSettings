@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_fon"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_fon"
+        android:orientation="horizontal"></LinearLayout>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scrollView1"
+        style="android:scrollViewStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/background_fon"
+        android:ems="10"
+        android:fadingEdge="none"
+        android:overScrollMode="always"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="80dp"
+                android:text="@string/sposob_platezh"
+                android:textColor="@color/hint_text"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:id="@+id/LinearLayoutName1"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ImageView011"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:ems="10"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/line_cray" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10">
+
+                    <ImageView
+                        android:id="@+id/ImageView022"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentBottom="true"
+                        android:ems="10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/line_cray" />
+
+                    <Button
+                        android:id="@+id/add_card"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@color/transparent"
+                        android:ems="10"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="@string/add_card_platezh"
+                        android:textColor="@color/blue"
+                        android:textSize="15sp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/add_card_text_platezh"
+                android:textColor="@color/hint_text"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/textView30"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/adres_dostavki"
+                android:textColor="@color/hint_text"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:id="@+id/LinearLayoutName21"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ImageView01214"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:ems="10"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/line_cray" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10">
+
+                    <Button
+                        android:id="@+id/add_adres"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@color/transparent"
+                        android:ems="10"
+                        android:gravity="left|center_vertical"
+                        android:paddingBottom="7dp"
+                        android:paddingLeft="15dp"
+                        android:paddingTop="7dp"
+                        android:text="@string/add_adres_dostavki_platezh"
+                        android:textColor="@color/blue"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:id="@+id/ImageView0221"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentBottom="true"
+                        android:ems="10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/line_cray" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/adres_dostavki_text_platezh"
+                android:textColor="@color/hint_text"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_title"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/include1"
+            layout="@layout/title_status"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+    </LinearLayout>
+</RelativeLayout>

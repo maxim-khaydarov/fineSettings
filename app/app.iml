@@ -120,6 +120,7 @@
     <orderEntry type="library" exported="" name="play-services-gcm-10.2.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-database-10.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-games-10.2.1" level="project" />
+    <orderEntry type="library" exported="" name="swipeback-0.2.0" level="project" />
     <orderEntry type="library" exported="" name="overscroll-decor-android-1.0.4" level="project" />
     <orderEntry type="library" exported="" name="play-services-basement-10.2.1" level="project" />
     <orderEntry type="library" exported="" name="support-v4-25.3.1" level="project" />

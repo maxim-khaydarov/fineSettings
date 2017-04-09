@@ -593,7 +593,12 @@
 	<string name="get_password_autentification">Получить код проверки</string>
 	<string name="get_password_autentification_text">Получите код проверки для входа на другом устройстве или в iCloud.com.</string>
 
-
+	<string name="sposob_platezh">СПОСОБ ОПЛАТЫ</string>
+	<string name="add_card_platezh">Добавить карту</string>
+	<string name="add_card_text_platezh">Данный способ оплаты можно использовать для покупок в iTunes Store, iCloud, интернет магазине Apple Store и других сервисах Apple.</string>
+	<string name="adres_dostavki">АДРЕС ДОСТАВКИ</string>
+	<string name="add_adres_dostavki_platezh">Добавить адрес доставки</string>
+	<string name="adres_dostavki_text_platezh">Этот адрес доставки будет использоваться для покупок в Apple Store.</string>
 </resources>
 
 

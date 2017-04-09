@@ -31,7 +31,7 @@ dependencies {
 
     compile 'com.github.mmin18:realtimeblurview:1.1.0'
 
-
+    compile 'com.github.bluzwong:swipeback:0.2.0@aar'
     compile 'com.android.support:multidex:1.0.1'
     compile 'me.everything:overscroll-decor-android:1.0.4'
     compile 'cn.aigestudio.wheelpicker:WheelPicker:1.1.2'
