@@ -4,12 +4,15 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -98,6 +101,15 @@ protected void onCreate(Bundle savedInstanceState) {
     @Override
     protected void onResume() {
         super.onResume();
+
+        if(mSettings.contains("number_card")) {
+            b1.setTextColor(Color.parseColor("#000000"));
+            String all = mSettings.getString("number_card", "");
+            String first = all.substring(0,4);
+            String last = all.substring(all.length() - 4);
+            b1.setText(first + " **** **** **** " + last);
+        }
+
         int speed = mSettings.getInt(APP_PREFERENCES_ANIM_SPEED, 1);
         if (speed == 1) {
             center_to_right = R.anim.slide_center_to_right_short;
@@ -146,10 +158,20 @@ protected void onCreate(Bundle savedInstanceState) {
 
     public void BackClick(View v)
     {
-        Intent intent18 = new Intent(this, ActivityAppleID.class);
-        startActivity(intent18);
-        overridePendingTransition(center_to_right, center_to_right2);
+        onBackPressed();
 
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+
+        helper.finish();
     }
 
     @Override

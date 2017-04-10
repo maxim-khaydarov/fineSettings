@@ -9,8 +9,10 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
@@ -81,7 +83,7 @@ public class ActivityAddCard extends Activity implements View.OnClickListener{
 
         textStatus.setText(R.string.info_platezh);
         btn_back.setText(R.string.back);
-        btn_save.setText(R.string.ready);
+        btn_save.setText(R.string.next);
 
         ed_name = (EditText) findViewById(R.id.ed_name);
         ed_surname = (EditText) findViewById(R.id.ed_surname);
@@ -147,8 +149,10 @@ public class ActivityAddCard extends Activity implements View.OnClickListener{
             }
         });
 
-        ed_card.addTextChangedListener(new TextWatcher() {
 
+
+        ed_card.addTextChangedListener(new TextWatcher() {
+            String str=""; int strOldlen=0;
             @Override
             public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
                 // When user changed the Text
@@ -160,6 +164,7 @@ public class ActivityAddCard extends Activity implements View.OnClickListener{
                     btn_save.setTextColor(Color.parseColor("#808080"));
                     //btn_save.setClickable(false);
                 }
+
 
             }
 
@@ -173,7 +178,63 @@ public class ActivityAddCard extends Activity implements View.OnClickListener{
             @Override
             public void afterTextChanged(Editable arg0) {
 
-            }
+                str = ed_card.getText().toString();
+                int strLen = str.length();
+
+
+                if(strOldlen<strLen) {
+
+                    if (strLen > 0) {
+                        if (strLen == 4 || strLen == 9 || strLen == 14) {
+
+                            str=str+" ";
+
+                            ed_card.setText(str);
+                            ed_card.setSelection(ed_card.getText().length());
+
+                        }else{
+
+                            if(strLen==5){
+                                if(!str.contains(" ")){
+                                    String tempStr=str.substring(0,strLen-1);
+                                    tempStr +=" "+str.substring(strLen-1,strLen);
+                                    ed_card.setText(tempStr);
+                                    ed_card.setSelection(ed_card.getText().length());
+                                }
+                            }
+                            if(strLen==10){
+                                if(str.lastIndexOf(" ")!=9){
+                                    String tempStr=str.substring(0,strLen-1);
+                                    tempStr +=" "+str.substring(strLen-1,strLen);
+                                    ed_card.setText(tempStr);
+                                    ed_card.setSelection(ed_card.getText().length());
+                                }
+                            }
+                            if(strLen == 15){
+                                if(str.lastIndexOf(" ")!=14){
+                                    String tempStr=str.substring(0,strLen-1);
+                                    tempStr +=" "+str.substring(strLen-1,strLen);
+                                    ed_card.setText(tempStr);
+                                    ed_card.setSelection(ed_card.getText().length());
+                                }
+                            }
+                            strOldlen = strLen;
+                        }
+                    }else{
+                        return;
+                    }
+
+                }else{
+                    strOldlen = strLen;
+
+
+                    Log.i("MainActivity ","keyDel is Pressed ::: strLen : "+strLen+"\n old Str Len : "+strOldlen);
+                }
+
+
+
+
+        }
         });
 
 
@@ -185,6 +246,8 @@ public class ActivityAddCard extends Activity implements View.OnClickListener{
         ed_card.setTypeface(typefaceRoman);
 
     }
+
+
 
     @Override
     protected void onResume() {
@@ -242,14 +305,23 @@ public class ActivityAddCard extends Activity implements View.OnClickListener{
 
     public void BackClick(View v)
     {
-        helper.finish();
+        onBackPressed();
 
     }
 
     @Override
     public void onBackPressed() {
+
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+
         helper.finish();
     }
+
+
 
     @Override
     public void onClick(View v) {
@@ -266,7 +338,7 @@ public class ActivityAddCard extends Activity implements View.OnClickListener{
     public void SaveClick(View v)
     {
 
-        if (!ed_name.getText().toString().equals("") && !ed_surname.getText().toString().equals("") ) {
+        if (!ed_name.getText().toString().equals("") && !ed_surname.getText().toString().equals("") || !ed_card.getText().toString().equals("") ) {
             SharedPreferences.Editor editorName = mSettings.edit();
             editorName.putString("name_card", ed_name.getText().toString());
             editorName.apply();
@@ -280,7 +352,7 @@ public class ActivityAddCard extends Activity implements View.OnClickListener{
             editorCard.apply();
 
 
-
+            onBackPressed();
             helper.finish();
             }
 

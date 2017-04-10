@@ -210,6 +210,7 @@
                         android:ems="10"
                         android:hint="@string/number_card"
                         android:inputType="number"
+                        android:maxLength="19"
                         android:textColor="@color/black"
                         android:textCursorDrawable="@color/black"
                         android:textSize="15sp" />
