@@ -9,11 +9,13 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
+import java.text.DecimalFormat;
 import java.util.regex.Pattern;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.github.bluzwong.swipeback.SwipeBackActivityHelper;
 import com.google.android.gms.auth.GoogleAuthUtil;
 
 
@@ -38,6 +40,7 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.StatFs;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.KeyEvent;
@@ -45,13 +48,17 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 
 public class ActivityiCloud extends Activity implements View.OnClickListener{
 	
@@ -65,15 +72,10 @@ public class ActivityiCloud extends Activity implements View.OnClickListener{
 	   
 	   PackageManager pm;
 	   
-	   AccountManager mAccountManager;
-		String token;
-		int serverCode;
-		private static final String SCOPE = "oauth2:https://www.googleapis.com/auth/userinfo.profile";
-		ImageView imageProfile;
-		//TextView textViewName, textViewEmail, textViewGender, textViewBirthday;
-		String textName, textEmail, textGender, textBirthday, userImageUrl;
-		ProgressBar pg1;
-		RelativeLayout ric;
+
+
+
+
 	
 	public static final String APP_PREFERENCES = "mysettings";
 	public static final String APP_PREFERENCES_text_size = "txt_size";
@@ -139,11 +141,13 @@ public class ActivityiCloud extends Activity implements View.OnClickListener{
 	weather_yahoo, weather_kuandroid, games_mkh, new1,new2, new3, new4, vk_stok, maps_stok, viber_stok,
 	ok_stok, skype_stok, whatsapp_stok, twitter_stok, facebook_stok, instagram_stok, appstore_stok;
 	
-	TextView acc, textStatus, name, textView3;
+	TextView textStatus, size_memory;
 	ToggleButton tb_sync;
 	
 	ToggleButton mail, notes, phone, messages, compass, safari, music, game, weather, maps, vk, viber, ok, skype, whatsapp, twitter, facebook, instagram,
 	appstore, search;
+
+	SwipeBackActivityHelper helper = new SwipeBackActivityHelper();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -153,71 +157,34 @@ public class ActivityiCloud extends Activity implements View.OnClickListener{
 		String roman = "fonts/Regular.otf";
 		String medium = "fonts/Medium.otf";
 		String bold =  "fonts/Bold.otf";
-		
+
+		helper.setEdgeMode(true)
+				.setParallaxMode(false)
+				.setParallaxRatio(0)
+				.setNeedBackgroundShadow(false)
+				.init(this);
+
+		ScrollView scrollView = (ScrollView) findViewById(R.id.scrollView1);
+		OverScrollDecoratorHelper.setUpOverScroll(scrollView);
+
+
 		typefaceRoman = Typeface.createFromAsset(getAssets(), roman);
 		typefaceMedium = Typeface.createFromAsset(getAssets(), medium);
 		typefaceBold = Typeface.createFromAsset(getAssets(), bold);
 		
 		mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 		
-		 pg1 = (ProgressBar) findViewById(R.id.progressBar1);
-		 pg1.setVisibility(View.GONE);
-		// syncGoogleAccount();
+
 		 
 		 tb_sync = (ToggleButton)findViewById(R.id.synctoggle);
 		 tb_sync.setOnClickListener(this);
 		 
 		 
-		 /**
-			 * get user email using intent
-			 */
-/*
-			Intent intent = getIntent();
-			textEmail = intent.getStringExtra("email_id");
-			System.out.println(textEmail);
-			textViewEmail.setText(textEmail);
-*/
-			/**
-			 * get user data from google account
-			 */
-		 name = (TextView) findViewById(R.id.textView2);
-			try {
-				System.out.println("On Home Page***"
-						+ AbstractGetNameTask.GOOGLE_USER_DATA);
-				JSONObject profileData = new JSONObject(
-						AbstractGetNameTask.GOOGLE_USER_DATA);
 
-				if (profileData.has("picture")) {
-					userImageUrl = profileData.getString("picture");
-					new GetImageFromUrl().execute(userImageUrl);
-				}
-				if (profileData.has("name")) {
-					textName = profileData.getString("name");
-					name.setText(textName);
-					Editor editor = mSettings.edit();
-				   	editor.putString(APP_PREFERENCES_NAME, textName);
-				   	editor.commit(); }
-				
-		//		if (profileData.has("gender")) {
-		//			textGender = profileData.getString("gender");
-		//			textViewGender.setText(textGender);
-		//		}
-		//		if (profileData.has("birthday")) {
-		//			textBirthday = profileData.getString("birthday");
-		//			textViewBirthday.setText(textBirthday);
-		//		}
 
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		
-		//button_update = (Button) findViewById(R.id.button1);
-		//button_update.setOnClickListener(this);
-		imageProfile = (ImageView) findViewById(R.id.imageView_round);
-		ric = (RelativeLayout) findViewById(R.id.iClouds);
-		ric.setOnClickListener(this);
-		
+
+
+
 		button_sync = (Button) findViewById(R.id.Button19);
 		
 		btn_mail = (Button) findViewById(R.id.Button01);
@@ -330,10 +297,10 @@ public class ActivityiCloud extends Activity implements View.OnClickListener{
 		btn_menu_settings = (Button) findViewById(R.id.ButtonMenuSettings);
 		btn_menu_cancel = (Button) findViewById(R.id.ButtonMenuCancel);
 		textStatus = (TextView)findViewById(R.id.textOk);
-		
-		acc = (TextView) findViewById(R.id.textwifi);
-		textView3 = (TextView) findViewById(R.id.textView3);
-		textView3.setVisibility(View.GONE);
+
+		size_memory = (TextView) findViewById(R.id.textView36);
+
+
 		
 		buttonBack.setTypeface(typefaceBold);
 		btn_mail.setTypeface(typefaceRoman);
@@ -358,8 +325,9 @@ public class ActivityiCloud extends Activity implements View.OnClickListener{
 		button_sync.setTypeface(typefaceRoman);
 		btn_appstore.setTypeface(typefaceRoman);
 		btn_search.setTypeface(typefaceRoman);
-		acc.setTypeface(typefaceRoman);
-		name.setTypeface(typefaceRoman);
+		size_memory.setTypeface(typefaceRoman);
+
+
 		
 		 textStatus.setTypeface(typefaceMedium);
 		 textStatus.setText(R.string.icloud);
@@ -399,51 +367,6 @@ pm = this.getPackageManager();
 		
 	}
 	
-     private String[] getAccountNames() {
- 		mAccountManager = AccountManager.get(this);
- 		Account[] accounts = mAccountManager
- 				.getAccountsByType(GoogleAuthUtil.GOOGLE_ACCOUNT_TYPE);
- 		String[] names = new String[accounts.length];
- 		for (int i = 0; i < names.length; i++) {
- 			names[i] = accounts[i].name;
- 		}
- 		return names;
- 	}
-
- 	private AbstractGetNameTask getTask(ActivityiCloud activity, String email,
- 			String scope) {
- 		return new GetNameInForeground(activity, email, scope);
-
- 	}
-
- 	public void syncGoogleAccount() {
- 		if (isNetworkAvailable() == true) {
- 			String[] accountarrs = getAccountNames();
- 			if (accountarrs.length > 0) {
- 				//you can set here account for login
- 				getTask(ActivityiCloud.this, accountarrs[0], SCOPE).execute();
- 			} else {
- 				Toast.makeText(ActivityiCloud.this, "No Google Account Sync!",
- 						Toast.LENGTH_SHORT).show();
- 			}
- 		} else {
- 			Toast.makeText(ActivityiCloud.this, "No Network Service!",
- 					Toast.LENGTH_SHORT).show();
- 		}
- 	}
- 	public boolean isNetworkAvailable() {
-
- 		ConnectivityManager cm = (ConnectivityManager) this
- 				.getSystemService(Context.CONNECTIVITY_SERVICE);
- 		NetworkInfo networkInfo = cm.getActiveNetworkInfo();
- 		if (networkInfo != null && networkInfo.isConnected()) {
- 			Log.e("Network Testing", "***Available***");
- 			return true;
- 		}
- 		Log.e("Network Testing", "***Not Available***");
- 		return false;
- 	}
- 	
 
      
      
@@ -453,60 +376,10 @@ pm = this.getPackageManager();
         
         ButtonSync();
         
-        try {
-			System.out.println("On Home Page***"
-					+ AbstractGetNameTask.GOOGLE_USER_DATA);
-			JSONObject profileData = new JSONObject(
-					AbstractGetNameTask.GOOGLE_USER_DATA);
-
-			if (profileData.has("picture")) {
-				userImageUrl = profileData.getString("picture");
-				new GetImageFromUrl().execute(userImageUrl);
-			}
-			if (profileData.has("name")) {
-				textName = profileData.getString("name");
-				name.setText(textName);
-				Editor editor = mSettings.edit();
-			   	editor.putString(APP_PREFERENCES_NAME, textName);
-			   	editor.commit(); }
+		memory();
 			
-	//		if (profileData.has("gender")) {
-	//			textGender = profileData.getString("gender");
-	//			textViewGender.setText(textGender);
-	//		}
-	//		if (profileData.has("birthday")) {
-	//			textBirthday = profileData.getString("birthday");
-	//			textViewBirthday.setText(textBirthday);
-	//		}
 
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	
 
-        
-        File dir = new File(Environment.getExternalStorageDirectory() + "/fineSettings/iCloud/001.png");
-        if(!dir.exists() ||  !mSettings.contains(APP_PREFERENCES_NAME)) {
-        	name.setText("");
-        	acc.setText("");
-        	textView3.setVisibility(View.VISIBLE);
-
-        	pg1.setVisibility(View.VISIBLE);
-			syncGoogleAccount();
-        }
-        else{
-
-        	String iconsStoragePath = Environment.getExternalStorageDirectory() + "/fineSettings/iCloud/001.png";
-            
-            Bitmap bmp = BitmapFactory.decodeFile(iconsStoragePath.toString());
-            imageProfile.setImageBitmap(bmp);
-            String menu = mSettings.getString(APP_PREFERENCES_NAME, null);
-        	name.setText(menu);
-        	 email_idd();
-        }
-        
-        
         
        
         
@@ -562,9 +435,7 @@ pm = this.getPackageManager();
 				btn_search.setTypeface(typefaceBold);
 				button_sync.setTypeface(typefaceBold);
 				btn_appstore.setTypeface(typefaceBold);
-				acc.setTypeface(typefaceBold);
-				textView3.setTypeface(typefaceBold);
-				name.setTypeface(typefaceBold);
+
 				
 			}
         }
@@ -593,9 +464,7 @@ pm = this.getPackageManager();
 				btn_newacc.setTextSize(13);
 				button_sync.setTextSize(13);
 				btn_appstore.setTextSize(13);
-				acc.setTextSize(13);
-				textView3.setTextSize(11);
-				name.setTextSize(15);
+
 				btn_search.setTextSize(13);
 			}
 			if (size .contains( "Normal")){
@@ -620,9 +489,7 @@ pm = this.getPackageManager();
 				btn_newacc.setTextSize(15);
 				button_sync.setTextSize(15);
 				btn_appstore.setTextSize(15);
-				acc.setTextSize(15);
-				textView3.setTextSize(13);
-				name.setTextSize(18);
+
 				btn_search.setTextSize(15);
 			}
 			if (size .contains( "Large")){
@@ -647,9 +514,7 @@ pm = this.getPackageManager();
 					btn_newacc.setTextSize(18);
 					button_sync.setTextSize(18);
 					btn_appstore.setTextSize(18);
-					acc.setTextSize(18);
-					textView3.setTextSize(15);
-					name.setTextSize(20);
+
 					btn_search.setTextSize(18);
 			}
 			if (size .contains( "xLarge")){
@@ -674,9 +539,7 @@ pm = this.getPackageManager();
 				btn_newacc.setTextSize(20);
 				button_sync.setTextSize(20);
 				btn_appstore.setTextSize(20);
-				acc.setTextSize(20);
-				textView3.setTextSize(18);
-				name.setTextSize(23);
+
 				btn_search.setTextSize(20);
 			}
        }
@@ -782,17 +645,7 @@ pm = this.getPackageManager();
         
 	}
 	
-	private void email_idd(){
-		Pattern emailPattern = Patterns.EMAIL_ADDRESS; // API level 8+
-		 Account[] accounts = AccountManager.get(this).getAccounts();
-		 for (Account account : accounts) {
-		     if (emailPattern.matcher(account.name).matches()) {
-		         String possibleEmail = account.name;
-		         acc.setText(possibleEmail);
-		         
-		     }
-		 }
-	}
+
 	
 	
 	 //SYNC MODE
@@ -802,30 +655,93 @@ pm = this.getPackageManager();
             tb_sync.setChecked(true);
     	}
     }
-    
-	 @Override
-	    public boolean onKeyDown(int keycode, KeyEvent e) {
-	        switch(keycode) {
-	            
-	            case KeyEvent.KEYCODE_BACK:
-	            	Intent intent18 = new Intent(this, MainActivity.class);
-	   	       	 startActivity(intent18);
-	        		overridePendingTransition(center_to_right, center_to_right2);
-	                return true;
-	            
-	        }
-	        return super.onKeyDown(keycode, e);
-	   }
-        
-   
-        
-   	
-        public void BackClick(View v)  
-        {  
-        	Intent intent18 = new Intent(this, MainActivity.class);
-	       	 startActivity(intent18);
-	        	overridePendingTransition(center_to_right, center_to_right2);
-       	 }
+
+	public void BackClick(View v)
+	{
+		onBackPressed();
+
+	}
+
+	@Override
+	public void onBackPressed() {
+
+		View view = this.getCurrentFocus();
+		if (view != null) {
+			InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+			inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+		}
+
+		helper.finish();
+	}
+
+
+	public void memory (){
+
+		//size_memory.setText(getTotalInternalMemorySize());
+
+		///////Доступно
+		long availableSpace = -1L;
+		StatFs stat = new StatFs(Environment.getExternalStorageDirectory().getPath());
+		availableSpace = (long) stat.getAvailableBlocks() * (long) stat.getBlockSize();
+		////////
+
+		StatFs statFs = new StatFs(Environment.getDataDirectory().getAbsolutePath());
+		//StatFs statFs = new StatFs("/data");
+		long total = ((long)statFs.getBlockCount() * (long)statFs.getBlockSize());
+
+
+
+		long size = 1073741824L; ////1Gb
+
+		Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
+
+		if(total > size){
+			size = 2147483648L; /////2Gb
+			Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
+			if(total > size){
+				size = 4294967296L;////4Gb
+				Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
+				if(total > size){
+					size = 8589934592L;////8Gb
+					Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
+					if(total > size){
+						size = 17179869184L;////16Gb
+						Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
+						if(total > size){
+							size = 34359738368L;////32Gb
+							Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
+									if(total > size){
+										size = total;
+										Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
+									}
+						}
+					}
+				}
+			}
+		}
+
+		Long busy = size - availableSpace;
+
+		size_memory.setText(getFileSize(busy) + " из " + getFileSize(size));
+
+    }
+
+
+
+
+
+
+
+	public  String getFileSize(long size) {
+		if (size <= 0)
+			return "0";
+		final String[] unit = getResources().getStringArray(R.array.units);
+
+		int digitGroups = (int) (Math.log10(size) / Math.log10(1024));
+		return new DecimalFormat("#,##0.#").format(size / Math.pow(1024, digitGroups)) + " " + unit[digitGroups];
+	}
+
+
 
 	@Override
 	public void onClick(View v) {
@@ -1352,12 +1268,6 @@ pm = this.getPackageManager();
 	       	 startActivity(intent18d);
 	        	overridePendingTransition(center_to_left, center_to_left2);
 			break;
-			
-		case R.id.iClouds:
-			 pg1.setVisibility(View.VISIBLE);
-			syncGoogleAccount();
-        	textView3.setVisibility(View.GONE);
-        	break;
         	
 		case R.id.Button22:
 			Intent intent22 = new Intent(this, ActivitySearchiPhone.class);

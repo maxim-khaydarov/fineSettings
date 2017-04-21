@@ -102,6 +102,8 @@ protected void onCreate(Bundle savedInstanceState) {
     protected void onResume() {
         super.onResume();
 
+        get_user_adres();
+
         if(mSettings.contains("number_card")) {
             b1.setTextColor(Color.parseColor("#000000"));
             String all = mSettings.getString("number_card", "");
@@ -156,6 +158,13 @@ protected void onCreate(Bundle savedInstanceState) {
         }
     }
 
+    private void get_user_adres() {
+        if(mSettings.contains("adress_full")){
+            b2.setText(mSettings.getString("adress_full", ""));
+            b2.setTextColor(Color.parseColor("#000000"));
+        }
+    }
+
     public void BackClick(View v)
     {
         onBackPressed();
@@ -183,6 +192,15 @@ protected void onCreate(Bundle savedInstanceState) {
                 Intent add = new Intent(this, ActivityAddCard.class);
                 SwipeBackActivityHelper.activityBuilder(this)
                         .intent(add)
+                        .needParallax(false)
+                        .needBackgroundShadow(false)
+                        .startActivity();
+                break;
+
+            case R.id.add_adres:
+                Intent add_adres = new Intent(this, ActivityAdress.class);
+                SwipeBackActivityHelper.activityBuilder(this)
+                        .intent(add_adres)
                         .needParallax(false)
                         .needBackgroundShadow(false)
                         .startActivity();

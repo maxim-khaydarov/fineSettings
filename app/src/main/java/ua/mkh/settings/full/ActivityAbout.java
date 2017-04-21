@@ -27,7 +27,9 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
+import android.os.StatFs;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
@@ -42,6 +44,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import static ua.mkh.settings.full.ApplicationAdapterUsage.getFileSize;
 
 public class ActivityAbout extends Activity implements View.OnClickListener{
 	
@@ -230,7 +234,7 @@ public class ActivityAbout extends Activity implements View.OnClickListener{
 	   
 	   private void mac_wifi (){
 		   
-		   WifiInfo localWifiInfo = ((WifiManager)getSystemService(Context.WIFI_SERVICE)).getConnectionInfo();
+		   WifiInfo localWifiInfo = ((WifiManager)getApplicationContext().getSystemService(Context.WIFI_SERVICE)).getConnectionInfo();
 		   
 		   TextView05.setText(getMacAddr());
 		   
@@ -276,8 +280,7 @@ public class ActivityAbout extends Activity implements View.OnClickListener{
 
 	        int i = 0;
 	        if (mCursor.moveToFirst()) {
-	            do {
-	                
+				do {
 	                photo_col = photo_col + 1;
 	                i++;
 	            } while (mCursor.moveToNext());
@@ -658,29 +661,68 @@ public class ActivityAbout extends Activity implements View.OnClickListener{
 	       }
 	       
 	    }
-	   
-	   
-	   
-	   public void memory (){
-		   Float ios = 0f;
-		   Float iss = 0f;
-		   
-		   List<StorageUtils.StorageInfo> storageList = StorageUtils.getStorageList();
-		    for (StorageUtils.StorageInfo storageInfo : storageList) {
-		    	
-		    	Float o = Float.parseFloat(String.valueOf(new File(storageInfo.path).getTotalSpace()));
-		    	Float s = Float.parseFloat(String.valueOf(new File(storageInfo.path).getFreeSpace()));
-		    		
-		    	ios = o + ios;
-		    	iss = s + iss;
 
-		    }
-		    DecimalFormat twoDForm = new DecimalFormat("#.##");
-		    
-		    TextView07.setText(twoDForm.format(ios/1073741824f) +" " + getResources().getString(R.string.GigaByte));
-	    	TextView08.setText(twoDForm.format(iss/1073741824f) +" " + getResources().getString(R.string.GigaByte));
-	   }
-	   
+
+
+	public  String getFileSize(long size) {
+		if (size <= 0)
+			return "0";
+		final String[] unit = getResources().getStringArray(R.array.units);
+
+		int digitGroups = (int) (Math.log10(size) / Math.log10(1024));
+		return new DecimalFormat("#,##0.#").format(size / Math.pow(1024, digitGroups)) + " " + unit[digitGroups];
+	}
+
+	public void memory (){
+
+		//size_memory.setText(getTotalInternalMemorySize());
+
+		///////Доступно
+		long availableSpace = -1L;
+		StatFs stat = new StatFs(Environment.getExternalStorageDirectory().getPath());
+		availableSpace = (long) stat.getAvailableBlocks() * (long) stat.getBlockSize();
+		////////
+
+		StatFs statFs = new StatFs(Environment.getDataDirectory().getAbsolutePath());
+		//StatFs statFs = new StatFs("/data");
+		long total = ((long)statFs.getBlockCount() * (long)statFs.getBlockSize());
+
+
+
+		long size = 1073741824L; ////1Gb
+
+		Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
+
+		if(total > size){
+			size = 2147483648L; /////2Gb
+			Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
+			if(total > size){
+				size = 4294967296L;////4Gb
+				Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
+				if(total > size){
+					size = 8589934592L;////8Gb
+					Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
+					if(total > size){
+						size = 17179869184L;////16Gb
+						Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
+						if(total > size){
+							size = 34359738368L;////32Gb
+							Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
+							if(total > size){
+								size = total;
+								Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
+							}
+						}
+					}
+				}
+			}
+		}
+
+		Long busy = size - availableSpace;
+
+		TextView07.setText(getFileSize(size));
+		TextView08.setText(getFileSize(availableSpace));
+	}
 
 	   
 	   public void onClick(View v) {

@@ -3,31 +3,46 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/background_fon"
-    android:ems="10"
-    tools:context=".MainActivity" >
+    android:ems="10">
 
-    <ua.mkh.settings.full.EdgeEffectScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_fon"
+        android:orientation="horizontal"></LinearLayout>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/scrollView1"
         style="android:scrollViewStyle"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:background="@color/background_fon"
         android:ems="10"
         android:fadingEdge="none"
         android:overScrollMode="always"
-        android:scrollbars="vertical" >
+        android:scrollbars="vertical">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:ems="10"
-            android:orientation="vertical" >
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView33"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="80dp"
+                android:text="@string/storage_usage"
+                android:textColor="@color/hint_text"
+                android:textSize="13sp" />
 
             <ImageView
                 android:id="@+id/ImageView38"
                 android:layout_width="fill_parent"
                 android:layout_height="1px"
-                android:layout_marginTop="80dp"
                 android:ems="10"
                 android:scaleType="fitXY"
                 android:src="@drawable/line_cray" />
@@ -38,74 +53,203 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:ems="10"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
-                    android:id="@+id/iClouds"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10" >
-
-                    <ua.mkh.settings.full.RoundedImageView
-                        android:id="@+id/imageView_round"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:scaleType="fitCenter" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView3"
+                        android:id="@+id/textView37"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:text="@string/update_icloud"
+                        android:text="@string/icloud"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/textView36"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toLeftOf="@+id/imageView28"
+                        android:text="TextView"
                         android:textColor="@color/hint_text"
                         android:textSize="15sp" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <ImageView
+                        android:id="@+id/imageView28"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="20dp"
-                        android:layout_toRightOf="@+id/imageView_round"
-                        android:orientation="vertical" >
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/next" />
+                </RelativeLayout>
 
-                        <TextView
-                            android:id="@+id/textView2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:lines="1"
-                            android:text="TextView"
-                            android:textColor="@color/black"
-                            android:textSize="18sp" />
-
-                        <TextView
-                            android:id="@+id/textwifi"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:singleLine="true"
-                            android:text="No Service"
-                            android:textColor="@color/hint_text"
-                            android:textSize="13sp" />
-                    </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical">
 
                     <ProgressBar
                         android:id="@+id/progressBar1"
-                        style="?android:attr/progressBarStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginTop="5dp" />
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:progress="50"
+                        android:progressDrawable="@drawable/custom_progressbar_icloud_1" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar5"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:progress="80"
+                        android:progressDrawable="@drawable/custom_progressbar_icloud_5" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar4"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:progress="60"
+                        android:progressDrawable="@drawable/custom_progressbar_icloud_4" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar3"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:progress="30"
+                        android:progressDrawable="@drawable/custom_progressbar_icloud_3" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar2"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:progress="20"
+                        android:progressDrawable="@drawable/custom_progressbar_icloud_2" />
+
                 </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:layout_gravity="center"
+                            android:background="@color/goluboy"
+                            android:orientation="horizontal"></LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textView38"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/photo"
+                            android:textColor="@color/hint_text"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:layout_gravity="center"
+                            android:background="@color/yellow"
+                            android:orientation="horizontal"></LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textView39"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/video"
+                            android:textColor="@color/hint_text"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@color/green"
+                            android:orientation="horizontal"></LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textView40"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/music"
+                            android:textColor="@color/hint_text"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@color/orange"
+                            android:orientation="horizontal"></LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textView41"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:text="@string/other"
+                            android:textColor="@color/hint_text"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
             </LinearLayout>
 
             <ImageView
@@ -131,12 +275,12 @@
                 android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:ems="10" >
+                    android:ems="10">
 
                     <Button
                         android:id="@+id/Button01"
@@ -185,12 +329,12 @@
                 android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:ems="10" >
+                    android:ems="10">
 
                     <Button
                         android:id="@+id/Button15"
@@ -249,12 +393,12 @@
                 android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:ems="10" >
+                    android:ems="10">
 
                     <Button
                         android:id="@+id/Button14"
@@ -314,12 +458,12 @@
                 android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:ems="10" >
+                    android:ems="10">
 
                     <Button
                         android:id="@+id/Button13"
@@ -379,12 +523,12 @@
                 android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:ems="10" >
+                    android:ems="10">
 
                     <Button
                         android:id="@+id/Button12"
@@ -443,12 +587,12 @@
                 android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:ems="10" >
+                    android:ems="10">
 
                     <Button
                         android:id="@+id/Button11"
@@ -507,12 +651,12 @@
                 android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:ems="10" >
+                    android:ems="10">
 
                     <Button
                         android:id="@+id/Button10"
@@ -571,12 +715,12 @@
                 android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:ems="10" >
+                    android:ems="10">
 
                     <Button
                         android:id="@+id/Button09"
@@ -635,12 +779,12 @@
                 android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:ems="10" >
+                    android:ems="10">
 
                     <Button
                         android:id="@+id/Button08"
@@ -699,12 +843,12 @@
                 android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:ems="10" >
+                    android:ems="10">
 
                     <Button
                         android:id="@+id/Button07"
@@ -763,20 +907,17 @@
                 android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:ems="10" >
+                    android:ems="10">
 
                     <Button
                         android:id="@+id/Button06"
                         android:layout_width="fill_parent"
                         android:layout_height="match_parent"
-                        android:layout_alignParentBottom="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentTop="true"
                         android:background="@drawable/button_bg"
                         android:clickable="false"
                         android:ems="10"
@@ -784,7 +925,10 @@
                         android:paddingLeft="65dp"
                         android:text="@string/vk"
                         android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        android:textSize="15sp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
 
                     <ImageView
                         android:id="@+id/ImageView07"
@@ -827,12 +971,12 @@
                 android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:ems="10" >
+                    android:ems="10">
 
                     <Button
                         android:id="@+id/Button05"
@@ -891,12 +1035,12 @@
                 android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:ems="10" >
+                    android:ems="10">
 
                     <Button
                         android:id="@+id/Button04"
@@ -955,12 +1099,12 @@
                 android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:ems="10" >
+                    android:ems="10">
 
                     <Button
                         android:id="@+id/Button03"
@@ -1019,12 +1163,12 @@
                 android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:ems="10" >
+                    android:ems="10">
 
                     <Button
                         android:id="@+id/Button02"
@@ -1057,13 +1201,13 @@
                         android:id="@+id/ToggleButtonWhatsApp"
                         android:layout_width="60dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
                         android:background="@drawable/btn_toggle_bg"
                         android:text="ToggleButton"
                         android:textOff=" "
-                        android:textOn=" " />
+                        android:textOn=" "
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true" />
 
                     <ImageView
                         android:id="@+id/ImageView31"
@@ -1083,12 +1227,12 @@
                 android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:ems="10" >
+                    android:ems="10">
 
                     <Button
                         android:id="@+id/Button18"
@@ -1147,12 +1291,12 @@
                 android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:ems="10" >
+                    android:ems="10">
 
                     <Button
                         android:id="@+id/Button17"
@@ -1211,12 +1355,12 @@
                 android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:ems="10" >
+                    android:ems="10">
 
                     <Button
                         android:id="@+id/Button16"
@@ -1275,12 +1419,12 @@
                 android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:ems="10" >
+                    android:ems="10">
 
                     <Button
                         android:id="@+id/Button21"
@@ -1352,12 +1496,12 @@
                 android:layout_height="40dp"
                 android:background="@color/white"
                 android:ems="10"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:ems="10" >
+                    android:ems="10">
 
                     <ImageView
                         android:id="@+id/imageView1"
@@ -1426,12 +1570,12 @@
                 android:layout_marginBottom="40dp"
                 android:background="@color/white"
                 android:ems="10"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:ems="10" >
+                    android:ems="10">
 
                     <ImageView
                         android:id="@+id/ImageView47"
@@ -1511,7 +1655,7 @@
                 android:layout_marginBottom="40dp"
                 android:background="@color/white"
                 android:ems="10"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/ImageView39"
@@ -1524,7 +1668,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:ems="10" >
+                    android:ems="10">
 
                     <Button
                         android:id="@+id/Button20"
@@ -1541,16 +1685,16 @@
                         android:id="@+id/ImageView41"
                         android:layout_width="fill_parent"
                         android:layout_height="1px"
+                        android:layout_alignParentBottom="true"
                         android:ems="10"
                         android:scaleType="fitXY"
-                        android:src="@drawable/line_cray"
-                        android:layout_alignParentBottom="true" />
+                        android:src="@drawable/line_cray" />
                 </RelativeLayout>
 
             </LinearLayout>
         </LinearLayout>
 
-    </ua.mkh.settings.full.EdgeEffectScrollView>
+    </ScrollView>
 
     <LinearLayout
         android:layout_width="fill_parent"

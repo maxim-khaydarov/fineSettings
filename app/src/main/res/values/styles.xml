@@ -24,6 +24,10 @@
     <color name="color_statusbar">#f9f9f9</color>
     <color name="background_fon">#eeeef3</color>
     <color name="background_title">#99f9f9f9</color>
+    <color name="goluboy">#97e2ff</color>
+    <color name="yellow">#eefd00</color>
+    <color name="green">#81db00</color>
+    <color name="orange">#dfbf00</color>
     
     <color name="red">#E6382F</color>
     

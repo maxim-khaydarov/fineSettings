@@ -604,6 +604,7 @@
 	<string name="platezh_info_bold">ПЛАТЕЖНАЯ ИНФОРМАЦИЯ</string>
 	<string name="number_card">номер карты</string>
     <string name="platezh_dostavka">Платеж и доставка</string>
+	<string name="other">Другое</string>
 
 </resources>
 

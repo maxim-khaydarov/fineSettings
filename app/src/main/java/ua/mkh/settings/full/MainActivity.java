@@ -88,7 +88,7 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 
 
 	int serverCode;
-	private static final String SCOPE = "oauth2:https://www.googleapis.com/auth/userinfo.profile";
+
 	ImageView imageProfile;
     
 	WifiManager wifi;
@@ -634,8 +634,7 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 		btn_display = (Button)findViewById(R.id.ButtonDisplay);
 		btn_display.setOnClickListener(this);
 		
-		btn_iCloud = (Button)findViewById(R.id.ButtonCloud);
-		btn_iCloud.setOnClickListener(this);
+
 		
 		btn_iTunes = (Button)findViewById(R.id.ButtonTunes);
 		btn_iTunes.setOnClickListener(this);
@@ -702,7 +701,7 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 		name.setTypeface(typefaceRoman);
 		text.setTypeface(typefaceRoman);
 		
-		btn_iCloud.setTypeface(typefaceRoman);
+
 		btn_iTunes.setTypeface(typefaceRoman);
 		
 		
@@ -1163,11 +1162,7 @@ public void soccial (){
 		        	overridePendingTransition(center_to_left, center_to_left2);
 		        	 }
 		 
-		 else if (id == R.id.ButtonCloud){
-			 Intent intent10 = new Intent(this, ActivityiCloud.class);
-        	 startActivity(intent10);
- 	        	overridePendingTransition(center_to_left, center_to_left2);
-		        	 }
+
 		 
 		 else if (id == R.id.ButtonTunes){
 			 Intent LaunchIntent = getPackageManager().getLaunchIntentForPackage(itunes_app);
@@ -1275,7 +1270,6 @@ public void soccial (){
 	        //check_pirat();
 	        zimowets();
 		 soccial();
-		 //get_user_photo();
 	       
 	        ConnectivityManager conMgr  = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE); 
 			 NetworkInfo info = conMgr.getActiveNetworkInfo(); 
@@ -1292,20 +1286,7 @@ public void soccial (){
 	       
 	       
 	        
-	        /////////////////Проверка есть ли аккаунт Google
-			try{
-	        if (account_name.length() == 0) {
-        		btn_iCloud.setText(R.string.icloud);
-        		//textView2.setText("");
-        		//textView1.setText("");
-				}
-	        else{
-	        	String t2 = getString(R.string.icloud) + "<br />" + "<font color=\"#808080\" >" + "<small><small>" + account_name +  "</small></small>" + "</font>";
-	        	btn_iCloud.setText(Html.fromHtml(t2), TextView.BufferType.SPANNABLE);
-	        }
-			}catch(NullPointerException e){
-				btn_iCloud.setText(R.string.icloud);
-			}
+
 	        
 	        if (isSharingWiFi(wifi) == true){
 	        	textVPN.setText(R.string.on);
@@ -1474,16 +1455,7 @@ public void soccial (){
 				// Получаем число из настроек
 				control_app = mSettings.getString(APP_PREFERENCES_CONTROL, null); 
 				LinearLayoutControl.setVisibility(View.VISIBLE); }
-	        /*
-	        if (mSettings.contains(APP_PREFERENCES_ICLOUD)) {
-				// Получаем число из настроек
-				icloud_app = mSettings.getString(APP_PREFERENCES_ICLOUD, null); }
-	        else {
-	        	btn_iCloud.setEnabled(false);
-	        	ImageView img81 = (ImageView)findViewById(R.id.ImageView81);
-	        	img81.setVisibility(View.GONE);
-	        }
-	        */
+
 	        if (mSettings.contains(APP_PREFERENCES_ITUNES)) {
 				// Получаем число из настроек
 				itunes_app = mSettings.getString(APP_PREFERENCES_ITUNES, null); 

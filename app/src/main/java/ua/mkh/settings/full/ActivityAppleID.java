@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ScrollView;
@@ -59,6 +60,9 @@ public class ActivityAppleID extends Activity implements View.OnClickListener{
     Button b1, b2, b3, b4, b5, b6;
     Button btn_back;
 
+    SwipeBackActivityHelper helper = new SwipeBackActivityHelper();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +71,12 @@ public class ActivityAppleID extends Activity implements View.OnClickListener{
         String roman = "fonts/Regular.otf";
         String medium = "fonts/Medium.otf";
         String bold = "fonts/Bold.otf";
+
+        helper.setEdgeMode(true)
+                .setParallaxMode(false)
+                .setParallaxRatio(0)
+                .setNeedBackgroundShadow(false)
+                .init(this);
 
         ScrollView scrollView = (ScrollView) findViewById(R.id.scrollView1);
         OverScrollDecoratorHelper.setUpOverScroll(scrollView);
@@ -97,6 +107,7 @@ public class ActivityAppleID extends Activity implements View.OnClickListener{
         b3 = (Button) findViewById(R.id.b3);
         b3.setOnClickListener(this);
         b4 = (Button) findViewById(R.id.b4);
+        b4.setOnClickListener(this);
         b5 = (Button) findViewById(R.id.b5);
         b6 = (Button) findViewById(R.id.b6);
 
@@ -267,30 +278,23 @@ public class ActivityAppleID extends Activity implements View.OnClickListener{
         return newBitmap;
     }
 
-    @Override
-    public boolean onKeyDown(int keycode, KeyEvent e) {
-        switch(keycode) {
-
-            case KeyEvent.KEYCODE_BACK:
-                Intent intent18 = new Intent(this, MainActivity.class);
-                startActivity(intent18);
-                overridePendingTransition(center_to_right, center_to_right2);
-                return true;
-
-        }
-        return super.onKeyDown(keycode, e);
-    }
-
-
-
-
     public void BackClick(View v)
     {
-        Intent intent18 = new Intent(this, MainActivity.class);
-        startActivity(intent18);
-        overridePendingTransition(center_to_right, center_to_right2);
+        onBackPressed();
+
     }
 
+    @Override
+    public void onBackPressed() {
+
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+
+        helper.finish();
+    }
     @Override
     public void onClick(View v) {
         // TODO Auto-generated method stub
@@ -321,6 +325,15 @@ public class ActivityAppleID extends Activity implements View.OnClickListener{
                 Intent n11 = new Intent (this, ActivityPlatezh.class);
                 SwipeBackActivityHelper.activityBuilder(this)
                         .intent(n11)
+                        .needParallax(false)
+                        .needBackgroundShadow(false)
+                        .startActivity();
+                break;
+
+            case R.id.b4:
+                Intent n121 = new Intent (this, ActivityiCloud.class);
+                SwipeBackActivityHelper.activityBuilder(this)
+                        .intent(n121)
                         .needParallax(false)
                         .needBackgroundShadow(false)
                         .startActivity();
