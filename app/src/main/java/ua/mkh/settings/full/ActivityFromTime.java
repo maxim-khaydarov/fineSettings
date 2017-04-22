@@ -2,38 +2,34 @@ package ua.mkh.settings.full;
 
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 
 import kankan.wheel.widget.OnWheelChangedListener;
-import kankan.wheel.widget.OnWheelClickedListener;
-import kankan.wheel.widget.OnWheelScrollListener;
 import kankan.wheel.widget.WheelView;
-import kankan.wheel.widget.adapters.NumericWheelAdapter;
+
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
-import android.media.AudioManager;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.TimePicker;
-import android.widget.Toast;
 
-public class ActivityFromTime extends Activity implements View.OnClickListener {
+import com.aigestudio.wheelpicker.WheelPicker;
 
-	TimePicker timePicker1, timePicker2;
+public class ActivityFromTime extends Activity implements View.OnClickListener, WheelPicker.OnItemSelectedListener {
+
+
 	DatePicker pickerDate;
 	Button  btn_back, Button01, Button02, btn_save;
 	final static int RQS_1 = 1;
@@ -41,12 +37,13 @@ public class ActivityFromTime extends Activity implements View.OnClickListener {
 	TextView textView1, textStatus;
 	String strdate_from = null;
 	String strdate_to = null;
-	LinearLayout LinearLayoutFrom, LinearLayoutTo;
+	RelativeLayout LinearLayoutFrom;
+	LinearLayout LinearLayoutTo;
 	public final static String from_time_text = "from_time.txt";
 	public final static String to_time_text = "to_time.txt";
 	
-	private boolean timeChanged = false;
-	private boolean timeScrolled = false;
+	//private boolean timeChanged = false;
+	//private boolean timeScrolled = false;
 	
 	public static final String APP_PREFERENCES = "mysettings"; 
 	public static final String APP_PREFERENCES_text_size = "txt_size";
@@ -81,13 +78,43 @@ public class ActivityFromTime extends Activity implements View.OnClickListener {
         btn_back = (Button) findViewById(R.id.buttonBack);
         btn_save = (Button) findViewById(R.id.buttonSave);
 		pickerDate = (DatePicker)findViewById(R.id.pickerdate);
-		
-		timePicker1 = (TimePicker)findViewById(R.id.timePicker1);
-		timePicker1.setIs24HourView(true);
-		timePicker2 = (TimePicker)findViewById(R.id.timePicker2);
-		timePicker2.setIs24HourView(true);
-		
-		LinearLayoutFrom = (LinearLayout)findViewById(R.id.LinearLayoutFrom);
+
+
+		WheelPicker wheelPicker_hour_1 = (WheelPicker) findViewById(R.id.wh_hour_1);
+		wheelPicker_hour_1.setOnItemSelectedListener(this);
+		WheelPicker wheelPicker_min_1 = (WheelPicker) findViewById(R.id.wh_min_1);
+		wheelPicker_min_1.setOnItemSelectedListener(this);
+		WheelPicker wheelPicker_hour_2 = (WheelPicker) findViewById(R.id.wh_hour_2);
+		wheelPicker_hour_2.setOnItemSelectedListener(this);
+		WheelPicker wheelPicker_min_2 = (WheelPicker) findViewById(R.id.wh_min_2);
+		wheelPicker_min_1.setOnItemSelectedListener(this);
+
+
+		List<String> hour = new ArrayList<>();
+		for (int i = 0; i <= 23; i++) {
+			hour.add("      "+ i + "   ");
+		}
+		wheelPicker_hour_1.setData(hour);
+		wheelPicker_hour_2.setData(hour);
+
+
+		List<String> min = new ArrayList<>();
+		for (int i = 0; i <= 59; i++) {
+			String m = "0";
+			if (i < 10){
+				m = "0"+i;
+				min.add("   "+m+"      ");
+			}
+			else {
+				min.add("   "+i+"      ");
+			}
+		}
+		wheelPicker_min_1.setData(min);
+		wheelPicker_min_2.setData(min);
+
+
+
+		LinearLayoutFrom = (RelativeLayout)findViewById(R.id.LinearLayoutFrom);
 		LinearLayoutTo = (LinearLayout)findViewById(R.id.LinearLayoutTo);
 		Button01 = (Button)findViewById(R.id.Button01);
 		Button01.setOnClickListener(this);
@@ -101,10 +128,10 @@ public class ActivityFromTime extends Activity implements View.OnClickListener {
 		Calendar now = Calendar.getInstance();
 
 		  
-		timePicker1.setCurrentHour(now.get(Calendar.HOUR_OF_DAY));
-		timePicker1.setCurrentMinute(now.get(Calendar.MINUTE));
-		timePicker2.setCurrentHour(now.get(Calendar.HOUR_OF_DAY));
-		timePicker2.setCurrentMinute(now.get(Calendar.MINUTE));
+		//timePicker1.setCurrentHour(now.get(Calendar.HOUR_OF_DAY));
+		//timePicker1.setCurrentMinute(now.get(Calendar.MINUTE));
+		//timePicker2.setCurrentHour(now.get(Calendar.HOUR_OF_DAY));
+		//timePicker2.setCurrentMinute(now.get(Calendar.MINUTE));
 		
 		textStatus.setText(R.string.disturb);
         textStatus.setTypeface(typefaceBold);
@@ -113,15 +140,7 @@ public class ActivityFromTime extends Activity implements View.OnClickListener {
         Button01.setTypeface(typefaceRoman);
         Button02.setTypeface(typefaceRoman);
         
-        ////////////////////
-        final WheelView hours1 = (WheelView) findViewById(R.id.hour1);
-		hours1.setViewAdapter(new NumericWheelAdapter(this, 0, 23));
-		hours1.setCyclic(true);
-		
-		final WheelView mins1 = (WheelView) findViewById(R.id.mins1);
-		mins1.setViewAdapter(new NumericWheelAdapter(this, 0, 59, "%02d"));
-		mins1.setCyclic(true);
-	
+
 		
 	
 		// set current time
@@ -129,135 +148,8 @@ public class ActivityFromTime extends Activity implements View.OnClickListener {
 		int curHours1 = c1.get(Calendar.HOUR_OF_DAY);
 		int curMinutes1 = c1.get(Calendar.MINUTE);
 	
-		hours1.setCurrentItem(curHours1);
-		mins1.setCurrentItem(curMinutes1);
-	
-		timePicker1.setCurrentHour(curHours1);
-		timePicker1.setCurrentMinute(curMinutes1);
-	
-		// add listeners
-		addChangingListener1(mins1, "min");
-		addChangingListener1(hours1, "hour");
-	
-		OnWheelChangedListener wheelListener = new OnWheelChangedListener() {
-			public void onChanged(WheelView wheel, int oldValue, int newValue) {
-				if (!timeScrolled) {
-					timeChanged = true;
-					timePicker1.setCurrentHour(hours1.getCurrentItem());
-					timePicker1.setCurrentMinute(mins1.getCurrentItem());
-					timeChanged = false;
-				}
-			}
-		};
-		hours1.addChangingListener(wheelListener);
-		mins1.addChangingListener(wheelListener);
+
 		
-		OnWheelClickedListener click1 = new OnWheelClickedListener() {
-            public void onItemClicked(WheelView wheel, int itemIndex) {
-                wheel.setCurrentItem(itemIndex, true);
-            }
-        };
-        hours1.addClickingListener(click1);
-        mins1.addClickingListener(click1);
-
-		OnWheelScrollListener scrollListener1 = new OnWheelScrollListener() {
-			public void onScrollingStarted(WheelView wheel) {
-				timeScrolled = true;
-			}
-			public void onScrollingFinished(WheelView wheel) {
-				timeScrolled = false;
-				timeChanged = true;
-				timePicker1.setCurrentHour(hours1.getCurrentItem());
-				timePicker1.setCurrentMinute(mins1.getCurrentItem());
-				timeChanged = false;
-			}
-		};
-		
-		hours1.addScrollingListener(scrollListener1);
-		mins1.addScrollingListener(scrollListener1);
-		
-		timePicker1.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
-			public void onTimeChanged(TimePicker  view, int hourOfDay, int minute) {
-				if (!timeChanged) {
-					hours1.setCurrentItem(hourOfDay, true);
-					mins1.setCurrentItem(minute, true);
-				}
-			}
-		});
-		//////////////////////////
-		
-////////////////////
-final WheelView hours2 = (WheelView) findViewById(R.id.hour2);
-hours2.setViewAdapter(new NumericWheelAdapter(this, 0, 23));
-hours2.setCyclic(true);
-
-final WheelView mins2 = (WheelView) findViewById(R.id.mins2);
-mins2.setViewAdapter(new NumericWheelAdapter(this, 0, 59, "%02d"));
-mins2.setCyclic(true);
-
-
-
-// set current time
-Calendar c2 = Calendar.getInstance();
-int curHours2 = c2.get(Calendar.HOUR_OF_DAY);
-int curMinutes2 = c2.get(Calendar.MINUTE);
-
-hours2.setCurrentItem(curHours2);
-mins2.setCurrentItem(curMinutes2);
-
-timePicker2.setCurrentHour(curHours2);
-timePicker2.setCurrentMinute(curMinutes2);
-
-// add listeners
-addChangingListener2(mins2, "min");
-addChangingListener2(hours2, "hour");
-
-OnWheelChangedListener wheelListener2 = new OnWheelChangedListener() {
-	public void onChanged(WheelView wheel, int oldValue, int newValue) {
-		if (!timeScrolled) {
-			timeChanged = true;
-			timePicker2.setCurrentHour(hours2.getCurrentItem());
-			timePicker2.setCurrentMinute(mins2.getCurrentItem());
-			timeChanged = false;
-		}
-	}
-};
-hours2.addChangingListener(wheelListener2);
-mins2.addChangingListener(wheelListener2);
-
-OnWheelClickedListener click2 = new OnWheelClickedListener() {
-  public void onItemClicked(WheelView wheel, int itemIndex) {
-      wheel.setCurrentItem(itemIndex, true);
-  }
-};
-hours2.addClickingListener(click2);
-mins2.addClickingListener(click2);
-
-OnWheelScrollListener scrollListener2 = new OnWheelScrollListener() {
-	public void onScrollingStarted(WheelView wheel) {
-		timeScrolled = true;
-	}
-	public void onScrollingFinished(WheelView wheel) {
-		timeScrolled = false;
-		timeChanged = true;
-		timePicker2.setCurrentHour(hours2.getCurrentItem());
-		timePicker2.setCurrentMinute(mins2.getCurrentItem());
-		timeChanged = false;
-	}
-};
-
-hours2.addScrollingListener(scrollListener2);
-mins2.addScrollingListener(scrollListener2);
-
-timePicker2.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
-	public void onTimeChanged(TimePicker  view, int hourOfDay, int minute) {
-		if (!timeChanged) {
-			hours2.setCurrentItem(hourOfDay, true);
-			mins2.setCurrentItem(minute, true);
-		}
-	}
-});
-//////////////////////////
 	}
 	
 	@Override
@@ -434,7 +326,7 @@ timePicker2.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
 		
 		Calendar calTo = Calendar.getInstance();
 		Calendar calToText = Calendar.getInstance();
-				
+				/*
 		calTo.set( 
         		pickerDate.getYear(), 
         	      pickerDate.getMonth(), 
@@ -467,7 +359,7 @@ timePicker2.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
       	  timePicker2.getCurrentMinute());
 		SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm");
 		strdate_to = sdf2.format(calFromText.getTime());
-		
+		*/
 		if (calFrom.compareTo(current1) < 0){
 			if (calTo.compareTo(current1) > 0){
 				start_notif ();
@@ -476,14 +368,14 @@ timePicker2.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
 	////	/////////
 		Calendar calFrom_s = Calendar.getInstance();
 		Calendar calTo_s = Calendar.getInstance();
-		
+		/*
 		calFrom_s.set(timePicker2.getCurrentHour(), 
       	      timePicker2.getCurrentMinute());
 		
 		calTo_s.set(
 				timePicker2.getCurrentHour(), 
 	      	      timePicker2.getCurrentMinute());
-		
+		*/
 		if (calFrom.compareTo(current1) < 0){
 			if (calFrom.compareTo(calTo) > 0 ){
 				start_notif ();
@@ -521,6 +413,31 @@ timePicker2.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
 	 	 startActivity(intent);
 	 	overridePendingTransition(center_to_right, center_to_right2);
      	 }
-	
-	
+
+	@Override
+
+	public void onItemSelected(WheelPicker picker, Object data, int position) {
+
+
+
+		switch (picker.getId()) {
+
+			case R.id.day:
+				//day = position+1;
+
+				break;
+
+			case R.id.month:
+				//month = position+1;
+				break;
+
+			case R.id.year:
+				//year = data.toString();
+
+		}
+
+		//Toast.makeText(this, day + "." + month + "." + year, Toast.LENGTH_SHORT).show();
+
+	}
+
 }

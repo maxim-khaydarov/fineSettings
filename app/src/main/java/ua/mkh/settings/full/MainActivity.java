@@ -257,13 +257,13 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
-
+/*
 		helper.setEdgeMode(true)
 				.setParallaxMode(false)
 				.setParallaxRatio(0)
 				.setNeedBackgroundShadow(false)
 				.init(this);
-
+*/
 		scrollview = (ScrollView) findViewById(R.id.scrollView1);
 		OverScrollDecoratorHelper.setUpOverScroll(scrollview);
 
