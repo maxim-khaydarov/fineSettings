@@ -31,16 +31,19 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.StatFs;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.KeyEvent;
@@ -51,6 +54,7 @@ import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
@@ -60,95 +64,94 @@ import android.widget.ToggleButton;
 
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 
-public class ActivityiCloud extends Activity implements View.OnClickListener{
-	
+public class ActivityiCloud extends Activity implements View.OnClickListener {
+
 	Typeface typefaceRoman, typefaceMedium, typefaceBold;
 	SharedPreferences mSettings;
-	
-	
+
+
 	int center_to_right, center_to_right2;
-	   int center_to_left, center_to_left2;
-	   
-	   
-	   PackageManager pm;
-	   
+	int center_to_left, center_to_left2;
 
 
+	PackageManager pm;
 
 
-	
 	public static final String APP_PREFERENCES = "mysettings";
 	public static final String APP_PREFERENCES_text_size = "txt_size";
-	   public static final String APP_PREFERENCES_bold_text = "bold_txt";
-	   public static final String APP_PREFERENCES_ANIM_SPEED = "anim_speed";
-	   public static final String APP_PREFERENCES_tgb_menu = "tgb_menu";
-	   
-	   public static final String APP_PREFERENCES_SEARCH = "search";
-	   public static final String APP_PREFERENCES_GEO = "geo";
-	   
-	   public static final String APP_PREFERENCES_NAME = "name";
-	   public static final String APP_PREFERENCES_MAIL = "mail_app";
-	   public static final String APP_PREFERENCES_NOTES = "notes_app";
-	   public static final String APP_PREFERENCES_PHONE = "phone_app";
-	   public static final String APP_PREFERENCES_MESSAGES = "messages_app";
-	   public static final String APP_PREFERENCES_SAFARI = "safari_app";
-	   public static final String APP_PREFERENCES_MUSIC = "music_app";
-	   public static final String APP_PREFERENCES_GAMECENTER = "gamecenter_app";
-	   public static final String APP_PREFERENCES_WEATHER = "weather_app";
-	   public static final String APP_PREFERENCES_COMPASS = "compass_app";
-	   public static final String APP_PREFERENCES_MAPS = "maps_app";
-	   public static final String APP_PREFERENCES_VK = "vk_app";
-	   public static final String APP_PREFERENCES_VIBER = "viber_app";
-	   public static final String APP_PREFERENCES_OK = "ok_app";
-	   public static final String APP_PREFERENCES_SKYPE = "skype_app";
-	   public static final String APP_PREFERENCES_WHATSAPP = "whatsapp_app";
-	   public static final String APP_PREFERENCES_TWITTER = "twitter_app";
-	   public static final String APP_PREFERENCES_FACEBOOK = "facebook_app";
-	   public static final String APP_PREFERENCES_INSTAGRAM = "instagram_app";
-	   public static final String APP_PREFERENCES_ITUNES = "itunes_app";
-	   
-	   public static final boolean APP_PREFERENCES_MAIL_TGB = false;
-	   public static final boolean APP_PREFERENCES_NOTEPAD_TGB = false;
-	   public static final boolean APP_PREFERENCES_PHONE_TGB = false;
-	   public static final boolean APP_PREFERENCES_MESSAGE_TGB = false;
-	   public static final boolean APP_PREFERENCES_COMPASS_TGB = false;
-	   public static final boolean APP_PREFERENCES_SAFARI_TGB = false;
-	   public static final boolean APP_PREFERENCES_MUSIC_TGB = false;
-	   public static final boolean APP_PREFERENCES_GAME_TGB = false;
-	   public static final boolean APP_PREFERENCES_WEATHER_TGB = false;
-	   public static final boolean APP_PREFERENCES_MAPS_TGB = false;
-	   public static final boolean APP_PREFERENCES_VK_TGB = false;
-	   public static final boolean APP_PREFERENCES_VIBER_TGB = false;
-	   public static final boolean APP_PREFERENCES_OK_TGB = false;
-	   public static final boolean APP_PREFERENCES_SKYPE_TGB = false;
-	   public static final boolean APP_PREFERENCES_WHATSAPP_TGB = false;
-	   public static final boolean APP_PREFERENCES_TWITTER_TGB = false;
-	   public static final boolean APP_PREFERENCES_FACEBOOK_TGB = false;
-	   public static final boolean APP_PREFERENCES_INSTAGRAM_TGB = false;
-	   public static final boolean APP_PREFERENCES_APPSTORE_TGB = false;
-	   
-	
+	public static final String APP_PREFERENCES_bold_text = "bold_txt";
+	public static final String APP_PREFERENCES_ANIM_SPEED = "anim_speed";
+	public static final String APP_PREFERENCES_tgb_menu = "tgb_menu";
+
+	public static final String APP_PREFERENCES_SEARCH = "search";
+	public static final String APP_PREFERENCES_GEO = "geo";
+
+	public static final String APP_PREFERENCES_NAME = "name";
+	public static final String APP_PREFERENCES_MAIL = "mail_app";
+	public static final String APP_PREFERENCES_NOTES = "notes_app";
+	public static final String APP_PREFERENCES_PHONE = "phone_app";
+	public static final String APP_PREFERENCES_MESSAGES = "messages_app";
+	public static final String APP_PREFERENCES_SAFARI = "safari_app";
+	public static final String APP_PREFERENCES_MUSIC = "music_app";
+	public static final String APP_PREFERENCES_GAMECENTER = "gamecenter_app";
+	public static final String APP_PREFERENCES_WEATHER = "weather_app";
+	public static final String APP_PREFERENCES_COMPASS = "compass_app";
+	public static final String APP_PREFERENCES_MAPS = "maps_app";
+	public static final String APP_PREFERENCES_VK = "vk_app";
+	public static final String APP_PREFERENCES_VIBER = "viber_app";
+	public static final String APP_PREFERENCES_OK = "ok_app";
+	public static final String APP_PREFERENCES_SKYPE = "skype_app";
+	public static final String APP_PREFERENCES_WHATSAPP = "whatsapp_app";
+	public static final String APP_PREFERENCES_TWITTER = "twitter_app";
+	public static final String APP_PREFERENCES_FACEBOOK = "facebook_app";
+	public static final String APP_PREFERENCES_INSTAGRAM = "instagram_app";
+	public static final String APP_PREFERENCES_ITUNES = "itunes_app";
+
+	public static final boolean APP_PREFERENCES_MAIL_TGB = false;
+	public static final boolean APP_PREFERENCES_NOTEPAD_TGB = false;
+	public static final boolean APP_PREFERENCES_PHONE_TGB = false;
+	public static final boolean APP_PREFERENCES_MESSAGE_TGB = false;
+	public static final boolean APP_PREFERENCES_COMPASS_TGB = false;
+	public static final boolean APP_PREFERENCES_SAFARI_TGB = false;
+	public static final boolean APP_PREFERENCES_MUSIC_TGB = false;
+	public static final boolean APP_PREFERENCES_GAME_TGB = false;
+	public static final boolean APP_PREFERENCES_WEATHER_TGB = false;
+	public static final boolean APP_PREFERENCES_MAPS_TGB = false;
+	public static final boolean APP_PREFERENCES_VK_TGB = false;
+	public static final boolean APP_PREFERENCES_VIBER_TGB = false;
+	public static final boolean APP_PREFERENCES_OK_TGB = false;
+	public static final boolean APP_PREFERENCES_SKYPE_TGB = false;
+	public static final boolean APP_PREFERENCES_WHATSAPP_TGB = false;
+	public static final boolean APP_PREFERENCES_TWITTER_TGB = false;
+	public static final boolean APP_PREFERENCES_FACEBOOK_TGB = false;
+	public static final boolean APP_PREFERENCES_INSTAGRAM_TGB = false;
+	public static final boolean APP_PREFERENCES_APPSTORE_TGB = false;
+
+
 	Button btn_mail, btn_notepad, btn_phone, btn_message, btn_safari, btn_music, btn_game,
 			btn_weather, btn_compass, btn_maps, btn_vk, btn_viber, btn_ok, btn_skype,
 			btn_whatsapp, btn_twitter, btn_facebook, btn_instagram, btn_newacc, btn_delacc,
 			btn_account, buttonBack, btn_menu_settings, btn_menu_cancel, button_update, button_sync, btn_appstore,
 			btn_search;
-	
-	Intent notif_inoty, notif_espier, control_hi, control_espier, mail_ino, mail_stok, 
-	notes_any, notes_espier, phone_kuandroid, phone_espier, phone_phone_stok, phone_stok,
-	messages_easyandroid, messages_iphonestyle,	messages_espier, messages_stok, 
-	safari_ios, safari_stok, music_easyandroid1, music_easyandroid2, music_hi, music_stok, compass_hanimobile, weather_cybob,
-	weather_yahoo, weather_kuandroid, games_mkh, new1,new2, new3, new4, vk_stok, maps_stok, viber_stok,
-	ok_stok, skype_stok, whatsapp_stok, twitter_stok, facebook_stok, instagram_stok, appstore_stok;
-	
+
+	Intent notif_inoty, notif_espier, control_hi, control_espier, mail_ino, mail_stok,
+			notes_any, notes_espier, phone_kuandroid, phone_espier, phone_phone_stok, phone_stok,
+			messages_easyandroid, messages_iphonestyle, messages_espier, messages_stok,
+			safari_ios, safari_stok, music_easyandroid1, music_easyandroid2, music_hi, music_stok, compass_hanimobile, weather_cybob,
+			weather_yahoo, weather_kuandroid, games_mkh, new1, new2, new3, new4, vk_stok, maps_stok, viber_stok,
+			ok_stok, skype_stok, whatsapp_stok, twitter_stok, facebook_stok, instagram_stok, appstore_stok;
+
 	TextView textStatus, size_memory;
 	ToggleButton tb_sync;
-	
+
 	ToggleButton mail, notes, phone, messages, compass, safari, music, game, weather, maps, vk, viber, ok, skype, whatsapp, twitter, facebook, instagram,
-	appstore, search;
+			appstore, search;
 
 	SwipeBackActivityHelper helper = new SwipeBackActivityHelper();
-	
+	long total_size = 0;
+	ProgressBar pg2, pg3, pg4, pg5;
+	LinearLayout LinearLayoutICloud;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -156,7 +159,7 @@ public class ActivityiCloud extends Activity implements View.OnClickListener{
 		setContentView(R.layout.activity_icloud);
 		String roman = "fonts/Regular.otf";
 		String medium = "fonts/Medium.otf";
-		String bold =  "fonts/Bold.otf";
+		String bold = "fonts/Bold.otf";
 
 		helper.setEdgeMode(true)
 				.setParallaxMode(false)
@@ -171,22 +174,22 @@ public class ActivityiCloud extends Activity implements View.OnClickListener{
 		typefaceRoman = Typeface.createFromAsset(getAssets(), roman);
 		typefaceMedium = Typeface.createFromAsset(getAssets(), medium);
 		typefaceBold = Typeface.createFromAsset(getAssets(), bold);
-		
+
 		mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
-		
 
-		 
-		 tb_sync = (ToggleButton)findViewById(R.id.synctoggle);
-		 tb_sync.setOnClickListener(this);
-		 
-		 
+		pg2 = (ProgressBar) findViewById(R.id.progressBar2);
+		pg3 = (ProgressBar) findViewById(R.id.progressBar3);
+		pg4 = (ProgressBar) findViewById(R.id.progressBar4);
+		pg5 = (ProgressBar) findViewById(R.id.progressBar5);
+		LinearLayoutICloud = (LinearLayout) findViewById(R.id.LinearLayoutICloud);
+		LinearLayoutICloud.setOnClickListener(this);
 
-
-
+		tb_sync = (ToggleButton) findViewById(R.id.synctoggle);
+		tb_sync.setOnClickListener(this);
 
 
 		button_sync = (Button) findViewById(R.id.Button19);
-		
+
 		btn_mail = (Button) findViewById(R.id.Button01);
 		btn_mail.setOnClickListener(this);
 		btn_mail.setEnabled(false);
@@ -243,17 +246,17 @@ public class ActivityiCloud extends Activity implements View.OnClickListener{
 		btn_instagram.setEnabled(false);
 		btn_newacc = (Button) findViewById(R.id.Button20);
 		btn_newacc.setOnClickListener(this);
-		btn_appstore= (Button) findViewById(R.id.Button21);
+		btn_appstore = (Button) findViewById(R.id.Button21);
 		btn_appstore.setOnClickListener(this);
 		btn_appstore.setEnabled(false);
 		//btn_delacc = (Button) findViewById(R.id.Button19);
 		btn_account = (Button) findViewById(R.id.ButtonWifi);
-		
+
 		btn_search = (Button) findViewById(R.id.Button22);
 		btn_search.setOnClickListener(this);
-		
+
 		search = (ToggleButton) findViewById(R.id.ToggleButton01);
-		
+
 		mail = (ToggleButton) findViewById(R.id.ToggleButtonMail);
 		mail.setOnClickListener(this);
 		notes = (ToggleButton) findViewById(R.id.ToggleButtonNotes);
@@ -296,12 +299,11 @@ public class ActivityiCloud extends Activity implements View.OnClickListener{
 		buttonBack.setText(R.string.app_name);
 		btn_menu_settings = (Button) findViewById(R.id.ButtonMenuSettings);
 		btn_menu_cancel = (Button) findViewById(R.id.ButtonMenuCancel);
-		textStatus = (TextView)findViewById(R.id.textOk);
+		textStatus = (TextView) findViewById(R.id.textOk);
 
 		size_memory = (TextView) findViewById(R.id.textView36);
 
 
-		
 		buttonBack.setTypeface(typefaceBold);
 		btn_mail.setTypeface(typefaceRoman);
 		btn_notepad.setTypeface(typefaceRoman);
@@ -328,91 +330,78 @@ public class ActivityiCloud extends Activity implements View.OnClickListener{
 		size_memory.setTypeface(typefaceRoman);
 
 
-		
-		 textStatus.setTypeface(typefaceMedium);
-		 textStatus.setText(R.string.icloud);
-		
+		textStatus.setTypeface(typefaceMedium);
+		textStatus.setText(R.string.icloud);
+
 ///////////////////APP//////////////
-pm = this.getPackageManager();
- 
-   mail_stok = pm.getLaunchIntentForPackage("com.android.email"); 
- //Phone
-   phone_stok = pm.getLaunchIntentForPackage("com.android.dialer");
- //Messages
-	messages_stok = pm.getLaunchIntentForPackage("com.android.mms");
- //Safari
-	safari_stok = pm.getLaunchIntentForPackage("com.android.browser");
- //Music;
-	music_stok = pm.getLaunchIntentForPackage("com.android.music");  
+		pm = this.getPackageManager();
+
+		mail_stok = pm.getLaunchIntentForPackage("com.android.email");
+		//Phone
+		phone_stok = pm.getLaunchIntentForPackage("com.android.dialer");
+		//Messages
+		messages_stok = pm.getLaunchIntentForPackage("com.android.mms");
+		//Safari
+		safari_stok = pm.getLaunchIntentForPackage("com.android.browser");
+		//Music;
+		music_stok = pm.getLaunchIntentForPackage("com.android.music");
 //VK
-	vk_stok = pm.getLaunchIntentForPackage("com.vkontakte.android");
+		vk_stok = pm.getLaunchIntentForPackage("com.vkontakte.android");
 //Viber
-	viber_stok = pm.getLaunchIntentForPackage("com.viber.voip");
+		viber_stok = pm.getLaunchIntentForPackage("com.viber.voip");
 //Ok
-	ok_stok = pm.getLaunchIntentForPackage("ru.ok.android");
+		ok_stok = pm.getLaunchIntentForPackage("ru.ok.android");
 //Skype
-	skype_stok = pm.getLaunchIntentForPackage("com.skype.raider");
+		skype_stok = pm.getLaunchIntentForPackage("com.skype.raider");
 //WhatsApp!!!!
-	whatsapp_stok = pm.getLaunchIntentForPackage("com.whatsapp");
+		whatsapp_stok = pm.getLaunchIntentForPackage("com.whatsapp");
 //Twitter
-	twitter_stok = pm.getLaunchIntentForPackage("com.twitter.android");
+		twitter_stok = pm.getLaunchIntentForPackage("com.twitter.android");
 //Facebook
-	facebook_stok = pm.getLaunchIntentForPackage("com.facebook.katana");
+		facebook_stok = pm.getLaunchIntentForPackage("com.facebook.katana");
 //Instagram
-	instagram_stok = pm.getLaunchIntentForPackage("com.instagram.android");
+		instagram_stok = pm.getLaunchIntentForPackage("com.instagram.android");
 //Maps
-	maps_stok = pm.getLaunchIntentForPackage("com.google.android.apps.maps");
+		maps_stok = pm.getLaunchIntentForPackage("com.google.android.apps.maps");
 //Appstore
-	appstore_stok = pm.getLaunchIntentForPackage("com.android.vending");
-		
+		appstore_stok = pm.getLaunchIntentForPackage("com.android.vending");
+
 	}
-	
 
-     
-     
-     
+
 	protected void onResume() {
-        super.onResume();
-        
-        ButtonSync();
-        
+		super.onResume();
+
+		ButtonSync();
+
 		memory();
-			
+		persent();
 
 
-        
-       
-        
-        
-        
+		int speed = mSettings.getInt(APP_PREFERENCES_ANIM_SPEED, 1);
+		if (speed == 1) {
+			center_to_right = R.anim.slide_center_to_right_short;
+			center_to_right2 = R.anim.slide_center_to_right2_short;
+			center_to_left = R.anim.slide_center_to_left_short;
+			center_to_left2 = R.anim.slide_center_to_left2_short;
+		}
+		if (speed == 2) {
+			center_to_right = R.anim.slide_center_to_right_medium;
+			center_to_right2 = R.anim.slide_center_to_right2_medium;
+			center_to_left = R.anim.slide_center_to_left_medium;
+			center_to_left2 = R.anim.slide_center_to_left2_medium;
+		}
+		if (speed == 3) {
+			center_to_right = R.anim.slide_center_to_right_long;
+			center_to_right2 = R.anim.slide_center_to_right2_long;
+			center_to_left = R.anim.slide_center_to_left_long;
+			center_to_left2 = R.anim.slide_center_to_left2_long;
+		}
 
-       
 
-        	 int speed = mSettings.getInt(APP_PREFERENCES_ANIM_SPEED, 1);
-			if (speed == 1){
-				center_to_right = R.anim.slide_center_to_right_short;
-				center_to_right2 = R.anim.slide_center_to_right2_short;
-				center_to_left = R.anim.slide_center_to_left_short;
-				center_to_left2 = R.anim.slide_center_to_left2_short;
-			}
-			if (speed == 2){
-				center_to_right = R.anim.slide_center_to_right_medium;
-				center_to_right2 = R.anim.slide_center_to_right2_medium;
-				center_to_left = R.anim.slide_center_to_left_medium;
-				center_to_left2 = R.anim.slide_center_to_left2_medium;
-			}
-			if (speed == 3){
-				center_to_right = R.anim.slide_center_to_right_long;
-				center_to_right2 = R.anim.slide_center_to_right2_long;
-				center_to_left = R.anim.slide_center_to_left_long;
-				center_to_left2 = R.anim.slide_center_to_left2_long;
-			}
-			
-    
-       
-       if (mSettings.contains(APP_PREFERENCES_bold_text)) {
-        	 Boolean bold = mSettings.getBoolean(APP_PREFERENCES_bold_text, true);
-			if (bold == true){
+		if (mSettings.contains(APP_PREFERENCES_bold_text)) {
+			Boolean bold = mSettings.getBoolean(APP_PREFERENCES_bold_text, true);
+			if (bold == true) {
 				btn_mail.setTypeface(typefaceBold);
 				btn_notepad.setTypeface(typefaceBold);
 				btn_phone.setTypeface(typefaceBold);
@@ -436,13 +425,13 @@ pm = this.getPackageManager();
 				button_sync.setTypeface(typefaceBold);
 				btn_appstore.setTypeface(typefaceBold);
 
-				
+
 			}
-        }
-			
-       if (mSettings.contains(APP_PREFERENCES_text_size)) {
-        	 String size = mSettings.getString(APP_PREFERENCES_text_size, "19");
-			if (size .contains( "Small")){
+		}
+
+		if (mSettings.contains(APP_PREFERENCES_text_size)) {
+			String size = mSettings.getString(APP_PREFERENCES_text_size, "19");
+			if (size.contains("Small")) {
 				btn_mail.setTextSize(13);
 				btn_notepad.setTextSize(13);
 				btn_phone.setTextSize(13);
@@ -467,7 +456,7 @@ pm = this.getPackageManager();
 
 				btn_search.setTextSize(13);
 			}
-			if (size .contains( "Normal")){
+			if (size.contains("Normal")) {
 				btn_mail.setTextSize(15);
 				btn_notepad.setTextSize(15);
 				btn_phone.setTextSize(15);
@@ -492,32 +481,32 @@ pm = this.getPackageManager();
 
 				btn_search.setTextSize(15);
 			}
-			if (size .contains( "Large")){
-			     	btn_mail.setTextSize(18);
-					btn_notepad.setTextSize(18);
-					btn_phone.setTextSize(18);
-					btn_message.setTextSize(18);
-					btn_safari.setTextSize(18);
-					btn_music.setTextSize(18);
-					btn_game.setTextSize(18);
-					btn_weather.setTextSize(18);
-					btn_compass.setTextSize(18);
-					btn_maps.setTextSize(18);
-					btn_vk.setTextSize(18);
-					btn_viber.setTextSize(18);
-					btn_ok.setTextSize(18);
-					btn_skype.setTextSize(18);
-					btn_whatsapp.setTextSize(18);
-					btn_twitter.setTextSize(18);
-					btn_facebook.setTextSize(18);
-					btn_instagram.setTextSize(18);
-					btn_newacc.setTextSize(18);
-					button_sync.setTextSize(18);
-					btn_appstore.setTextSize(18);
+			if (size.contains("Large")) {
+				btn_mail.setTextSize(18);
+				btn_notepad.setTextSize(18);
+				btn_phone.setTextSize(18);
+				btn_message.setTextSize(18);
+				btn_safari.setTextSize(18);
+				btn_music.setTextSize(18);
+				btn_game.setTextSize(18);
+				btn_weather.setTextSize(18);
+				btn_compass.setTextSize(18);
+				btn_maps.setTextSize(18);
+				btn_vk.setTextSize(18);
+				btn_viber.setTextSize(18);
+				btn_ok.setTextSize(18);
+				btn_skype.setTextSize(18);
+				btn_whatsapp.setTextSize(18);
+				btn_twitter.setTextSize(18);
+				btn_facebook.setTextSize(18);
+				btn_instagram.setTextSize(18);
+				btn_newacc.setTextSize(18);
+				button_sync.setTextSize(18);
+				btn_appstore.setTextSize(18);
 
-					btn_search.setTextSize(18);
+				btn_search.setTextSize(18);
 			}
-			if (size .contains( "xLarge")){
+			if (size.contains("xLarge")) {
 				btn_mail.setTextSize(20);
 				btn_notepad.setTextSize(20);
 				btn_phone.setTextSize(20);
@@ -542,122 +531,131 @@ pm = this.getPackageManager();
 
 				btn_search.setTextSize(20);
 			}
-       }
-       
-       Boolean searchb = mSettings.getBoolean(APP_PREFERENCES_SEARCH, true);
-       if (searchb == true) {
+		}
+
+		Boolean searchb = mSettings.getBoolean(APP_PREFERENCES_SEARCH, true);
+		if (searchb == true) {
 			search.setChecked(true);
-			}
-       else {
-    	   search.setChecked(false);
-       }
-       
-       if (mSettings.contains(APP_PREFERENCES_MAIL)) {
+		} else {
+			search.setChecked(false);
+		}
+
+		if (mSettings.contains(APP_PREFERENCES_MAIL)) {
 			mail.setChecked(true);
-			btn_mail.setEnabled(true);}
-     
-       
-       if (mSettings.contains(APP_PREFERENCES_NOTES)) {
+			btn_mail.setEnabled(true);
+		}
+
+
+		if (mSettings.contains(APP_PREFERENCES_NOTES)) {
 			notes.setChecked(true);
-			btn_notepad.setEnabled(true);}
+			btn_notepad.setEnabled(true);
+		}
 
-       
-       
-       if (mSettings.contains(APP_PREFERENCES_PHONE)) {
+
+		if (mSettings.contains(APP_PREFERENCES_PHONE)) {
 			phone.setChecked(true);
-			btn_phone.setEnabled(true);}
+			btn_phone.setEnabled(true);
+		}
 
-       
-       
-       if (mSettings.contains(APP_PREFERENCES_MESSAGES)) {
+
+		if (mSettings.contains(APP_PREFERENCES_MESSAGES)) {
 			messages.setChecked(true);
-			btn_message.setEnabled(true);}
+			btn_message.setEnabled(true);
+		}
 
-       
-       
-       if (mSettings.contains(APP_PREFERENCES_SAFARI)) {
+
+		if (mSettings.contains(APP_PREFERENCES_SAFARI)) {
 			safari.setChecked(true);
-			btn_safari.setEnabled(true);}
+			btn_safari.setEnabled(true);
+		}
 
-       
-       
-       if (mSettings.contains(APP_PREFERENCES_MUSIC)) {
+
+		if (mSettings.contains(APP_PREFERENCES_MUSIC)) {
 			music.setChecked(true);
-			btn_music.setEnabled(true);}
+			btn_music.setEnabled(true);
+		}
 
-       
-       
-       if (mSettings.contains(APP_PREFERENCES_GAMECENTER)) {
+
+		if (mSettings.contains(APP_PREFERENCES_GAMECENTER)) {
 			game.setChecked(true);
-			btn_game.setEnabled(true);}
+			btn_game.setEnabled(true);
+		}
 
-       
-       
-       if (mSettings.contains(APP_PREFERENCES_WEATHER)) {
+
+		if (mSettings.contains(APP_PREFERENCES_WEATHER)) {
 			weather.setChecked(true);
-			btn_weather.setEnabled(true);}
+			btn_weather.setEnabled(true);
+		}
 
-       
-       
-       if (mSettings.contains(APP_PREFERENCES_COMPASS)) {
-			 compass.setChecked(true);
-			 btn_compass.setEnabled(true);}
-       
-       if (mSettings.contains(APP_PREFERENCES_MAPS)) {
-			 maps.setChecked(true);
-			 btn_maps.setEnabled(true);}
-       
-       if (mSettings.contains(APP_PREFERENCES_VK)) {
-			 vk.setChecked(true);
-			 btn_vk.setEnabled(true);}
-       
-       if (mSettings.contains(APP_PREFERENCES_VIBER)) {
-			 viber.setChecked(true);
-			 btn_viber.setEnabled(true);}
-       
-       if (mSettings.contains(APP_PREFERENCES_OK)) {
-			 ok.setChecked(true);
-			 btn_ok.setEnabled(true);}
-       
-       if (mSettings.contains(APP_PREFERENCES_SKYPE)) {
-			 skype.setChecked(true);
-			 btn_skype.setEnabled(true);}
-       
-       if (mSettings.contains(APP_PREFERENCES_WHATSAPP)) {
-			 whatsapp.setChecked(true);
-			 btn_whatsapp.setEnabled(true);}
-       
-       if (mSettings.contains(APP_PREFERENCES_TWITTER)) {
-			 twitter.setChecked(true);
-			 btn_twitter.setEnabled(true);}
-       
-       if (mSettings.contains(APP_PREFERENCES_FACEBOOK)) {
-			 facebook.setChecked(true);
-			 btn_facebook.setEnabled(true);}
-       
-       if (mSettings.contains(APP_PREFERENCES_INSTAGRAM)) {
-			 instagram.setChecked(true);
-			 btn_instagram.setEnabled(true);}
-       
-       if (mSettings.contains(APP_PREFERENCES_ITUNES)) {
+
+		if (mSettings.contains(APP_PREFERENCES_COMPASS)) {
+			compass.setChecked(true);
+			btn_compass.setEnabled(true);
+		}
+
+		if (mSettings.contains(APP_PREFERENCES_MAPS)) {
+			maps.setChecked(true);
+			btn_maps.setEnabled(true);
+		}
+
+		if (mSettings.contains(APP_PREFERENCES_VK)) {
+			vk.setChecked(true);
+			btn_vk.setEnabled(true);
+		}
+
+		if (mSettings.contains(APP_PREFERENCES_VIBER)) {
+			viber.setChecked(true);
+			btn_viber.setEnabled(true);
+		}
+
+		if (mSettings.contains(APP_PREFERENCES_OK)) {
+			ok.setChecked(true);
+			btn_ok.setEnabled(true);
+		}
+
+		if (mSettings.contains(APP_PREFERENCES_SKYPE)) {
+			skype.setChecked(true);
+			btn_skype.setEnabled(true);
+		}
+
+		if (mSettings.contains(APP_PREFERENCES_WHATSAPP)) {
+			whatsapp.setChecked(true);
+			btn_whatsapp.setEnabled(true);
+		}
+
+		if (mSettings.contains(APP_PREFERENCES_TWITTER)) {
+			twitter.setChecked(true);
+			btn_twitter.setEnabled(true);
+		}
+
+		if (mSettings.contains(APP_PREFERENCES_FACEBOOK)) {
+			facebook.setChecked(true);
+			btn_facebook.setEnabled(true);
+		}
+
+		if (mSettings.contains(APP_PREFERENCES_INSTAGRAM)) {
+			instagram.setChecked(true);
+			btn_instagram.setEnabled(true);
+		}
+
+		if (mSettings.contains(APP_PREFERENCES_ITUNES)) {
 			appstore.setChecked(true);
-			btn_appstore.setEnabled(true);}
-        
+			btn_appstore.setEnabled(true);
+		}
+
 	}
-	
 
-	
-	
-	 //SYNC MODE
-    boolean isMasterSyncEnabled = ContentResolver.getMasterSyncAutomatically();
-    private void ButtonSync() {
-    	if(isMasterSyncEnabled == true){
-            tb_sync.setChecked(true);
-    	}
-    }
 
-	public void BackClick(View v)
-	{
+	//SYNC MODE
+	boolean isMasterSyncEnabled = ContentResolver.getMasterSyncAutomatically();
+
+	private void ButtonSync() {
+		if (isMasterSyncEnabled == true) {
+			tb_sync.setChecked(true);
+		}
+	}
+
+	public void BackClick(View v) {
 		onBackPressed();
 
 	}
@@ -675,7 +673,7 @@ pm = this.getPackageManager();
 	}
 
 
-	public void memory (){
+	public void memory() {
 
 		//size_memory.setText(getTotalInternalMemorySize());
 
@@ -687,33 +685,26 @@ pm = this.getPackageManager();
 
 		StatFs statFs = new StatFs(Environment.getDataDirectory().getAbsolutePath());
 		//StatFs statFs = new StatFs("/data");
-		long total = ((long)statFs.getBlockCount() * (long)statFs.getBlockSize());
-
+		long total = ((long) statFs.getBlockCount() * (long) statFs.getBlockSize());
 
 
 		long size = 1073741824L; ////1Gb
 
-		Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
+		Log.e("!!", "total:" + getFileSize(total) + " size:" + getFileSize(size));
 
-		if(total > size){
+		if (total > size) {
 			size = 2147483648L; /////2Gb
-			Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
-			if(total > size){
+			if (total > size) {
 				size = 4294967296L;////4Gb
-				Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
-				if(total > size){
+				if (total > size) {
 					size = 8589934592L;////8Gb
-					Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
-					if(total > size){
+					if (total > size) {
 						size = 17179869184L;////16Gb
-						Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
-						if(total > size){
+						if (total > size) {
 							size = 34359738368L;////32Gb
-							Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
-									if(total > size){
-										size = total;
-										Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
-									}
+							if (total > size) {
+								size = total;
+							}
 						}
 					}
 				}
@@ -723,9 +714,127 @@ pm = this.getPackageManager();
 		Long busy = size - availableSpace;
 
 		size_memory.setText(getFileSize(busy) + " из " + getFileSize(size));
+		total_size = size;
 
-    }
+	}
 
+	private long getAudioList() {
+		long sssize = 0;
+		try {
+			final Cursor mCursor = getContentResolver().query(
+					MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
+					new String[]{MediaStore.Audio.Media.DISPLAY_NAME, MediaStore.Audio.Media.DATA}, null, null,
+					"LOWER(" + MediaStore.Audio.Media.TITLE + ") ASC");
+			String mAudioPath = "";
+
+			if (mCursor.moveToFirst()) {
+				do {
+
+					mAudioPath = mCursor.getString(mCursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA));
+					sssize = sssize + get_music_size(mAudioPath);
+
+
+				} while (mCursor.moveToNext());
+			}
+			mCursor.close();
+		} catch (NullPointerException e) {
+		}
+
+		return sssize;
+	}
+
+	public long get_music_size(String path){
+		//String path = file:///storage/emulated/0/Music/Tamil/I%20(2014)/Ennodu%20Nee%20Irundhaal.mp3
+		String where = String.format("%s='%s'", MediaStore.Audio.Media.DATA, path);
+		Uri uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+		Cursor cursor = this.getContentResolver().query(uri, null, where, null, null);
+		long s = 0;
+		cursor.moveToFirst();
+		if (cursor.getCount() > 0) {
+
+			s = cursor.getInt(cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.SIZE));
+
+		}
+
+		return s;
+
+
+	}
+
+	private long getPhotoList() {
+		long sssize = 0;
+		try{
+
+
+			final Cursor mCursor = getContentResolver().query(
+					MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+					new String[] { MediaStore.Images.Media.BUCKET_DISPLAY_NAME, MediaStore.Images.Media.DATA }, null, null,
+					null);
+
+			String mAudioPath = "";
+			if (mCursor.moveToFirst()) {
+				do {
+					mAudioPath = mCursor.getString(mCursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA));
+					sssize = sssize + get_music_size(mAudioPath);
+				} while (mCursor.moveToNext());
+			}
+
+			mCursor.close();
+
+
+		}catch(NullPointerException e){
+		}
+		return sssize;
+	}
+
+	private long getVideoList() {
+		long sssize = 0;
+		try{
+			final Cursor mCursor = getContentResolver().query(
+					MediaStore.Video.Media.EXTERNAL_CONTENT_URI,
+					null, null, null,
+					null);
+			String mAudioPath = "";
+			if (mCursor.moveToFirst()) {
+				do {
+					mAudioPath = mCursor.getString(mCursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA));
+					sssize = sssize + get_music_size(mAudioPath);
+				} while (mCursor.moveToNext());
+			}
+			mCursor.close();
+		}catch(NullPointerException e){
+		}
+		return sssize;
+	}
+
+private void persent (){
+
+	long availableSpace = -1L;
+	StatFs stat = new StatFs(Environment.getExternalStorageDirectory().getPath());
+	availableSpace = (long) stat.getAvailableBlocks() * (long) stat.getBlockSize();
+
+	long busy = total_size - availableSpace;
+
+	long music = getAudioList();
+	long total = total_size;
+	long photo = getPhotoList();
+	long video = getVideoList();
+	long other = busy;
+
+	pg2.setMax(100);
+	pg3.setMax(100);
+	pg4.setMax(100);
+	pg5.setMax(100);
+
+	pg2.setProgress((int)(photo*100/total));
+	pg3.setProgress((int)((photo*100/total)+(video*100/total)));
+	pg4.setProgress((int) ((photo*100/total)+(video*100/total) + (music*100/total)));
+	pg5.setProgress((int) ((photo*100/total)+(video*100/total) + (music*100/total) + (other*100/total)));
+
+
+	Log.e("!!!", "Total: 100%; Music: " + music*100/total + "%; Photo: " + photo*100/total + "%; Other: " + other*100/total + "%");
+
+}
 
 
 
@@ -747,6 +856,15 @@ pm = this.getPackageManager();
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
+
+			case R.id.LinearLayoutICloud:
+				Intent n11 = new Intent (this, ActivityUsage.class);
+				SwipeBackActivityHelper.activityBuilder(this)
+						.intent(n11)
+						.needParallax(false)
+						.needBackgroundShadow(false)
+						.startActivity();
+				break;
 		
 		case R.id.synctoggle:
 	        	if((tb_sync).isChecked()) {

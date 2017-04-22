@@ -23,6 +23,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
@@ -252,22 +253,46 @@ public class ActivityAbout extends Activity implements View.OnClickListener{
 	                "LOWER(" + MediaStore.Audio.Media.TITLE + ") ASC");
 
 	        int i = 0;
+                String mAudioPath = "";
+                int sssize = 0;
 	        if (mCursor.moveToFirst()) {
 	            do {
-	                
+
+                    mAudioPath = mCursor.getString(mCursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA));
+                    sssize = sssize + get_music_size(mAudioPath);
 	                music_col = music_col + 1;
 	                i++;
 	            } while (mCursor.moveToNext());
 	        }   
 
 	        mCursor.close();
-	        
+	        Log.e("!!",getFileSize(sssize));
 	        TextView10.setText(String.valueOf(music_col));
 	    	}catch(NullPointerException e){
 	    		 TextView10.setText("Unknow");
 	    	}
 	        
 	    }
+
+	    public int get_music_size(String path){
+            //String path = file:///storage/emulated/0/Music/Tamil/I%20(2014)/Ennodu%20Nee%20Irundhaal.mp3
+            String where = String.format("%s='%s'", MediaStore.Audio.Media.DATA, path);
+            Uri uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+            Cursor cursor = this.getContentResolver().query(uri, null, where, null, null);
+            int s = 0;
+            cursor.moveToFirst();
+            if (cursor.getCount() > 0) {
+
+                s = cursor.getInt(cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.SIZE));
+
+            }
+
+            return s;
+
+
+        }
+
+
 	    
 	    private void getPhotoList() {
 	    	try{
@@ -695,22 +720,16 @@ public class ActivityAbout extends Activity implements View.OnClickListener{
 
 		if(total > size){
 			size = 2147483648L; /////2Gb
-			Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
 			if(total > size){
 				size = 4294967296L;////4Gb
-				Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
 				if(total > size){
 					size = 8589934592L;////8Gb
-					Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
 					if(total > size){
 						size = 17179869184L;////16Gb
-						Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
 						if(total > size){
 							size = 34359738368L;////32Gb
-							Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
 							if(total > size){
 								size = total;
-								Log.e("!!", "total:"+getFileSize(total) + " size:"+getFileSize(size));
 							}
 						}
 					}

@@ -310,15 +310,23 @@ public class ActivityAppleID extends Activity implements View.OnClickListener{
                 break;
 
             case R.id.b1:
-                Intent n = new Intent (this, ActivityNameAppleID.class);
-                startActivity(n);
-                overridePendingTransition(center_to_left, center_to_left2);
+                Intent n1111 = new Intent (this, ActivityNameAppleID.class);
+                SwipeBackActivityHelper.activityBuilder(this)
+                        .intent(n1111)
+                        .needParallax(false)
+                        .needBackgroundShadow(false)
+                        .startActivity();
+
+
                 break;
 
             case R.id.b2:
-                Intent n1 = new Intent (this, ActivityPasswordAppleID.class);
-                startActivity(n1);
-                overridePendingTransition(center_to_left, center_to_left2);
+                Intent n111 = new Intent (this, ActivityPasswordAppleID.class);
+                SwipeBackActivityHelper.activityBuilder(this)
+                        .intent(n111)
+                        .needParallax(false)
+                        .needBackgroundShadow(false)
+                        .startActivity();
                 break;
 
             case R.id.b3:

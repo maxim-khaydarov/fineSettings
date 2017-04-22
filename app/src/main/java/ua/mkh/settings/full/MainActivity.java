@@ -80,6 +80,8 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 import android.support.v7.app.AppCompatActivity;
 
+import com.github.bluzwong.swipeback.SwipeBackActivityHelper;
+
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 
 
@@ -246,13 +248,21 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 	    String base;
 	    
 	    Button b1, b2, b11, b21;
-	   
+	SwipeBackActivityHelper helper = new SwipeBackActivityHelper();
+
+
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
+
+		helper.setEdgeMode(true)
+				.setParallaxMode(false)
+				.setParallaxRatio(0)
+				.setNeedBackgroundShadow(false)
+				.init(this);
 
 		scrollview = (ScrollView) findViewById(R.id.scrollView1);
 		OverScrollDecoratorHelper.setUpOverScroll(scrollview);

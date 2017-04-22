@@ -17,6 +17,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -26,6 +27,7 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.aigestudio.wheelpicker.WheelPicker;
+import com.github.bluzwong.swipeback.SwipeBackActivityHelper;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -65,6 +67,8 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
     String year = null;
     ToggleButton tg1, tg2;
 
+    SwipeBackActivityHelper helper = new SwipeBackActivityHelper();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +78,12 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
         String roman = "fonts/Regular.otf";
         String medium = "fonts/Medium.otf";
         String bold = "fonts/Bold.otf";
+
+        helper.setEdgeMode(true)
+                .setParallaxMode(false)
+                .setParallaxRatio(0)
+                .setNeedBackgroundShadow(false)
+                .init(this);
 
         ScrollView scrollView = (ScrollView) findViewById(R.id.scrollView1);
         OverScrollDecoratorHelper.setUpOverScroll(scrollView);
@@ -186,25 +196,22 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
         }
     }
 
+    public void BackClick(View v)
+    {
+        onBackPressed();
+
+    }
+
     @Override
-    public boolean onKeyDown(int keycode, KeyEvent e) {
-        switch(keycode) {
+    public void onBackPressed() {
 
-            case KeyEvent.KEYCODE_BACK:
-                if(!mSettings.contains("name")){
-                    Intent intent18 = new Intent(this, MainActivity.class);
-                    startActivity(intent18);
-                    overridePendingTransition(center_to_right, center_to_right2);
-                }
-                else {
-                    Intent intent18 = new Intent(this, ActivityAppleID.class);
-                    startActivity(intent18);
-                    overridePendingTransition(center_to_right, center_to_right2);
-                }
-                return true;
-
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         }
-        return super.onKeyDown(keycode, e);
+
+        helper.finish();
     }
 
 
@@ -264,24 +271,18 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
     }
 
 
-
-    public void BackClick(View v)
-    {
-            Intent intent18 = new Intent(this, ActivityAppleID.class);
-            startActivity(intent18);
-            overridePendingTransition(center_to_right, center_to_right2);
-
-    }
-
     @Override
     public void onClick(View v) {
         // TODO Auto-generated method stub
         switch (v.getId()) {
 
             case R.id.name:
-                Intent na = new Intent(this, ActivityName.class);
-                startActivity(na);
-                overridePendingTransition(center_to_left, center_to_left2);
+                Intent n1111 = new Intent (this, ActivityName.class);
+                SwipeBackActivityHelper.activityBuilder(this)
+                        .intent(n1111)
+                        .needParallax(false)
+                        .needBackgroundShadow(false)
+                        .startActivity();
                 break;
 
             case R.id.textView19:
@@ -305,9 +306,12 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
                 break;
 
             case R.id.adress:
-                Intent ad = new Intent(this, ActivityAdress.class);
-                startActivity(ad);
-                overridePendingTransition(center_to_left, center_to_left2);
+                Intent n111 = new Intent (this, ActivityAdress.class);
+                SwipeBackActivityHelper.activityBuilder(this)
+                        .intent(n111)
+                        .needParallax(false)
+                        .needBackgroundShadow(false)
+                        .startActivity();
                 break;
 
             case R.id.name3:

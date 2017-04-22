@@ -13,11 +13,13 @@ import android.text.Html;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.aigestudio.wheelpicker.WheelPicker;
+import com.github.bluzwong.swipeback.SwipeBackActivityHelper;
 
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 
@@ -42,6 +44,8 @@ public class ActivityPasswordAppleID extends Activity implements View.OnClickLis
     Button btn_back;
     Button b1, b2, b3, b4;
     TextView txt1, txt2, txt3, txt4, txt5, txt6;
+    SwipeBackActivityHelper helper = new SwipeBackActivityHelper();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +56,15 @@ public class ActivityPasswordAppleID extends Activity implements View.OnClickLis
         String medium = "fonts/Medium.otf";
         String bold = "fonts/Bold.otf";
 
+        helper.setEdgeMode(true)
+                .setParallaxMode(false)
+                .setParallaxRatio(0)
+                .setNeedBackgroundShadow(false)
+                .init(this);
+
         ScrollView scrollView = (ScrollView) findViewById(R.id.scrollView1);
         OverScrollDecoratorHelper.setUpOverScroll(scrollView);
+
 
 
         typefaceRoman = Typeface.createFromAsset(getAssets(), roman);
@@ -156,33 +167,22 @@ public class ActivityPasswordAppleID extends Activity implements View.OnClickLis
             b3.setText(mSettings.getString("phone", ""));
     }
 
-    @Override
-    public boolean onKeyDown(int keycode, KeyEvent e) {
-        switch(keycode) {
-
-            case KeyEvent.KEYCODE_BACK:
-                if(!mSettings.contains("name")){
-                    Intent intent18 = new Intent(this, MainActivity.class);
-                    startActivity(intent18);
-                    overridePendingTransition(center_to_right, center_to_right2);
-                }
-                else {
-                    Intent intent18 = new Intent(this, ActivityAppleID.class);
-                    startActivity(intent18);
-                    overridePendingTransition(center_to_right, center_to_right2);
-                }
-                return true;
-
-        }
-        return super.onKeyDown(keycode, e);
-    }
-
     public void BackClick(View v)
     {
-        Intent intent18 = new Intent(this, ActivityAppleID.class);
-        startActivity(intent18);
-        overridePendingTransition(center_to_right, center_to_right2);
+        onBackPressed();
 
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+
+        helper.finish();
     }
 
     @Override
@@ -191,21 +191,30 @@ public class ActivityPasswordAppleID extends Activity implements View.OnClickLis
         switch (v.getId()) {
 
             case R.id.edit_password:
-                Intent callSettingIntent= new Intent(Settings.ACTION_SECURITY_SETTINGS);
-                startActivity(callSettingIntent);
-                overridePendingTransition(center_to_right, center_to_right2);
+                Intent n1111 = new Intent (Settings.ACTION_SECURITY_SETTINGS);
+                SwipeBackActivityHelper.activityBuilder(this)
+                        .intent(n1111)
+                        .needParallax(false)
+                        .needBackgroundShadow(false)
+                        .startActivity();
                 break;
 
             case R.id.textView19:
-                Intent callSettingIntentd= new Intent(ActivityPasswordAppleID.this, ActivityPhoneAppleID.class);
-                startActivity(callSettingIntentd);
-                overridePendingTransition(center_to_right, center_to_right2);
+                Intent n111 = new Intent (this, ActivityPhoneAppleID.class);
+                SwipeBackActivityHelper.activityBuilder(this)
+                        .intent(n111)
+                        .needParallax(false)
+                        .needBackgroundShadow(false)
+                        .startActivity();
                 break;
 
             case R.id.get_password:
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.iCloud.com"));
-                startActivity(browserIntent);
-                overridePendingTransition(center_to_right, center_to_right2);
+                Intent n11 = new Intent (Intent.ACTION_VIEW, Uri.parse("http://www.iCloud.com"));
+                SwipeBackActivityHelper.activityBuilder(this)
+                        .intent(n11)
+                        .needParallax(false)
+                        .needBackgroundShadow(false)
+                        .startActivity();
                 break;
             default:
                 break;

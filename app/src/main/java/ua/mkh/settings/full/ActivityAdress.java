@@ -12,10 +12,16 @@ import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
+
+import com.github.bluzwong.swipeback.SwipeBackActivityHelper;
+
+import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 
 /**
  * Created by 1 on 07.04.2017.
@@ -41,6 +47,8 @@ public class ActivityAdress extends Activity implements View.OnClickListener {
     ListView lv;
     Button b1, b2, b3, b4;
     EditText ed_adres, ed_city, ed_index, ed_country;
+    SwipeBackActivityHelper helper = new SwipeBackActivityHelper();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +58,15 @@ public class ActivityAdress extends Activity implements View.OnClickListener {
         String roman = "fonts/Regular.otf";
         String medium = "fonts/Medium.otf";
         String bold = "fonts/Bold.otf";
+
+        helper.setEdgeMode(true)
+                .setParallaxMode(false)
+                .setParallaxRatio(0)
+                .setNeedBackgroundShadow(false)
+                .init(this);
+
+        ScrollView scrollView = (ScrollView) findViewById(R.id.scrollView1);
+        OverScrollDecoratorHelper.setUpOverScroll(scrollView);
 
         typefaceRoman = Typeface.createFromAsset(getAssets(), roman);
         typefaceMedium = Typeface.createFromAsset(getAssets(), medium);
@@ -250,27 +267,22 @@ public class ActivityAdress extends Activity implements View.OnClickListener {
         }
     }
 
-    @Override
-    public boolean onKeyDown(int keycode, KeyEvent e) {
-        switch (keycode) {
+    public void BackClick(View v)
+    {
+        onBackPressed();
 
-            case KeyEvent.KEYCODE_BACK:
-
-                Intent intent18 = new Intent(this, ActivityNameAppleID.class);
-                startActivity(intent18);
-                overridePendingTransition(center_to_right, center_to_right2);
-
-                return true;
-
-        }
-        return super.onKeyDown(keycode, e);
     }
 
-    public void BackClick(View v) {
-        Intent intent18 = new Intent(this, ActivityNameAppleID.class);
-        startActivity(intent18);
-        overridePendingTransition(center_to_right, center_to_right2);
+    @Override
+    public void onBackPressed() {
 
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+
+        helper.finish();
     }
 
     public void SaveClick(View v)
@@ -302,9 +314,7 @@ public class ActivityAdress extends Activity implements View.OnClickListener {
                 editorPatroo.putString("adress_full", all_adres);
                 editorPatroo.apply();
 
-                Intent intent18 = new Intent(this, ActivityNameAppleID.class);
-                startActivity(intent18);
-                overridePendingTransition(center_to_right, center_to_right2);
+                helper.finish();
             }
 
         }
