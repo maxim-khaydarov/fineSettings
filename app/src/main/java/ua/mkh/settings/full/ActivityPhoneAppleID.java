@@ -6,17 +6,23 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import com.github.bluzwong.swipeback.SwipeBackActivityHelper;
 
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 
@@ -42,6 +48,8 @@ public class ActivityPhoneAppleID extends Activity implements View.OnClickListen
     Button btn_country, btn_phone;
     TextView txt_country;
     EditText ed1;
+    SwipeBackActivityHelper helper = new SwipeBackActivityHelper();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +59,12 @@ public class ActivityPhoneAppleID extends Activity implements View.OnClickListen
         String roman = "fonts/Regular.otf";
         String medium = "fonts/Medium.otf";
         String bold = "fonts/Bold.otf";
+
+        helper.setEdgeMode(true)
+                .setParallaxMode(false)
+                .setParallaxRatio(0)
+                .setNeedBackgroundShadow(false)
+                .init(this);
 
         ScrollView scrollView = (ScrollView) findViewById(R.id.scrollView1);
         OverScrollDecoratorHelper.setUpOverScroll(scrollView);
@@ -136,6 +150,7 @@ public class ActivityPhoneAppleID extends Activity implements View.OnClickListen
         protected void onResume() {
 
             get_user_phone();
+            setupUI(findViewById(R.id.parent));
 
             if(mSettings.contains("phone_country_text")){
                 txt_country.setText(mSettings.getString("phone_country_text", "+2222 (Тилимилитряндия)"));
@@ -196,28 +211,22 @@ public class ActivityPhoneAppleID extends Activity implements View.OnClickListen
             }
         }
 
-    @Override
-    public boolean onKeyDown(int keycode, KeyEvent e) {
-        switch(keycode) {
-
-            case KeyEvent.KEYCODE_BACK:
-
-                Intent intent18 = new Intent(this, ActivityNameAppleID.class);
-                startActivity(intent18);
-                overridePendingTransition(center_to_right, center_to_right2);
-
-                return true;
-
-        }
-        return super.onKeyDown(keycode, e);
-    }
-
     public void BackClick(View v)
     {
-        Intent intent18 = new Intent(this, ActivityNameAppleID.class);
-        startActivity(intent18);
-        overridePendingTransition(center_to_right, center_to_right2);
+        onBackPressed();
 
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+
+        helper.finish();
     }
 
     public void SaveClick(View v)
@@ -247,9 +256,12 @@ public class ActivityPhoneAppleID extends Activity implements View.OnClickListen
         switch (v.getId()) {
 
             case R.id.btn_contry:
-                Intent phone = new Intent(this, ActivityPhone.class);
-                startActivity(phone);
-                overridePendingTransition(center_to_left, center_to_left2);
+                Intent n11 = new Intent (this, ActivityPhone.class);
+                SwipeBackActivityHelper.activityBuilder(this)
+                        .intent(n11)
+                        .needParallax(false)
+                        .needBackgroundShadow(false)
+                        .startActivity();
                 break;
 
 
@@ -257,6 +269,35 @@ public class ActivityPhoneAppleID extends Activity implements View.OnClickListen
                 break;
         }
 
+    }
+
+    public static void hideSoftKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) activity.getSystemService(
+                        Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(
+                activity.getCurrentFocus().getWindowToken(), 0);
+    }
+
+    public void setupUI(View view) {
+
+        // Set up touch listener for non-text box views to hide keyboard.
+        if (!(view instanceof EditText)) {
+            view.setOnTouchListener(new View.OnTouchListener() {
+                public boolean onTouch(View v, MotionEvent event) {
+                    hideSoftKeyboard(ActivityPhoneAppleID.this);
+                    return false;
+                }
+            });
+        }
+
+        //If a layout container, iterate over children and seed recursion.
+        if (view instanceof ViewGroup) {
+            for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
+                View innerView = ((ViewGroup) view).getChildAt(i);
+                setupUI(innerView);
+            }
+        }
     }
 
 }

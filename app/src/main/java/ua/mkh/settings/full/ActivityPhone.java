@@ -13,6 +13,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -21,6 +22,8 @@ import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.github.bluzwong.swipeback.SwipeBackActivityHelper;
 
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 
@@ -46,6 +49,8 @@ public class ActivityPhone extends Activity implements View.OnClickListener {
     Button btn_country, btn_phone;
     TextView txt_country;
     ListView lv;
+    SwipeBackActivityHelper helper = new SwipeBackActivityHelper();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +67,12 @@ public class ActivityPhone extends Activity implements View.OnClickListener {
 
         lv = (ListView) findViewById(R.id.lv);
         OverScrollDecoratorHelper.setUpOverScroll(lv);
+
+        helper.setEdgeMode(true)
+                .setParallaxMode(false)
+                .setParallaxRatio(0)
+                .setNeedBackgroundShadow(false)
+                .init(this);
 
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
@@ -89,9 +100,7 @@ public class ActivityPhone extends Activity implements View.OnClickListener {
                 editorName.putString("phone_country_text", text.getText().toString());
                 editorName.apply();
 
-                Intent back = new Intent(ActivityPhone.this, ActivityPhoneAppleID.class);
-                startActivity(back);
-                overridePendingTransition(center_to_right, center_to_right2);
+                helper.finish();
 
 
                 //Toast.makeText(getApplicationContext(), ((TextView) itemClicked).getText(),
@@ -165,27 +174,22 @@ public class ActivityPhone extends Activity implements View.OnClickListener {
         }
     }
 
-    @Override
-    public boolean onKeyDown(int keycode, KeyEvent e) {
-        switch (keycode) {
+    public void BackClick(View v)
+    {
+        onBackPressed();
 
-            case KeyEvent.KEYCODE_BACK:
-
-                Intent intent18 = new Intent(this, ActivityPhoneAppleID.class);
-                startActivity(intent18);
-                overridePendingTransition(center_to_right, center_to_right2);
-
-                return true;
-
-        }
-        return super.onKeyDown(keycode, e);
     }
 
-    public void BackClick(View v) {
-        Intent intent18 = new Intent(this, ActivityPhoneAppleID.class);
-        startActivity(intent18);
-        overridePendingTransition(center_to_right, center_to_right2);
+    @Override
+    public void onBackPressed() {
 
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+
+        helper.finish();
     }
 
     @Override

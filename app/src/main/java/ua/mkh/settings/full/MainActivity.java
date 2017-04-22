@@ -1242,9 +1242,12 @@ public void soccial (){
 
 
 		 else if (id == R.id.LinearSociall)   {
-             Intent soc = new Intent (this, ActivityAppleID.class);
-             startActivity(soc);
-             overridePendingTransition(center_to_left, center_to_left2);
+			 Intent n11 = new Intent (this, ActivityAppleID.class);
+			 SwipeBackActivityHelper.activityBuilder(this)
+					 .intent(n11)
+					 .needParallax(false)
+					 .needBackgroundShadow(false)
+					 .startActivity();
 
          }
 	 }

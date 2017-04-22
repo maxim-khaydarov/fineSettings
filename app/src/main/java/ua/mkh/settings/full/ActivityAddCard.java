@@ -10,7 +10,9 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -43,7 +45,7 @@ public class ActivityAddCard extends Activity implements View.OnClickListener{
     public static final String APP_PREFERENCES_tgb_menu = "tgb_menu";
 
     Button btn_back, btn_save;
-    //Button b1, b2;
+    Button b1, b2, b3;
     //TextView txt1, txt2, txt3, txt4;
     EditText ed_name, ed_surname, ed_card;
 
@@ -75,6 +77,10 @@ public class ActivityAddCard extends Activity implements View.OnClickListener{
         typefaceRoman = Typeface.createFromAsset(getAssets(), roman);
         typefaceMedium = Typeface.createFromAsset(getAssets(), medium);
         typefaceBold = Typeface.createFromAsset(getAssets(), bold);
+
+        b1 = (Button) findViewById(R.id.b1);
+        b2 = (Button) findViewById(R.id.b2);
+        b3 = (Button) findViewById(R.id.b3);
 
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         TextView textStatus = (TextView) findViewById(R.id.textOk);
@@ -226,9 +232,6 @@ public class ActivityAddCard extends Activity implements View.OnClickListener{
 
                 }else{
                     strOldlen = strLen;
-
-
-                    Log.i("MainActivity ","keyDel is Pressed ::: strLen : "+strLen+"\n old Str Len : "+strOldlen);
                 }
 
 
@@ -244,7 +247,9 @@ public class ActivityAddCard extends Activity implements View.OnClickListener{
         ed_name.setTypeface(typefaceRoman);
         ed_surname.setTypeface(typefaceRoman);
         ed_card.setTypeface(typefaceRoman);
-
+        b1.setTypeface(typefaceRoman);
+        b2.setTypeface(typefaceRoman);
+        b3.setTypeface(typefaceRoman);
     }
 
 
@@ -252,6 +257,8 @@ public class ActivityAddCard extends Activity implements View.OnClickListener{
     @Override
     protected void onResume() {
         super.onResume();
+
+        setupUI(findViewById(R.id.parent));
 
         ed_name.setText(mSettings.getString("name_card", mSettings.getString("name", "")));
         ed_surname.setText(mSettings.getString("surname_card", mSettings.getString("surname", "")));
@@ -359,7 +366,34 @@ public class ActivityAddCard extends Activity implements View.OnClickListener{
 
         }
 
+    public static void hideSoftKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) activity.getSystemService(
+                        Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(
+                activity.getCurrentFocus().getWindowToken(), 0);
+    }
 
+    public void setupUI(View view) {
+
+        // Set up touch listener for non-text box views to hide keyboard.
+        if (!(view instanceof EditText)) {
+            view.setOnTouchListener(new View.OnTouchListener() {
+                public boolean onTouch(View v, MotionEvent event) {
+                    hideSoftKeyboard(ActivityAddCard.this);
+                    return false;
+                }
+            });
+        }
+
+        //If a layout container, iterate over children and seed recursion.
+        if (view instanceof ViewGroup) {
+            for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
+                View innerView = ((ViewGroup) view).getChildAt(i);
+                setupUI(innerView);
+            }
+        }
+    }
 
     }
 

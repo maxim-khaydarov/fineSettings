@@ -6,6 +6,12 @@
     android:background="@color/background_fon"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_fon"
+        android:orientation="horizontal"></LinearLayout>
+
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/scrollView1"
         style="android:scrollViewStyle"

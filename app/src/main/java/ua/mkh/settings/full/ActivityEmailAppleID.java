@@ -11,12 +11,17 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import com.github.bluzwong.swipeback.SwipeBackActivityHelper;
 
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 
@@ -42,18 +47,27 @@ public class ActivityEmailAppleID extends Activity implements View.OnClickListen
     Button email;
     EditText ed1;
     TextView textView24;
+    SwipeBackActivityHelper helper = new SwipeBackActivityHelper();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_email_appleid);
+
         String roman = "fonts/Regular.otf";
         String medium = "fonts/Medium.otf";
         String bold = "fonts/Bold.otf";
 
         ScrollView scrollView = (ScrollView) findViewById(R.id.scrollView1);
         OverScrollDecoratorHelper.setUpOverScroll(scrollView);
+
+        helper.setEdgeMode(true)
+                .setParallaxMode(false)
+                .setParallaxRatio(0)
+                .setNeedBackgroundShadow(false)
+                .init(this);
 
         typefaceRoman = Typeface.createFromAsset(getAssets(), roman);
         typefaceMedium = Typeface.createFromAsset(getAssets(), medium);
@@ -112,6 +126,8 @@ public class ActivityEmailAppleID extends Activity implements View.OnClickListen
     protected void onResume() {
 
         get_user_email();
+        setupUI(findViewById(R.id.parent));
+
 
         super.onResume();
         int speed = mSettings.getInt(APP_PREFERENCES_ANIM_SPEED, 1);
@@ -166,28 +182,22 @@ public class ActivityEmailAppleID extends Activity implements View.OnClickListen
         }
     }
 
-    @Override
-    public boolean onKeyDown(int keycode, KeyEvent e) {
-        switch(keycode) {
-
-            case KeyEvent.KEYCODE_BACK:
-
-                    Intent intent18 = new Intent(this, ActivityNameAppleID.class);
-                    startActivity(intent18);
-                    overridePendingTransition(center_to_right, center_to_right2);
-
-                return true;
-
-        }
-        return super.onKeyDown(keycode, e);
-    }
-
     public void BackClick(View v)
     {
-            Intent intent18 = new Intent(this, ActivityNameAppleID.class);
-            startActivity(intent18);
-            overridePendingTransition(center_to_right, center_to_right2);
+        onBackPressed();
 
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+
+        helper.finish();
     }
 
     public void SaveClick(View v)
@@ -219,5 +229,33 @@ public class ActivityEmailAppleID extends Activity implements View.OnClickListen
 
     }
 
+    public static void hideSoftKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) activity.getSystemService(
+                        Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(
+                activity.getCurrentFocus().getWindowToken(), 0);
+    }
+
+    public void setupUI(View view) {
+
+        // Set up touch listener for non-text box views to hide keyboard.
+        if (!(view instanceof EditText)) {
+            view.setOnTouchListener(new View.OnTouchListener() {
+                public boolean onTouch(View v, MotionEvent event) {
+                    hideSoftKeyboard(ActivityEmailAppleID.this);
+                    return false;
+                }
+            });
+        }
+
+        //If a layout container, iterate over children and seed recursion.
+        if (view instanceof ViewGroup) {
+            for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
+                View innerView = ((ViewGroup) view).getChildAt(i);
+                setupUI(innerView);
+            }
+        }
+    }
 }
 

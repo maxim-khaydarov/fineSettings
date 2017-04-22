@@ -211,6 +211,7 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
             inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         }
 
+
         helper.finish();
     }
 
@@ -383,8 +384,12 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
 
             @Override
             public void onClick(View v) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://selfsolve.apple.com/deregister-imessage/"));
-                startActivity(browserIntent);
+                Intent n111 = new Intent (Intent.ACTION_VIEW, Uri.parse("https://selfsolve.apple.com/deregister-imessage/"));
+                SwipeBackActivityHelper.activityBuilder(ActivityNameAppleID.this)
+                        .intent(n111)
+                        .needParallax(false)
+                        .needBackgroundShadow(false)
+                        .startActivity();
                 Activation.dismiss();
             }
         });
@@ -421,9 +426,12 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                Intent intent = new Intent(ActivityNameAppleID.this, ActivityEmailAppleID.class);
-                startActivity(intent);
-                overridePendingTransition(center_to_left, center_to_left2);
+                Intent n111 = new Intent (ActivityNameAppleID.this, ActivityEmailAppleID.class);
+                SwipeBackActivityHelper.activityBuilder(ActivityNameAppleID.this)
+                        .intent(n111)
+                        .needParallax(false)
+                        .needBackgroundShadow(false)
+                        .startActivity();
             }});
 
         ButtonInfo.setOnClickListener(new View.OnClickListener(){
@@ -431,9 +439,12 @@ public class ActivityNameAppleID extends Activity implements View.OnClickListene
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                Intent intent = new Intent(ActivityNameAppleID.this, ActivityPhoneAppleID.class);
-                startActivity(intent);
-                overridePendingTransition(center_to_left, center_to_left2);
+                Intent n111 = new Intent (ActivityNameAppleID.this, ActivityPhoneAppleID.class);
+                SwipeBackActivityHelper.activityBuilder(ActivityNameAppleID.this)
+                        .intent(n111)
+                        .needParallax(false)
+                        .needBackgroundShadow(false)
+                        .startActivity();
             }});
 
         dialog.show();

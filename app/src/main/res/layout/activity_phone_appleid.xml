@@ -2,13 +2,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_fon"
     android:orientation="vertical">
 
-    <ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_fon"
+        android:orientation="horizontal"></LinearLayout>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/scrollView1"
         style="android:scrollViewStyle"
         android:layout_width="fill_parent"
@@ -16,16 +22,16 @@
         android:ems="10"
         android:fadingEdge="none"
         android:overScrollMode="always"
-        android:scrollbars="vertical" >
+        android:scrollbars="vertical">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
 
             <LinearLayout
-                android:id="@+id/LinearLayoutName1"
+                android:id="@+id/LinearLayoutName11"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="80dp"
@@ -34,7 +40,7 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/ImageView011"
+                    android:id="@+id/ImageView0111"
                     android:layout_width="fill_parent"
                     android:layout_height="1px"
                     android:ems="10"
@@ -107,20 +113,6 @@
                     android:layout_height="match_parent"
                     android:ems="10">
 
-                    <EditText
-                        android:id="@+id/editText"
-                        android:layout_width="220dp"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
-                        android:background="@color/transparent"
-                        android:ems="10"
-                        android:hint="@string/necessarily"
-                        android:inputType="number"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/hint_text"
-                        android:textCursorDrawable="@color/black"
-                        android:textSize="15sp" />
-
                     <Button
                         android:id="@+id/btn_phone"
                         android:layout_width="fill_parent"
@@ -134,6 +126,21 @@
                         android:paddingLeft="15dp"
                         android:text="@string/number"
                         android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/editText"
+                        android:layout_width="220dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:background="@color/transparent"
+                        android:ems="10"
+                        android:hint="@string/necessarily"
+                        android:inputType="phone"
+                        android:text="975192551"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/hint_text"
+                        android:textCursorDrawable="@color/black"
                         android:textSize="15sp" />
 
                     <ImageView
