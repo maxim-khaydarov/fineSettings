@@ -96,8 +96,8 @@ public class ActivityDisturb extends Activity implements View.OnClickListener,  
         tb_repeat =  (ToggleButton)findViewById(R.id.ToggleButton03);
         tb_repeat.setOnClickListener(this);
         
-        text_from = (TextView)findViewById(R.id.textView2);
-        text_to = (TextView)findViewById(R.id.textView3);
+        text_from = (TextView)findViewById(R.id.textView3);
+        text_to = (TextView)findViewById(R.id.textView2);
         textView1 = (TextView) findViewById(R.id.textView1);
         textView4 = (TextView) findViewById(R.id.textView4);
         TextView01 = (TextView) findViewById(R.id.TextView01);
@@ -321,7 +321,7 @@ public class ActivityDisturb extends Activity implements View.OnClickListener,  
 	
 	private void Shedule_list () {
 
-		if (text_from.getText().length() == 0) {
+		if (text_from.getText().equals("--:--")) {
 			LinearLayoutShedule.setVisibility(View.GONE);
 			shedule = 0; 
 			tb_shedule.setChecked(false);}
@@ -379,6 +379,9 @@ public class ActivityDisturb extends Activity implements View.OnClickListener,  
 	}
 	
 	private void time_read () {
+		text_from.setText(mSettings.getString("disturb_from_hour","--")+":"+mSettings.getString("disturb_from_min", "--"));
+		text_to.setText(mSettings.getString("disturb_to_hour","--")+":"+mSettings.getString("disturb_to_min", "--"));
+		/*
 		try {
 			
 			InputStream inputstream = openFileInput(to_time_text);
@@ -416,10 +419,16 @@ try {
 			} catch (Throwable t) {
 				text_from.setText("");
 			}
-
+*/
 	}
 	
 	private void time_0 () {
+
+		mSettings.edit().remove("disturb_from_hour").apply();
+		mSettings.edit().remove("disturb_from_min").apply();
+		mSettings.edit().remove("disturb_to_hour").apply();
+		mSettings.edit().remove("disturb_to_min").apply();
+		/*
 		try {
  			OutputStream outputstream = openFileOutput(from_time_text, 0);
  			OutputStreamWriter osw = new OutputStreamWriter(outputstream);
@@ -436,7 +445,7 @@ try {
  		} catch (Throwable t) {
  			
  		}
-		
+		*/
 	}
 	
 	

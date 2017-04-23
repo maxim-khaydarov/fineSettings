@@ -14,9 +14,10 @@ public class AlarmReceiverOff extends BroadcastReceiver {
   
 
 	 timeSet t = new timeSet (mContext); 
-		t.stop_notif (mContext);
-	  
-	  
+     t.stop_notif (mContext);
+
+     t.add_day_from();
+
  }
  
  

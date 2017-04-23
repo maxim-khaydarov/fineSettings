@@ -144,10 +144,9 @@
             <activity android:name=".ActivityAddCard" />
             <activity android:name="ua.mkh.settings.full.ActivityCharge" android:theme="@style/Theme.Transparent" />
             <activity android:name="ua.mkh.settings.full.MessageBox" android:theme="@style/Theme.Transparent" />
-           
             <receiver android:name=".AlarmReceiverOn" android:process=":remote" />
        		<receiver android:name=".AlarmReceiverOff" android:process=":remote" />
-       		<receiver android:name=".Blocker">
+        <receiver android:name=".Blocker">
           
           <intent-filter android:priority="1000">
               <action android:name="android.intent.action.PHONE_STATE" />

@@ -2,6 +2,7 @@ package ua.mkh.settings.full;
 
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -16,6 +17,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
@@ -24,6 +26,7 @@ import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.aigestudio.wheelpicker.WheelPicker;
 
@@ -38,7 +41,7 @@ public class ActivityFromTime extends Activity implements View.OnClickListener, 
 	String strdate_from = null;
 	String strdate_to = null;
 	RelativeLayout LinearLayoutFrom;
-	LinearLayout LinearLayoutTo;
+	RelativeLayout LinearLayoutTo;
 	public final static String from_time_text = "from_time.txt";
 	public final static String to_time_text = "to_time.txt";
 	
@@ -56,6 +59,9 @@ public class ActivityFromTime extends Activity implements View.OnClickListener, 
 	   
 	   SharedPreferences mSettings;
 	   Typeface typefaceRoman, typefaceMedium, typefaceBold;
+
+		String hour_1, min_1, hour_2, min_2;
+		WheelPicker wheelPicker_hour_1, wheelPicker_hour_2, wheelPicker_min_1, wheelPicker_min_2;
 	
 	
 	@Override
@@ -80,19 +86,26 @@ public class ActivityFromTime extends Activity implements View.OnClickListener, 
 		pickerDate = (DatePicker)findViewById(R.id.pickerdate);
 
 
-		WheelPicker wheelPicker_hour_1 = (WheelPicker) findViewById(R.id.wh_hour_1);
+		wheelPicker_hour_1 = (WheelPicker) findViewById(R.id.wh_hour_1);
 		wheelPicker_hour_1.setOnItemSelectedListener(this);
-		WheelPicker wheelPicker_min_1 = (WheelPicker) findViewById(R.id.wh_min_1);
+		wheelPicker_min_1 = (WheelPicker) findViewById(R.id.wh_min_1);
 		wheelPicker_min_1.setOnItemSelectedListener(this);
-		WheelPicker wheelPicker_hour_2 = (WheelPicker) findViewById(R.id.wh_hour_2);
+		wheelPicker_hour_2 = (WheelPicker) findViewById(R.id.wh_hour_2);
 		wheelPicker_hour_2.setOnItemSelectedListener(this);
-		WheelPicker wheelPicker_min_2 = (WheelPicker) findViewById(R.id.wh_min_2);
-		wheelPicker_min_1.setOnItemSelectedListener(this);
+		wheelPicker_min_2 = (WheelPicker) findViewById(R.id.wh_min_2);
+		wheelPicker_min_2.setOnItemSelectedListener(this);
 
 
 		List<String> hour = new ArrayList<>();
 		for (int i = 0; i <= 23; i++) {
-			hour.add("      "+ i + "   ");
+			String m = "";
+			if(i < 10){
+				m = " "+i;
+				hour.add("      " + m + "   ");
+			}
+			else {
+				hour.add("      " + i + "   ");
+			}
 		}
 		wheelPicker_hour_1.setData(hour);
 		wheelPicker_hour_2.setData(hour);
@@ -115,7 +128,7 @@ public class ActivityFromTime extends Activity implements View.OnClickListener, 
 
 
 		LinearLayoutFrom = (RelativeLayout)findViewById(R.id.LinearLayoutFrom);
-		LinearLayoutTo = (LinearLayout)findViewById(R.id.LinearLayoutTo);
+		LinearLayoutTo = (RelativeLayout)findViewById(R.id.LinearLayoutTo);
 		Button01 = (Button)findViewById(R.id.Button01);
 		Button01.setOnClickListener(this);
 		Button02 = (Button)findViewById(R.id.Button02);
@@ -147,7 +160,8 @@ public class ActivityFromTime extends Activity implements View.OnClickListener, 
 		Calendar c1 = Calendar.getInstance();
 		int curHours1 = c1.get(Calendar.HOUR_OF_DAY);
 		int curMinutes1 = c1.get(Calendar.MINUTE);
-	
+
+
 
 		
 	}
@@ -176,62 +190,22 @@ public class ActivityFromTime extends Activity implements View.OnClickListener, 
 			timeSet t = new timeSet (getBaseContext()); 
 			t.start_notif (getBaseContext());		}
 		
-	public void  start_from(Calendar targetCalFrom) {
+	public void  start_from() {
 		timeSet t = new timeSet (getBaseContext()); 
-		t.setAlarm_from (targetCalFrom);
+		t.setAlarm_from ();
 	}
-	public void  start_to(Calendar targetCalTo) {
+	public void  start_to() {
 		timeSet t = new timeSet (getBaseContext()); 
-		t.setAlarm_to (targetCalTo);
+		t.setAlarm_to ();
 	}
 	
-	
-	public void from_time_text(View view) {
-		Intent intent = new Intent(this, ActivityDisturb.class);
-		
-		try {
-			OutputStream outputstream = openFileOutput(from_time_text, 0);
-			OutputStreamWriter osw = new OutputStreamWriter(outputstream);
-			osw.write(strdate_from.toString());
-			osw.close();
-		} catch (Throwable t) {
-			
-		}
-		startActivity(intent);
-	}
-	
-	public void to_time_text(View view) {
-		Intent intent = new Intent(this, ActivityDisturb.class);
-		
-		try {
-			OutputStream outputstream = openFileOutput(to_time_text, 0);
-			OutputStreamWriter osw = new OutputStreamWriter(outputstream);
-			osw.write(strdate_to.toString());
-			osw.close();
-		} catch (Throwable t) {
-			
-		}
-		startActivity(intent);
-		overridePendingTransition(center_to_right, center_to_right2);
-	}
-	
-	private void addChangingListener1(final WheelView wheel1, final String label) {
-		wheel1.addChangingListener(new OnWheelChangedListener() {
-			public void onChanged(WheelView wheel, int oldValue, int newValue) {
-				//wheel.setLabel(newValue != 1 ? label + "s" : label);
-			}
-		});
-	}
-	private void addChangingListener2(final WheelView wheel2, final String label) {
-		wheel2.addChangingListener(new OnWheelChangedListener() {
-			public void onChanged(WheelView wheel, int oldValue, int newValue) {
-				//wheel.setLabel(newValue != 1 ? label + "s" : label);
-			}
-		});
-	}
+
+
 	
 	protected void onResume() {
         super.onResume();
+
+		get_save_time();
         
 
         	 int speed = mSettings.getInt(APP_PREFERENCES_ANIM_SPEED, 1);
@@ -286,7 +260,26 @@ public class ActivityFromTime extends Activity implements View.OnClickListener, 
 		}
    }
 	}
-   
+
+	private void get_save_time() {
+
+		hour_1 = mSettings.getString("disturb_from_hour", "00");
+		min_1 = mSettings.getString("disturb_from_min", "00");
+		hour_2 = mSettings.getString("disturb_to_hour", "06");
+		min_2 = mSettings.getString("disturb_to_min", "00");
+
+		Button02.setText(getString(R.string.disturb_from) + " " + hour_1 + ":" + min_1);
+		Button01.setText(getString(R.string.disturb_to) + " " + hour_2 + ":" + min_2);
+
+		wheelPicker_hour_1.setSelectedItemPosition(Integer.parseInt(hour_1));
+		wheelPicker_hour_2.setSelectedItemPosition(Integer.parseInt(hour_2));
+
+		wheelPicker_min_1.setSelectedItemPosition(Integer.parseInt(min_1));
+		wheelPicker_min_2.setSelectedItemPosition(Integer.parseInt(min_2));
+
+
+	}
+
 	public void BackClick(View v)  
     {  
 		Intent intent18 = new Intent(this, ActivityDisturb.class);
@@ -322,60 +315,69 @@ public class ActivityFromTime extends Activity implements View.OnClickListener, 
 		
 		
 		Calendar calFrom = Calendar.getInstance();
-		Calendar calFromText = Calendar.getInstance();
+		//Calendar calFromText = Calendar.getInstance();
 		
 		Calendar calTo = Calendar.getInstance();
-		Calendar calToText = Calendar.getInstance();
-				/*
+		//Calendar calToText = Calendar.getInstance();
+/*
 		calTo.set( 
         		pickerDate.getYear(), 
-        	      pickerDate.getMonth(), 
-        	      pickerDate.getDayOfMonth(), 
-        	      timePicker1.getCurrentHour(), 
-        	      timePicker1.getCurrentMinute(), 00
-          );
-		calToText.set(pickerDate.getYear(), 
-      	      pickerDate.getMonth(), 
-      	      pickerDate.getDayOfMonth(), 
-      	    timePicker1.getCurrentHour(), 
-      	  timePicker1.getCurrentMinute());
+				pickerDate.getMonth(),
+				pickerDate.getDayOfMonth(),
+				Integer.valueOf(hour_2),
+				Integer.valueOf(min_2), 00
+          );*/
+		/*calToText.set(pickerDate.getYear(),
+      	      	pickerDate.getMonth(),
+				pickerDate.getDayOfMonth(),
+				Integer.valueOf(hour_2),
+				Integer.valueOf(min_2));
 		SimpleDateFormat sdf1 = new SimpleDateFormat("HH:mm");
 		strdate_from = sdf1.format(calToText.getTime());
+		*/
+
 		
-		
-		
-		
+		/*
 		calFrom.set( 
         		pickerDate.getYear(), 
-        	      pickerDate.getMonth(), 
-        	      pickerDate.getDayOfMonth(), 
-        	      timePicker2.getCurrentHour(), 
-        	      timePicker2.getCurrentMinute(), 00
+				pickerDate.getMonth(),
+				pickerDate.getDayOfMonth(),
+				Integer.parseInt(hour_1),
+				Integer.parseInt(min_1), 00
           );
-		calFromText.set(pickerDate.getYear(), 
-      	      pickerDate.getMonth(), 
-      	      pickerDate.getDayOfMonth(), 
-      	    timePicker2.getCurrentHour(), 
-      	  timePicker2.getCurrentMinute());
+*/
+		calFrom.set(Calendar.HOUR_OF_DAY, Integer.parseInt(hour_1));
+		calFrom.set(Calendar.MINUTE, Integer.parseInt(min_1));
+		calFrom.set(Calendar.SECOND, 0);
+
+		calTo.set(Calendar.HOUR_OF_DAY, Integer.parseInt(hour_2));
+		calTo.set(Calendar.MINUTE, Integer.parseInt(min_2));
+		calTo.set(Calendar.SECOND, 0);
+
+		/*calFromText.set(pickerDate.getYear(),
+      	      	pickerDate.getMonth(),
+      	      	pickerDate.getDayOfMonth(),
+				Integer.parseInt(hour_1),
+				Integer.parseInt(min_1));
 		SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm");
 		strdate_to = sdf2.format(calFromText.getTime());
-		*/
+*/
 		if (calFrom.compareTo(current1) < 0){
 			if (calTo.compareTo(current1) > 0){
 				start_notif ();
 			}
 		}
 	////	/////////
-		Calendar calFrom_s = Calendar.getInstance();
-		Calendar calTo_s = Calendar.getInstance();
-		/*
-		calFrom_s.set(timePicker2.getCurrentHour(), 
-      	      timePicker2.getCurrentMinute());
+		//Calendar calFrom_s = Calendar.getInstance();
+		//Calendar calTo_s = Calendar.getInstance();
+
+		//calFrom_s.set(timePicker2.getCurrentHour(),
+      	//      timePicker2.getCurrentMinute());
 		
-		calTo_s.set(
-				timePicker2.getCurrentHour(), 
-	      	      timePicker2.getCurrentMinute());
-		*/
+		//calTo_s.set(
+		//		timePicker2.getCurrentHour(),
+	    //  	      timePicker2.getCurrentMinute());
+
 		if (calFrom.compareTo(current1) < 0){
 			if (calFrom.compareTo(calTo) > 0 ){
 				start_notif ();
@@ -389,9 +391,11 @@ public class ActivityFromTime extends Activity implements View.OnClickListener, 
 			}
 		}
 		
-		start_from(calFrom);
-		start_to(calTo);
-		
+
+
+
+
+		/*
 		try {
  			OutputStream outputstream = openFileOutput(from_time_text, 0);
  			OutputStreamWriter osw = new OutputStreamWriter(outputstream);
@@ -408,7 +412,25 @@ public class ActivityFromTime extends Activity implements View.OnClickListener, 
  			osw.close();
  		} catch (Throwable t) {
  			
- 		}
+ 		}*/
+
+		SharedPreferences.Editor editorName = mSettings.edit();
+		editorName.putString("disturb_from_hour", hour_1);
+		editorName.putString("disturb_from_min", min_1);
+		editorName.putString("disturb_to_hour", hour_2);
+		editorName.putString("disturb_to_min", min_2);
+
+		SimpleDateFormat format1 = new SimpleDateFormat("HH:mm");
+
+
+		//editorName.putString("disturb_from_calendar", format1.format(calFrom.getTime()));
+		//editorName.putString("disturb_to_calendar", format1.format(calTo.getTime()));
+
+		editorName.apply();
+
+		start_from();
+		start_to();
+
 		Intent intent = new Intent(this, ActivityDisturb.class);
 	 	 startActivity(intent);
 	 	overridePendingTransition(center_to_right, center_to_right2);
@@ -422,21 +444,30 @@ public class ActivityFromTime extends Activity implements View.OnClickListener, 
 
 		switch (picker.getId()) {
 
-			case R.id.day:
-				//day = position+1;
-
+			case R.id.wh_hour_1:
+				hour_1 = data.toString().trim();;
+				Button02.setText(getString(R.string.disturb_from) + " " + hour_1+":"+min_1);
 				break;
 
-			case R.id.month:
-				//month = position+1;
+			case R.id.wh_min_1:
+				min_1 = data.toString().trim();;
+				Button02.setText(getString(R.string.disturb_from) + " " + hour_1+":"+min_1);
 				break;
 
-			case R.id.year:
-				//year = data.toString();
+			case R.id.wh_hour_2:
+				hour_2 = data.toString().trim();
+				Button01.setText(getString(R.string.disturb_to) + " " + hour_2+":"+min_2);
+				break;
+
+			case R.id.wh_min_2:
+				min_2 = data.toString().trim();
+				Button01.setText(getString(R.string.disturb_to) + " " + hour_2+":"+min_2);
+				break;
+
 
 		}
 
-		//Toast.makeText(this, day + "." + month + "." + year, Toast.LENGTH_SHORT).show();
+
 
 	}
 
