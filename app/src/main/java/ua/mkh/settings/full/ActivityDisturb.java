@@ -365,13 +365,18 @@ public class ActivityDisturb extends Activity implements View.OnClickListener,  
 			if(tb_shedule.isChecked()) {
 				timeSet t = new timeSet (this);
 				t.start_receiver(this);
-				registerReceiver(Receiver, new IntentFilter(
-						"android.intent.action.TIME_TICK"));
+				Intent service = new Intent(this, MyService.class);
+				startService(service);
+
+				//registerReceiver(Receiver, new IntentFilter(
+				//		"android.intent.action.TIME_TICK"));
 				LinearLayoutShedule.setVisibility(View.VISIBLE);
 			}
         	else {
 				timeSet t = new timeSet (this);
 				t.stop_receiver(this);
+				Intent service = new Intent(this, MyService.class);
+				stopService(service);
 				LinearLayoutShedule.setVisibility(View.GONE);
         		 }
 		}
