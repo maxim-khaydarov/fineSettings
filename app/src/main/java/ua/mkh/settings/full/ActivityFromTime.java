@@ -157,9 +157,9 @@ public class ActivityFromTime extends Activity implements View.OnClickListener, 
 		
 	
 		// set current time
-		Calendar c1 = Calendar.getInstance();
-		int curHours1 = c1.get(Calendar.HOUR_OF_DAY);
-		int curMinutes1 = c1.get(Calendar.MINUTE);
+	//	Calendar c1 = Calendar.getInstance();
+	//	int curHours1 = c1.get(Calendar.HOUR_OF_DAY);
+	//	int curMinutes1 = c1.get(Calendar.MINUTE);
 
 
 
@@ -189,7 +189,7 @@ public class ActivityFromTime extends Activity implements View.OnClickListener, 
 		public void start_notif (){
 			timeSet t = new timeSet (getBaseContext()); 
 			t.start_notif (getBaseContext());		}
-		
+	/*
 	public void  start_from() {
 		timeSet t = new timeSet (getBaseContext()); 
 		t.setAlarm_from ();
@@ -199,7 +199,7 @@ public class ActivityFromTime extends Activity implements View.OnClickListener, 
 		t.setAlarm_to ();
 	}
 	
-
+*/
 
 	
 	protected void onResume() {
@@ -384,13 +384,13 @@ public class ActivityFromTime extends Activity implements View.OnClickListener, 
 			}
 		}
 	////	//////////
-		if (calFrom.compareTo(current1) < 0){
+	/*	if (calFrom.compareTo(current1) < 0){
 			if (calTo.compareTo(current1) < 0){
 				calFrom.add(Calendar.DATE, 1);
 				calTo.add(Calendar.DATE, 1);
 			}
 		}
-		
+	*/
 
 
 
@@ -420,16 +420,15 @@ public class ActivityFromTime extends Activity implements View.OnClickListener, 
 		editorName.putString("disturb_to_hour", hour_2);
 		editorName.putString("disturb_to_min", min_2);
 
-		SimpleDateFormat format1 = new SimpleDateFormat("HH:mm");
-
-
-		//editorName.putString("disturb_from_calendar", format1.format(calFrom.getTime()));
-		//editorName.putString("disturb_to_calendar", format1.format(calTo.getTime()));
+		editorName.putBoolean("shedule_disturb", true);
 
 		editorName.apply();
 
-		start_from();
-		start_to();
+		//start_from();
+		//start_to();
+
+		//timeSet t = new timeSet (this);
+		//t.start_receiver(this);
 
 		Intent intent = new Intent(this, ActivityDisturb.class);
 	 	 startActivity(intent);

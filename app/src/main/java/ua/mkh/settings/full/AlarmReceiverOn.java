@@ -23,8 +23,6 @@ public class AlarmReceiverOn extends BroadcastReceiver {
      timeSet t = new timeSet (mContext);
      t.start_notif (mContext);
 
-
-
  }
 
  

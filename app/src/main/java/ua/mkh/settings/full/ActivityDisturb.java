@@ -8,13 +8,17 @@ import java.io.OutputStreamWriter;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.media.AudioManager;
 import android.os.Bundle;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -43,6 +47,7 @@ public class ActivityDisturb extends Activity implements View.OnClickListener,  
 	Typeface typefaceRoman, typefaceMedium, typefaceBold;
 	int OS = android.os.Build.VERSION.SDK_INT;
 	Boolean enable_disturb;
+	ReceiverTime  Receiver = new ReceiverTime();
 	
 	public static final String APP_PREFERENCES = "mysettings";
 	public static final String APP_PREFERENCES_text_size = "txt_size";
@@ -64,6 +69,8 @@ public class ActivityDisturb extends Activity implements View.OnClickListener,  
 	SharedPreferences mSettings;
 	
 	private RadioButton always, locked;
+
+
 	
 	
 	@Override
@@ -321,6 +328,15 @@ public class ActivityDisturb extends Activity implements View.OnClickListener,  
 	
 	private void Shedule_list () {
 
+		tb_shedule.setChecked(mSettings.getBoolean("shedule_disturb", false));
+		if(tb_shedule.isChecked()) {
+			LinearLayoutShedule.setVisibility(View.VISIBLE);
+
+		}
+		else{
+			LinearLayoutShedule.setVisibility(View.GONE);
+		}
+/*
 		if (text_from.getText().equals("--:--")) {
 			LinearLayoutShedule.setVisibility(View.GONE);
 			shedule = 0; 
@@ -330,7 +346,7 @@ public class ActivityDisturb extends Activity implements View.OnClickListener,  
 			shedule = 1;
 			tb_shedule.setChecked(true);
 		}
-		
+		*/
 	}
 	
 	
@@ -347,14 +363,17 @@ public class ActivityDisturb extends Activity implements View.OnClickListener,  
 		} 
 		else if (id == R.id.ToggleButton02) {
 			if(tb_shedule.isChecked()) {
-        		LinearLayoutShedule.setVisibility(View.VISIBLE);
-        		shedule = 1; }
+				timeSet t = new timeSet (this);
+				t.start_receiver(this);
+				registerReceiver(Receiver, new IntentFilter(
+						"android.intent.action.TIME_TICK"));
+				LinearLayoutShedule.setVisibility(View.VISIBLE);
+			}
         	else {
-        		LinearLayoutShedule.setVisibility(View.GONE);
-        		shedule = 0; 
-        		time_0 ();
-        		stop_from();
-        		stop_to(); }
+				timeSet t = new timeSet (this);
+				t.stop_receiver(this);
+				LinearLayoutShedule.setVisibility(View.GONE);
+        		 }
 		}
 		else if (id == R.id.Button04) {
 			Intent intent1 = new Intent(this, ActivityFromTime.class);
@@ -379,8 +398,8 @@ public class ActivityDisturb extends Activity implements View.OnClickListener,  
 	}
 	
 	private void time_read () {
-		text_from.setText(mSettings.getString("disturb_from_hour","--")+":"+mSettings.getString("disturb_from_min", "--"));
-		text_to.setText(mSettings.getString("disturb_to_hour","--")+":"+mSettings.getString("disturb_to_min", "--"));
+		text_from.setText(mSettings.getString("disturb_from_hour","00")+":"+mSettings.getString("disturb_from_min", "00"));
+		text_to.setText(mSettings.getString("disturb_to_hour","06")+":"+mSettings.getString("disturb_to_min", "00"));
 		/*
 		try {
 			
