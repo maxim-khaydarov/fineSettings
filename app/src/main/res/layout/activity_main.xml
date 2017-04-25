@@ -1410,16 +1410,6 @@
                             android:scaleType="fitXY"
                             android:src="@drawable/appstore" />
 
-                        <ImageView
-                            android:id="@+id/ImageView27"
-                            android:layout_width="fill_parent"
-                            android:layout_height="1px"
-                            android:layout_alignParentTop="true"
-                            android:layout_toRightOf="@+id/ImageView161"
-                            android:ems="10"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/line_cray" />
-
                     </RelativeLayout>
 
                 </LinearLayout>

@@ -506,7 +506,6 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 		LinearLayoutGameCenter.setVisibility(View.GONE);
 		LinearLayoutNotif.setVisibility(View.GONE);
 		LinearLayoutControl.setVisibility(View.GONE);
-		LinearLayoutTunes.setVisibility(View.GONE);
 		LinearLayoutMaps.setVisibility(View.GONE);
 		LinearLayoutVk.setVisibility(View.GONE);
 		LinearLayoutViber.setVisibility(View.GONE);
@@ -975,9 +974,17 @@ public void soccial (){
 	 	        	 }
 	        	 
 		 else if (id == R.id.ButtonDisturb){
-	        	Intent intent11 = new Intent(this, ActivityDisturb.class);
-	        	 startActivity(intent11);
-	 	        	overridePendingTransition(center_to_left, center_to_left2);
+			 Intent intent = new Intent(Intent.ACTION_MAIN);
+			 intent.addCategory(Intent.CATEGORY_APP_EMAIL);
+
+
+			 Intent n1111 = new Intent (this, ActivityDisturb.class);
+			 SwipeBackActivityHelper.activityBuilder(this)
+					 .intent(intent)
+					 .needParallax(false)
+					 .needBackgroundShadow(false)
+					 .startActivity();
+
 	 	        	 }
 		 
 		 else if (id == R.id.ButtonOperator){
@@ -1175,9 +1182,12 @@ public void soccial (){
 
 		 
 		 else if (id == R.id.ButtonTunes){
-			 Intent LaunchIntent = getPackageManager().getLaunchIntentForPackage(itunes_app);
-			 startActivity( LaunchIntent );
-		        	overridePendingTransition(center_to_left, center_to_left2);
+			 Intent n1111 = new Intent (this, ActivityiTunes.class);
+			 SwipeBackActivityHelper.activityBuilder(this)
+					 .intent(n1111)
+					 .needParallax(false)
+					 .needBackgroundShadow(false)
+					 .startActivity();
 		        	 }
 		 
 		 else if (id == R.id.Button06){
@@ -1468,12 +1478,12 @@ public void soccial (){
 				// Получаем число из настроек
 				control_app = mSettings.getString(APP_PREFERENCES_CONTROL, null); 
 				LinearLayoutControl.setVisibility(View.VISIBLE); }
-
+/*
 	        if (mSettings.contains(APP_PREFERENCES_ITUNES)) {
 				// Получаем число из настроек
 				itunes_app = mSettings.getString(APP_PREFERENCES_ITUNES, null); 
 				LinearLayoutTunes.setVisibility(View.VISIBLE); }
-	       
+	       */
 	        if (mSettings.contains(APP_PREFERENCES_NEW1)) {
 				// Получаем число из настроек
 	        	new1_app = mSettings.getString(APP_PREFERENCES_NEW1, null);

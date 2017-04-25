@@ -73,8 +73,8 @@ public class ActivityAppleID extends Activity implements View.OnClickListener{
         String bold = "fonts/Bold.otf";
 
         helper.setEdgeMode(true)
-                .setParallaxMode(false)
-                .setParallaxRatio(0)
+                .setParallaxMode(true)
+                .setParallaxRatio(5)
                 .setNeedBackgroundShadow(false)
                 .init(this);
 
@@ -109,6 +109,7 @@ public class ActivityAppleID extends Activity implements View.OnClickListener{
         b4 = (Button) findViewById(R.id.b4);
         b4.setOnClickListener(this);
         b5 = (Button) findViewById(R.id.b5);
+        b5.setOnClickListener(this);
         b6 = (Button) findViewById(R.id.b6);
 
 
@@ -342,6 +343,15 @@ public class ActivityAppleID extends Activity implements View.OnClickListener{
                 Intent n121 = new Intent (this, ActivityiCloud.class);
                 SwipeBackActivityHelper.activityBuilder(this)
                         .intent(n121)
+                        .needParallax(false)
+                        .needBackgroundShadow(false)
+                        .startActivity();
+                break;
+
+            case R.id.b5:
+                Intent n1211 = new Intent (this, ActivityiTunes.class);
+                SwipeBackActivityHelper.activityBuilder(this)
+                        .intent(n1211)
                         .needParallax(false)
                         .needBackgroundShadow(false)
                         .startActivity();

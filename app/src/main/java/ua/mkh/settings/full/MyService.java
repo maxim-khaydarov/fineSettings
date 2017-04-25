@@ -49,13 +49,13 @@ public class MyService extends Service
             @Override
             public void onReceive(Context context, Intent intent)
             {
-                Log.e("RECEIVER", "START REVEIVER");
+                //Log.e("RECEIVER", "START REVEIVER");
 
                 SharedPreferences mSettings = context.getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 
                 if (intent.getAction().equalsIgnoreCase("android.intent.action.TIME_TICK")) {
 
-                    Log.e("RECEIVER", "START REVEIVER TIME TICK");
+                    //Log.e("RECEIVER", "START REVEIVER TIME TICK");
                     Calendar c = Calendar.getInstance();
                     int min = c.get(Calendar.MINUTE);
                     int hour = c.get(Calendar.HOUR_OF_DAY);

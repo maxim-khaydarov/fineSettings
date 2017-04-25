@@ -137,7 +137,6 @@
                         android:ems="10"
                         android:hint="@string/necessarily"
                         android:inputType="phone"
-                        android:text="975192551"
                         android:textColor="@color/black"
                         android:textColorHint="@color/hint_text"
                         android:textCursorDrawable="@color/black"

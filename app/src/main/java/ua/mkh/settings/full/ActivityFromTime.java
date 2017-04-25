@@ -21,6 +21,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
@@ -29,6 +30,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aigestudio.wheelpicker.WheelPicker;
+import com.github.bluzwong.swipeback.SwipeBackActivityHelper;
 
 public class ActivityFromTime extends Activity implements View.OnClickListener, WheelPicker.OnItemSelectedListener {
 
@@ -62,14 +64,22 @@ public class ActivityFromTime extends Activity implements View.OnClickListener, 
 
 		String hour_1, min_1, hour_2, min_2;
 		WheelPicker wheelPicker_hour_1, wheelPicker_hour_2, wheelPicker_min_1, wheelPicker_min_2;
-	
-	
+	SwipeBackActivityHelper helper = new SwipeBackActivityHelper();
+
+
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_from_time);
-		
+
+		helper.setEdgeMode(true)
+				.setParallaxMode(true)
+				.setParallaxRatio(5)
+				.setNeedBackgroundShadow(false)
+				.init(this);
+
 		String roman = "fonts/Regular.otf";
 		String medium = "fonts/Medium.otf";
 		String bold =  "fonts/Bold.otf";
@@ -280,32 +290,25 @@ public class ActivityFromTime extends Activity implements View.OnClickListener, 
 
 	}
 
-	public void BackClick(View v)  
-    {  
-		Intent intent18 = new Intent(this, ActivityDisturb.class);
-     	 startActivity(intent18);
+	public void BackClick(View v) {
+		onBackPressed();
 
-		overridePendingTransition(center_to_right, center_to_right2);
-   	 }
+	}
+
 	@Override
-    public boolean onKeyDown(int keycode, KeyEvent e) {
-        switch(keycode) {
-            case KeyEvent.KEYCODE_MENU:
-            	
-                return true;
-            case KeyEvent.KEYCODE_BACK:
-            	Intent intent18 = new Intent(this, ActivityDisturb.class);
-   	       	 startActivity(intent18);
-        		overridePendingTransition(center_to_right, center_to_right2);
-                return true;
-            
-        }
-        return super.onKeyDown(keycode, e);
-   }
-    
+	public void onBackPressed() {
 
-   
-	
+		View view = this.getCurrentFocus();
+		if (view != null) {
+			InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+			inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+		}
+
+		helper.finish();
+	}
+
+
+
 	public void SaveClick(View v)  
     {  
 		Calendar current1 = Calendar.getInstance();
@@ -362,8 +365,8 @@ public class ActivityFromTime extends Activity implements View.OnClickListener, 
 		SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm");
 		strdate_to = sdf2.format(calFromText.getTime());
 */
-		if (calFrom.compareTo(current1) < 0){
-			if (calTo.compareTo(current1) > 0){
+		if (calFrom.compareTo(current1) <= 0){
+			if (calTo.compareTo(current1) >= 0){
 				start_notif ();
 			}
 		}
@@ -378,8 +381,8 @@ public class ActivityFromTime extends Activity implements View.OnClickListener, 
 		//		timePicker2.getCurrentHour(),
 	    //  	      timePicker2.getCurrentMinute());
 
-		if (calFrom.compareTo(current1) < 0){
-			if (calFrom.compareTo(calTo) > 0 ){
+		if (calFrom.compareTo(current1) <= 0){
+			if (calFrom.compareTo(calTo) >= 0 ){
 				start_notif ();
 			}
 		}
@@ -430,9 +433,7 @@ public class ActivityFromTime extends Activity implements View.OnClickListener, 
 		//timeSet t = new timeSet (this);
 		//t.start_receiver(this);
 
-		Intent intent = new Intent(this, ActivityDisturb.class);
-	 	 startActivity(intent);
-	 	overridePendingTransition(center_to_right, center_to_right2);
+		helper.finish();
      	 }
 
 	@Override

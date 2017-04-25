@@ -605,7 +605,14 @@
 	<string name="number_card">номер карты</string>
     <string name="platezh_dostavka">Платеж и доставка</string>
 	<string name="other">Другое</string>
-
+	
+	<string name="itunes_touchid">Touch ID можно использовать для всех покупок.</string>
+	<string name="itunes_auto_download">АВТОМАТИЧЕСКИЕ ЗАГРУЗКИ</string>
+	<string name="itunes_dowload_text">Автоматически загружать новые покупки (включая бесплатные), совершенные на других устройствах.</string>
+	<string name="itunes_sota_data_text">Использовать сотовую сеть для автоматических загрузок.</string>
+	
+	<string name="books">Книги и аудиокниги</string>
+	<string name="updates">Обновления</string>
 </resources>
 
 

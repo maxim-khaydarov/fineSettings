@@ -1,0 +1,467 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/background_fon"
+    android:ems="10">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_fon"
+        android:orientation="horizontal"></LinearLayout>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scrollView1"
+        style="android:scrollViewStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/background_fon"
+        android:ems="10"
+        android:fadingEdge="none"
+        android:overScrollMode="always"
+        android:scrollbars="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:ems="10"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ImageView38"
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="80dp"
+                android:ems="10"
+                android:scaleType="fitXY"
+                android:src="@drawable/line_cray" />
+
+            <LinearLayout
+                android:id="@+id/LinearLayoutICloud"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10">
+
+                    <Button
+                        android:id="@+id/Button01"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/button_bg"
+                        android:clickable="false"
+                        android:ems="10"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="@string/mail"
+                        android:textColor="@color/blue"
+                        android:textSize="15sp" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ImageView03"
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:ems="10"
+                android:scaleType="fitXY"
+                android:src="@drawable/line_cray" />
+
+            <TextView
+                android:id="@+id/textView42"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/itunes_touchid"
+                android:textColor="@color/hint_text"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/textView43"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/itunes_auto_download"
+                android:textColor="@color/hint_text"
+                android:textSize="13sp" />
+
+            <ImageView
+                android:id="@+id/ImageView17"
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:ems="10"
+                android:scaleType="fitXY"
+                android:src="@drawable/line_cray" />
+
+            <LinearLayout
+                android:id="@+id/LinearLayoutAir"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10">
+
+                    <Button
+                        android:id="@+id/Button01"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/button_bg"
+                        android:clickable="false"
+                        android:ems="10"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="65dp"
+                        android:text="@string/music"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="27dp"
+                        android:layout_height="27dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp"
+                        android:background="@color/transparent"
+                        android:ems="10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/itunes" />
+
+                    <ToggleButton
+                        android:id="@+id/tg_music"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/btn_toggle_bg"
+                        android:text="ToggleButton"
+                        android:textOff=" "
+                        android:textOn=" " />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearLayout14"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10">
+
+                    <Button
+                        android:id="@+id/Button15"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/button_bg"
+                        android:clickable="false"
+                        android:ems="10"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="65dp"
+                        android:text="@string/apps"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:id="@+id/ImageView16"
+                        android:layout_width="27dp"
+                        android:layout_height="27dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp"
+                        android:background="@color/transparent"
+                        android:ems="10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/appstore" />
+
+                    <ToggleButton
+                        android:id="@+id/tg_apps"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/btn_toggle_bg"
+                        android:text="ToggleButton"
+                        android:textOff=" "
+                        android:textOn=" " />
+
+                    <ImageView
+                        android:id="@+id/ImageView18"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="65dp"
+                        android:ems="10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/line_cray" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearLayout13"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10">
+
+                    <Button
+                        android:id="@+id/Button14"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/button_bg"
+                        android:clickable="false"
+                        android:ems="10"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="65dp"
+                        android:text="@string/books"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:id="@+id/ImageView15"
+                        android:layout_width="27dp"
+                        android:layout_height="27dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp"
+                        android:background="@color/transparent"
+                        android:ems="10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ibook" />
+
+                    <ToggleButton
+                        android:id="@+id/tg_book"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/btn_toggle_bg"
+                        android:text="ToggleButton"
+                        android:textOff=" "
+                        android:textOn=" " />
+
+                    <ImageView
+                        android:id="@+id/ImageView19"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentLeft="false"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="65dp"
+                        android:ems="10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/line_cray" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearLayout12"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10">
+
+                    <Button
+                        android:id="@+id/Button13"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/button_bg"
+                        android:clickable="false"
+                        android:ems="10"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="65dp"
+                        android:text="@string/updates"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:id="@+id/ImageView14"
+                        android:layout_width="27dp"
+                        android:layout_height="27dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp"
+                        android:background="@color/transparent"
+                        android:ems="10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/appstore" />
+
+                    <ToggleButton
+                        android:id="@+id/tg_update"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/btn_toggle_bg"
+                        android:text="ToggleButton"
+                        android:textOff=" "
+                        android:textOn=" " />
+
+                    <ImageView
+                        android:id="@+id/ImageView20"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentLeft="false"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="65dp"
+                        android:ems="10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/line_cray" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView36"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:ems="10"
+                android:scaleType="fitXY"
+                android:src="@drawable/line_cray" />
+
+            <TextView
+                android:id="@+id/textView44"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/itunes_dowload_text"
+                android:textColor="@color/hint_text"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:id="@+id/LinearLayout19"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="30dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView33"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:ems="10"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/line_cray" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10">
+
+                    <Button
+                        android:id="@+id/Button13"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/button_bg"
+                        android:clickable="false"
+                        android:ems="10"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="@string/button_enable_data"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <ToggleButton
+                        android:id="@+id/tg_sota_data"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/btn_toggle_bg"
+                        android:text="ToggleButton"
+                        android:textOff=" "
+                        android:textOn=" " />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ImageView39"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:ems="10"
+                android:scaleType="fitXY"
+                android:src="@drawable/line_cray" />
+
+            <TextView
+                android:id="@+id/textView45"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/itunes_sota_data_text"
+                android:textColor="@color/hint_text"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/background_title"
+        android:orientation="vertical" >
+
+        <include
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            layout="@layout/title_status" />
+    </LinearLayout>
+
+</RelativeLayout>

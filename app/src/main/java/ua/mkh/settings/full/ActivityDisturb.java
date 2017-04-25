@@ -25,13 +25,19 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import com.github.bluzwong.swipeback.SwipeBackActivityHelper;
+
+import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 
 public class ActivityDisturb extends Activity implements View.OnClickListener,  RadioGroup.OnCheckedChangeListener{
 
@@ -70,7 +76,7 @@ public class ActivityDisturb extends Activity implements View.OnClickListener,  
 	
 	private RadioButton always, locked;
 
-
+	SwipeBackActivityHelper helper = new SwipeBackActivityHelper();
 	
 	
 	@Override
@@ -88,8 +94,18 @@ public class ActivityDisturb extends Activity implements View.OnClickListener,  
 		Typeface typefaceThin = Typeface.createFromAsset(getAssets(), thin);
 		
 		mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
-		
-		
+
+		helper.setEdgeMode(true)
+				.setParallaxMode(true)
+				.setParallaxRatio(5)
+				.setNeedBackgroundShadow(false)
+				.init(this);
+
+		ScrollView scrollView = (ScrollView) findViewById(R.id.scrollView1);
+		OverScrollDecoratorHelper.setUpOverScroll(scrollView);
+
+
+
 		RadioGroup radiogroup = (RadioGroup) findViewById(R.id.radioGroup1);
         radiogroup.setOnCheckedChangeListener(this);
      // radio button setting
@@ -364,9 +380,8 @@ public class ActivityDisturb extends Activity implements View.OnClickListener,  
 		else if (id == R.id.ToggleButton02) {
 			if(tb_shedule.isChecked()) {
 				timeSet t = new timeSet (this);
-				t.start_receiver(this);
-				Intent service = new Intent(this, MyService.class);
-				startService(service);
+				t.start_receiver();
+
 
 				//registerReceiver(Receiver, new IntentFilter(
 				//		"android.intent.action.TIME_TICK"));
@@ -374,16 +389,19 @@ public class ActivityDisturb extends Activity implements View.OnClickListener,  
 			}
         	else {
 				timeSet t = new timeSet (this);
-				t.stop_receiver(this);
-				Intent service = new Intent(this, MyService.class);
-				stopService(service);
+				t.stop_receiver();
+
 				LinearLayoutShedule.setVisibility(View.GONE);
         		 }
 		}
 		else if (id == R.id.Button04) {
-			Intent intent1 = new Intent(this, ActivityFromTime.class);
-			startActivity(intent1);
-	 	        	overridePendingTransition(center_to_left, center_to_left2);
+			Intent n1111 = new Intent (this, ActivityFromTime.class);
+			SwipeBackActivityHelper.activityBuilder(this)
+					.intent(n1111)
+					.needParallax(false)
+					.needBackgroundShadow(false)
+					.startActivity();
+
 	 	        	 }
 		else if (id == R.id.ToggleButton03) {
 			if((tb_repeat).isChecked()) {
@@ -473,15 +491,7 @@ try {
 	}
 	
 	
-	public void  stop_from() {
-		timeSet t = new timeSet (getBaseContext()); 
-		t.setStop_from_manual ();
-	}
-	
-	public void  stop_to() {
-		timeSet t = new timeSet (getBaseContext()); 
-		t.setStop_to_manual ();
-	}
+
 	   
 	public void start_notif (){
 		timeSet t = new timeSet (getBaseContext()); 
@@ -491,31 +501,27 @@ try {
 		timeSet t = new timeSet (getBaseContext()); 
 		t.stop_notif (getBaseContext());
 	}
-	
-	public void BackClick(View v)  
-    {  
-		Intent intent18 = new Intent(this, MainActivity.class);
-     	 startActivity(intent18);
 
-		overridePendingTransition(center_to_right, center_to_right2);
-   	 }
-	
-	 @Override
-	    public boolean onKeyDown(int keycode, KeyEvent e) {
-	        switch(keycode) {
-	            
-	            case KeyEvent.KEYCODE_BACK:
-	            	Intent intent18 = new Intent(this, MainActivity.class);
-	   	       	 startActivity(intent18);
-	   	        	overridePendingTransition(center_to_right, center_to_right2);
-	                return true;
-	            
-	        }
-	        return super.onKeyDown(keycode, e);
-	   }
-	        
-	 
-	        public void onCheckedChanged(RadioGroup group, int checkedId) {
+	public void BackClick(View v) {
+		onBackPressed();
+
+	}
+
+	@Override
+	public void onBackPressed() {
+
+		View view = this.getCurrentFocus();
+		if (view != null) {
+			InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+			inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+		}
+
+		helper.finish();
+	}
+
+
+
+	public void onCheckedChanged(RadioGroup group, int checkedId) {
 		        switch (checkedId) {
 		        case R.id.radio0:
 		        	TextView04.setText(R.string.silence_call_disturb_text_always);

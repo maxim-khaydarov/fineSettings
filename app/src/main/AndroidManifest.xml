@@ -134,6 +134,7 @@
         <activity android:name=".ActivityPasswordAppleID" />
         <activity android:name=".ActivityPlatezh" />
         <activity android:name=".ActivityAddCard" />
+        <activity android:name=".ActivityiTunes" />
         <activity
             android:name=".ActivityCharge"
             android:theme="@style/Theme.Transparent" />
@@ -178,20 +179,6 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <receiver
-            android:name=".ReceiverTime"
-            android:enabled="true"
-            android:exported="true"
-            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
-                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
-                <category android:name="android.intent.category.DEFAULT" />
-
-            </intent-filter>
-
-        </receiver>
 
 
         <service

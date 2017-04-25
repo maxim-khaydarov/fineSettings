@@ -267,12 +267,11 @@ public class timeSet {
 	 }
 
 
-	 public void start_receiver (Context context){
+	 public void start_receiver (){
 
-			 //context.registerReceiver(Receiver, new IntentFilter(
-			//		 "android.intent.action.TIME_TICK"));
-			 //Toast.makeText(kContext, "Приёмник включен",
-			//		 Toast.LENGTH_SHORT).show();
+
+		 Intent service = new Intent(kContext, MyService.class);
+		 kContext.startService(service);
 
 		 SharedPreferences mSettings = kContext.getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 		 SharedPreferences.Editor editorName = mSettings.edit();
@@ -282,7 +281,10 @@ public class timeSet {
 
 	 }
 
-	 public void stop_receiver(Context context){
+	 public void stop_receiver(){
+
+		 Intent service = new Intent(kContext, MyService.class);
+		 kContext.stopService(service);
 
 		 SharedPreferences mSettings = kContext.getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 		 SharedPreferences.Editor editorName = mSettings.edit();
