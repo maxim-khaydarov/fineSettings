@@ -105,7 +105,6 @@ public class ActivityiCloud extends Activity implements View.OnClickListener {
 	public static final String APP_PREFERENCES_TWITTER = "twitter_app";
 	public static final String APP_PREFERENCES_FACEBOOK = "facebook_app";
 	public static final String APP_PREFERENCES_INSTAGRAM = "instagram_app";
-	public static final String APP_PREFERENCES_ITUNES = "itunes_app";
 
 	public static final boolean APP_PREFERENCES_MAIL_TGB = false;
 	public static final boolean APP_PREFERENCES_NOTEPAD_TGB = false;
@@ -1337,12 +1336,6 @@ private void persent (){
 			 Intent settingsIntent = new Intent(android.provider.Settings.ACTION_ADD_ACCOUNT);
 	        	startActivity(settingsIntent);
 		        	overridePendingTransition(center_to_left, center_to_left2);
-			break;
-			
-		case R.id.Button21:
-			Intent intent18d = new Intent(this, ActivityAppsiTunes.class);
-	       	 startActivity(intent18d);
-	        	overridePendingTransition(center_to_left, center_to_left2);
 			break;
         	
 		case R.id.Button22:

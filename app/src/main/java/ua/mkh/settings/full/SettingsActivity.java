@@ -226,11 +226,7 @@ public class SettingsActivity extends Activity implements View.OnClickListener{
 		}
 		 
 		 
-		if (id == R.id.Button21){
-			Intent intent = new Intent(this, ActivityAppsiTunes.class);
-	       	 startActivity(intent);
- 	        	overridePendingTransition(center_to_left, center_to_left2);
-		}
+
 		
 		if (id == R.id.Button14){
 			Intent intent = new Intent(this, ActivityAppsNew1.class);
