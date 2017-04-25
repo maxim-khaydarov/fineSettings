@@ -974,13 +974,9 @@ public void soccial (){
 	 	        	 }
 	        	 
 		 else if (id == R.id.ButtonDisturb){
-			 Intent intent = new Intent(Intent.ACTION_MAIN);
-			 intent.addCategory(Intent.CATEGORY_APP_EMAIL);
-
-
 			 Intent n1111 = new Intent (this, ActivityDisturb.class);
 			 SwipeBackActivityHelper.activityBuilder(this)
-					 .intent(intent)
+					 .intent(n1111)
 					 .needParallax(false)
 					 .needBackgroundShadow(false)
 					 .startActivity();

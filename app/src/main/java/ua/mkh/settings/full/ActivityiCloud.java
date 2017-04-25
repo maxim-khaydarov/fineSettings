@@ -131,7 +131,7 @@ public class ActivityiCloud extends Activity implements View.OnClickListener {
 	Button btn_mail, btn_notepad, btn_phone, btn_message, btn_safari, btn_music, btn_game,
 			btn_weather, btn_compass, btn_maps, btn_vk, btn_viber, btn_ok, btn_skype,
 			btn_whatsapp, btn_twitter, btn_facebook, btn_instagram, btn_newacc, btn_delacc,
-			btn_account, buttonBack, btn_menu_settings, btn_menu_cancel, button_update, button_sync, btn_appstore,
+			btn_account, buttonBack, btn_menu_settings, btn_menu_cancel, button_update, button_sync,
 			btn_search;
 
 	Intent notif_inoty, notif_espier, control_hi, control_espier, mail_ino, mail_stok,
@@ -139,13 +139,13 @@ public class ActivityiCloud extends Activity implements View.OnClickListener {
 			messages_easyandroid, messages_iphonestyle, messages_espier, messages_stok,
 			safari_ios, safari_stok, music_easyandroid1, music_easyandroid2, music_hi, music_stok, compass_hanimobile, weather_cybob,
 			weather_yahoo, weather_kuandroid, games_mkh, new1, new2, new3, new4, vk_stok, maps_stok, viber_stok,
-			ok_stok, skype_stok, whatsapp_stok, twitter_stok, facebook_stok, instagram_stok, appstore_stok;
+			ok_stok, skype_stok, whatsapp_stok, twitter_stok, facebook_stok, instagram_stok;
 
 	TextView textStatus, size_memory;
 	ToggleButton tb_sync;
 
 	ToggleButton mail, notes, phone, messages, compass, safari, music, game, weather, maps, vk, viber, ok, skype, whatsapp, twitter, facebook, instagram,
-			appstore, search;
+			search;
 
 	SwipeBackActivityHelper helper = new SwipeBackActivityHelper();
 	long total_size = 0;
@@ -246,9 +246,7 @@ public class ActivityiCloud extends Activity implements View.OnClickListener {
 		btn_instagram.setEnabled(false);
 		btn_newacc = (Button) findViewById(R.id.Button20);
 		btn_newacc.setOnClickListener(this);
-		btn_appstore = (Button) findViewById(R.id.Button21);
-		btn_appstore.setOnClickListener(this);
-		btn_appstore.setEnabled(false);
+
 		//btn_delacc = (Button) findViewById(R.id.Button19);
 		btn_account = (Button) findViewById(R.id.ButtonWifi);
 
@@ -293,8 +291,6 @@ public class ActivityiCloud extends Activity implements View.OnClickListener {
 		facebook.setOnClickListener(this);
 		instagram = (ToggleButton) findViewById(R.id.ToggleButtonInstagram);
 		instagram.setOnClickListener(this);
-		appstore = (ToggleButton) findViewById(R.id.ToggleButtonAppstore);
-		appstore.setOnClickListener(this);
 		buttonBack = (Button) findViewById(R.id.buttonBack);
 		buttonBack.setText(R.string.app_name);
 		btn_menu_settings = (Button) findViewById(R.id.ButtonMenuSettings);
@@ -325,7 +321,6 @@ public class ActivityiCloud extends Activity implements View.OnClickListener {
 		btn_instagram.setTypeface(typefaceRoman);
 		btn_newacc.setTypeface(typefaceRoman);
 		button_sync.setTypeface(typefaceRoman);
-		btn_appstore.setTypeface(typefaceRoman);
 		btn_search.setTypeface(typefaceRoman);
 		size_memory.setTypeface(typefaceRoman);
 
@@ -363,8 +358,6 @@ public class ActivityiCloud extends Activity implements View.OnClickListener {
 		instagram_stok = pm.getLaunchIntentForPackage("com.instagram.android");
 //Maps
 		maps_stok = pm.getLaunchIntentForPackage("com.google.android.apps.maps");
-//Appstore
-		appstore_stok = pm.getLaunchIntentForPackage("com.android.vending");
 
 	}
 
@@ -423,7 +416,6 @@ public class ActivityiCloud extends Activity implements View.OnClickListener {
 				btn_newacc.setTypeface(typefaceBold);
 				btn_search.setTypeface(typefaceBold);
 				button_sync.setTypeface(typefaceBold);
-				btn_appstore.setTypeface(typefaceBold);
 
 
 			}
@@ -452,8 +444,6 @@ public class ActivityiCloud extends Activity implements View.OnClickListener {
 				btn_instagram.setTextSize(13);
 				btn_newacc.setTextSize(13);
 				button_sync.setTextSize(13);
-				btn_appstore.setTextSize(13);
-
 				btn_search.setTextSize(13);
 			}
 			if (size.contains("Normal")) {
@@ -477,8 +467,6 @@ public class ActivityiCloud extends Activity implements View.OnClickListener {
 				btn_instagram.setTextSize(15);
 				btn_newacc.setTextSize(15);
 				button_sync.setTextSize(15);
-				btn_appstore.setTextSize(15);
-
 				btn_search.setTextSize(15);
 			}
 			if (size.contains("Large")) {
@@ -502,8 +490,6 @@ public class ActivityiCloud extends Activity implements View.OnClickListener {
 				btn_instagram.setTextSize(18);
 				btn_newacc.setTextSize(18);
 				button_sync.setTextSize(18);
-				btn_appstore.setTextSize(18);
-
 				btn_search.setTextSize(18);
 			}
 			if (size.contains("xLarge")) {
@@ -527,8 +513,6 @@ public class ActivityiCloud extends Activity implements View.OnClickListener {
 				btn_instagram.setTextSize(20);
 				btn_newacc.setTextSize(20);
 				button_sync.setTextSize(20);
-				btn_appstore.setTextSize(20);
-
 				btn_search.setTextSize(20);
 			}
 		}
@@ -636,11 +620,6 @@ public class ActivityiCloud extends Activity implements View.OnClickListener {
 		if (mSettings.contains(APP_PREFERENCES_INSTAGRAM)) {
 			instagram.setChecked(true);
 			btn_instagram.setEnabled(true);
-		}
-
-		if (mSettings.contains(APP_PREFERENCES_ITUNES)) {
-			appstore.setChecked(true);
-			btn_appstore.setEnabled(true);
 		}
 
 	}
@@ -1261,28 +1240,7 @@ private void persent (){
 			}
 			break;
 			
-		case R.id.ToggleButtonAppstore:
-			if(appstore.isChecked())//means this is the request to turn ON AIRPLANE mode
-        	{
-				if (null != appstore_stok){
-					String mail_app = "com.android.vending";
-					Editor editor = mSettings.edit();
-				   	editor.putString(APP_PREFERENCES_ITUNES, mail_app);
-				   	editor.apply();
-				}
-				else {
-				Intent intent = new Intent(this, ActivityAppsiTunes.class);
-		       	 startActivity(intent);
-		        	overridePendingTransition(center_to_left, center_to_left2); }
-				btn_appstore.setEnabled(true);
-        	}
-			else {
-				Editor editor = mSettings.edit();
-                editor.remove(APP_PREFERENCES_ITUNES).apply();
-                appstore.setChecked(false);
-                btn_appstore.setEnabled(false);
-			}
-			break;
+
 			
 		
 		case R.id.Button01:
