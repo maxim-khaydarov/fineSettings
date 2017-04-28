@@ -19,6 +19,8 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Dialog;
 import android.bluetooth.BluetoothAdapter;
+import android.content.ComponentName;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -495,7 +497,7 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 		LinearLayoutNew4.setVisibility(View.GONE);
 		
 		LinearLayoutGeo.setVisibility(View.GONE);
-		LinearLayoutMail.setVisibility(View.GONE);
+		//LinearLayoutMail.setVisibility(View.GONE);
 		LinearLayoutNotes.setVisibility(View.GONE);
 		LinearLayoutMessages.setVisibility(View.GONE);
 		LinearLayoutPhone.setVisibility(View.GONE);
@@ -1091,9 +1093,18 @@ public void soccial (){
 		        	 }
 	        	
 		 else if (id == R.id.ButtonMail){
-			 Intent LaunchIntent = getPackageManager().getLaunchIntentForPackage(mail_app);
-			 startActivity( LaunchIntent );
-		        	overridePendingTransition(center_to_left, center_to_left2);
+
+			 Intent intent = new Intent (this, ActivityMail.class);
+				 SwipeBackActivityHelper.activityBuilder(this)
+						 .intent(intent)
+						 .needParallax(false)
+						 .needBackgroundShadow(false)
+						 .startActivity();
+
+
+			 //Intent LaunchIntent = getPackageManager().getLaunchIntentForPackage(mail_app);
+			 //startActivity( LaunchIntent );
+		      //  	overridePendingTransition(center_to_left, center_to_left2);
 		        	 }
 	        	
 		 else if (id == R.id.ButtonNotes){
@@ -3113,5 +3124,28 @@ public void soccial (){
 			        
 			        
 			    }
+
+
+
+	private String getEmiailID(Context context) {
+		AccountManager accountManager = AccountManager.get(context);
+		Account account = getAccount(accountManager);
+		if (account == null) {
+			return null;
+		} else {
+			return account.name;
+		}
+	}
+
+	private static Account getAccount(AccountManager accountManager) {
+		Account[] accounts = accountManager.getAccountsByType("com.google");
+		Account account;
+		if (accounts.length > 0) {
+			account = accounts[0];
+		} else {
+			account = null;
+		}
+		return account;
+	}
 }
 

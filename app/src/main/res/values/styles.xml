@@ -22,21 +22,21 @@
     
 	<color name="white">#ffffff</color>
     <color name="color_statusbar">#f9f9f9</color>
-    <color name="background_fon">#eeeef3</color>
+    <color name="background_fon">#efeff4</color>
     <color name="background_title">#99f9f9f9</color>
-    <color name="goluboy">#97e2ff</color>
-    <color name="yellow">#eefd00</color>
-    <color name="green">#81db00</color>
-    <color name="orange">#dfbf00</color>
+    <color name="goluboy">#5ac8fa</color>
+    <color name="yellow">#ffcc00</color>
+    <color name="green">#4cd964</color>
+    <color name="orange">#ff9500</color>
     
     <color name="red">#E6382F</color>
     
 	<color name="transparent">@android:color/transparent </color>
-	<color name="black">#000000 </color>
+	<color name="black">#000000</color>
 	<color name="hint_text">#808080</color>
 	<color name="default_edgeeffect_color">@android:color/transparent</color>
 	<color name="press_button">#FFDEDEDE</color>
-	<color name="blue">#FF0071ED</color>
+	<color name="blue">#007aff</color>
 	
 	
 	

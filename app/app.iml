@@ -113,6 +113,7 @@
     <orderEntry type="library" exported="" name="play-services-appinvite-10.2.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-crash-10.2.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="multidex-instrumentation-1.0.1" level="project" />
+    <orderEntry type="library" exported="" name="switch-button-0.0.3" level="project" />
     <orderEntry type="library" exported="" name="play-services-plus-10.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-analytics-impl-10.2.1" level="project" />
     <orderEntry type="library" exported="" name="circleimageview-2.1.0" level="project" />

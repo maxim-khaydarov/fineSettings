@@ -13,9 +13,11 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.github.bluzwong.swipeback.SwipeBackActivityHelper;
+import com.suke.widget.SwitchButton;
 
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 
@@ -37,7 +39,7 @@ public class ActivityiTunes extends Activity implements View.OnClickListener {
     TextView textStatus;
     Button buttonBack;
     Button b1;
-    ToggleButton tg_music, tg_apps, tg_book, tg_update, tg_sota_data;
+    com.suke.widget.SwitchButton tg_sota_data, tg_music, tg_apps, tg_book, tg_update;
     SharedPreferences.Editor editor ;
     SwipeBackActivityHelper helper = new SwipeBackActivityHelper();
 
@@ -72,15 +74,17 @@ public class ActivityiTunes extends Activity implements View.OnClickListener {
         buttonBack = (Button) findViewById(R.id.buttonBack);
         buttonBack.setText(R.string.apple_id);
 
-        tg_music = (ToggleButton) findViewById(R.id.tg_music);
+        tg_music = (com.suke.widget.SwitchButton) findViewById(R.id.tg_music);
         tg_music.setOnClickListener(this);
-        tg_apps = (ToggleButton) findViewById(R.id.tg_apps);
+        tg_apps = (com.suke.widget.SwitchButton) findViewById(R.id.tg_apps);
         tg_apps.setOnClickListener(this);
-        tg_book = (ToggleButton) findViewById(R.id.tg_book);
+        tg_book = (com.suke.widget.SwitchButton) findViewById(R.id.tg_book);
         tg_book.setOnClickListener(this);
-        tg_update = (ToggleButton) findViewById(R.id.tg_update);
+        tg_update = (com.suke.widget.SwitchButton) findViewById(R.id.tg_update);
         tg_update.setOnClickListener(this);
-        tg_sota_data = (ToggleButton) findViewById(R.id.tg_sota_data);
+
+        tg_sota_data = (com.suke.widget.SwitchButton)
+                findViewById(R.id.tg_sota_data);
         tg_sota_data.setOnClickListener(this);
 
         b1 = (Button) findViewById(R.id.Button01);
@@ -92,6 +96,7 @@ public class ActivityiTunes extends Activity implements View.OnClickListener {
         textStatus.setTypeface(typefaceMedium);
         textStatus.setText(R.string.itunes_appstore);
 
+        toggleButton();
 
     }
 
@@ -102,6 +107,70 @@ public class ActivityiTunes extends Activity implements View.OnClickListener {
 
         get_tg();
 
+    }
+
+    private void toggleButton(){
+
+        tg_music.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(SwitchButton view, boolean isChecked) {
+                if(tg_music.isChecked()) {
+                    editor.putBoolean("itunes_music", true).apply();
+                }
+                else {
+                    editor.putBoolean("itunes_music", false).apply();
+                }
+            }
+        });
+        ////////////////////////////
+        tg_apps.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(SwitchButton view, boolean isChecked) {
+                if(tg_apps.isChecked()) {
+                    editor.putBoolean("itunes_apps", true).apply();
+                }
+                else {
+                    editor.putBoolean("itunes_apps", false).apply();
+                }
+            }
+        });
+        ////////////////////////////
+        tg_book.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(SwitchButton view, boolean isChecked) {
+                if(tg_book.isChecked()) {
+                    editor.putBoolean("itunes_book", true).apply();
+                }
+                else {
+                    editor.putBoolean("itunes_book", false).apply();
+                }
+            }
+        });
+        ////////////////////////////
+        tg_update.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(SwitchButton view, boolean isChecked) {
+                if(tg_update.isChecked()) {
+                    editor.putBoolean("itunes_update", true).apply();
+                }
+                else {
+                    editor.putBoolean("itunes_update", false).apply();
+                }
+            }
+        });
+        ////////////////////////////
+        tg_sota_data.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(SwitchButton view, boolean isChecked) {
+                if(tg_sota_data.isChecked()) {
+                    editor.putBoolean("itunes_sota_data", true).apply();
+                }
+                else {
+                    editor.putBoolean("itunes_sota_data", false).apply();
+                }
+            }
+        });
+        ////////////////////////////
     }
 
     private void get_tg() {
@@ -145,52 +214,6 @@ public class ActivityiTunes extends Activity implements View.OnClickListener {
                         .startActivity();
 
                 break;
-
-            case R.id.tg_music:
-                if(tg_music.isChecked()) {
-                    editor.putBoolean("itunes_music", true).apply();
-                }
-                else {
-                    editor.putBoolean("itunes_music", false).apply();
-                }
-                break;
-
-            case R.id.tg_apps:
-                if(tg_apps.isChecked()){
-                    editor.putBoolean("itunes_apps", true).apply();
-                }
-                else{
-                    editor.putBoolean("itunes_apps", false).apply();
-                }
-                break;
-
-            case R.id.tg_book:
-                if(tg_book.isChecked()){
-                    editor.putBoolean("itunes_book", true).apply();
-                }
-                else{
-                    editor.putBoolean("itunes_book", false).apply();
-                }
-                break;
-
-            case R.id.tg_update:
-                if(tg_update.isChecked()){
-                    editor.putBoolean("itunes_update", true).apply();
-                }
-                else{
-                    editor.putBoolean("itunes_update", false).apply();
-                }
-                break;
-
-            case R.id.tg_sota_data:
-                if(tg_sota_data.isChecked()){
-                editor.putBoolean("itunes_sota_data", true).apply();
-                }
-                else{
-                editor.putBoolean("itunes_sota_data", false).apply();
-                }
-                break;
-
             default:
                 break;
         }

@@ -135,6 +135,7 @@
         <activity android:name=".ActivityPlatezh" />
         <activity android:name=".ActivityAddCard" />
         <activity android:name=".ActivityiTunes" />
+        <activity android:name=".ActivityMail"/>
         <activity
             android:name=".ActivityCharge"
             android:theme="@style/Theme.Transparent" />

@@ -1,0 +1,120 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:toggle="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background_fon"
+    android:ems="10">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_fon"
+        android:orientation="horizontal"></LinearLayout>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scrollView1"
+        style="android:scrollViewStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/background_fon"
+        android:ems="10"
+        android:fadingEdge="none"
+        android:overScrollMode="always"
+        android:scrollbars="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:ems="10"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ImageView38"
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="80dp"
+                android:ems="10"
+                android:scaleType="fitXY"
+                android:src="@drawable/line_cray" />
+
+            <LinearLayout
+                android:id="@+id/LinearLayoutSotSvyaz"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/ButtonAccount"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerVertical="true"
+                        android:background="@android:color/transparent"
+                        android:ems="10"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="@string/account_mail"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:id="@+id/ImageView05"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/next" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ImageView03"
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:ems="10"
+                android:scaleType="fitXY"
+                android:src="@drawable/line_cray" />
+
+            <TextView
+                android:id="@+id/textView42"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/itunes_touchid"
+                android:textColor="@color/hint_text"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/background_title"
+        android:orientation="vertical" >
+
+        <include
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            layout="@layout/title_status" />
+    </LinearLayout>
+
+</RelativeLayout>
