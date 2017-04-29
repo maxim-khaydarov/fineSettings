@@ -3,6 +3,9 @@
     <declare-styleable name="EdgeEffectView">
         <attr name="edgeeffect_color" format="color"/>
     </declare-styleable>
+
+    <attr name="textTitle" format="reference" />
+    <attr name="textDop" format="reference" />
     
     
     

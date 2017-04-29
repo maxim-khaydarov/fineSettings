@@ -614,6 +614,23 @@
 	<string name="books">Книги и аудиокниги</string>
 	<string name="updates">Обновления</string>
 	<string name="account_mail">Учетные записи</string>
+	<string name="del_mail">Подтверждение удаления</string>
+	<string name="dowload_image_mail">Загрузка изображений</string>
+	<string name="obrabotka_tem_mail">ОБРАБОТКА ТЕМ</string>
+	<string name="poryadok_tem">Упорядочение по темам</string>
+	<string name="last_mail">Последнее письмо сверху</string>
+	<string name="end_tem_mail">Завершение тем</string>
+	<string name="end_tem_text_mail">Показывать все сообщения в разговоре, даже если некторые из них были перемещены в другие почтовые ящики. Перемещенные сообщения остануться в почтовые ящиках, в которые Вы их переместили.</string>
+	<string name="create_mail">СОЗДАНИЕ СООБЩЕНИЯ</string>
+	<string name="copy_mail">Всегда копию себе</string>
+	<string name="adressa_mail">Помечать адреса</string>
+	<string name="level_quote_mail">Уровень цитаты</string>
+	<string name="podpis_mail">Подпись</string>
+	<string name="podpis_stok_mail">Отправлено с iOS</string>
+
+
+
+
 </resources>
 
 

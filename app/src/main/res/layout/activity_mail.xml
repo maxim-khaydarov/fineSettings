@@ -55,6 +55,7 @@
 
                     <Button
                         android:id="@+id/ButtonAccount"
+                        style="?textTitle"
                         android:layout_width="fill_parent"
                         android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
@@ -66,8 +67,7 @@
                         android:gravity="left|center_vertical"
                         android:paddingLeft="15dp"
                         android:text="@string/account_mail"
-                        android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        android:textColor="@color/black" />
 
                     <ImageView
                         android:id="@+id/ImageView05"
@@ -91,14 +91,557 @@
                 android:src="@drawable/line_cray" />
 
             <TextView
-                android:id="@+id/textView42"
+                android:id="@+id/textView46"
+                style="?textDop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/messages"
+                android:textAllCaps="true"
+                android:textColor="@color/hint_text" />
+
+            <ImageView
+                android:id="@+id/imageView32"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:ems="10"
+                android:scaleType="fitXY"
+                android:src="@drawable/line_cray" />
+
+            <LinearLayout
+                android:id="@+id/LinearLayoutAir1"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10">
+
+                    <Button
+                        android:id="@+id/Button011"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/button_bg"
+                        android:clickable="false"
+                        android:ems="10"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="@string/del_mail"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <com.suke.widget.SwitchButton
+                        android:id="@+id/tg_1"
+                        android:layout_width="55dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        toggle:sb_show_indicator="false" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearLayout141"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10">
+
+                    <Button
+                        android:id="@+id/Button151"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/button_bg"
+                        android:clickable="false"
+                        android:ems="10"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="@string/dowload_image_mail"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <com.suke.widget.SwitchButton
+                        android:id="@+id/tg_2"
+                        android:layout_width="55dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        toggle:sb_show_indicator="false" />
+
+                    <ImageView
+                        android:id="@+id/ImageView181"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="15dp"
+                        android:ems="10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/line_cray" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView37"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:ems="10"
+                android:scaleType="fitXY"
+                android:src="@drawable/line_cray" />
+
+            <TextView
+                android:id="@+id/textView47"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/obrabotka_tem_mail"
+                android:textColor="@color/hint_text"
+                android:textSize="13sp" />
+
+            <ImageView
+                android:id="@+id/imageView39"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:ems="10"
+                android:scaleType="fitXY"
+                android:src="@drawable/line_cray" />
+
+            <LinearLayout
+                android:id="@+id/LinearLayoutAir111"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10">
+
+                    <Button
+                        android:id="@+id/Button0111"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/button_bg"
+                        android:clickable="false"
+                        android:ems="10"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="@string/poryadok_tem"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <com.suke.widget.SwitchButton
+                        android:id="@+id/tg_3"
+                        android:layout_width="55dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        toggle:sb_show_indicator="false" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearLayout1411"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10">
+
+                    <Button
+                        android:id="@+id/Button1511"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/button_bg"
+                        android:clickable="false"
+                        android:ems="10"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="@string/last_mail"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <com.suke.widget.SwitchButton
+                        android:id="@+id/tg_4"
+                        android:layout_width="55dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        toggle:sb_show_indicator="false" />
+
+                    <ImageView
+                        android:id="@+id/ImageView183"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="59dp"
+                        android:ems="10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/line_cray" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearLayout133"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10">
+
+                    <Button
+                        android:id="@+id/Button143"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/button_bg"
+                        android:clickable="false"
+                        android:ems="10"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="@string/end_tem_mail"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <com.suke.widget.SwitchButton
+                        android:id="@+id/tg_5"
+                        android:layout_width="55dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        toggle:sb_show_indicator="false" />
+
+                    <ImageView
+                        android:id="@+id/ImageView192"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentLeft="false"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="59dp"
+                        android:ems="10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/line_cray" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView38"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:ems="10"
+                android:scaleType="fitXY"
+                android:src="@drawable/line_cray" />
+
+            <TextView
+                android:id="@+id/textView48"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="8dp"
-                android:text="@string/itunes_touchid"
+                android:text="@string/end_tem_text_mail"
                 android:textColor="@color/hint_text"
                 android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/textView49"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/create_mail"
+                android:textColor="@color/hint_text"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:id="@+id/LinearLayoutAir"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10">
+
+                    <Button
+                        android:id="@+id/Button01"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/button_bg"
+                        android:clickable="false"
+                        android:ems="10"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="@string/copy_mail"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <com.suke.widget.SwitchButton
+                        android:id="@+id/tg_6"
+                        android:layout_width="55dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        toggle:sb_show_indicator="false" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearLayout14"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10">
+
+                    <ImageView
+                        android:id="@+id/imageView44"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/next" />
+
+                    <Button
+                        android:id="@+id/Button15"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/button_bg"
+                        android:clickable="false"
+                        android:ems="10"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="@string/adressa_mail"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <ToggleButton
+                        android:id="@+id/tg1"
+                        android:layout_width="55dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:layout_toLeftOf="@+id/imageView44"
+                        android:background="@color/transparent"
+                        android:textColor="@color/hint_text"
+                        android:textOff="@string/off"
+                        android:textOn="@string/on" />
+
+                    <ImageView
+                        android:id="@+id/ImageView18"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="59dp"
+                        android:ems="10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/line_cray" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearLayout13"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10">
+
+                    <ImageView
+                        android:id="@+id/imageView43"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/next" />
+
+                    <Button
+                        android:id="@+id/Button14"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/button_bg"
+                        android:clickable="false"
+                        android:ems="10"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="@string/level_quote_mail"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <ToggleButton
+                        android:id="@+id/tg2"
+                        android:layout_width="55dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:layout_toLeftOf="@+id/imageView43"
+                        android:background="@color/transparent"
+                        android:textColor="@color/hint_text"
+                        android:textOff="@string/off"
+                        android:textOn="@string/on" />
+
+                    <ImageView
+                        android:id="@+id/ImageView19"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentLeft="false"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="59dp"
+                        android:ems="10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/line_cray" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearLayout12"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10">
+
+                    <ImageView
+                        android:id="@+id/imageView42"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/next" />
+
+                    <Button
+                        android:id="@+id/Button13"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/button_bg"
+                        android:clickable="false"
+                        android:ems="10"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="@string/podpis_mail"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/tg_update"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:layout_toLeftOf="@+id/imageView42"
+                        android:text="@string/podpis_stok_mail"
+                        android:textColor="@color/hint_text"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:id="@+id/ImageView20"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentLeft="false"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="59dp"
+                        android:ems="10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/line_cray" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView40"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:ems="10"
+                android:scaleType="fitXY"
+                android:src="@drawable/line_cray" />
+
+            <ImageView
+                android:id="@+id/imageView41"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:ems="10"
+                android:scaleType="fitXY"
+                android:src="@drawable/line_cray" />
 
         </LinearLayout>
 

@@ -18,9 +18,71 @@
          
         
     </style>
-	
-    
-	<color name="white">#ffffff</color>
+//////////////////////////////////////////////////////////////////////
+
+
+
+
+    <style name="textTitle_medium">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="textDop_medium">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="Medium">
+        <item name="textTitle">@style/textTitle_medium</item>
+        <item name="textDop">@style/textDop_medium</item>
+        <item name="fontPath">fonts/Medium.otf</item>
+    </style>
+/////////////////////////////////////////////////////////////////////
+    <style name="textTitle_small">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="textDop_small">
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="Small">
+        <item name="textTitle">@style/textTitle_small</item>
+        <item name="textDop">@style/textDop_small</item>
+        <item name="fontPath">fonts/Medium.otf</item>
+    </style>
+////////////////////////////////////////////////////////////////////
+    <style name="textTitle_large">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="textDop_large">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="Large">
+        <item name="textTitle">@style/textTitle_large</item>
+        <item name="textDop">@style/textDop_large</item>
+        <item name="fontPath">fonts/Medium.otf</item>
+    </style>
+    ////////////////////////////////////////////////////////////////////
+    <style name="textTitle_xlarge">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="textDop_xlarge">
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="XLarge">
+        <item name="textTitle">@style/textTitle_xlarge</item>
+        <item name="textDop">@style/textDop_xlarge</item>
+        <item name="fontPath">fonts/Medium.otf</item>
+    </style>
+
+
+
+//////////////////////////////////////////////////////////////////////
+    <color name="white">#ffffff</color>
     <color name="color_statusbar">#f9f9f9</color>
     <color name="background_fon">#efeff4</color>
     <color name="background_title">#99f9f9f9</color>
