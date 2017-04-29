@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
@@ -44,32 +45,35 @@ public class ActivityMail extends Activity implements View.OnClickListener {
     SharedPreferences.Editor editor ;
     SwipeBackActivityHelper helper = new SwipeBackActivityHelper();
 
-    @Override
-    public void onStart() {
-        super.onStart();
 
+    private void theme() {
+Log.e("!!", "Theme");
         // Enclose everything in a try block so we can just
         // use the default view if anything goes wrong.
         try {
             // Get the font size value from SharedPreferences.
             SharedPreferences settings =
-                    getSharedPreferences("com.example.YourAppPackage", Context.MODE_PRIVATE);
+                    getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 
             // Get the font size option.  We use "FONT_SIZE" as the key.
             // Make sure to use this key when you set the value in SharedPreferences.
             // We specify "Medium" as the default value, if it does not exist.
-            String fontSizePref = settings.getString("FONT_SIZE", "Medium");
+            String fontSizePref = settings.getString("txt_size", "Medium");
+            Log.e("!!", fontSizePref);
 
             // Select the proper theme ID.
             // These will correspond to your theme names as defined in themes.xml.
             int themeID = R.style.Medium;
-            /*if (fontSizePref == "Small") {
-                themeID = R.style.FontSizeSmall;
+            if (fontSizePref.contains("Small")) {
+                themeID = R.style.Small;
             }
-            else if (fontSizePref == "Large") {
-                themeID = R.style.FontSizeLarge;
+            else if (fontSizePref.contains("Large")) {
+                themeID = R.style.Large;
             }
-*/
+            else if (fontSizePref.contains("xLarge")){
+                themeID = R.style.XLarge;
+            }
+
             // Set the theme for the activity.
             setTheme(themeID);
         }
@@ -80,9 +84,11 @@ public class ActivityMail extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        theme();
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setTheme(R.style.Medium);
+        //int themeID = R.style.XLarge;
+        //setTheme(themeID);
 
         setContentView(R.layout.activity_mail);
         String roman = "fonts/Regular.otf";
@@ -227,7 +233,8 @@ public class ActivityMail extends Activity implements View.OnClickListener {
     protected void onResume() {
         super.onResume();
 
-        get_tg();;
+        get_tg();
+        onStart();
     }
 
     public void BackClick(View v) {

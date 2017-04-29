@@ -1648,6 +1648,7 @@ public void soccial (){
 					LinearLayoutPrivacy.setVisibility(View.GONE);
 				}
 	        */
+	       /*
 	        if (mSettings.contains(APP_PREFERENCES_bold_text)) {
 				// Получаем число из настроек
 	        	 Boolean bold = mSettings.getBoolean(APP_PREFERENCES_bold_text, true);
@@ -1955,7 +1956,7 @@ public void soccial (){
 
 
 				}
-	       }
+	       }*/
 	       ifest();
 	        /*}
 	        catch(Exception e){

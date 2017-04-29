@@ -125,6 +125,7 @@
 
                     <Button
                         android:id="@+id/Button011"
+                        style="?textTitle"
                         android:layout_width="fill_parent"
                         android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
@@ -136,8 +137,7 @@
                         android:gravity="left|center_vertical"
                         android:paddingLeft="15dp"
                         android:text="@string/del_mail"
-                        android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        android:textColor="@color/black" />
 
                     <com.suke.widget.SwitchButton
                         android:id="@+id/tg_1"
@@ -165,6 +165,7 @@
 
                     <Button
                         android:id="@+id/Button151"
+                        style="?textTitle"
                         android:layout_width="fill_parent"
                         android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
@@ -176,8 +177,7 @@
                         android:gravity="left|center_vertical"
                         android:paddingLeft="15dp"
                         android:text="@string/dowload_image_mail"
-                        android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        android:textColor="@color/black"/>
 
                     <com.suke.widget.SwitchButton
                         android:id="@+id/tg_2"
@@ -210,14 +210,14 @@
 
             <TextView
                 android:id="@+id/textView47"
+                style="?textDop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="30dp"
                 android:text="@string/obrabotka_tem_mail"
-                android:textColor="@color/hint_text"
-                android:textSize="13sp" />
+                android:textColor="@color/hint_text" />
 
             <ImageView
                 android:id="@+id/imageView39"
@@ -254,7 +254,7 @@
                         android:paddingLeft="15dp"
                         android:text="@string/poryadok_tem"
                         android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        style="?textTitle" />
 
                     <com.suke.widget.SwitchButton
                         android:id="@+id/tg_3"
@@ -294,7 +294,7 @@
                         android:paddingLeft="15dp"
                         android:text="@string/last_mail"
                         android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        style="?textTitle" />
 
                     <com.suke.widget.SwitchButton
                         android:id="@+id/tg_4"
@@ -310,7 +310,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="1px"
                         android:layout_alignParentTop="true"
-                        android:layout_marginLeft="59dp"
+                        android:layout_marginLeft="15dp"
                         android:ems="10"
                         android:scaleType="fitXY"
                         android:src="@drawable/line_cray" />
@@ -344,7 +344,7 @@
                         android:paddingLeft="15dp"
                         android:text="@string/end_tem_mail"
                         android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        style="?textTitle" />
 
                     <com.suke.widget.SwitchButton
                         android:id="@+id/tg_5"
@@ -361,7 +361,7 @@
                         android:layout_height="1px"
                         android:layout_alignParentLeft="false"
                         android:layout_alignParentTop="true"
-                        android:layout_marginLeft="59dp"
+                        android:layout_marginLeft="15dp"
                         android:ems="10"
                         android:scaleType="fitXY"
                         android:src="@drawable/line_cray" />
@@ -384,18 +384,26 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/end_tem_text_mail"
                 android:textColor="@color/hint_text"
-                android:textSize="13sp" />
+                style="?textDop" />
 
             <TextView
                 android:id="@+id/textView49"
+                style="?textDop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="30dp"
                 android:text="@string/create_mail"
-                android:textColor="@color/hint_text"
-                android:textSize="13sp" />
+                android:textColor="@color/hint_text" />
+
+            <ImageView
+                android:id="@+id/imageView40"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:ems="10"
+                android:scaleType="fitXY"
+                android:src="@drawable/line_cray" />
 
             <LinearLayout
                 android:id="@+id/LinearLayoutAir"
@@ -424,7 +432,7 @@
                         android:paddingLeft="15dp"
                         android:text="@string/copy_mail"
                         android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        style="?textTitle" />
 
                     <com.suke.widget.SwitchButton
                         android:id="@+id/tg_6"
@@ -450,16 +458,6 @@
                     android:layout_height="match_parent"
                     android:ems="10">
 
-                    <ImageView
-                        android:id="@+id/imageView44"
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="15dp"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/next" />
-
                     <Button
                         android:id="@+id/Button15"
                         android:layout_width="fill_parent"
@@ -474,19 +472,28 @@
                         android:paddingLeft="15dp"
                         android:text="@string/adressa_mail"
                         android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        style="?textTitle" />
 
                     <ToggleButton
                         android:id="@+id/tg1"
                         android:layout_width="55dp"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginRight="15dp"
                         android:layout_toLeftOf="@+id/imageView44"
                         android:background="@color/transparent"
                         android:textColor="@color/hint_text"
                         android:textOff="@string/off"
                         android:textOn="@string/on" />
+
+                    <ImageView
+                        android:id="@+id/imageView44"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/next" />
 
                     <ImageView
                         android:id="@+id/ImageView18"
@@ -513,16 +520,6 @@
                     android:layout_height="match_parent"
                     android:ems="10">
 
-                    <ImageView
-                        android:id="@+id/imageView43"
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="15dp"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/next" />
-
                     <Button
                         android:id="@+id/Button14"
                         android:layout_width="fill_parent"
@@ -537,14 +534,13 @@
                         android:paddingLeft="15dp"
                         android:text="@string/level_quote_mail"
                         android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        style="?textTitle" />
 
                     <ToggleButton
                         android:id="@+id/tg2"
                         android:layout_width="55dp"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginRight="15dp"
                         android:layout_toLeftOf="@+id/imageView43"
                         android:background="@color/transparent"
                         android:textColor="@color/hint_text"
@@ -552,12 +548,22 @@
                         android:textOn="@string/on" />
 
                     <ImageView
+                        android:id="@+id/imageView43"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/next" />
+
+                    <ImageView
                         android:id="@+id/ImageView19"
                         android:layout_width="fill_parent"
                         android:layout_height="1px"
                         android:layout_alignParentLeft="false"
                         android:layout_alignParentTop="true"
-                        android:layout_marginLeft="59dp"
+                        android:layout_marginLeft="15dp"
                         android:ems="10"
                         android:scaleType="fitXY"
                         android:src="@drawable/line_cray" />
@@ -577,18 +583,9 @@
                     android:layout_height="match_parent"
                     android:ems="10">
 
-                    <ImageView
-                        android:id="@+id/imageView42"
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="15dp"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/next" />
-
                     <Button
                         android:id="@+id/Button13"
+                        style="?textTitle"
                         android:layout_width="fill_parent"
                         android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
@@ -600,19 +597,28 @@
                         android:gravity="left|center_vertical"
                         android:paddingLeft="15dp"
                         android:text="@string/podpis_mail"
-                        android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        android:textColor="@color/black" />
 
                     <TextView
                         android:id="@+id/tg_update"
+                        style="?textTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="15dp"
                         android:layout_toLeftOf="@+id/imageView42"
                         android:text="@string/podpis_stok_mail"
-                        android:textColor="@color/hint_text"
-                        android:textSize="15sp" />
+                        android:textColor="@color/hint_text" />
+
+                    <ImageView
+                        android:id="@+id/imageView42"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/next" />
 
                     <ImageView
                         android:id="@+id/ImageView20"
@@ -620,7 +626,7 @@
                         android:layout_height="1px"
                         android:layout_alignParentLeft="false"
                         android:layout_alignParentTop="true"
-                        android:layout_marginLeft="59dp"
+                        android:layout_marginLeft="15dp"
                         android:ems="10"
                         android:scaleType="fitXY"
                         android:src="@drawable/line_cray" />
@@ -628,17 +634,10 @@
             </LinearLayout>
 
             <ImageView
-                android:id="@+id/imageView40"
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:ems="10"
-                android:scaleType="fitXY"
-                android:src="@drawable/line_cray" />
-
-            <ImageView
                 android:id="@+id/imageView41"
                 android:layout_width="match_parent"
                 android:layout_height="1px"
+                android:layout_marginBottom="30dp"
                 android:ems="10"
                 android:scaleType="fitXY"
                 android:src="@drawable/line_cray" />
