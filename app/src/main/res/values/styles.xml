@@ -34,7 +34,7 @@
     <style name="Medium">
         <item name="textTitle">@style/textTitle_medium</item>
         <item name="textDop">@style/textDop_medium</item>
-        <item name="fontPath">fonts/Medium.otf</item>
+
     </style>
 /////////////////////////////////////////////////////////////////////
     <style name="textTitle_small">
@@ -48,7 +48,6 @@
     <style name="Small">
         <item name="textTitle">@style/textTitle_small</item>
         <item name="textDop">@style/textDop_small</item>
-        <item name="fontPath">fonts/Medium.otf</item>
     </style>
 ////////////////////////////////////////////////////////////////////
     <style name="textTitle_large">
@@ -62,7 +61,6 @@
     <style name="Large">
         <item name="textTitle">@style/textTitle_large</item>
         <item name="textDop">@style/textDop_large</item>
-        <item name="fontPath">fonts/Medium.otf</item>
     </style>
     ////////////////////////////////////////////////////////////////////
     <style name="textTitle_xlarge">
@@ -76,7 +74,6 @@
     <style name="XLarge">
         <item name="textTitle">@style/textTitle_xlarge</item>
         <item name="textDop">@style/textDop_xlarge</item>
-        <item name="fontPath">fonts/Medium.otf</item>
     </style>
 
 

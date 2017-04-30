@@ -98,7 +98,7 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 	WifiManager wifi;
 	Button btn_avia, btn_wifi, btn_bluetooth, btn_sota, btn_operator, btn_osnova,
 			btn_zvuki, btn_oboi, btn_gps, buttonBack, btn_notification, btn_control, 
-			btn_disturb, btn_mail, btn_notes, btn_messages, btn_phone, 
+			btn_disturb, btn_mail, btn_contact, btn_notes, btn_messages, btn_phone,
 			btn_safari, btn_music, btn_compass, btn_weather, btn_games, btn_menu_settings, 
 			btn_menu_cancel, btn_passcode, btn_privacy, btn_new1, btn_new2, btn_new3,
 			btn_new4, btn_vpn, btn_display, ButtonMenuCancel, ButtonMenuSettings,
@@ -575,6 +575,9 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 		
 		btn_mail = (Button)findViewById(R.id.ButtonMail);
 		btn_mail.setOnClickListener(this);
+
+		btn_contact = (Button)findViewById(R.id.ButtonContact);
+		btn_contact.setOnClickListener(this);
 		
 		btn_notes = (Button)findViewById(R.id.ButtonNotes);
 		btn_notes.setOnClickListener(this);
@@ -1106,6 +1109,15 @@ public void soccial (){
 			 //startActivity( LaunchIntent );
 		      //  	overridePendingTransition(center_to_left, center_to_left2);
 		        	 }
+
+		 else if (id == R.id.ButtonContact){
+			 Intent intent = new Intent (this, ActivityContact.class);
+			 SwipeBackActivityHelper.activityBuilder(this)
+					 .intent(intent)
+					 .needParallax(false)
+					 .needBackgroundShadow(false)
+					 .startActivity();
+		 }
 	        	
 		 else if (id == R.id.ButtonNotes){
 			 Intent LaunchIntent = getPackageManager().getLaunchIntentForPackage(notes_app);
@@ -1309,15 +1321,7 @@ public void soccial (){
 				mTask = new GetContacts();
 				mTask.execute();
 			}
-	        	
 
-	        	
-	        
-	       
-	       
-	        
-
-	        
 	        if (isSharingWiFi(wifi) == true){
 	        	textVPN.setText(R.string.on);
 	        }
@@ -1340,11 +1344,8 @@ public void soccial (){
 	            e.apply(); // не забудьте подтвердить изменения
 	            stok();
 	        }
-	//////////////////////////////////////        ////////
-	        
-	        
-	        
-	        
+	//////////////////////////////////////////////
+
 ////ChangeLog
 	        
 	        PackageInfo pInfo;

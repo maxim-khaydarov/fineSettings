@@ -47,22 +47,14 @@ public class ActivityMail extends Activity implements View.OnClickListener {
 
 
     private void theme() {
-Log.e("!!", "Theme");
-        // Enclose everything in a try block so we can just
-        // use the default view if anything goes wrong.
         try {
-            // Get the font size value from SharedPreferences.
+
             SharedPreferences settings =
                     getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 
-            // Get the font size option.  We use "FONT_SIZE" as the key.
-            // Make sure to use this key when you set the value in SharedPreferences.
-            // We specify "Medium" as the default value, if it does not exist.
             String fontSizePref = settings.getString("txt_size", "Medium");
             Log.e("!!", fontSizePref);
 
-            // Select the proper theme ID.
-            // These will correspond to your theme names as defined in themes.xml.
             int themeID = R.style.Medium;
             if (fontSizePref.contains("Small")) {
                 themeID = R.style.Small;
@@ -74,7 +66,6 @@ Log.e("!!", "Theme");
                 themeID = R.style.XLarge;
             }
 
-            // Set the theme for the activity.
             setTheme(themeID);
         }
         catch (Exception ex) {

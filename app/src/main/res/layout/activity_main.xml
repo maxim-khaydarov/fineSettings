@@ -1496,6 +1496,56 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/LinearLayoutContact"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:ems="10"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:ems="10">
+
+                            <Button
+                                android:id="@+id/ButtonContact"
+                                android:layout_width="fill_parent"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerVertical="true"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:gravity="left|center_vertical"
+                                android:paddingLeft="59dp"
+                                android:text="@string/button_contact"
+                                android:textColor="@color/black"
+                                android:textSize="15sp" />
+
+                            <ImageView
+                                android:id="@+id/ImageView38"
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="15dp"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/next" />
+
+                            <ImageView
+                                android:id="@+id/ImageView36"
+                                android:layout_width="29dp"
+                                android:layout_height="29dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="15dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/contact" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:id="@+id/LinearLayoutNotes"
                         android:layout_width="fill_parent"
                         android:layout_height="43dp"

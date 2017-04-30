@@ -628,6 +628,14 @@
 	<string name="podpis_mail">Подпись</string>
 	<string name="podpis_stok_mail">Отправлено с iOS</string>
 
+	<string name="sort_calendar">Сортировка</string>
+	<string name="name_sort_calendar">Имя, фамилия</string>
+	<string name="surname_sort_calendar">Фамилия, имя</string>
+	<string name="otobrazhenie_calendar">Отображение</string>
+	<string name="apps_contact">Контакты из программы</string>
+	<string name="apps_text_contact">Выключение этой функции приведет к удалению неподтвержденных предложений относительно контактов. Кроме того, предложение контактов больше не будут появляться при автозаполнении в программе \"Почта\", на экране входящего вызова и в программе \"Контакты\".</string>
+	<string name="button_contact">Контакты</string>
+
 
 
 
