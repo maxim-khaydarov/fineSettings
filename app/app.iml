@@ -128,8 +128,8 @@
     <orderEntry type="library" exported="" name="support-v4-25.3.1" level="project" />
     <orderEntry type="library" exported="" name="support-media-compat-25.3.1" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-25.3.1" level="project" />
-    <orderEntry type="library" exported="" name="realtimeblurview-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="support-vector-drawable-25.3.1" level="project" />
+    <orderEntry type="library" exported="" name="realtimeblurview-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="support-compat-25.3.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-auth-10.2.1" level="project" />
     <orderEntry type="library" exported="" name="WheelPicker-1.1.2" level="project" />
@@ -160,6 +160,7 @@
     <orderEntry type="library" exported="" name="play-services-iid-10.2.1" level="project" />
     <orderEntry type="library" exported="" name="multidex-1.0.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="hamcrest-core-1.3" level="project" />
+    <orderEntry type="library" exported="" name="calligraphy-2.2.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-drive-10.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-analytics-10.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-safetynet-10.2.1" level="project" />

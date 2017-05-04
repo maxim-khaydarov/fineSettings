@@ -6,7 +6,6 @@
 
     <attr name="textTitle" format="reference" />
     <attr name="textDop" format="reference" />
-    
-    
-    
+
+
 </resources>

@@ -483,7 +483,8 @@
                         android:background="@color/transparent"
                         android:textColor="@color/hint_text"
                         android:textOff="@string/off"
-                        android:textOn="@string/on" />
+                        android:textOn="@string/on"
+                        style="?textTitle"/>
 
                     <ImageView
                         android:id="@+id/imageView44"
@@ -500,7 +501,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="1px"
                         android:layout_alignParentTop="true"
-                        android:layout_marginLeft="59dp"
+                        android:layout_marginLeft="15dp"
                         android:ems="10"
                         android:scaleType="fitXY"
                         android:src="@drawable/line_cray" />
@@ -545,7 +546,8 @@
                         android:background="@color/transparent"
                         android:textColor="@color/hint_text"
                         android:textOff="@string/off"
-                        android:textOn="@string/on" />
+                        android:textOn="@string/on"
+                        style="?textTitle"/>
 
                     <ImageView
                         android:id="@+id/imageView43"

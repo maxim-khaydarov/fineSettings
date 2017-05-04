@@ -85,6 +85,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.github.bluzwong.swipeback.SwipeBackActivityHelper;
 
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, SearchView.OnQueryTextListener,
@@ -166,8 +167,6 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 	   public static final String APP_PREFERENCES_tgb_apn = "tgb_apn";
 	   public static final String APP_PREFERENCES_tgb_passcode = "tgb_passcode";
 	   public static final String APP_PREFERENCES_tgb_privacy = "tgb_privacy";
-	   public static final String APP_PREFERENCES_text_size = "txt_size";
-	   public static final String APP_PREFERENCES_bold_text = "bold_txt";
 	   public static final String APP_PREFERENCES_ICLOUD = "icloud_app";
 	   public static final String APP_PREFERENCES_ITUNES = "itunes_app";
 	   public static final String APP_PREFERENCES_ANIM_SPEED = "anim_speed";
@@ -251,13 +250,49 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 	    
 	    Button b1, b2, b11, b21;
 	SwipeBackActivityHelper helper = new SwipeBackActivityHelper();
+	private void theme() {
+		try {
 
+			SharedPreferences settings =
+					getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+
+			String fontSizePref = settings.getString("txt_size", "Medium");
+
+			if (settings.getBoolean("bold_txt", false) == true) {
+
+				int themeID = R.style.Medium_Bold;
+				if (fontSizePref.contains("Small")) {
+					themeID = R.style.Small_Bold;
+				} else if (fontSizePref.contains("Large")) {
+					themeID = R.style.Large_Bold;
+				} else if (fontSizePref.contains("xLarge")) {
+					themeID = R.style.XLarge_Bold;
+				}
+				setTheme(themeID);
+			} else {
+				int themeID = R.style.Medium;
+				if (fontSizePref.contains("Small")) {
+					themeID = R.style.Small;
+				} else if (fontSizePref.contains("Large")) {
+					themeID = R.style.Large;
+				} else if (fontSizePref.contains("xLarge")) {
+					themeID = R.style.XLarge;
+				}
+
+				setTheme(themeID);
+			}
+		}
+		catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
 
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		theme();
 		setContentView(R.layout.activity_main);
 /*
 		helper.setEdgeMode(true)
@@ -289,14 +324,7 @@ SearchView.OnCloseListener, OnFocusChangeListener {
 
 
 		//try {
-		String roman = "fonts/Regular.otf";
-		String medium = "fonts/Medium.otf";
-		String bold =  "fonts/Bold.otf";
-		String thin =  "fonts/Thin.otf";
-		typefaceRoman = Typeface.createFromAsset(getAssets(), roman);
-		typefaceMedium = Typeface.createFromAsset(getAssets(), medium);
-		typefaceBold = Typeface.createFromAsset(getAssets(), bold);
-		typefaceThin = Typeface.createFromAsset(getAssets(), thin);
+
 
 		if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M ) {
 			boolean hasPermission_sd = (ContextCompat.checkSelfPermission(this,
@@ -670,60 +698,7 @@ SearchView.OnCloseListener, OnFocusChangeListener {
     	imageView2.setVisibility(View.GONE);
 		
     	 
-    	text_app_main.setTypeface(typefaceBold);
-		btn_avia.setTypeface(typefaceRoman);
-		//textView1.setTypeface(typefaceRoman);
-		textView3.setTypeface(typefaceRoman);
-		btn_wifi.setTypeface(typefaceRoman);
-		btn_bluetooth.setTypeface(typefaceRoman);
-		btn_sota.setTypeface(typefaceRoman);
-		btn_operator.setTypeface(typefaceRoman);
-		btn_osnova.setTypeface(typefaceRoman);
-		btn_passcode.setTypeface(typefaceRoman);
-		btn_battery.setTypeface(typefaceRoman);
-		btn_privacy.setTypeface(typefaceRoman);
-		btn_zvuki.setTypeface(typefaceRoman);
-		btn_oboi.setTypeface(typefaceRoman);
-		btn_notification.setTypeface(typefaceRoman);
-		btn_control.setTypeface(typefaceRoman);
-		btn_disturb.setTypeface(typefaceRoman);
-		btn_gps.setTypeface(typefaceRoman);	
-		btn_mail.setTypeface(typefaceRoman);	
-		btn_notes.setTypeface(typefaceRoman);	
-		btn_messages.setTypeface(typefaceRoman);	
-		btn_phone.setTypeface(typefaceRoman);	
-		btn_safari.setTypeface(typefaceRoman);	
-		btn_music.setTypeface(typefaceRoman);	
-		btn_compass.setTypeface(typefaceRoman);
-		btn_weather.setTypeface(typefaceRoman);
-		btn_games.setTypeface(typefaceRoman);
-		btn_new1.setTypeface(typefaceRoman);
-		btn_new2.setTypeface(typefaceRoman);
-		btn_new3.setTypeface(typefaceRoman);
-		btn_new4.setTypeface(typefaceRoman);
-		btn_vpn.setTypeface(typefaceRoman);
-		btn_display.setTypeface(typefaceRoman);
-		btn_maps.setTypeface(typefaceRoman);
-		btn_vk.setTypeface(typefaceRoman);
-		btn_viber.setTypeface(typefaceRoman);
-		btn_ok.setTypeface(typefaceRoman);
-		btn_skype.setTypeface(typefaceRoman);
-		btn_whatsapp.setTypeface(typefaceRoman);
-		btn_twitter.setTypeface(typefaceRoman);
-		btn_facebook.setTypeface(typefaceRoman);
-		btn_instagram.setTypeface(typefaceRoman);
-		name.setTypeface(typefaceRoman);
-		text.setTypeface(typefaceRoman);
-		
 
-		btn_iTunes.setTypeface(typefaceRoman);
-		
-		
-		textwifi.setTypeface(typefaceRoman);
-		textbt.setTypeface(typefaceRoman);
-		TextOper.setTypeface(typefaceRoman);
-		textVPN.setTypeface(typefaceRoman);
-		
 	
 		//LinearLayoutPrivacy.setVisibility(View.GONE);
 		//LinearLayoutApn.setVisibility(View.GONE);
@@ -1305,12 +1280,12 @@ public void soccial (){
 	 protected void onResume() {
 	        super.onResume();
 	       // try{
-	        ButtonTextWifi();
-	        Airmode();
-	        ButtonTextBth();
-	        operator();
+	       // ButtonTextWifi();
+	       // Airmode();
+	       // ButtonTextBth();
+	        //operator();
 	        //check_pirat();
-	        zimowets();
+	       // zimowets();
 		 soccial();
 	       
 	        ConnectivityManager conMgr  = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE); 
@@ -3036,9 +3011,9 @@ public void soccial (){
 				 mDbHelper.deleteAllCustomers();
 				//Add some Customer data as a sample
 			        mDbHelper.createCustomer_ru("Выбрать сеть Wi-Fi", "Wi-Fi", "1", "", "", "", "");
-			        mDbHelper.createCustomer_ru("Информация о Wi-Fi", "Wi-Fi", "2", "", "", "", "");
-			        mDbHelper.createCustomer_ru("Имя телефона", "Bluetooth", "3", "", "", "", "");
-			        mDbHelper.createCustomer_ru("Сопряжение устройства", "Bluetooth", "4", "", "", "", "");
+			        //mDbHelper.createCustomer_ru("Информация о Wi-Fi", "Wi-Fi", "2", "", "", "", "");
+			        //mDbHelper.createCustomer_ru("Имя телефона", "Bluetooth", "3", "", "", "", "");
+			        //mDbHelper.createCustomer_ru("Сопряжение устройства", "Bluetooth", "4", "", "", "", "");
 			        mDbHelper.createCustomer_ru("Включение сотовых данных", "Сотовая связь", "5", "", "", "", "");
 			        mDbHelper.createCustomer_ru("Тип сети", "Сотовая связь", "6", "", "", "", "");
 			        mDbHelper.createCustomer_ru("Сотовая сеть передачи данных", "Сотовая связь", "7", "", "", "", "");
@@ -3077,9 +3052,42 @@ public void soccial (){
 			        mDbHelper.createCustomer_ru("Поиск Spotlight", "Общее - Поиск Spotlight", "40", "", "", "", "");
 			        mDbHelper.createCustomer_ru("Handoff", "Общее - HandOff и предлагаемое ПО", "41", "", "", "", "");
 			        mDbHelper.createCustomer_ru("Предлагаемое ПО", "Общее - HandOff и предлагаемое ПО", "42", "", "", "", "");
-			        
-			        
-			  //UK      
+
+
+
+
+
+					mDbHelper.createCustomer(getString(R.string.button_wifi), getString(R.string.button_wifi), "1","", "", "", "");
+					mDbHelper.createCustomer(getString(R.string.choose_wifi), getString(R.string.button_wifi), "2", "", "", "", "");
+					mDbHelper.createCustomer(getString(R.string.button_bluetooth), getString(R.string.button_bluetooth), "3", "", "", "", "");
+					mDbHelper.createCustomer(getString(R.string.bluetooth_devices), getString(R.string.button_bluetooth), "4", "", "", "", "");
+					mDbHelper.createCustomer(getString(R.string.bluetooth_devices_other), getString(R.string.button_bluetooth), "5", "", "", "", "");
+					mDbHelper.createCustomer(getString(R.string.button_sota), getString(R.string.button_sota), "6", "", "", "", "");
+					mDbHelper.createCustomer(getString(R.string.button_enable_data), getString(R.string.button_sota), "7", "", "", "", "");
+					mDbHelper.createCustomer(getString(R.string.params_sota), getString(R.string.button_sota), "8", "", "", "", "");
+					mDbHelper.createCustomer(getString(R.string.button_network_type), getString(R.string.button_sota), "9", "", "", "", "");
+					mDbHelper.createCustomer(getString(R.string.roaming), getString(R.string.button_sota), "10", "", "", "", "");
+					mDbHelper.createCustomer(getString(R.string.roaming), getString(R.string.button_sota), "11", "", "", "", "");
+					mDbHelper.createCustomer(getString(R.string.apn), getString(R.string.apn), "12", "", "", "", "");
+					mDbHelper.createCustomer(getString(R.string.button_operator), getString(R.string.button_operator), "13", "", "", "", "");
+					mDbHelper.createCustomer(getString(R.string.disturb), getString(R.string.disturb), "14", "", "", "", "");
+					mDbHelper.createCustomer(getString(R.string.allow_call_disturb), getString(R.string.disturb), "15", "", "", "", "");
+					mDbHelper.createCustomer(getString(R.string.repeat_call_disturb), getString(R.string.disturb), "16", "", "", "", "");
+					mDbHelper.createCustomer(getString(R.string.silence_call_disturb_text), getString(R.string.disturb), "17", "", "", "", "");
+
+
+
+
+
+
+
+
+
+
+
+
+
+					//UK
 			        
 			      //Clean all Customers
 			       // mDbHelper.deleteAllCustomers();
@@ -3148,6 +3156,11 @@ public void soccial (){
 			account = null;
 		}
 		return account;
+	}
+
+	@Override
+	protected void attachBaseContext(Context newBase) {
+		super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
 	}
 }
 

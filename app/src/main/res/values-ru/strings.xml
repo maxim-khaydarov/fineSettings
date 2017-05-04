@@ -23,8 +23,8 @@
     <string name="bluetooth_pairing">Подключение...</string>
     <string name="bluetooth_pair">Подключено</string>
     <string name="bluetooth_disable_pair">Отключено</string>
-    <string name="bluetooth_devices">МОИ УСТРОЙСТВА</string>
-    <string name="bluetooth_devices_other">УСТРОЙСТВА</string>
+    <string name="bluetooth_devices">Мои устройства</string>
+    <string name="bluetooth_devices_other">Устройства</string>
     <string name="bluetooth_no_device">УСТРОЙСТВА НЕ НАЙДЕНЫ</string>
     <string name="bluetooth_watch1">Для объединения в пару iPhone и Apple Watch используйте</string>
     <string name="bluetooth_watch2">программу Apple Watch.</string>
@@ -74,6 +74,7 @@
     <string name="unknown">Unknown</string>
     <string name="hsdpa">HSDPA</string>
     <string name="button_enable_data">Сотовые данные</string>
+	<string name="params_sota">Параметры данных</string>
     <string name="apn_settings">Сотовая сеть передачи данных</string>
     <string name="three_g_info">Выключите передачу сотовых данных, чтобы ограничиться передачей данных лишь по Wi-Fi, включая e-mail, просмотр веб-страниц и push-уведомлений.</string>
     <string name="button_network_type">Голос и данные</string>
@@ -195,7 +196,7 @@
   	<string name="wall_dynamik">Динамичные</string>
   	<string name="wall_photo">ФОТОГРАФИИ</string>
   	<string name="wall_camera">Мои фото</string>
-  	<string name="choose_wifi">ВЫБРАТЬ СЕТЬ...</string>
+  	<string name="choose_wifi">Выбрать сеть</string>
   	<string name="new_account">Новый аккаунт</string>
   	<string name="zimowets_block">Данная программа была загружена с помощью пиратского аккаунта.\nЗагрузите с помощью своей учетной записи!</string>
   	<string name="block_license">Данная программа была загружена не с Yandex Store.\nЗайдите в свой аккаунт и загрузите приложение! :)</string>
@@ -212,7 +213,7 @@
   	<string name="allow_call_disturb_text">Входящие вызовы или сообщения не будут заглушены.</string>
   	<string name="repeat_call_disturb">Повторные вызовы</string>
   	<string name="repeat_call_disturb_text">Если эта функци включена, второй звонок одного и тогоже абонента в течении трех минут  заглушен не будет.</string>
-	<string name="silence_call_disturb_text">ТИШИНА:</string>
+	<string name="silence_call_disturb_text">Тишина:</string>
 	<string name="silence_call_disturb_always">Всегда</string>
 	<string name="silence_call_disturb_lock">Когда телефон заблокирован</string>
 	<string name="silence_call_disturb_text_always">Входящие звонки и уведомления будут заглушены при разблокированом и заблокированом экране.</string>
@@ -635,7 +636,6 @@
 	<string name="apps_contact">Контакты из программы</string>
 	<string name="apps_text_contact">Выключение этой функции приведет к удалению неподтвержденных предложений относительно контактов. Кроме того, предложение контактов больше не будут появляться при автозаполнении в программе \"Почта\", на экране входящего вызова и в программе \"Контакты\".</string>
 	<string name="button_contact">Контакты</string>
-
 
 
 

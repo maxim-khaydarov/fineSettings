@@ -40,16 +40,19 @@
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="45dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="8dp"
                         android:layout_weight="1"
-                        android:padding="8dp">
+                        android:background="@drawable/back_search">
 
                         <EditText
                             android:id="@+id/EditText01"
+                            style="?textTitle"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="-3dp"
                             android:layout_weight="1"
-                            android:background="@drawable/back_search"
+                            android:background="@null"
                             android:focusable="true"
                             android:focusableInTouchMode="true"
                             android:gravity="center_vertical|center_horizontal"
@@ -72,6 +75,7 @@
 
                             <TextView
                                 android:id="@+id/textView3"
+                                style="?textDop"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
@@ -83,6 +87,7 @@
 
                         <Button
                             android:id="@+id/button2"
+                            style="?textTitle"
                             android:layout_width="18dp"
                             android:layout_height="18dp"
                             android:layout_alignParentRight="true"
@@ -97,7 +102,8 @@
                         android:layout_weight="2"
                         android:background="#00000000"
                         android:text="Search"
-                        android:visibility="gone" />
+                        android:visibility="gone"
+                        style="?textTitle"/>
                 </LinearLayout>
 
                 <SearchView
@@ -144,7 +150,8 @@
                         android:gravity="center"
                         android:text="@string/connect_icloud"
                         android:textColor="@color/blue"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        style="?textTitle"/>
 
                     <ImageView
                         android:id="@+id/imageView21"
@@ -182,7 +189,9 @@
                             android:lines="1"
                             android:text="TextView"
                             android:textColor="@color/black"
-                            android:textSize="20sp" />
+                            android:textSize="20sp"
+                            style="?textTitle"
+                            />
 
                         <TextView
                             android:id="@+id/text"
@@ -193,7 +202,8 @@
                             android:singleLine="true"
                             android:text="@string/appleid_icloud"
                             android:textColor="@color/black"
-                            android:textSize="13sp" />
+                            android:textSize="13sp"
+                            style="?textTitle"/>
                     </LinearLayout>
 
                 </RelativeLayout>
@@ -245,7 +255,7 @@
                         android:paddingLeft="59dp"
                         android:text="@string/button_avia"
                         android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        style="?textTitle" />
 
                     <ImageView
                         android:id="@+id/imageView3"
@@ -300,7 +310,7 @@
                         android:paddingLeft="59dp"
                         android:text="@string/button_wifi"
                         android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        style="?textTitle"/>
 
                     <ImageView
                         android:id="@+id/imageView1"
@@ -336,7 +346,7 @@
                         android:singleLine="true"
                         android:text="TextView"
                         android:textColor="@color/hint_text"
-                        android:textSize="15sp" />
+                        style="?textDop" />
 
                     <ImageView
                         android:id="@+id/imageView4"
@@ -376,7 +386,7 @@
                         android:paddingLeft="59dp"
                         android:text="@string/button_bluetooth"
                         android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        style="?textTitle" />
 
                     <ImageView
                         android:id="@+id/ImageView03"
@@ -415,7 +425,7 @@
                         android:layout_toLeftOf="@+id/ImageView03"
                         android:text="TextView"
                         android:textColor="@color/hint_text"
-                        android:textSize="15sp" />
+                        style="?textTitle"/>
 
                 </RelativeLayout>
             </LinearLayout>
@@ -446,7 +456,7 @@
                         android:paddingLeft="59dp"
                         android:text="@string/button_sota"
                         android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        style="?textTitle" />
 
                     <ImageView
                         android:id="@+id/ImageView05"
@@ -508,7 +518,7 @@
                         android:paddingLeft="59dp"
                         android:text="@string/apn"
                         android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        style="?textTitle" />
 
                     <ImageView
                         android:id="@+id/ImageView73"
@@ -558,7 +568,7 @@
                         android:layout_toLeftOf="@+id/ImageView75"
                         android:text="@string/off"
                         android:textColor="@color/hint_text"
-                        android:textSize="15sp" />
+                        style="?textTitle" />
 
                 </RelativeLayout>
             </LinearLayout>
@@ -591,7 +601,7 @@
                         android:paddingLeft="59dp"
                         android:text="@string/button_operator"
                         android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        style="?textTitle" />
 
                     <ImageView
                         android:id="@+id/ImageView07"
@@ -620,7 +630,7 @@
                         android:layout_toLeftOf="@+id/ImageView07"
                         android:text="22"
                         android:textColor="@color/hint_text"
-                        android:textSize="15sp" />
+                        style="?textTitle" />
 
                     <ImageView
                         android:id="@+id/ImageView16"
@@ -685,7 +695,7 @@
                             android:paddingLeft="59dp"
                             android:text="@string/notification"
                             android:textColor="@color/black"
-                            android:textSize="15sp" />
+                            style="?textTitle" />
 
                         <ImageView
                             android:id="@+id/ImageView22"
@@ -746,7 +756,7 @@
                             android:paddingLeft="59dp"
                             android:text="@string/control_center"
                             android:textColor="@color/black"
-                            android:textSize="15sp" />
+                            style="?textTitle" />
 
                         <ImageView
                             android:id="@+id/ImageView26"
@@ -808,7 +818,7 @@
                             android:paddingLeft="59dp"
                             android:text="@string/disturb"
                             android:textColor="@color/black"
-                            android:textSize="15sp" />
+                            style="?textTitle" />
 
                         <ImageView
                             android:id="@+id/ImageView24"
@@ -879,7 +889,7 @@
                         android:paddingLeft="59dp"
                         android:text="@string/button_general"
                         android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        style="?textTitle" />
 
                     <ImageView
                         android:id="@+id/ImageView09"
@@ -939,7 +949,7 @@
                         android:paddingLeft="59dp"
                         android:text="@string/button_brightness"
                         android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        style="?textTitle" />
 
                     <ImageView
                         android:id="@+id/ImageView77"
@@ -1000,7 +1010,7 @@
                         android:paddingLeft="59dp"
                         android:text="@string/button_wallpaper"
                         android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        style="?textTitle" />
 
                     <ImageView
                         android:id="@+id/ImageView128"
@@ -1061,7 +1071,7 @@
                         android:paddingLeft="59dp"
                         android:text="@string/button_geolocatoin"
                         android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        style="?textTitle" />
 
                     <ImageView
                         android:id="@+id/ImageView17"
@@ -1120,7 +1130,7 @@
                         android:paddingLeft="59dp"
                         android:text="@string/button_sounds"
                         android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        style="?textTitle" />
 
                     <ImageView
                         android:id="@+id/ImageView11"
@@ -1182,7 +1192,7 @@
                         android:paddingLeft="59dp"
                         android:text="@string/passcode"
                         android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        style="?textTitle" />
 
                     <ImageView
                         android:id="@+id/ImageView47"
@@ -1243,7 +1253,7 @@
                         android:paddingLeft="59dp"
                         android:text="@string/button_battery"
                         android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        style="?textTitle" />
 
                     <ImageView
                         android:id="@+id/ImageView108"
@@ -1303,7 +1313,7 @@
                         android:paddingLeft="59dp"
                         android:text="@string/privacy"
                         android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        style="?textTitle" />
 
                     <ImageView
                         android:id="@+id/ImageView59"
@@ -1388,7 +1398,7 @@
                             android:paddingLeft="59dp"
                             android:text="@string/itunes_appstore"
                             android:textColor="@color/black"
-                            android:textSize="15sp" />
+                            style="?textTitle" />
 
                         <ImageView
                             android:id="@+id/ImageView40"
@@ -1472,10 +1482,10 @@
                                 android:paddingLeft="59dp"
                                 android:text="@string/mail"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                style="?textTitle" />
 
                             <ImageView
-                                android:id="@+id/ImageView38"
+                                android:id="@+id/ImageView3813"
                                 android:layout_width="18dp"
                                 android:layout_height="18dp"
                                 android:layout_alignParentRight="true"
@@ -1485,7 +1495,7 @@
                                 android:src="@drawable/next" />
 
                             <ImageView
-                                android:id="@+id/ImageView36"
+                                android:id="@+id/ImageView316"
                                 android:layout_width="29dp"
                                 android:layout_height="29dp"
                                 android:layout_centerVertical="true"
@@ -1522,7 +1532,7 @@
                                 android:paddingLeft="59dp"
                                 android:text="@string/button_contact"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                style="?textTitle" />
 
                             <ImageView
                                 android:id="@+id/ImageView38"
@@ -1572,7 +1582,7 @@
                                 android:paddingLeft="59dp"
                                 android:text="@string/notes"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                style="?textTitle" />
 
                             <ImageView
                                 android:id="@+id/ImageView35"
@@ -1632,7 +1642,7 @@
                                 android:paddingLeft="59dp"
                                 android:text="@string/phone"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                style="?textTitle" />
 
                             <ImageView
                                 android:id="@+id/ImageView43"
@@ -1693,7 +1703,7 @@
                                 android:paddingLeft="59dp"
                                 android:text="@string/messages"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                style="?textTitle" />
 
                             <ImageView
                                 android:id="@+id/ImageView39"
@@ -1753,7 +1763,7 @@
                                 android:paddingLeft="59dp"
                                 android:text="@string/compass"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                style="?textTitle" />
 
                             <ImageView
                                 android:id="@+id/ImageView52"
@@ -1813,7 +1823,7 @@
                                 android:paddingLeft="59dp"
                                 android:text="@string/safari"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                style="?textTitle" />
 
                             <ImageView
                                 android:id="@+id/ImageView46"
@@ -1897,7 +1907,7 @@
                                 android:paddingLeft="59dp"
                                 android:text="@string/music"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                style="?textTitle" />
 
                             <ImageView
                                 android:id="@+id/ImageView49"
@@ -1947,7 +1957,7 @@
                                 android:paddingLeft="59dp"
                                 android:text="@string/game_center"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                style="?textTitle" />
 
                             <ImageView
                                 android:id="@+id/ImageView54"
@@ -2007,7 +2017,7 @@
                                 android:paddingLeft="59dp"
                                 android:text="@string/weather"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                style="?textTitle" />
 
                             <ImageView
                                 android:id="@+id/ImageView546"
@@ -2067,7 +2077,7 @@
                                 android:paddingLeft="59dp"
                                 android:text="@string/maps"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                style="?textTitle" />
 
                             <ImageView
                                 android:id="@+id/ImageView103"
@@ -2127,7 +2137,7 @@
                                 android:paddingLeft="65dp"
                                 android:text="@string/compass"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                style="?textTitle" />
 
                             <ImageView
                                 android:id="@+id/ImageView57"
@@ -2187,7 +2197,7 @@
                                 android:paddingLeft="65dp"
                                 android:text="@string/compass"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                style="?textTitle" />
 
                             <ImageView
                                 android:id="@+id/ImageView65"
@@ -2247,7 +2257,7 @@
                                 android:paddingLeft="65dp"
                                 android:text="@string/compass"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                style="?textTitle" />
 
                             <ImageView
                                 android:id="@+id/ImageView68"
@@ -2307,7 +2317,7 @@
                                 android:paddingLeft="65dp"
                                 android:text="@string/compass"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                style="?textTitle" />
 
                             <ImageView
                                 android:id="@+id/ImageView71"
@@ -2391,7 +2401,7 @@
                                 android:paddingLeft="59dp"
                                 android:text="@string/vk"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                style="?textTitle" />
 
                             <ImageView
                                 android:id="@+id/ImageView100"
@@ -2441,7 +2451,7 @@
                                 android:paddingLeft="59dp"
                                 android:text="@string/viber"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                style="?textTitle" />
 
                             <ImageView
                                 android:id="@+id/ImageView97"
@@ -2501,7 +2511,7 @@
                                 android:paddingLeft="59dp"
                                 android:text="@string/odnoklassniki"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                style="?textTitle" />
 
                             <ImageView
                                 android:id="@+id/ImageView94"
@@ -2561,7 +2571,7 @@
                                 android:paddingLeft="59dp"
                                 android:text="@string/skype"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                style="?textTitle" />
 
                             <ImageView
                                 android:id="@+id/ImageView91"
@@ -2621,7 +2631,7 @@
                                 android:paddingLeft="59dp"
                                 android:text="@string/whatsapp"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                style="?textTitle" />
 
                             <ImageView
                                 android:id="@+id/ImageView88"
@@ -2681,7 +2691,7 @@
                                 android:paddingLeft="59dp"
                                 android:text="@string/twitter"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                style="?textTitle" />
 
                             <ImageView
                                 android:id="@+id/ImageView85"
@@ -2740,7 +2750,7 @@
                                 android:paddingLeft="59dp"
                                 android:text="@string/facebook"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                style="?textTitle" />
 
                             <ImageView
                                 android:id="@+id/ImageView44"
@@ -2799,7 +2809,7 @@
                                 android:paddingLeft="59dp"
                                 android:text="@string/instagram"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                style="?textTitle" />
 
                             <ImageView
                                 android:id="@+id/ImageView18"
@@ -2866,7 +2876,7 @@
         android:id="@+id/list_res"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="43dp"
         android:background="#99000000"
         android:orientation="vertical"
         android:visibility="gone">
@@ -2886,7 +2896,7 @@
         android:layout_height="wrap_content"
         android:background="#99000000"
         android:orientation="vertical"
-        android:visibility="gone" >
+        android:visibility="gone">
 
         <LinearLayout
             android:id="@+id/ll11"
@@ -2907,30 +2917,29 @@
                     android:layout_height="44dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginLeft="0dp"
-                    android:layout_marginTop="0dp"
+                    android:layout_margin="8dp"
                     android:layout_toLeftOf="@+id/button11"
-                    android:padding="8dp">
+                    android:background="@drawable/back_search">
 
                     <EditText
                         android:id="@+id/EditText011"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginBottom="-3dp"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginRight="30dp"
                         android:layout_weight="1"
-                        android:background="@drawable/back_search"
-                        android:editable="true"
+                        android:background="@null"
                         android:ems="10"
                         android:focusableInTouchMode="true"
-                        android:gravity="center_vertical"
                         android:hint="@string/app_name"
                         android:inputType="textCapSentences"
-                        android:paddingLeft="40dp"
-                        android:paddingRight="10dp"
+                        android:maxLines="1"
                         android:textColor="@color/hint_text"
                         android:textCursorDrawable="@color/black"
-                        android:textSize="13sp">
+                        android:textSize="15sp">
 
                     </EditText>
 
@@ -2957,7 +2966,7 @@
 
                 <Button
                     android:id="@+id/button11"
-                    style="@color/transparent"
+                    style="?textTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="false"
@@ -2968,7 +2977,6 @@
                     android:paddingRight="15dp"
                     android:text="@string/search"
                     android:textColor="@color/blue"
-                    android:textSize="15sp"
                     android:visibility="visible" />
 
             </RelativeLayout>

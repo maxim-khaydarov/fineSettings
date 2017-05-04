@@ -110,6 +110,7 @@
                         android:layout_marginBottom="5dp"
                         android:layout_marginLeft="20dp"
                         android:text="@string/bluetooth_devices"
+                        android:textAllCaps="true"
                         android:textColor="@color/hint_text"
                         android:textColorHint="@color/hint_text"
                         android:textSize="13sp" />
@@ -143,6 +144,7 @@
                         android:layout_marginBottom="5dp"
                         android:layout_marginLeft="20dp"
                         android:text="@string/bluetooth_devices_other"
+                        android:textAllCaps="true"
                         android:textColor="@color/hint_text"
                         android:textSize="13sp" />
 

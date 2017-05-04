@@ -214,6 +214,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
                             android:text="@string/choose_wifi"
+                            android:textAllCaps="true"
                             android:textColor="@color/hint_text"
                             android:textSize="13sp" />
 

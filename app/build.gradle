@@ -29,6 +29,8 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile project(':wheel')
 
+    compile 'uk.co.chrisjenx:calligraphy:2.2.0'
+
     compile 'com.github.mmin18:realtimeblurview:1.1.0'
     compile 'com.github.zcweng:switch-button:0.0.3@aar'
     compile 'com.github.bluzwong:swipeback:0.2.0@aar'

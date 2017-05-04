@@ -18,6 +18,7 @@ import com.github.bluzwong.swipeback.SwipeBackActivityHelper;
 import com.suke.widget.SwitchButton;
 
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Created by 1 on 30.04.2017.
@@ -45,23 +46,30 @@ public class ActivityContact extends Activity implements View.OnClickListener {
                     getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 
             String fontSizePref = settings.getString("txt_size", "Medium");
-            Log.e("!!", fontSizePref);
 
-            int themeID = R.style.Medium;
-            if (fontSizePref.contains("Small")) {
-                themeID = R.style.Small;
+            if (settings.getBoolean("bold_txt", false) == true) {
+
+                int themeID = R.style.Medium_Bold;
+                if (fontSizePref.contains("Small")) {
+                    themeID = R.style.Small_Bold;
+                } else if (fontSizePref.contains("Large")) {
+                    themeID = R.style.Large_Bold;
+                } else if (fontSizePref.contains("xLarge")) {
+                    themeID = R.style.XLarge_Bold;
+                }
+                setTheme(themeID);
+            } else {
+                int themeID = R.style.Medium;
+                if (fontSizePref.contains("Small")) {
+                    themeID = R.style.Small;
+                } else if (fontSizePref.contains("Large")) {
+                    themeID = R.style.Large;
+                } else if (fontSizePref.contains("xLarge")) {
+                    themeID = R.style.XLarge;
+                }
+
+                setTheme(themeID);
             }
-            else if (fontSizePref.contains("Large")) {
-                themeID = R.style.Large;
-            }
-            else if (fontSizePref.contains("xLarge")){
-                themeID = R.style.XLarge;
-            }
-
-            setTheme(themeID);
-
-
-
         }
         catch (Exception ex) {
             ex.printStackTrace();
@@ -169,4 +177,10 @@ public class ActivityContact extends Activity implements View.OnClickListener {
         }
     }
 
-        }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
+}

@@ -177,7 +177,7 @@ public class ActivitySota extends Activity implements OnClickListener{
 				}
 				if (size .contains( "Normal")){
 					//textView2.setTextSize(13);
-			        textView1.setTextSize(13);
+			        //textView1.setTextSize(13);
 			        Button01.setTextSize(15);
 			        Button02.setTextSize(15);
 			        Button03.setTextSize(15);
@@ -185,7 +185,7 @@ public class ActivitySota extends Activity implements OnClickListener{
 				}
 				if (size .contains( "Large")){
 					//textView2.setTextSize(15);
-			        textView1.setTextSize(15);
+			        //textView1.setTextSize(15);
 			        Button01.setTextSize(18);
 			        Button02.setTextSize(18);
 			        Button03.setTextSize(18);
@@ -193,7 +193,7 @@ public class ActivitySota extends Activity implements OnClickListener{
 				}
 				if (size .contains( "xLarge")){
 					//textView2.setTextSize(18);
-			        textView1.setTextSize(18);
+			       // textView1.setTextSize(18);
 			        Button01.setTextSize(20);
 			        Button02.setTextSize(20);
 			        Button03.setTextSize(20);

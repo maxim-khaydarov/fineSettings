@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
@@ -14,10 +14,10 @@
     </style>
     
    <style name="AppTheme" parent="AppBaseTheme">
-        <item name="android:windowNoTitle">true</item> 
-         
+        <item name="android:windowNoTitle">true</item>
         
     </style>
+    
 //////////////////////////////////////////////////////////////////////
 
 
@@ -31,11 +31,29 @@
         <item name="android:textSize">13sp</item>
     </style>
 
+    <style name="textTitle_medium_bold">
+        <item name="android:textSize">15sp</item>
+        <item name="fontPath">fonts/Medium.ttf</item>
+    </style>
+
+    <style name="textDop_medium_bold">
+        <item name="android:textSize">13sp</item>
+        <item name="fontPath">fonts/Medium.ttf</item>
+
+    </style>
+
     <style name="Medium">
         <item name="textTitle">@style/textTitle_medium</item>
         <item name="textDop">@style/textDop_medium</item>
-
     </style>
+
+    <style name="Medium_Bold">
+        <item name="textTitle">@style/textTitle_medium_bold</item>
+        <item name="textDop">@style/textDop_medium_bold</item>
+    </style>
+
+
+
 /////////////////////////////////////////////////////////////////////
     <style name="textTitle_small">
         <item name="android:textSize">13sp</item>
@@ -45,9 +63,24 @@
         <item name="android:textSize">11sp</item>
     </style>
 
+    <style name="textTitle_small_bold">
+        <item name="android:textSize">13sp</item>
+        <item name="fontPath">fonts/Medium.ttf</item>
+    </style>
+
+    <style name="textDop_small_bold">
+        <item name="android:textSize">11sp</item>
+        <item name="fontPath">fonts/Medium.ttf</item>
+    </style>
+
     <style name="Small">
         <item name="textTitle">@style/textTitle_small</item>
         <item name="textDop">@style/textDop_small</item>
+    </style>
+
+    <style name="Small_Bold">
+        <item name="textTitle">@style/textTitle_small_bold</item>
+        <item name="textDop">@style/textDop_small_bold</item>
     </style>
 ////////////////////////////////////////////////////////////////////
     <style name="textTitle_large">
@@ -58,9 +91,24 @@
         <item name="android:textSize">15sp</item>
     </style>
 
+    <style name="textTitle_large_bold">
+        <item name="android:textSize">18sp</item>
+        <item name="fontPath">fonts/Medium.ttf</item>
+    </style>
+
+    <style name="textDop_large_bold">
+        <item name="android:textSize">15sp</item>
+        <item name="fontPath">fonts/Medium.ttf</item>
+    </style>
+
     <style name="Large">
         <item name="textTitle">@style/textTitle_large</item>
         <item name="textDop">@style/textDop_large</item>
+    </style>
+
+    <style name="Large_Bold">
+        <item name="textTitle">@style/textTitle_large_bold</item>
+        <item name="textDop">@style/textDop_large_bold</item>
     </style>
     ////////////////////////////////////////////////////////////////////
     <style name="textTitle_xlarge">
@@ -71,9 +119,24 @@
         <item name="android:textSize">17sp</item>
     </style>
 
+    <style name="textTitle_xlarge_bold">
+        <item name="android:textSize">20sp</item>
+        <item name="fontPath">fonts/Medium.ttf</item>
+    </style>
+
+    <style name="textDop_xlarge_bold">
+        <item name="android:textSize">17sp</item>
+        <item name="fontPath">fonts/Medium.ttf</item>
+    </style>
+
     <style name="XLarge">
         <item name="textTitle">@style/textTitle_xlarge</item>
         <item name="textDop">@style/textDop_xlarge</item>
+    </style>
+
+    <style name="XLarge_Bold">
+        <item name="textTitle">@style/textTitle_xlarge_bold</item>
+        <item name="textDop">@style/textDop_xlarge_bold</item>
     </style>
 
 

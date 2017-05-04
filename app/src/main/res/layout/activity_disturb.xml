@@ -483,6 +483,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:text="ТИШИНА:"
+                android:textAllCaps="true"
                 android:textColor="@color/hint_text"
                 android:textSize="13sp" />
 

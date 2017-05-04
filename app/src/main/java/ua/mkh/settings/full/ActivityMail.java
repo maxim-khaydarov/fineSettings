@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -20,6 +21,8 @@ import com.github.bluzwong.swipeback.SwipeBackActivityHelper;
 import com.suke.widget.SwitchButton;
 
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Created by 1 on 28.04.2017.
@@ -27,7 +30,6 @@ import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 
 public class ActivityMail extends Activity implements View.OnClickListener {
 
-    Typeface typefaceRoman, typefaceMedium, typefaceBold;
     SharedPreferences mSettings;
 
 
@@ -53,20 +55,30 @@ public class ActivityMail extends Activity implements View.OnClickListener {
                     getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 
             String fontSizePref = settings.getString("txt_size", "Medium");
-            Log.e("!!", fontSizePref);
 
-            int themeID = R.style.Medium;
-            if (fontSizePref.contains("Small")) {
-                themeID = R.style.Small;
-            }
-            else if (fontSizePref.contains("Large")) {
-                themeID = R.style.Large;
-            }
-            else if (fontSizePref.contains("xLarge")){
-                themeID = R.style.XLarge;
-            }
+            if (settings.getBoolean("bold_txt", false) == true) {
 
-            setTheme(themeID);
+                int themeID = R.style.Medium_Bold;
+                if (fontSizePref.contains("Small")) {
+                    themeID = R.style.Small_Bold;
+                } else if (fontSizePref.contains("Large")) {
+                    themeID = R.style.Large_Bold;
+                } else if (fontSizePref.contains("xLarge")) {
+                    themeID = R.style.XLarge_Bold;
+                }
+                setTheme(themeID);
+            } else {
+                int themeID = R.style.Medium;
+                if (fontSizePref.contains("Small")) {
+                    themeID = R.style.Small;
+                } else if (fontSizePref.contains("Large")) {
+                    themeID = R.style.Large;
+                } else if (fontSizePref.contains("xLarge")) {
+                    themeID = R.style.XLarge;
+                }
+
+                setTheme(themeID);
+            }
         }
         catch (Exception ex) {
             ex.printStackTrace();
@@ -75,16 +87,14 @@ public class ActivityMail extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         theme();
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         //int themeID = R.style.XLarge;
         //setTheme(themeID);
-
         setContentView(R.layout.activity_mail);
-        String roman = "fonts/Regular.otf";
-        String medium = "fonts/Medium.otf";
-        String bold = "fonts/Bold.otf";
+
 
         helper.setEdgeMode(true)
                 .setParallaxMode(true)
@@ -95,10 +105,6 @@ public class ActivityMail extends Activity implements View.OnClickListener {
         ScrollView scrollView = (ScrollView) findViewById(R.id.scrollView1);
         OverScrollDecoratorHelper.setUpOverScroll(scrollView);
 
-
-        typefaceRoman = Typeface.createFromAsset(getAssets(), roman);
-        typefaceMedium = Typeface.createFromAsset(getAssets(), medium);
-        typefaceBold = Typeface.createFromAsset(getAssets(), bold);
 
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 
@@ -124,11 +130,6 @@ public class ActivityMail extends Activity implements View.OnClickListener {
         buttonBack = (Button) findViewById(R.id.buttonBack);
         buttonBack.setText(R.string.app_name);
 
-
-        buttonBack.setTypeface(typefaceBold);
-
-
-        textStatus.setTypeface(typefaceMedium);
         textStatus.setText(R.string.mail);
 
         toggle_button();
@@ -177,7 +178,7 @@ public class ActivityMail extends Activity implements View.OnClickListener {
                     editor.putBoolean("tg3_mail", true).apply();
                 }
                 else {
-                    editor.putBoolean("itunes_book", false).apply();
+                    editor.putBoolean("tg3_mail", false).apply();
                 }
             }
         });
@@ -189,7 +190,7 @@ public class ActivityMail extends Activity implements View.OnClickListener {
                     editor.putBoolean("tg4_mail", true).apply();
                 }
                 else {
-                    editor.putBoolean("itunes_update", false).apply();
+                    editor.putBoolean("tg4_mail", false).apply();
                 }
             }
         });
@@ -286,7 +287,10 @@ public class ActivityMail extends Activity implements View.OnClickListener {
 
 
 }
-
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
 
     }
